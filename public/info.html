@@ -98,10 +98,12 @@ h1 {
 
 <section class="information">
   <h1>About the National Map</h1>
-  <p>The National Map is a web based application developed by the <a href="http://nicta.com.au">National ICT Australia</a> as part of an initiative of <a href="http://www.communications.gov.au/">Department of Communications</a> and working closely with <a href="http://www.ga.gov.au/">Geoscience Australia</a>. It is developed on top of existing open source software <a href="http://cesiumjs.org/">Cesium</a> and <a href="http://leafletjs.com/">Leaflet</a> with <a href="http://get.webgl.org/">WebGL</a> and Canvas support.  </p><h2>It is designed to:</h2>
+  <p>The National Map is a website for map-based access to Australian spatial data from government agencies.  The current version of the National Map is a "beta" service and we will be making lots of changes while we experiment with how users want to use the site and the data services.  Later in 2014, it will become a fully supported stable "production" site. The site is being made available in time for <a href="http://govhack.org">govhack 2014</a> to help developers access data through the National Map and also to build new value-add applications which extend its functionality.</p>
+  <p>The National Map is an initiative of the Australian Commonwealth Government's <a href="http://www.communications.gov.au/">Department of Communications</a> and the software has been developed by <a href="http://nicta.com.au">NICTA</a> working closely with the Department of Communications, <a href="http://www.ga.gov.au/">Geoscience Australia</a> and other government agencies.  The current "beta" site is hosted by NICTA but the plan is that it will be hosted by Geoscience Australia when it reaches "production" stage.  The data services you can access through the National Map are hosted by government agencies such as Geoscience Australia and the Bureau of Meteorology.
+  <h2>The National Map is designed to:</h2>
   <ul>
     <li>
-      <p>Provide easy access to authoritative and other spatial data to government, business and public</p>
+      <p>Provide easy access to authoritative and other spatial data to government, business and the public</p>
     </li>
     <li>
       <p>Facilitate the opening of data by federal, state and local government bodies</p>
@@ -110,109 +112,47 @@ h1 {
       <p>Provide an open framework of geospatial data services that supports commercial and community innovation </p>
     </li>
 </ul>
-<p>It is still very much proof of concept application, with revisions and releases occuring daily while we refine it.</p>
-<p><h2>Current data services are:
+<p><h2>Current data services include:
 </h2>
 <ul>
-  <li>
-    <p>All now available from their custodian and in National Map</p>
-    </li>
-  <li>
-    <p>Land (Geoscience Australia)</p>
-    </li>
-  <li>
-    <p>Gravity, land cover, magnetic image, surface geology, hillshade </p>
-    </li>
-  <li>
-    <p>Water (Bureau of Meteorology’s Geofabric)</p>
-    </li>
-  <li>
-    <p>Water bodies, streams and rivers, catchments, estuaries, boreholes, waterholes, river regions, drainage divisions, aquifer contours, water table aquifers</p>
-    </li>
-  <li>
-    <p>Infrastructure (Geoscience Australia’s Geotopo 250k)</p>
-    </li>
-  <li>
-    <p>Roads, railroads, airports, ferry routes, pipelines, power lines </p>
-    </li>
-  <li>
-    <p>Boundaries (Australian Bureau of Statistics)</p>
-    </li>
-  <li>
-    <p>States and territories, local government areas, postal areas, commonwealth electoral divisions, state electoral divisions, state suburbs, natural resource management regions, Australian drainage divisions, tourism regions, statistical boundaries</p>
-    </li>
-  <li>
-    <p>Population (Geoscience Australia)</p>
-    </li>
-  <li>
-    <p>Cities</p>
-    </li>
-  <li>
-    <p>Populated places</p>
-    </li>
-  <li>
-    <p>Other data sets and services via <a href="http://data.gov.au">data.gov.au</a></p>
-    </li>
-</ul>
+  <li>Broadband (Department of Communications): Eg broadband quality and availabiliy across Australia</li>
+  <li>Land (Geoscience Australia): Eg Gravity, land cover, magnetic image, surface geology, earthquake hazard</li>
+  <li>Surface water (Geoscience Australia): Eg streams and rivers, catchments, estuaries, boreholes</li>
+  <li>Ground water (Bureau of Meteorology’s Geofabric): Eg aquifers, water table salinity</li>
+  <li>Elevation (Geoscience Australia): Eg contours, flow direction</li>
+  <li>Terrain (Geoscience Australia): Eg caves, cliffs</li>
+  <li>Vegetation (Geoscience Australia): Eg native vegetation areas</li>
+  <li>Habitation (Geoscience Australia): Eg populated places, builtup areas</li>
+  <li>Transport (Geoscience Australia): Eg roads, railways, airports, foot tracks</li>
+  <li>Infrastructure (Geoscience Australia): Eg waste management facilities, mine areas</li> 
+  <li>Utilities (Geoscience Australia): Eg pipelines</li>
+  <li>Boundaries (Australian Bureay of Statistics): Eg postcode regions, local government, electoral</li>
+  <li>Lots of other data sets and services via <a href="http://data.gov.au">data.gov.au</a></li>
+  </ul>
 <p>More coming!</p>
 <p>
 <h2><strong>How to use the National Map?</strong></h2>
-<p>blah blah</p>
+<p>Just go to <a href="http://nationalmap.nicta.com.au/">http://nationalmap.nicta.com.au/</a> and press on the "Data" button (below the search entry bar) and then select "Data Sets". This will show you a list of topics of data available. Select a topic to show the data sets then check the box next to a data set to display the data set. The data you will see is, in most cases, coming directly from a government agency who is providing the data (such as Geoscience Australia or the Bureau of Meteorology). Pressing on the name of the data set will zoom the map to the area of the data (or the whole of Australia if it covers the whole country). When a data set is loaded on the map, you can usually click/press on the map to find out more information about that point in the data set (for example, for the data set "Railways", you can click on a railway line and find out how about it - for boundary data, you can press inside the boundary to find out what region it is).</p>
 <p><strong>Use NationalMap to see and get available data sets and services</strong></p>
 <ul>
   <li>
-    <p>[instructions here]</p>
+    <p>Pressing on "info" next to the name of a data set will show you more info about a data set (including usage conditions) and will show you how to download it for use with other applications or to buidl your own application. </p>
   </li>
 </ul>
-<p><strong>Create own data services (eg WMS data services using other NM data services) for use with NationalMap </strong></p>
+
+
+<p><h2>Open source software used</h2></p>
+<p>We use open source software and contribute back to it.  Here is a list of open source software being used in the National Map:</p>
 <ul>
-  <li>
-    <p>[instructions here]</p>
-  </li>
+<li><a href="http://cesiumjs.org/">Cesium</a> (open source under the Apache 2.0 licence)</li>
+<li><a href="http://leafletjs.com">Leaflet</a> (open source under the simplified BSD licence)</li>
+<li><a href="http://geoserver.org/">Geoserver</a> (open source under the GNU GPL 2.0 licence)</li>
+<li><a href="http://jquery.com/">jquery</a>, <a href="http://medialize.github.io/URI.js/">URI.js</a>, <a href="http://proj4js.org/">proj4js</a>, <a href="http://html2canvas.hertzen.com/">html2canvas</a>, <a href="http://knockoutjs.com/">knockout</a> (all open source under the MIT licence)</li>
+<li><a href="https://github.com/Esri/esri-leaflet">esri-leaflet.js</a> (open source under the Apache 2.0 licence)</li>
+<li><a href="https://github.com/mapbox/togeojson">togeojson</a>, Tilelayer.Bing.js (open source under the wtfpl ver 2)</li>
 </ul>
-<p><strong>Create own data services collection file that points to your data services</strong></p>
-<ul>
-  <li>
-    <p>[instructions here]</p>
-  </li>
-</ul>
-<p><strong>Contribute to the NationalMap code base (bug fixes, features) [link here]</strong></p>
-<ul>
-  <li>
-    <p>[instructions here]</p>
-  </li>
-</ul>
-<p><strong>Build a value-add back-end service for NationalMap </strong></p>
-<ul>
-  <li>
-    <p>[instructions here]</p>
-  </li>
-</ul>
-<p>&nbsp;</p>
-<p><strong>Build a value-add front-end service (no coding needed)</strong></p>
-<ul>
-  <li>
-    <p>[instructions here]</p>
-  </li>
-</ul>
-<p>&nbsp;</p>
-<p><strong>Write your own code that uses the NationalMap  data services</strong></p>
-<ul>
-  <li>
-    <p>[instructions here]</p>
-  </li>
-</ul>
-<p>&nbsp;</p>
-<p><strong>Fork the code and make your own version</strong></p>
-<ul>
-  <li>
-    <p>[instructions here]</p>
-  </li>
-</ul>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p><h2>Release Notes</h2></p>
-<p>blah</p>
+
+For more information about the National Map, read the <a href="faq.html">FAQ</a> or email <a href="nationalmap@lists.nicta.com.au">nationalmap@lists.nicta.com.au</a>.  Feel free to send us feedback and bug reports.
 </section>
 
 
