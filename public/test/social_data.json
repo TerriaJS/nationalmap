@@ -1,0 +1,11 @@
+{"name":"Data Collections", "Layer": [
+  {"name":"Social data", "Layer": [
+    {"name":"Social conditions","base_url":"http://geoserver.research.nicta.com.au/admin_bnds_abs/ows","proxy":false,"type":"WFS","queryable":"0", "wfsAvailable": true,"description":"[Licence](http://creativecommons.org/licenses/by/2.5/au/)","Layer": [
+
+        {"Name":"admin_bnds:POA_2011_AUST","Title":"Sociao-economic disadvantage","BoundingBox":{"west":"96.816941408","east":"159.109219008","south":"-43.74050960205765","north":"-9.142175976703609"},"csv_url":"./test/social_data/abs_poa_siefa_disad.csv", "queryable":"1"},
+        {"Name":"admin_bnds:POA_2011_AUST","Title":"Socieo-economic advantage and disadvantage","BoundingBox":{"west":"96.816941408","east":"159.109219008","south":"-43.74050960205765","north":"-9.142175976703609"},"csv_url":"./test/social_data/abs_poa_siefa_adv_and_disad.csv", "queryable":"1"},
+        {"Name":"admin_bnds:POA_2011_AUST","Title":"Economic resources","BoundingBox":{"west":"96.816941408","east":"159.109219008","south":"-43.74050960205765","north":"-9.142175976703609"},"csv_url":"./test/social_data/abs_poa_siefa_economic_resources.csv", "queryable":"1"},
+        {"Name":"admin_bnds:POA_2011_AUST","Title":"Education and occupation","BoundingBox":{"west":"96.816941408","east":"159.109219008","south":"-43.74050960205765","north":"-9.142175976703609"},"csv_url":"./test/social_data/abs_poa_siefa_education_and_occupation.csv", "queryable":"1"}
+    ]}
+  ]}
+]}

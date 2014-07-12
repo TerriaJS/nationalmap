@@ -1,0 +1,1 @@
+Australian Bureau of Statistics,� Commonwealth of Australia 2013,"2033.0.55.001 - Socio-economic Indexes for Areas (SEIFA), Data Cube only, 2011",Released at 11.30am (Canberra time) 28 March 2013,"Table 1. Postal Area (POA) SEIFA Summary, 2011",2011 Postal Area Code (POA),Index of Relative Socio-economic Advantage and Disadvantage (Decile)
