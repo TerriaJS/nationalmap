@@ -798,6 +798,20 @@ function filterValue(obj, prop, func) {
         }
     }
 }
+function correlate_geojson_csv(geoJson, jsonTable) {
+    var field = jsonTable[0][0];
+    var title = jsonTable[0][1];
+    var features = geoJson.features;
+    //assuming order could make this faster
+    for (var i = 0; i < features.length; i++) {
+        for (var j = 1; j < jsonTable.length; j++) {
+           if (features[i].properties[field] !== undefined && features[i].properties[field] === jsonTable[j][0]) {
+                features[i].properties[title] = jsonTable[j][1];
+            }
+        }
+    }
+    console.log(geoJson);
+}
 
 // -------------------------------------------
 // Connect to OGC Data Sources
@@ -834,10 +848,8 @@ GeoDataCollection.prototype._viewFeature = function(request, layer) {
             //load csv data
             console.log(layer.csv_url);
             Cesium.loadText(layer.csv_url).then( function (text) {
-                var jsonTable = $.csv.toArrays(text, {
-                        onParseValue: $.csv.hooks.castToScalar
-                    });
-                //Correllate the jsonTable with with geojson object
+                var jsonTable = $.csv.toArrays(text);
+                correlate_geojson_csv(obj, jsonTable);
                 that.addGeoJsonLayer(obj, layer);
             }, function(err) {
                 loadErrorResponse(err);
