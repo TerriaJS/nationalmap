@@ -74,6 +74,29 @@ BingMapsApi.defaultKey = undefined;
 //Initialize the selected viewer - Cesium or Leaflet
 var AusGlobeViewer = function(geoDataManager) {
 
+    var style = [
+      '#world {', 
+        'line-width: 2;', 
+        'line-color: #f00;', 
+        '[frame-offset = 1] {', 
+          'line-width: 3;', 
+        '}', 
+        '[frame-offset = 2] {', 
+          'line-width: 3;', 
+        '}', 
+      '}', 
+      '', 
+      '#worls[frame-offset = 10] {', 
+          'line-width: 4;', 
+      '}'
+      ].join('\n');
+
+      var shader = (new carto.RendererJS({ debug: true })).render(style);
+
+      var layer = shader.getLayers()[1];
+          var props = layer.getStyle('canvas-2d', {}, { 'zoom': 0, 'frame-offset': 10 });
+          console.log( props['lineWidth'] === 4);
+
     this.geoDataManager = geoDataManager;
 
     var that = this;
