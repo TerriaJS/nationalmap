@@ -798,6 +798,7 @@ function filterValue(obj, prop, func) {
         }
     }
 }
+
 function correlate_geojson_csv(geoJson, jsonTable) {
     var field = jsonTable[0][0];
     var title = jsonTable[0][1];
@@ -1512,7 +1513,7 @@ GeoDataCollection.prototype.addGeoJsonLayer = function(geojson, layer) {
     //set default layer styles
     if (layer.style === undefined) {
         layer.style = {line: {}, point: {}, polygon: {}};
-        layer.style.line.color = getRandomColor(line_palette, layer.name);
+        layer.style.line.color = Cesium.Color.fromCssColorString('blue');//getRandomColor(line_palette, layer.name);
         layer.style.line.width = 2;
         layer.style.point.color = getRandomColor(point_palette, layer.name);
         layer.style.point.size = 10;
@@ -1522,6 +1523,27 @@ GeoDataCollection.prototype.addGeoJsonLayer = function(geojson, layer) {
         layer.style.polygon.fillcolor.alpha = 0.75;
     }
     
+    /*var style = [
+        '#world {', 
+            'line-width: 2;', 
+            'line-color: #f00;', 
+            '[frame-offset = 1] {', 
+                'line-width: 3;', 
+            '}', 
+            '[frame-offset = 2] {', 
+                'line-width: 3;', 
+            '}', 
+        '}', 
+        '', 
+        '#worls[frame-offset = 10] {', 
+            'line-width: 4;', 
+        '}'
+    ].join('\n');
+
+    var shader = (new carto.RendererJS({ debug: true })).render(style);
+
+    var css = shader.getLayers()[1];*/
+
     var newDataSource = new Cesium.GeoJsonDataSource();
     
     //update default point/line/polygon
@@ -1539,14 +1561,16 @@ GeoDataCollection.prototype.addGeoJsonLayer = function(geojson, layer) {
     material.color = new Cesium.ConstantProperty(getCesiumColor(layer.style.line.color));
     polyline.material = material;
     polyline.width = new Cesium.ConstantProperty(layer.style.line.width);
-    defaultLine.polyline = polyline;
+    //defaultLine.polyline = polyline;
 
     var defaultPolygon = newDataSource.defaultPolygon;
     
-    defaultPolygon.polyline = polyline;
+    //defaultPolygon.polyline = polyline;
     
     var polygon = new Cesium.DynamicPolygon();
     polygon.fill = new Cesium.ConstantProperty(layer.style.polygon.fill);
+    polygon.outline = new Cesium.ConstantProperty(true);
+    polygon.outlineColor = new Cesium.ConstantProperty(Cesium.Color.fromCssColorString('red'));
     defaultPolygon.polygon = polygon;
     
     material = new Cesium.ColorMaterialProperty();
@@ -1577,6 +1601,41 @@ GeoDataCollection.prototype.addGeoJsonLayer = function(geojson, layer) {
         layer.dataSource = newDataSource;
         if (!layer.extent) {
             layer.extent = getDataSourceExtent(newDataSource);
+        }
+
+        var decileColors = [
+            undefined,
+            '#990000',
+            '#CC0000',
+            '#FF0000',
+            '#FF9900',
+            '#FFCC66',
+            '#CCFFFF',
+            '#99CCCC',
+            '#0099CC',
+            '#006699',
+            '#003399'
+        ];
+
+        var propertyName = 'Socio-economic_Disadvantage';
+
+        var objects = newDataSource.dynamicObjects.getObjects();
+        for (var i = 0; i < objects.length; ++i) {
+            var object = objects[i];
+            var feature = geojson.features[i];
+            if (!feature) {
+                continue;
+            }
+            var decile = feature.properties[propertyName];
+            if (decile) {
+                //object.polygon.fill = new ConstantProperty(Color.fromCssColorString(decileColors[decile]));
+                object.polygon.outline = new Cesium.ConstantProperty(true);
+                object.polygon.outlineColor = new Cesium.ConstantProperty(Cesium.Color.fromCssColorString(decileColors[decile]));
+
+                var colorMaterial = new Cesium.ColorMaterialProperty();
+                colorMaterial.color = new Cesium.ConstantProperty(Cesium.Color.fromCssColorString(decileColors[decile]));
+                object.polyline.material = colorMaterial;
+            }
         }
     }
     else {
