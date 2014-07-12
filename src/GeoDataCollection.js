@@ -1567,7 +1567,7 @@ GeoDataCollection.prototype.addGeoJsonLayer = function(geojson, layer) {
     }
 
     //try to downsample object if huge
-//    _downsampleGeoJSON(geojson);
+    _downsampleGeoJSON(geojson);
     
     if (this.map === undefined) {
             //create the object
