@@ -830,7 +830,22 @@ GeoDataCollection.prototype._viewFeature = function(request, layer) {
                  }
             }
         }
-        that.addGeoJsonLayer(obj, layer);
+        if (layer.csv_url !== undefined && that.map === undefined) {
+            //load csv data
+            console.log(layer.csv_url);
+            Cesium.loadText(layer.csv_url).then( function (text) {
+                var jsonTable = $.csv.toArrays(text, {
+                        onParseValue: $.csv.hooks.castToScalar
+                    });
+                //Correllate the jsonTable with with geojson object
+                that.addGeoJsonLayer(obj, layer);
+            }, function(err) {
+                loadErrorResponse(err);
+            });
+        }
+        else {
+            that.addGeoJsonLayer(obj, layer);
+        }
     }, function(err) {
         loadErrorResponse(err);
     });
@@ -1540,7 +1555,7 @@ GeoDataCollection.prototype.addGeoJsonLayer = function(geojson, layer) {
     }
 
     //try to downsample object if huge
-    _downsampleGeoJSON(geojson);
+//    _downsampleGeoJSON(geojson);
     
     if (this.map === undefined) {
             //create the object

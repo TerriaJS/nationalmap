@@ -791,6 +791,7 @@ function enableItem(viewModel, item) {
     layer.description = description;
 
     layer.proxy = description.proxy;
+    layer.csv_url = description.csv_url;
 
     item.layer = layer;
 
