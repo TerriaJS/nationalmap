@@ -158,8 +158,6 @@ GeoDataCollection.prototype.applyConstraints = function(constraints) {
                 if (dynamicObject.polyline) {
                     var colorMaterial = new Cesium.ColorMaterialProperty();
                     colorMaterial.color = new Cesium.ConstantProperty(color);
-                    dynamicObject.polyline.show = new Cesium.ConstantProperty(true);
-                    dynamicObject.polyline.material = colorMaterial;
                 }
             } else {
                 dynamicObject.polygon.fill = new Cesium.ConstantProperty(false);
@@ -168,8 +166,6 @@ GeoDataCollection.prototype.applyConstraints = function(constraints) {
                 if (dynamicObject.polyline) {
                     var colorMaterial = new Cesium.ColorMaterialProperty();
                     colorMaterial.color = new Cesium.ConstantProperty(color);
-                    dynamicObject.polyline.show = new Cesium.ConstantProperty(false);
-                    dynamicObject.polyline.material = colorMaterial;
                 }
             }
         }
@@ -933,12 +929,6 @@ function correlate_geojson_csv(dataSource, dynamicObjects, jsonTable) {
             } else {
                 console.log('no polygon for ' + geoJson.properties.POA_CODE);
             }
-
-            if (dynamicObject.polyline) {
-                var colorMaterial = new Cesium.ColorMaterialProperty();
-                colorMaterial.color = new Cesium.ConstantProperty(color);
-                dynamicObject.polyline.material = colorMaterial;
-            }
         }
     }
 }
@@ -1686,15 +1676,19 @@ GeoDataCollection.prototype.addGeoJsonLayer = function(geojson, layer) {
     
     var defaultLine = newDataSource.defaultLine;
     var polyline = new Cesium.DynamicPolyline();
-    var material = new Cesium.ColorMaterialProperty();
-    material.color = new Cesium.ConstantProperty(getCesiumColor(layer.style.line.color));
-    polyline.material = material;
-    polyline.width = new Cesium.ConstantProperty(layer.style.line.width);
+    //var material = new Cesium.ColorMaterialProperty();
+    //material.color = new Cesium.ConstantProperty(getCesiumColor(layer.style.line.color));
+    //polyline.material = material;
+    //polyline.width = new Cesium.ConstantProperty(layer.style.line.width);
+    polyline.show = new Cesium.ConstantProperty(false);
     //defaultLine.polyline = polyline;
 
     var defaultPolygon = newDataSource.defaultPolygon;
     
-    //defaultPolygon.polyline = polyline;
+    defaultPolygon.polyline = new Cesium.DynamicPolyline();
+    defaultPolygon.polyline.material = new Cesium.ColorMaterialProperty();
+    defaultPolygon.polyline.material.color = new Cesium.ConstantProperty(getCesiumColor(layer.style.line.color));
+    defaultPolygon.polyline.show = new Cesium.ConstantProperty(false);
     
     var polygon = new Cesium.DynamicPolygon();
     polygon.fill = new Cesium.ConstantProperty(layer.style.polygon.fill);
@@ -1702,7 +1696,7 @@ GeoDataCollection.prototype.addGeoJsonLayer = function(geojson, layer) {
     polygon.outlineColor = new Cesium.ConstantProperty(Cesium.Color.fromCssColorString('red'));
     defaultPolygon.polygon = polygon;
     
-    material = new Cesium.ColorMaterialProperty();
+    var material = new Cesium.ColorMaterialProperty();
     material.color = new Cesium.ConstantProperty(getCesiumColor(layer.style.polygon.fillcolor));
     polygon.material = material;
     
