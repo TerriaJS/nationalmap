@@ -724,6 +724,21 @@ GeoDataCollection.prototype.loadText = function(text, srcname, format, layer) {
     else if (format === "CSV") {
         //load csv data
         var jsonTable = $.csv.toArrays(text);
+
+        var minimum = Number.MAX_VALUE;
+        var maximum = Number.MIN_VALUE;
+
+        for (var i = 1; i < jsonTable.length; ++i) {
+            var value = jsonTable[i][1] | 0;
+            minimum = Math.min(minimum, value);
+            maximum = Math.max(maximum, value);
+        }
+
+        jsonTable.minimum = minimum;
+        jsonTable.maximum = maximum;
+        jsonTable.oneDecile = (maximum - minimum) / 10.0;
+        jsonTable.isAlreadyDecile = minimum >= 1 && maximum <= 10;
+
         that.csvs.push(jsonTable);
         applyCsvToFeatures(that, jsonTable);
 
@@ -908,7 +923,15 @@ function correlate_geojson_csv(dataSource, dynamicObjects, jsonTable) {
 
             var propertyName = title;
 
-            // TODO: convert value to decile if necessary
+            // jsonTable.minimum = minimum;
+            // jsonTable.maximum = maximum;
+            // jsonTable.oneDecile = (maximum - minimum) / 10.0;
+            // jsonTable.isAlreadyDecile = minimum >= 1 && maximum <= 10;
+
+            if (!jsonTable.isAlreadyDecile) {
+                value = Math.round((value - jsonTable.minimum) / jsonTable.oneDecile) | 0;
+            }
+
             if (!(value > 0 && value <= 10)) {
                 continue;
             }

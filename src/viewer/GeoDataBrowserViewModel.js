@@ -471,8 +471,10 @@ var GeoDataBrowserViewModel = function(options) {
         for (var i = 0; i < csvs.length; ++i) {
             metrics.push({
                 name : csvs[i][0][1],
-                minimum : 1,
-                maximum : 10
+                minimum : csvs[i].minimum,
+                maximum : csvs[i].maximum,
+                lowestValue : csvs[i].minimum,
+                largestValue : csvs[i].maximum
             });
         }
 

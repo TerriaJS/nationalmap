@@ -204,8 +204,8 @@ var GeoDataBrowser = function(options) {
                 <div class="ausglobe-add-data-message" data-bind="foreach: metrics">\
                     <div class="ausglobe-constraint">\
                         <div class="ausglobe-constraint-name" data-bind="text: name"></div>\
-                        <div>Minimim: <input type="range" min="1" max="10" data-bind="value: minimum, valueUpdate: \'input\'" /> <span data-bind="text: minimum"></span></div>\
-                        <div>Maximum: <input type="range" min="1" max="10" data-bind="value: maximum, valueUpdate: \'input\'" /> <span data-bind="text: maximum"></span></div>\
+                        <div>Minimim: <input type="range" min="1" max="10" data-bind="value: minimum, valueUpdate: \'input\', attr : { min : lowestValue, max : largestValue }" /> <span data-bind="text: minimum"></span></div>\
+                        <div>Maximum: <input type="range" min="1" max="10" data-bind="value: maximum, valueUpdate: \'input\', attr : { min : lowestValue, max : largestValue }" /> <span data-bind="text: maximum"></span></div>\
                     </div>\
                 </div>\
                 <input class="ausglobe-constraint-apply-button" type="button" value="Apply" data-bind="click: applyConstraints" />\
