@@ -35,6 +35,7 @@ var GeoDataBrowserViewModel = function(options) {
 
     this.showingPanel = false;
     this.showingMapPanel = false;
+    this.showingConstraintPanel = false;
     this.addDataIsOpen = false;
     this.nowViewingIsOpen = true;
     this.wfsServiceUrl = '';
@@ -45,7 +46,7 @@ var GeoDataBrowserViewModel = function(options) {
     this.viewerSelectionIsOpen = false;
     this.selectedViewer = this.mode3d ? 'Terrain' : '2D';
 
-    knockout.track(this, ['showingPanel', 'showingMapPanel', 'addDataIsOpen', 'nowViewingIsOpen', 'addType', 'wfsServiceUrl',
+    knockout.track(this, ['showingPanel', 'showingMapPanel', 'showingConstraintPanel', 'addDataIsOpen', 'nowViewingIsOpen', 'addType', 'wfsServiceUrl',
                           'imageryIsOpen', 'viewerSelectionIsOpen', 'selectedViewer']);
 
     var that = this;
@@ -55,6 +56,7 @@ var GeoDataBrowserViewModel = function(options) {
         that.showingPanel = !that.showingPanel;
         if (that.showingPanel) {
             that.showingMapPanel = false;
+            that.showingConstraintPanel = false;
         }
     });
 
@@ -62,6 +64,15 @@ var GeoDataBrowserViewModel = function(options) {
         that.showingMapPanel = !that.showingMapPanel;
         if (that.showingMapPanel) {
             that.showingPanel = false;
+            that.showingConstraintPanel = false;
+        }
+    });
+
+    this._toggleShowingConstraintPanel = createCommand(function() {
+        that.showingConstraintPanel = !that.showingConstraintPanel;
+        if (that.showingConstraintPanel) {
+            that.showingPanel = false;
+            that.showingMapPanel = false;
         }
     });
 
@@ -451,6 +462,34 @@ var GeoDataBrowserViewModel = function(options) {
         return layers;
     }
 
+    this.metrics = komapping.fromJS([]);
+
+    function refreshMetrics() {
+        var metrics = [];
+
+        var csvs = that._viewer.geoDataManager.csvs;
+        for (var i = 0; i < csvs.length; ++i) {
+            metrics.push({
+                name : csvs[i][0][1],
+                minimum : 1,
+                maximum : 10
+            });
+        }
+
+        komapping.fromJS(metrics, that.metrics);
+    }
+
+    refreshMetrics();
+
+    that._viewer.geoDataManager.CsvListChanged.addEventListener(function() {
+        refreshMetrics();
+    });
+
+    this._applyConstraints = createCommand(function() {
+        var constraints = komapping.toJS(that.metrics);
+        that._viewer.geoDataManager.applyConstraints(constraints);
+    });
+
     this.nowViewing = komapping.fromJS(getLayers(), nowViewingMapping);
 
     function refreshNowViewing() {
@@ -633,6 +672,12 @@ defineProperties(GeoDataBrowserViewModel.prototype, {
         }
     },
 
+    toggleShowingConstraintPanel : {
+        get : function() {
+            return this._toggleShowingConstraintPanel;
+        }
+    },
+
     openItem : {
         get : function() {
             return this._openItem;
@@ -738,6 +783,12 @@ defineProperties(GeoDataBrowserViewModel.prototype, {
     addDataOrService : {
         get : function() {
             return this._addDataOrService;
+        }
+    },
+
+    applyConstraints : {
+        get : function() {
+            return this._applyConstraints;
         }
     },
 

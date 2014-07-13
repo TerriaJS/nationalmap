@@ -908,3 +908,23 @@ button.cesium-infoBox-camera {
 .leaflet-container {
     cursor: auto;
 }
+
+.ausglobe-constraint {
+    padding-top: 15px;
+}
+
+.ausglobe-constraint-name {
+    font-weight: bold;
+}
+
+.ausglobe-constraint-apply-button {
+    text-align: center;
+    margin: 10px;
+    border: 1px solid #555555;
+    font-size: 9pt;
+    padding: 2px;
+    background-color: #333333;
+    color: #fff;
+    line-height: 30px;
+    width: 80px;
+}

@@ -55,6 +55,7 @@ var GeoDataCollection = function() {
     this.services = [];
 
     this.csvs = [];
+    this.CsvListChanged = new Cesium.Event();
 };
 
 
@@ -120,6 +121,60 @@ function loadErrorResponse(err) {
         message : err.response
     });
 }
+
+GeoDataCollection.prototype.applyConstraints = function(constraints) {
+    var color = Cesium.Color.fromCssColorString('yellow');
+    color.alpha = 0.5;
+
+    var dataSources = this.dataSourceCollection;
+    for (var i = 0; i < dataSources.length; ++i) {
+        var dataSource = dataSources.get(i);
+        var dynamicObjects = dataSource.dynamicObjects.getObjects();
+
+        var i;
+        for (i = 0; i < dynamicObjects.length; ++i) {
+            var dynamicObject = dynamicObjects[i];
+            if (!dynamicObject.polygon) {
+                continue;
+            }
+
+            var geoJson = dynamicObject.geoJson;
+
+            var matches = true;
+            for (var j = 0; j < constraints.length; ++j) {
+                var constraint = constraints[j];
+                var constraintKey = constraint.name;
+                var constraintValue = geoJson.properties[constraintKey] | 0;
+                matches &= constraintValue >= (constraint.minimum | 0) && constraintValue <= (constraint.maximum | 0);
+            }
+
+            if (matches) {
+                dynamicObject.polygon.fill = new Cesium.ConstantProperty(true);
+                dynamicObject.polygon.outline = new Cesium.ConstantProperty(true);
+                var fillMaterial = new Cesium.ColorMaterialProperty();
+                fillMaterial.color = new Cesium.ConstantProperty(color);
+                dynamicObject.polygon.material = fillMaterial;
+
+                if (dynamicObject.polyline) {
+                    var colorMaterial = new Cesium.ColorMaterialProperty();
+                    colorMaterial.color = new Cesium.ConstantProperty(color);
+                    dynamicObject.polyline.show = new Cesium.ConstantProperty(true);
+                    dynamicObject.polyline.material = colorMaterial;
+                }
+            } else {
+                dynamicObject.polygon.fill = new Cesium.ConstantProperty(false);
+                dynamicObject.polygon.outline = new Cesium.ConstantProperty(false);
+
+                if (dynamicObject.polyline) {
+                    var colorMaterial = new Cesium.ColorMaterialProperty();
+                    colorMaterial.color = new Cesium.ConstantProperty(color);
+                    dynamicObject.polyline.show = new Cesium.ConstantProperty(false);
+                    dynamicObject.polyline.material = colorMaterial;
+                }
+            }
+        }
+    }
+};
 
 /**
 * Add a new geodata item
@@ -675,6 +730,8 @@ GeoDataCollection.prototype.loadText = function(text, srcname, format, layer) {
         var jsonTable = $.csv.toArrays(text);
         that.csvs.push(jsonTable);
         applyCsvToFeatures(that, jsonTable);
+
+        this.CsvListChanged.raiseEvent(this)
 
         // var tableDataSource = new TableDataSource();
         // tableDataSource.loadText(text);
