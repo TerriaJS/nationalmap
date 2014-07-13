@@ -2,7 +2,7 @@
   {"name":"GovHack", "Layer": [
     {"name":"Boundaries","base_url":"http://geoserver.research.nicta.com.au/admin_bnds_abs/ows","proxy":false,"type":"WFS","queryable":"0", "wfsAvailable": true,"description":"[Licence](http://creativecommons.org/licenses/by/2.5/au/)","Layer": [
 
-        {"Name":"admin_bnds:POA_2011_AUST","Title":"SEIFA POA 2011","BoundingBox":{"west":"96.816941408","east":"159.109219008","south":"-43.74050960205765","north":"-9.142175976703609"},"csv_url":"./test/SEIFA_POA_2011.csv", "queryable":"1"}
+        {"Name":"admin_bnds:POA_2011_AUST","Title":"SEIFA POA 2011","BoundingBox":{"west":"96.816941408","east":"159.109219008","south":"-43.74050960205765","north":"-9.142175976703609"},"csv_url_hide":"./test/SEIFA_POA_2011.csv", "queryable":"1"}
 
     ]}
   ]}

@@ -53,6 +53,8 @@ var GeoDataCollection = function() {
     
     //load list of available services for National Map
     this.services = [];
+
+    this.csvs = [];
 };
 
 
@@ -636,6 +638,8 @@ GeoDataCollection.prototype.loadText = function(text, srcname, format, layer) {
         format = getFormatFromUrl(srcname);
     }
     format = format.toUpperCase();
+
+    var that = this;
     
     //TODO: Save dataset text for dnd data
 
@@ -667,13 +671,18 @@ GeoDataCollection.prototype.loadText = function(text, srcname, format, layer) {
     } 
         //Handle table data using TableDataSource plugin        
     else if (format === "CSV") {
-        var tableDataSource = new TableDataSource();
-        tableDataSource.loadText(text);
-        this.dataSourceCollection.add(tableDataSource);
+        //load csv data
+        var jsonTable = $.csv.toArrays(text);
+        that.csvs.push(jsonTable);
+        applyCsvToFeatures(that, jsonTable);
+
+        // var tableDataSource = new TableDataSource();
+        // tableDataSource.loadText(text);
+        // this.dataSourceCollection.add(tableDataSource);
         
-        layer.dataSource = tableDataSource;
-        layer.extent = tableDataSource.dataset.getExtent();
-        this.add(layer);
+        // layer.dataSource = tableDataSource;
+        // layer.extent = tableDataSource.dataset.getExtent();
+        // this.add(layer);
     }
         //Return false so widget can try to send to conversion service
     else {
@@ -683,6 +692,14 @@ GeoDataCollection.prototype.loadText = function(text, srcname, format, layer) {
     return true;
 };
 
+function applyCsvToFeatures(geoDataCollection, csv) {
+    var dataSources = geoDataCollection.dataSourceCollection;
+    for (var i = 0; i < dataSources.length; ++i) {
+        var dataSource = dataSources.get(i);
+        var objects = dataSource.dynamicObjects.getObjects();
+        correlate_geojson_csv(objects, csv);
+    }
+}
 
 // -------------------------------------------
 // Convert OGC Data Sources to GeoJSON
@@ -799,19 +816,70 @@ function filterValue(obj, prop, func) {
     }
 }
 
-function correlate_geojson_csv(geoJson, jsonTable) {
+function correlate_geojson_csv(dynamicObjects, jsonTable) {
+    var decileColors = [
+        undefined,
+        '#990000',
+        '#CC0000',
+        '#FF0000',
+        '#FF9900',
+        '#FFCC66',
+        '#CCFFFF',
+        '#99CCCC',
+        '#0099CC',
+        '#006699',
+        '#003399'
+    ];
+
     var field = jsonTable[0][0];
     var title = jsonTable[0][1];
-    var features = geoJson.features;
-    //assuming order could make this faster
-    for (var i = 0; i < features.length; i++) {
-        for (var j = 1; j < jsonTable.length; j++) {
-           if (features[i].properties[field] !== undefined && features[i].properties[field] === jsonTable[j][0]) {
-                features[i].properties[title] = jsonTable[j][1];
+
+    var idMap = {};
+
+    var i;
+    for (i = 1; i < jsonTable.length; ++i) {
+        idMap[jsonTable[i][0]] = jsonTable[i][1];
+    }
+
+    for (i = 0; i < dynamicObjects.length; ++i) {
+        var dynamicObject = dynamicObjects[i];
+        var geoJson = dynamicObject.geoJson;
+
+        var value = idMap[geoJson.properties[field] | 0];
+        if (defined(value)) {
+            geoJson.properties[title] = value;
+
+            var propertyName = title;
+
+            // TODO: convert value to decile if necessary
+            if (!(value > 0 && value <= 10)) {
+                continue;
+            }
+
+            var color = Cesium.Color.fromCssColorString(decileColors[value]);
+            color.alpha = 0.5;
+
+            //object.polygon.fill = new ConstantProperty(Color.fromCssColorString(decileColors[decile]));
+            if (dynamicObject.polygon) {
+                dynamicObject.polygon.outline = new Cesium.ConstantProperty(true);
+                dynamicObject.polygon.outlineColor = new Cesium.ConstantProperty(color);
+                dynamicObject.polygon.fill = new Cesium.ConstantProperty(true);
+                dynamicObject.polygon.fillColor = new Cesium.ConstantProperty(color);
+
+                var fillMaterial = new Cesium.ColorMaterialProperty();
+                fillMaterial.color = new Cesium.ConstantProperty(color);
+                dynamicObject.polygon.material = fillMaterial;
+            } else {
+                console.log('no polygon for ' + geoJson.properties.POA_CODE);
+            }
+
+            if (dynamicObject.polyline) {
+                var colorMaterial = new Cesium.ColorMaterialProperty();
+                colorMaterial.color = new Cesium.ConstantProperty(color);
+                dynamicObject.polyline.material = colorMaterial;
             }
         }
     }
-    console.log(geoJson);
 }
 
 // -------------------------------------------
@@ -1601,41 +1669,6 @@ GeoDataCollection.prototype.addGeoJsonLayer = function(geojson, layer) {
         layer.dataSource = newDataSource;
         if (!layer.extent) {
             layer.extent = getDataSourceExtent(newDataSource);
-        }
-
-        var decileColors = [
-            undefined,
-            '#990000',
-            '#CC0000',
-            '#FF0000',
-            '#FF9900',
-            '#FFCC66',
-            '#CCFFFF',
-            '#99CCCC',
-            '#0099CC',
-            '#006699',
-            '#003399'
-        ];
-
-        var propertyName = 'Socio-economic_Disadvantage';
-
-        var objects = newDataSource.dynamicObjects.getObjects();
-        for (var i = 0; i < objects.length; ++i) {
-            var object = objects[i];
-            var feature = geojson.features[i];
-            if (!feature) {
-                continue;
-            }
-            var decile = feature.properties[propertyName];
-            if (decile) {
-                //object.polygon.fill = new ConstantProperty(Color.fromCssColorString(decileColors[decile]));
-                object.polygon.outline = new Cesium.ConstantProperty(true);
-                object.polygon.outlineColor = new Cesium.ConstantProperty(Cesium.Color.fromCssColorString(decileColors[decile]));
-
-                var colorMaterial = new Cesium.ColorMaterialProperty();
-                colorMaterial.color = new Cesium.ConstantProperty(Cesium.Color.fromCssColorString(decileColors[decile]));
-                object.polyline.material = colorMaterial;
-            }
         }
     }
     else {
