@@ -145,7 +145,11 @@ GeoDataCollection.prototype.applyConstraints = function(constraints) {
                 var constraint = constraints[j];
                 var constraintKey = constraint.name;
                 var constraintValue = geoJson.properties[constraintKey] | 0;
-                matches &= constraintValue >= (constraint.minimum | 0) && constraintValue <= (constraint.maximum | 0);
+                if (constraintValue !== constraintValue) {
+                    matches = false;
+                } else {
+                    matches &= constraintValue >= constraint.minimum && constraintValue <= constraint.maximum;
+                }
             }
 
             if (matches) {
@@ -729,9 +733,12 @@ GeoDataCollection.prototype.loadText = function(text, srcname, format, layer) {
         var maximum = Number.MIN_VALUE;
 
         for (var i = 1; i < jsonTable.length; ++i) {
-            var value = jsonTable[i][1] | 0;
-            minimum = Math.min(minimum, value);
-            maximum = Math.max(maximum, value);
+            var value = parseFloat(jsonTable[i][1]);
+            jsonTable[i][1] = value;
+            if (value === value) {
+                minimum = Math.min(minimum, value);
+                maximum = Math.max(maximum, value);
+            }
         }
 
         jsonTable.minimum = minimum;
@@ -929,11 +936,23 @@ function correlate_geojson_csv(dataSource, dynamicObjects, jsonTable) {
             // jsonTable.isAlreadyDecile = minimum >= 1 && maximum <= 10;
 
             if (!jsonTable.isAlreadyDecile) {
-                value = Math.round((value - jsonTable.minimum) / jsonTable.oneDecile) | 0;
+                value = 1 + Math.round((value - jsonTable.minimum) / jsonTable.oneDecile) | 0;
             }
 
-            if (!(value > 0 && value <= 10)) {
+            if (value !== value) {
+                if (dynamicObject.polygon) {
+                    dynamicObject.polygon.fill = new Cesium.ConstantProperty(false);
+                    dynamicObject.polygon.outline = new Cesium.ConstantProperty(false);
+                }
+
                 continue;
+            }
+
+            if (value < 1) {
+                value = 1;
+            }
+            if (value > 10) {
+                value = 10;
             }
 
             var color = Cesium.Color.fromCssColorString(decileColors[value]);
