@@ -697,7 +697,7 @@ function applyCsvToFeatures(geoDataCollection, csv) {
     for (var i = 0; i < dataSources.length; ++i) {
         var dataSource = dataSources.get(i);
         var objects = dataSource.dynamicObjects.getObjects();
-        correlate_geojson_csv(objects, csv);
+        correlate_geojson_csv(dataSource, objects, csv);
     }
 }
 
@@ -816,7 +816,7 @@ function filterValue(obj, prop, func) {
     }
 }
 
-function correlate_geojson_csv(dynamicObjects, jsonTable) {
+function correlate_geojson_csv(dataSource, dynamicObjects, jsonTable) {
     var decileColors = [
         undefined,
         '#990000',
@@ -848,6 +848,10 @@ function correlate_geojson_csv(dynamicObjects, jsonTable) {
         var value = idMap[geoJson.properties[field] | 0];
         if (defined(value)) {
             geoJson.properties[title] = value;
+
+            if (dataSource) {
+                dataSource.refreshDescription(dynamicObject);
+            }
 
             var propertyName = title;
 
@@ -918,7 +922,7 @@ GeoDataCollection.prototype._viewFeature = function(request, layer) {
             console.log(layer.csv_url);
             Cesium.loadText(layer.csv_url).then( function (text) {
                 var jsonTable = $.csv.toArrays(text);
-                correlate_geojson_csv(obj, jsonTable);
+                correlate_geojson_csv(undefined, obj, jsonTable);
                 that.addGeoJsonLayer(obj, layer);
             }, function(err) {
                 loadErrorResponse(err);
