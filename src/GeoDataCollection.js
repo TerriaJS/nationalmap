@@ -144,11 +144,11 @@ GeoDataCollection.prototype.applyConstraints = function(constraints) {
             for (var j = 0; j < constraints.length; ++j) {
                 var constraint = constraints[j];
                 var constraintKey = constraint.name;
-                var constraintValue = geoJson.properties[constraintKey] | 0;
+                var constraintValue = parseFloat(geoJson.properties[constraintKey]);
                 if (constraintValue !== constraintValue) {
                     matches = false;
                 } else {
-                    matches &= constraintValue >= constraint.minimum && constraintValue <= constraint.maximum;
+                    matches &= constraintValue >= parseFloat(constraint.minimum) && constraintValue <= parseFloat(constraint.maximum);
                 }
             }
 
@@ -728,26 +728,33 @@ GeoDataCollection.prototype.loadText = function(text, srcname, format, layer) {
     else if (format === "CSV") {
         //load csv data
         var jsonTable = $.csv.toArrays(text);
-
-        var minimum = Number.MAX_VALUE;
-        var maximum = Number.MIN_VALUE;
-
-        for (var i = 1; i < jsonTable.length; ++i) {
-            var value = parseFloat(jsonTable[i][1]);
-            jsonTable[i][1] = value;
-            if (value === value) {
-                minimum = Math.min(minimum, value);
-                maximum = Math.max(maximum, value);
+        for (var columnIndex = 1; columnIndex < jsonTable[0].length; ++columnIndex) {
+            var thisColumn = [];
+            for (var rowIndex = 0; rowIndex < jsonTable.length; ++rowIndex) {
+                thisColumn.push([jsonTable[rowIndex][0], jsonTable[rowIndex][columnIndex]]);
             }
+
+            var minimum = Number.MAX_VALUE;
+            var maximum = Number.MIN_VALUE;
+
+            for (var i = 1; i < jsonTable.length; ++i) {
+                var value = parseFloat(thisColumn[i][1]);
+                thisColumn[i][1] = value;
+                if (value === value) {
+                    minimum = Math.min(minimum, value);
+                    maximum = Math.max(maximum, value);
+                }
+            }
+
+            thisColumn.minimum = minimum;
+            thisColumn.maximum = maximum;
+            thisColumn.oneDecile = (maximum - minimum) / 10.0;
+            thisColumn.isAlreadyDecile = minimum >= 1 && maximum <= 10;
+
+            that.csvs.push(thisColumn);
+
+            applyCsvToFeatures(that, thisColumn);
         }
-
-        jsonTable.minimum = minimum;
-        jsonTable.maximum = maximum;
-        jsonTable.oneDecile = (maximum - minimum) / 10.0;
-        jsonTable.isAlreadyDecile = minimum >= 1 && maximum <= 10;
-
-        that.csvs.push(jsonTable);
-        applyCsvToFeatures(that, jsonTable);
 
         this.CsvListChanged.raiseEvent(this)
 
