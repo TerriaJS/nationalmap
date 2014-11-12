@@ -2,7 +2,7 @@ language: node_js
 node_js:
 - '0.10'
 script:
-- gulp lint docs release test
+- gulp lint docs release
 #deploy:
 #  provider: s3
 #  access_key_id: AKIAJI2CLEK7CFXORVWA
