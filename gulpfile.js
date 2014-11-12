@@ -19,7 +19,7 @@ var buffer = require('vinyl-buffer');
 var transform = require('vinyl-transform');
 var source = require('vinyl-source-stream');
 var watchify = require('watchify');
-
+var karma = require('karma').server;
 
 var appJSName = 'ausglobe.js';
 var specJSName = 'ausglobe-specs.js';
@@ -69,6 +69,19 @@ gulp.task('watch-specs', ['prepare-cesium'], function() {
 });
 
 gulp.task('watch', ['watch-app', 'watch-specs']);
+
+gulp.task('test', function(done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done);
+});
+
+gulp.task('tdd', ['watch'], function(done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js'
+    }, done);
+});
 
 gulp.task('lint', function(){
     return gulp.src(['src/**/*.js', 'spec/**/*.js'])
