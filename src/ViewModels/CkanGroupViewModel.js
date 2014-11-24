@@ -221,6 +221,11 @@ function filterResultsByGetCapabilities(viewModel, json) {
             var params = uri.search(true);
             var layerName = params.LAYERS;
 
+            // If we failed to extract a layer name, try to use the "name" property of the resource.
+            if (!defined(layerName)) {
+                layerName = resource.name;
+            }
+
             // Remove the query portion of the WMS URL.
             uri.search('');
             var url = uri.toString();
@@ -336,6 +341,11 @@ function populateGroupFromResults(viewModel, json) {
             var params = uri.search(true);
             var layerName = params.LAYERS;
 
+            // If we failed to extract a layer name, try to use the "name" property of the resource.
+            if (!defined(layerName)) {
+                layerName = resource.name;
+            }
+
             // Remove the query portion of the WMS URL.
             uri.search('');
             var url = uri.toString();
@@ -354,6 +364,12 @@ function populateGroupFromResults(viewModel, json) {
             }
 
             var groups = item.groups;
+            if (groups.length === 0) {
+                groups.push({
+                    display_name: 'Uncategorized'
+                });
+            }
+
             for (var groupIndex = 0; groupIndex < groups.length; ++groupIndex) {
                 var group = groups[groupIndex];
 

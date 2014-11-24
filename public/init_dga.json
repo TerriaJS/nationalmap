@@ -1,0 +1,10 @@
+{
+    "catalog": [
+        {
+            "name": "data.gov.au",
+            "type": "ckan",
+            "url": "http://www.data.gov.au",
+            "filterQuery": "res_format:wms"
+        }
+    ]
+}

@@ -370,9 +370,18 @@ CatalogGroupViewModel.prototype.findFirstItemByName = function(name) {
  * @param {Boolean} [sortRecursively=false] true to sort the items in sub-groups as well; false to sort only the items in this group.
  */
 CatalogGroupViewModel.prototype.sortItems = function(sortRecursively) {
-    naturalSort.insensitive = true;
+    //naturalSort.insensitive = true;
+    //this.items.sort(function(a, b) {
+    //    return naturalSort(a.name, b.name);
+    //});
     this.items.sort(function(a, b) {
-        return naturalSort(a.name, b.name);
+        if (a.name < b.name) {
+            return -1;
+        } else if (a.name > b.name) {
+            return 1;
+        } else {
+            return 0;
+        }
     });
 
     if (defaultValue(sortRecursively, false)) {
