@@ -61,6 +61,7 @@ var knockout = require('../../third_party/cesium/Source/ThirdParty/knockout');
 var corsProxy = require('../Core/corsProxy');
 var GeoDataBrowser = require('./GeoDataBrowser');
 var CesiumViewModel = require('../ViewModels/CesiumViewModel');
+var HereMapsImageryProvider = require('../Map/HereMapsImageryProvider');
 var LeafletViewModel = require('../ViewModels/LeafletViewModel');
 var NavigationWidget = require('./NavigationWidget');
 var PopupMessage = require('./PopupMessage');
@@ -555,10 +556,11 @@ AusGlobeViewer.prototype._createCesiumViewer = function(container) {
         navigationHelpButton: false,
         fullscreenButton : false,
         terrainProvider : terrainProvider,
-        imageryProvider : new BingMapsImageryProvider({
-            url : '//dev.virtualearth.net',
-            mapStyle : BingMapsStyle.AERIAL_WITH_LABELS
-        }),
+        // imageryProvider : new BingMapsImageryProvider({
+        //     url : '//dev.virtualearth.net',
+        //     mapStyle : BingMapsStyle.AERIAL_WITH_LABELS
+        // }),
+        imageryProvider : new HereMapsImageryProvider(),
         timeControlsInitiallyVisible : false,
         targetFrameRate : 40
     };
