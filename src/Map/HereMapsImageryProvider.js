@@ -62,7 +62,7 @@ var CesiumEvent = require('../../third_party/cesium/Source/Core/Event');
 var HereMapsImageryProvider = function HereMapsImageryProvider(options) {
     options = defaultValue(options, {});
 
-    this._url = 'http://{subdomain}.aerial.maps.cit.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{level}/{x}/{y}/256/jpg?app_id=V7FblxbU8MpSsTiHjueU&app_code=FGaJrsmAjh-s_h8qWn4G8Q';
+    this._url = '//{subdomain}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/hybrid.day/{level}/{x}/{y}/256/jpg?app_id=V7FblxbU8MpSsTiHjueU&app_code=FGaJrsmAjh-s_h8qWn4G8Q';
     this._proxy = options.proxy;
     this._credit = undefined;
 

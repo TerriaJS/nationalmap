@@ -7,9 +7,10 @@ var defined = require('../../third_party/cesium/Source/Core/defined');
 var defineProperties = require('../../third_party/cesium/Source/Core/defineProperties');
 var DeveloperError = require('../../third_party/cesium/Source/Core/DeveloperError');
 var Ellipsoid = require('../../third_party/cesium/Source/Core/Ellipsoid');
-var jsonp = require('../../third_party/cesium/Source/Core/jsonp');
+var loadJson = require('../../third_party/cesium/Source/Core/loadJson');
 var CesiumMath = require('../../third_party/cesium/Source/Core/Math');
 var Matrix4 = require('../../third_party/cesium/Source/Core/Matrix4');
+var objectToQuery = require('../../third_party/cesium/Source/Core/objectToQuery');
 var Rectangle = require('../../third_party/cesium/Source/Core/Rectangle');
 var CameraFlightPath = require('../../third_party/cesium/Source/Scene/CameraFlightPath');
 var when = require('../../third_party/cesium/Source/ThirdParty/when');
@@ -41,7 +42,7 @@ var SearchWidgetViewModel = function(options) {
     }
     //>>includeEnd('debug');
 
-    this._url = defaultValue(options.url, '//dev.virtualearth.net/');
+    this._url = defaultValue(options.url, '//geocoder.cit.api.here.com/');
     if (this._url.length > 0 && this._url[this._url.length - 1] !== '/') {
         this._url += '/';
     }
@@ -213,13 +214,16 @@ function geocode(viewModel) {
         latitudeDegrees = center.lat;
     }
 
-    var promise = jsonp(viewModel._url + 'REST/v1/Locations?culture=en-AU&userLocation=' + latitudeDegrees + ',' + longitudeDegrees , {
-        parameters : {
-            query : query,
-            key : viewModel._key
-        },
-        callbackParameterName : 'jsonp'
-    });
+    var baseUrl = viewModel._url + '6.2/geocode.json';
+    var parameters = {
+        app_id: 'V7FblxbU8MpSsTiHjueU',
+        app_code: 'FGaJrsmAjh-s_h8qWn4G8Q',
+        countryfocus: 'AUS',
+        gen: '7',
+        searchtext: query
+    };
+
+    var promise = loadJson(baseUrl + '?' + objectToQuery(parameters));
 
     var geocodeInProgress = viewModel._geocodeInProgress = when(promise, function(result) {
         if (geocodeInProgress.cancel) {
@@ -227,61 +231,59 @@ function geocode(viewModel) {
         }
         viewModel._isSearchInProgress = false;
 
-        if (result.resourceSets.length === 0) {
+        if (!defined(result.Response) || !defined(result.Response.View) || result.Response.View.length === 0) {
             viewModel.searchText = viewModel._searchText + ' (not found)';
             return;
         }
 
-        var resourceSet = result.resourceSets[0];
-        if (resourceSet.resources.length === 0) {
+        var view = result.Response.View[0];
+
+        if (!defined(view) || !defined(view.Result) || view.Result.length === 0) {
             viewModel.searchText = viewModel._searchText + ' (not found)';
             return;
         }
 
-        var resource = resourceSet.resources[0];
+        var searchResult = view.Result[0];
+        var location = searchResult.Location;
 
-        // Prefer the resource that is in Australia, if any.
-        for (var i = 0; i < resourceSet.resources.length; ++i) {
-            resource = resourceSet.resources[i];
-            if (defined(resource.address) && resource.address.countryRegion === 'Australia') {
-                resource = resourceSet.resources[i];
-                break;
-            }
+        if (defined(location.Address.Label)) {
+            viewModel._searchText = location.Address.Label;
         }
 
-        viewModel._searchText = resource.name;
-        var bbox = resource.bbox;
-        var south = bbox[0];
-        var west = bbox[1];
-        var north = bbox[2];
-        var east = bbox[3];
-        var rectangle = Rectangle.fromDegrees(west, south, east, north);
+        var bbox = location.MapView;
+        if (defined(bbox)) {
+            var south = bbox.BottomRight.Latitude;
+            var west = bbox.TopLeft.Longitude;
+            var north = bbox.TopLeft.Latitude;
+            var east = bbox.BottomRight.Longitude;
+            var rectangle = Rectangle.fromDegrees(west, south, east, north);
 
-        if (viewModel._viewer.viewer) {
-            // Cesium
-            var camera = viewModel._viewer.scene.camera;
-            var position = camera.getRectangleCameraCoordinates(rectangle);
-            if (!defined(position)) {
-                // This can happen during a scene mode transition.
-                return;
+            if (viewModel._viewer.viewer) {
+                // Cesium
+                var camera = viewModel._viewer.scene.camera;
+                var position = camera.getRectangleCameraCoordinates(rectangle);
+                if (!defined(position)) {
+                    // This can happen during a scene mode transition.
+                    return;
+                }
+
+                var options = {
+                    destination: position,
+                    duration: viewModel._flightDuration / 1000.0,
+                    complete: function () {
+                        var screenSpaceCameraController = viewModel._viewer.scene.screenSpaceCameraController;
+                        screenSpaceCameraController.ellipsoid = viewModel._ellipsoid;
+                    },
+                    endReferenceFrame: Matrix4.IDENTITY,
+                    convert: false
+                };
+
+                var flight = CameraFlightPath.createTween(viewModel._viewer.scene, options);
+                viewModel._viewer.scene.tweens.add(flight);
+            } else {
+                // Leaflet
+                viewModel._viewer.map.fitBounds([[south, west], [north, east]]);
             }
-
-            var options = {
-                destination: position,
-                duration: viewModel._flightDuration / 1000.0,
-                complete: function () {
-                    var screenSpaceCameraController = viewModel._viewer.scene.screenSpaceCameraController;
-                    screenSpaceCameraController.ellipsoid = viewModel._ellipsoid;
-                },
-                endReferenceFrame: Matrix4.IDENTITY,
-                convert: false
-            };
-
-            var flight = CameraFlightPath.createTween(viewModel._viewer.scene, options);
-            viewModel._viewer.scene.tweens.add(flight);
-        } else {
-            // Leaflet
-            viewModel._viewer.map.fitBounds([[south, west], [north, east]]);
         }
     }, function() {
         if (geocodeInProgress.cancel) {

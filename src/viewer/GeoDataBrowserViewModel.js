@@ -22,6 +22,7 @@ var createCatalogMemberFromType = require('../ViewModels/createCatalogMemberFrom
 var createCatalogItemFromUrl = require('../ViewModels/createCatalogItemFromUrl');
 var CatalogGroupViewModel = require('../ViewModels/CatalogGroupViewModel');
 var GeoDataInfoPopup = require('./GeoDataInfoPopup');
+var HereMapsImageryProvider = require('../Map/HereMapsImageryProvider');
 var PopupMessage = require('./PopupMessage');
 var raiseErrorOnRejectedPromise = require('../ViewModels/raiseErrorOnRejectedPromise');
 var readJson = require('../Core/readJson');
@@ -326,6 +327,24 @@ and the file will not be uploaded or added to the map.')) {
             url : 'http://www.ga.gov.au/gis/rest/services/topography/AusHydro_WM/MapServer',
             proxy : corsProxy
         }), 1));
+    });
+
+    this._activateHere = createCommand(function() {
+        ga('send', 'event', 'mapSettings', 'switchImagery', 'Here');
+
+        if (!that._viewer.isCesium()) {
+            var message = 'This imagery layer is not yet supported in 2D mode.';
+            alert(message);
+            return;
+              //This call works, but since the tiles are in graghic instead of spherical mercator only see western hemisphere
+//        this.mapBaseLayer = new L.tileLayer('http://cesiumjs.org/tilesets/imagery/naturalearthii/{z}/{x}/{y}.jpg', 
+//        {tms: true});
+        }
+        
+        removeBaseLayer();
+
+        var imageryLayers = that._viewer.scene.globe.imageryLayers;
+        currentBaseLayers.push(imageryLayers.addImageryProvider(new HereMapsImageryProvider(), 0));
     });
 
     this._selectFileToUpload = createCommand(function() {
@@ -734,6 +753,12 @@ defineProperties(GeoDataBrowserViewModel.prototype, {
     activateAustralianHydrography : {
         get : function() {
             return this._activateAustralianHydrography;
+        }
+    },
+
+    activateHere : {
+        get : function() {
+            return this._activateHere;
         }
     },
 

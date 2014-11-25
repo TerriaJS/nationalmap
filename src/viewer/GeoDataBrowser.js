@@ -177,6 +177,7 @@ var GeoDataBrowser = function(options) {
                 <img class="ausglobe-imagery-option" src="images/AustralianHydrography.png" width="73" height="74" data-bind="click: activateAustralianHydrography" />\
                 <img class="ausglobe-imagery-option" src="images/NASABlackMarble.png" width="73" height="74" data-bind="click: activateNasaBlackMarble" />\
                 <img class="ausglobe-imagery-option" src="images/NaturalEarthII.png" width="73" height="74" data-bind="click: activateNaturalEarthII" />\
+                <img class="ausglobe-imagery-option" src="" width="73" height="74" data-bind="click: activateHere" />\
             </div>\
         </div>\
         <div class="ausglobe-accordion-item">\
