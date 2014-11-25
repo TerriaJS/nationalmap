@@ -769,6 +769,10 @@ var isTimelineVisible = function() {
     return $('.cesium-viewer-animationContainer').css('visibility') === 'visible';
 };
 
+AusGlobeViewer.prototype.getViewerExtent = function() {
+    return getCameraRect(this.scene, this.map);
+};
+
 AusGlobeViewer.prototype.selectViewer = function(bCesium) {
     var previousClock;
     if (this.viewer) {

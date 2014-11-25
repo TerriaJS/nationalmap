@@ -214,10 +214,13 @@ function geocode(viewModel) {
         latitudeDegrees = center.lat;
     }
 
+    var extent = viewModel._viewer.getViewerExtent();
+
     var baseUrl = viewModel._url + '6.2/geocode.json';
     var parameters = {
         app_id: 'V7FblxbU8MpSsTiHjueU',
         app_code: 'FGaJrsmAjh-s_h8qWn4G8Q',
+        mapview: '' + CesiumMath.toDegrees(extent.north) + ',' + CesiumMath.toDegrees(extent.west) + ';' + CesiumMath.toDegrees(extent.south) + ',' + CesiumMath.toDegrees(extent.east),
         countryfocus: 'AUS',
         gen: '7',
         searchtext: query
