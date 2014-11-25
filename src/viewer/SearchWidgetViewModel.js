@@ -246,6 +246,14 @@ function geocode(viewModel) {
             return;
         }
 
+        console.log('--- Search results for ' + query);
+
+        for (var i = 0; i < view.Result.length; ++i) {
+            if (view.Result[i].Location && view.Result[i].Location.Address && view.Result[i].Location.Address.Label) {
+                console.log(view.Result[i].Location.Address.Label);
+            }
+        }
+
         var searchResult = view.Result[view.Result.length - 1];
         var location = searchResult.Location;
 
