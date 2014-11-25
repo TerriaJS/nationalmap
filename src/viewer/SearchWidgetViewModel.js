@@ -246,7 +246,7 @@ function geocode(viewModel) {
             return;
         }
 
-        var searchResult = view.Result[0];
+        var searchResult = view.Result[view.Result.length - 1];
         var location = searchResult.Location;
 
         if (defined(location.Address.Label)) {
