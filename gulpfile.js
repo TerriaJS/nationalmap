@@ -23,7 +23,7 @@ var karma = require('karma').server;
 
 var appJSName = 'ausglobe.js';
 var specJSName = 'ausglobe-specs.js';
-var appEntryJSName = './src/viewer/main.js';
+var appEntryJSName = './src/main.js';
 var workerGlob = [
     './third_party/cesium/Source/Workers/*.js',
     '!./third_party/cesium/Source/Workers/*.profile.js',
