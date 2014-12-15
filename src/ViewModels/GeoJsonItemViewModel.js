@@ -16,6 +16,8 @@ var loadText = require('../../third_party/cesium/Source/Core/loadText');
 var Rectangle = require('../../third_party/cesium/Source/Core/Rectangle');
 var when = require('../../third_party/cesium/Source/ThirdParty/when');
 
+var applyFunctionToNamedPropertyFoundRecursively = require('../Core/applyFunctionToNamedPropertyFoundRecursively');
+var getGeoJsonExtent = require('../Map/getGeoJsonExtent.js');
 var MetadataViewModel = require('./MetadataViewModel');
 var ViewModelError = require('./ViewModelError');
 var CatalogItemViewModel = require('./CatalogItemViewModel');
@@ -375,7 +377,7 @@ function reprojectToGeographic(geoJson) {
 
    return when(checkProjection(code), function(result) {
         if (result) {
-            filterValue(
+            applyFunctionToNamedPropertyFoundRecursively(
                 geoJson,
                 'coordinates',
                 function(obj, prop) {
@@ -403,23 +405,6 @@ function reprojectPointList(pts, code) {
     return pts_out;
 }
 
-// find a member by name in the gml
-function filterValue(obj, prop, func) {
-    for (var p in obj) {
-        if (obj.hasOwnProperty(p) === false) {
-            continue;
-        }
-        else if (p === prop) {
-            if (func && (typeof func === 'function')) {
-                (func)(obj, prop);
-            }
-        }
-        else if (typeof obj[p] === 'object') {
-            filterValue(obj[p], prop, func);
-        }
-    }
-}
-
 // Filter a geojson coordinates array structure
 function filterArray(pts, func) {
     if (!(pts[0] instanceof Array) || !((pts[0][0]) instanceof Array) ) {
@@ -439,32 +424,6 @@ function pntReproject(coordinates, id) {
     var p = proj4.toPoint(coordinates);
     proj4(source, dest, p);      //do the transformation.  x and y are modified in place
     return [p.x, p.y];
-}
-
-// Get Extent of geojson
-function getExtent(pts, ext) {
-    if (!(pts[0] instanceof Array) ) {
-        if (pts[0] < ext.west)  { ext.west = pts[0];  }
-        if (pts[0] > ext.east)  { ext.east = pts[0];  } 
-        if (pts[1] < ext.south) { ext.south = pts[1]; }
-        if (pts[1] > ext.north) { ext.north = pts[1]; }
-    }
-    else if (!((pts[0][0]) instanceof Array) ) {
-        for (var i = 0; i < pts.length; i++) {
-            getExtent(pts[i], ext);
-        }
-    }
-    else {
-        for (var j = 0; j < pts.length; j++) {
-            getExtent(pts[j], ext);  //at array of arrays of points
-        }
-    }
-}
-
-function getGeoJsonExtent(geoJson) {
-    var ext = {west:180, east:-180, south:90, north: -90};
-    filterValue(geoJson, 'coordinates', function(obj, prop) { getExtent(obj[prop], ext); });
-    return Rectangle.fromDegrees(ext.west, ext.south, ext.east, ext.north);
 }
 
 module.exports = GeoJsonItemViewModel;

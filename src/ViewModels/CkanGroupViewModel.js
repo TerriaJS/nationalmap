@@ -13,6 +13,7 @@ var Rectangle = require('../../third_party/cesium/Source/Core/Rectangle');
 var when = require('../../third_party/cesium/Source/ThirdParty/when');
 
 var corsProxy = require('../Core/corsProxy');
+var getGeoJsonExtent = require('../Map/getGeoJsonExtent.js');
 var ViewModelError = require('./ViewModelError');
 var CatalogGroupViewModel = require('./CatalogGroupViewModel');
 var inherit = require('../Core/inherit');
@@ -297,6 +298,11 @@ function filterBasedOnGetCapabilitiesResponse(viewModel, wmsLayersSource, resour
 }
 
 function populateGroupFromResults(viewModel, json) {
+    var rectangle;
+    var points = 0;
+    var goodRectangles = 0;
+    var noRectangles = 0;
+
     var items = json.result.results;
     for (var itemIndex = 0; itemIndex < items.length; ++itemIndex) {
         var item = items[itemIndex];
@@ -311,13 +317,40 @@ function populateGroupFromResults(viewModel, json) {
             textDescription += '<br/>[Licence](' + item.license_url + ')';
         }
 
-        var rectangle;
+        rectangle = undefined;
+
         var bboxString = item.geo_coverage;
         if (defined(bboxString)) {
             var parts = bboxString.split(',');
             if (parts.length === 4) {
                 rectangle = Rectangle.fromDegrees(parts[0], parts[1], parts[2], parts[3]);
             }
+        }
+
+        // Check for a "spatial" property containing a GeoJSON string.
+        var spatial = item.spatial;
+        if (!defined(rectangle) && defined(spatial)) {
+            try {
+                var spatialGeoJson = JSON.parse(spatial);
+                rectangle = getGeoJsonExtent(spatialGeoJson);
+
+                if (rectangle.west === rectangle.east || rectangle.south === rectangle.north) {
+                    ++points;
+                    //console.log('got a rectangle, but its a point.');
+                } else {
+                    ++goodRectangles;
+                    //console.log('got a good rectangle.');
+                }
+            } catch(e) {
+                // Pokemon exception handle the above, because it may be pretty specific
+                // to data.gov.au.
+                console.log('failed to interpret spatial property');
+            }
+        }
+
+        if (!defined(rectangle)) {
+            ++noRectangles;
+            console.log('could not find rectangle for ' + item.name);
         }
 
         // Currently, we only support WMS layers.
@@ -406,6 +439,10 @@ function populateGroupFromResults(viewModel, json) {
     for (var i = 0; i < viewModel.items.length; ++i) {
         viewModel.items[i].items.sort(compareNames);
     }
+
+    console.log('good: ' + goodRectangles);
+    console.log('points: ' + points);
+    console.log('none: ' + noRectangles);
 }
 
 function cleanAndProxyUrl(application, url) {
