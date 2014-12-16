@@ -3,6 +3,11 @@
 
 var url = require('url');
 var configSettings = require('./public/config.json');
+var AWS = require('aws-sdk');
+var crypto = require('crypto');
+var base64url = require('base64url');
+
+AWS.config.loadFromPath('./aws-config.json');
 
 function getRemoteUrlFromParam(req) {
     var remoteUrl = req.params[0];
@@ -19,6 +24,10 @@ function getRemoteUrlFromParam(req) {
         remoteUrl.search = url.parse(req.url).search;
     }
     return remoteUrl;
+}
+
+function randomStringAsBase64Url(size) {
+    return base64url(crypto.randomBytes(size));
 }
 
 var dontProxyHeaderRegex = /^(?:Host|Proxy-Connection|Connection|Keep-Alive|Transfer-Encoding|TE|Trailer|Proxy-Authorization|Proxy-Authenticate|Upgrade)$/i;
@@ -269,9 +278,9 @@ if (cluster.isMaster) {
                             .skipfailures()
                             .options(['-t_srs', 'EPSG:4326']);
 
-            ogr.exec(function (er, data) {
-                if (er) { 
-                    console.error(er);
+            ogr.exec(function (err, data) {
+                if (err) { 
+                    console.error(err);
                 }
                 if (data !== undefined) {
                     res.status(200).send(JSON.stringify(data));
@@ -284,11 +293,41 @@ if (cluster.isMaster) {
 
 
     //Share record storage
-    app.post('/upload', function(req, res, next) {
+    app.get('/upload', function(req, res, next) {
+        var s3 = new AWS.S3();
+        var key = randomStringAsBase64Url(8);
+        var params = {Bucket: 'nationalmap-sharing', Key: key, Body: 'Hello!'}; //, ACL:'public-read'
+//        s3.headObject(params, function (err, metadata) {  
+//            if (err && err.code === 'Not Found') {
+//                // Handle no object on cloud here  
+//            } else {  
+//                // Add object  
+//            }
+//        });
+        s3.putObject(params, function(err, data) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            else  {
+                res.status(200).send('Successfully uploaded data to ' + key);
+            }
+        });
     });
 
     
-    app.get('/get/:id', function(req, res, next) {
+    app.get('/get/:key', function(req, res, next) {
+        var s3 = new AWS.S3();
+        var key = req.param('key');
+        var params = {Bucket: 'nationalmap-sharing', Key: key};
+        s3.getObject(params, function(err, data) {
+            if (err) {
+                res.status(500).send(err);
+            }
+            else  {
+                console.log(data.Body.toString());
+                res.status(200).send(data.Body.toString());
+            }
+        });
     });
 
 

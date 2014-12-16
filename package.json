@@ -2,9 +2,9 @@
   "name": "ausglobe",
   "version": "0.0.2",
   "description": "Geodata visualization service based on Cesium Webgl globe and Leaflet maps.",
-  "repository" : { 
-    "type" : "git",
-    "url" : "http://github.com/NICTA/nationalmap"
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/NICTA/nationalmap"
   },
   "dependencies": {
     "compression": "1.0.8",
@@ -18,7 +18,10 @@
     "proj4js-defs": "0.0.1",
     "request": "*",
     "supervisor": "^0.4.1",
-    "yargs": "1.2.6"
+    "yargs": "1.2.6",
+    "aws-sdk": "~2.1.2",
+    "crypto": "0.0.3",
+    "base64url": "~1.0.4"
   },
   "devDependencies": {
     "browserify": "^4.2.3",
