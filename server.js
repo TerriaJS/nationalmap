@@ -293,24 +293,33 @@ if (cluster.isMaster) {
 
 
     //Share record storage
-    app.get('/upload', function(req, res, next) {
-        var s3 = new AWS.S3();
-        var key = randomStringAsBase64Url(8);
-        var params = {Bucket: 'nationalmap-sharing', Key: key, Body: 'Hello!'}; //, ACL:'public-read'
-//        s3.headObject(params, function (err, metadata) {  
-//            if (err && err.code === 'Not Found') {
-//                // Handle no object on cloud here  
-//            } else {  
-//                // Add object  
-//            }
-//        });
-        s3.putObject(params, function(err, data) {
-            if (err) {
-                res.status(500).send(err);
+    app.post('/upload', function(req, res, next) {
+        var form = new formidable.IncomingForm();
+        form.parse(req, function(err, fields, files) {
+
+            if (fields.input_url === undefined) {
+                res.status(500).send('No NM vis input_url');
+                return;
             }
-            else  {
-                res.status(200).send('Successfully uploaded data to ' + key);
-            }
+
+            var s3 = new AWS.S3();
+            var key = randomStringAsBase64Url(8);
+            var params = {Bucket: 'nationalmap-sharing', Key: key, Body: fields.input_url}; //, ACL:'public-read'
+    //        s3.headObject(params, function (err, metadata) {  
+    //            if (err && err.code === 'Not Found') {
+    //                // Handle no object on cloud here  
+    //            } else {  
+    //                // Add object  
+    //            }
+    //        });
+            s3.putObject(params, function(err, data) {
+                if (err) {
+                    res.status(500).send(err);
+                }
+                else  {
+                    res.status(200).send(key);
+                }
+            });
         });
     });
 

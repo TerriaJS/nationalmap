@@ -2,6 +2,7 @@
 
 /*global require,URI*/
 var getElement = require('../../third_party/cesium/Source/Widgets/getElement');
+var loadWithXhr = require('../../third_party/cesium/Source/Core/loadWithXhr');
 
 var knockout = require('../../third_party/cesium/Source/ThirdParty/knockout');
 
@@ -57,24 +58,43 @@ var SharePanel = function(options) {
     var url = visServer + '#start=' + encodeURIComponent(requestStr);
     request.image = img;
 
-    var viewModel = this._viewModel = {
-        request : options.request,
-        url : url,
-        itemsSkippedBecauseTheyHaveLocalData : options.itemsSkippedBecauseTheyHaveLocalData,
-        embedCode : '<iframe style="width: 720px; height: 405px; border: none;" src="' + url + '" allowFullScreen mozAllowFullScreen webkitAllowFullScreen></iframe>'
-    };
+    var viewModel;
 
-    viewModel.close = function() {
-        container.removeChild(wrapper);
-    };
-    viewModel.closeIfClickOnBackground = function(viewModel, e) {
-        if (e.target === wrapper) {
-            viewModel.close();
-        }
-        return true;
-    };
+    var that = this;
 
-    knockout.applyBindings(this._viewModel, wrapper);
+    var formData = new FormData();
+    formData.append('input_url', url);
+
+    return loadWithXhr({
+        url : '/upload',
+        method : 'POST',
+        data : formData
+    }).then(function(response) {
+        console.log(response)
+        url = visServer + '#start=' + response;
+        viewModel  = that._viewModel = {
+            request : options.request,
+            url : url,
+            itemsSkippedBecauseTheyHaveLocalData : options.itemsSkippedBecauseTheyHaveLocalData,
+            embedCode : '<iframe style="width: 720px; height: 405px; border: none;" src="' + url + '" allowFullScreen mozAllowFullScreen webkitAllowFullScreen></iframe>'
+        };
+
+        viewModel.close = function() {
+            container.removeChild(wrapper);
+        };
+        viewModel.closeIfClickOnBackground = function(viewModel, e) {
+            if (e.target === wrapper) {
+                viewModel.close();
+            }
+            return true;
+        };
+
+        knockout.applyBindings(that._viewModel, wrapper);
+
+    }).otherwise(function() {
+        errorLoading(viewModel);
+    });
+
 };
 
 SharePanel.open = function(options) {
