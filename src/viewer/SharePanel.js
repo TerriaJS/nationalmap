@@ -63,7 +63,7 @@ var SharePanel = function(options) {
     var that = this;
 
     var formData = new FormData();
-    formData.append('input_url', url);
+    formData.append('requestString', requestStr);
 
     return loadWithXhr({
         url : '/upload',

@@ -12,6 +12,7 @@ var loadJson = require('../../third_party/cesium/Source/Core/loadJson');
 var queryToObject = require('../../third_party/cesium/Source/Core/queryToObject');
 var Rectangle = require('../../third_party/cesium/Source/Core/Rectangle');
 var when = require('../../third_party/cesium/Source/ThirdParty/when');
+var loadText = require('../../third_party/cesium/Source/Core/loadText');
 
 var CatalogViewModel = require('./CatalogViewModel');
 var corsProxy = require('../Core/corsProxy');
@@ -171,9 +172,11 @@ ApplicationViewModel.prototype.updateApplicationUrl = function(newUrl) {
     var hashProperties = queryToObject(hash);
 
     var initSources = this.initSources.slice();
-    interpretHash(hashProperties, this.userProperties, this.initSources, initSources);
+    var that = this;
+    return when.all(interpretHash(hashProperties, this.userProperties, this.initSources, initSources), function() {
+        return loadInitSources(that, initSources);
+    });
 
-    return loadInitSources(this, initSources);
 };
 
 /**
@@ -191,27 +194,32 @@ ApplicationViewModel.prototype.getUserProperty = function(propertyName) {
 };
 
 function interpretHash(hashProperties, userProperties, persistentInitSources, temporaryInitSources) {
+    var promises = [];
     for (var property in hashProperties) {
         if (hashProperties.hasOwnProperty(property)) {
             var propertyValue = hashProperties[property];
 
             if (property === 'start') {
-                var startData = JSON.parse(propertyValue);
+                var url = 'http://localhost:3001/get/' + propertyValue;
+                promises.push(loadText(url).then( function(text) {
+                    console.log(text);
+                    var startData = JSON.parse(text);
 
-                // Include any initSources specified in the URL.
-                if (defined(startData.initSources)) {
-                    for (var i = 0; i < startData.initSources.length; ++i) {
-                        var initSource = startData.initSources[i];
-                        if (temporaryInitSources.indexOf(initSource) < 0) {
-                            temporaryInitSources.push(initSource);
+                    // Include any initSources specified in the URL.
+                    if (defined(startData.initSources)) {
+                        for (var i = 0; i < startData.initSources.length; ++i) {
+                            var initSource = startData.initSources[i];
+                            if (temporaryInitSources.indexOf(initSource) < 0) {
+                                temporaryInitSources.push(initSource);
 
-                            // Only add external files to the application's list of init sources.
-                            if (typeof initSource === 'string' && persistentInitSources.indexOf(initSource) < 0) {
-                                persistentInitSources.push(initSource);
+                                // Only add external files to the application's list of init sources.
+                                if (typeof initSource === 'string' && persistentInitSources.indexOf(initSource) < 0) {
+                                    persistentInitSources.push(initSource);
+                                }
                             }
                         }
                     }
-                }
+                }));
             } else if (defined(propertyValue) && propertyValue.length > 0) {
                 userProperties[property] = propertyValue;
                 knockout.track(userProperties, [property]);
@@ -222,6 +230,7 @@ function interpretHash(hashProperties, userProperties, persistentInitSources, te
             }
         }
     }
+    return promises;
 }
 
 function loadInitSources(viewModel, initSources) {
