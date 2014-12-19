@@ -199,6 +199,7 @@ function interpretHash(hashProperties, userProperties, persistentInitSources, te
         if (hashProperties.hasOwnProperty(property)) {
             var propertyValue = hashProperties[property];
 
+            //TODO: need to figure out startStr, startID, startUrl
             if (property === 'start') {
                 var url = 'http://localhost:3001/get/' + propertyValue;
                 promises.push(loadText(url).then( function(text) {

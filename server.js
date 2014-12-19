@@ -304,6 +304,7 @@ if (cluster.isMaster) {
             var s3 = new AWS.S3();
             var key = randomStringAsBase64Url(8);
             var params = {Bucket: 'nationalmap-sharing', Key: key, Body: fields.requestString}; //, ACL:'public-read'
+            //TODO: check to see if exists and iterate if it does
     //        s3.headObject(params, function (err, metadata) {  
     //            if (err && err.code === 'Not Found') {
     //                // Handle no object on cloud here  
