@@ -296,15 +296,15 @@ if (cluster.isMaster) {
     app.post('/upload', function(req, res, next) {
         var form = new formidable.IncomingForm();
         form.parse(req, function(err, fields, files) {
-
-            if (fields.input_url === undefined) {
-                res.status(500).send('No NM vis input_url');
+            if (fields.requestString === undefined) {
+                res.status(500).send('No NM vis requestString');
                 return;
             }
 
             var s3 = new AWS.S3();
             var key = randomStringAsBase64Url(8);
-            var params = {Bucket: 'nationalmap-sharing', Key: key, Body: fields.input_url}; //, ACL:'public-read'
+            var params = {Bucket: 'nationalmap-sharing', Key: key, Body: fields.requestString}; //, ACL:'public-read'
+            //TODO: check to see if exists and iterate if it does
     //        s3.headObject(params, function (err, metadata) {  
     //            if (err && err.code === 'Not Found') {
     //                // Handle no object on cloud here  
@@ -333,7 +333,6 @@ if (cluster.isMaster) {
                 res.status(500).send(err);
             }
             else  {
-                console.log(data.Body.toString());
                 res.status(200).send(data.Body.toString());
             }
         });

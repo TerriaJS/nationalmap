@@ -63,8 +63,10 @@ var SharePanel = function(options) {
     var that = this;
 
     var formData = new FormData();
-    formData.append('input_url', url);
+    formData.append('requestString', requestStr);
 
+    //TODO: need to figure out UI on where this lives - probably button and setting
+    //TODO: add image to upload
     return loadWithXhr({
         url : '/upload',
         method : 'POST',
