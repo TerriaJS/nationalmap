@@ -201,7 +201,9 @@ function interpretHash(hashProperties, userProperties, persistentInitSources, te
 
             //TODO: need to figure out startStr, startID, startUrl
             if (property === 'start') {
-                var url = 'http://localhost:3001/get/' + propertyValue;
+                var visServer = window.location.origin;
+
+                var url = visServer + '/get/' + propertyValue;
                 promises.push(loadText(url).then( function(text) {
                     console.log(text);
                     var startData = JSON.parse(text);

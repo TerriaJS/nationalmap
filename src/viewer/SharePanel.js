@@ -36,66 +36,69 @@ var SharePanel = function(options) {
                 </div>\
                 <div class="ausglobe-share-label">\
                     To <strong>copy</strong> to clipboard, click the link below and press CTRL+C or &#8984;+C:\
-                    <input readonly type="text" data-bind="value: url" size="100" onclick="this.select();" />\
+                    <input readonly type="text" data-bind="value: url()" size="100" onclick="this.select();" />\
                 </div>\
                 <div class="ausglobe-share-label">\
                     To <strong>embed</strong>, copy this code to embed this map into an HTML page:\
-                    <input readonly type="text" data-bind="value: embedCode" size="100" onclick="this.select();" />\
+                    <input readonly type="text" data-bind="value: embedCode()" size="100" onclick="this.select();" />\
                 </div>\
+            </div>\
+            <div class="ausglobe-share-label" data-bind="visible: !serviceInvoked()">\
+                <input class="ausglobe-services-send-button" type="button" value="Shorten" data-bind="click: sendRequest" />\
             </div>\
         </div>\
     ';
     wrapper.appendChild(info);
 
-    var uri = new URI(window.location);
-    var visServer = uri.protocol() + '://' + uri.host();
-
+    var visServer = window.location.origin;
     var request = options.request;
     
     var img = request.image;
     request.image = undefined;
     var requestStr = JSON.stringify(request);
-    var url = visServer + '#start=' + encodeURIComponent(requestStr);
+    var origUrl = visServer + '#start=' + encodeURIComponent(requestStr);
     request.image = img;
 
-    var viewModel;
+    var viewModel  = this._viewModel = {
+        request : options.request,
+        url : knockout.observable(origUrl),
+        itemsSkippedBecauseTheyHaveLocalData : options.itemsSkippedBecauseTheyHaveLocalData,
+        serviceInvoked : knockout.observable(false),
+        embedCode : knockout.observable('<iframe style="width: 720px; height: 405px; border: none;" src="' + origUrl + '" allowFullScreen mozAllowFullScreen webkitAllowFullScreen></iframe>'),
+        sendRequest : function() {
+            viewModel.serviceInvoked(true);
 
-    var that = this;
+            //TODO: need to figure out UI on where this lives - probably button and setting
+            //TODO: add image to upload
+            var formData = new FormData();
+            formData.append('requestString', requestStr);
 
-    var formData = new FormData();
-    formData.append('requestString', requestStr);
+            return loadWithXhr({
+                url : '/upload',
+                method : 'POST',
+                data : formData
+            }).then(function(response) {
+                console.log(response)
+                var newUrl = visServer + '#start=' + response;
+                viewModel.url(newUrl);
+                viewModel.embedCode('<iframe style="width: 720px; height: 405px; border: none;" src="' + newUrl + '" allowFullScreen mozAllowFullScreen webkitAllowFullScreen></iframe>');
+            }).otherwise(function() {
+                errorLoading(viewModel);
+            });
+        }
+    };
 
-    //TODO: need to figure out UI on where this lives - probably button and setting
-    //TODO: add image to upload
-    return loadWithXhr({
-        url : '/upload',
-        method : 'POST',
-        data : formData
-    }).then(function(response) {
-        console.log(response)
-        url = visServer + '#start=' + response;
-        viewModel  = that._viewModel = {
-            request : options.request,
-            url : url,
-            itemsSkippedBecauseTheyHaveLocalData : options.itemsSkippedBecauseTheyHaveLocalData,
-            embedCode : '<iframe style="width: 720px; height: 405px; border: none;" src="' + url + '" allowFullScreen mozAllowFullScreen webkitAllowFullScreen></iframe>'
-        };
+    viewModel.close = function() {
+        container.removeChild(wrapper);
+    };
+    viewModel.closeIfClickOnBackground = function(viewModel, e) {
+        if (e.target === wrapper) {
+            viewModel.close();
+        }
+        return true;
+    };
 
-        viewModel.close = function() {
-            container.removeChild(wrapper);
-        };
-        viewModel.closeIfClickOnBackground = function(viewModel, e) {
-            if (e.target === wrapper) {
-                viewModel.close();
-            }
-            return true;
-        };
-
-        knockout.applyBindings(that._viewModel, wrapper);
-
-    }).otherwise(function() {
-        errorLoading(viewModel);
-    });
+    knockout.applyBindings(this._viewModel, wrapper);
 
 };
 
