@@ -23,7 +23,7 @@ var SharePanel = function(options) {
         </div>\
         <div class="ausglobe-info-content">\
             <div class="ausglobe-share-image">\
-                <img data-bind="attr: { src: request.image }" height="300" />\
+                <img data-bind="attr: { src: request.image }" height="260" />\
             </div>\
             <div class="ausglobe-share-right">\
                 <div class="ausglobe-share-label" data-bind="visible: itemsSkippedBecauseTheyHaveLocalData.length > 0">\
@@ -68,7 +68,6 @@ var SharePanel = function(options) {
         sendRequest : function() {
             viewModel.serviceInvoked(true);
 
-            //TODO: need to figure out UI on where this lives - probably button and setting
             //TODO: add image to upload
             var formData = new FormData();
             formData.append('requestString', requestStr);
