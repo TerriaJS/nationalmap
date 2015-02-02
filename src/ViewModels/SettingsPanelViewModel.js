@@ -22,7 +22,40 @@ var SettingsPanelViewModel = function(options) {
     this.baseMaps = [];
     this.mouseOverBaseMap = undefined;
 
-    knockout.track(this, ['isVisible', 'baseMaps', 'mouseOverBaseMap']);
+    var imageryLayer = this.application.cesium.scene.imageryLayers.get(0);
+
+    this.brightness = imageryLayer.brightness;
+    this.contrast = imageryLayer.contrast;
+    this.hue = imageryLayer.hue;
+    this.saturation = imageryLayer.saturation;
+    this.gamma = imageryLayer.gamma;
+
+    knockout.track(this, ['isVisible', 'baseMaps', 'mouseOverBaseMap', 'brightness', 'contrast', 'hue', 'saturation', 'gamma']);
+
+    knockout.getObservable(this, 'brightness').subscribe(function() {
+        this.application.cesium.scene.imageryLayers.get(0).brightness = Number.parseFloat(this.brightness);
+        this.application.cesium.notifyRepaintRequired();
+    }, this);
+
+    knockout.getObservable(this, 'contrast').subscribe(function() {
+        this.application.cesium.scene.imageryLayers.get(0).contrast = Number.parseFloat(this.contrast);
+        this.application.cesium.notifyRepaintRequired();
+    }, this);
+
+    knockout.getObservable(this, 'hue').subscribe(function() {
+        this.application.cesium.scene.imageryLayers.get(0).hue = Number.parseFloat(this.hue);
+        this.application.cesium.notifyRepaintRequired();
+    }, this);
+
+    knockout.getObservable(this, 'saturation').subscribe(function() {
+        this.application.cesium.scene.imageryLayers.get(0).saturation = Number.parseFloat(this.saturation);
+        this.application.cesium.notifyRepaintRequired();
+    }, this);
+
+    knockout.getObservable(this, 'gamma').subscribe(function() {
+        this.application.cesium.scene.imageryLayers.get(0).gamma = Number.parseFloat(this.gamma);
+        this.application.cesium.notifyRepaintRequired();
+    }, this);
 };
 
 SettingsPanelViewModel.prototype.show = function(container) {
@@ -60,6 +93,14 @@ SettingsPanelViewModel.prototype.changeHighlightedBaseMap = function(baseMap) {
 
 SettingsPanelViewModel.prototype.selectBaseMap = function(baseMap) {
     this.application.baseMap = baseMap.catalogItem;
+
+    var imageryLayer = this.application.cesium.scene.imageryLayers.get(0);
+
+    this.brightness = imageryLayer.brightness;
+    this.contrast = imageryLayer.contrast;
+    this.hue = imageryLayer.hue;
+    this.saturation = imageryLayer.saturation;
+    this.gamma = imageryLayer.gamma;
 };
 
 SettingsPanelViewModel.prototype.resetHightedBaseMap = function() {
