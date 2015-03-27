@@ -13,14 +13,38 @@
             "isOpen": true,
             "items": [
                 {
+                    "name": "eReefs, data aggregated annually",
+                    "type": "group",
+                    "items": [
+                    {
+                      "name": "Water clarity",
+                      "description": "Annual median water clarity, as measured by the depth at which a Secchi observation disk can be seen.",
+                      "url": "http://ereeftds.bom.gov.au/ereefs/tds/wms/ereefs/mwq_gridAgg_P1A",
+                      "dataCustodian": "BOM",
+                      "layers": "SD_MIM_median", 
+                      "type": "wms"
+                    }
+                    ]
+                },
+                {
                     "name": "eReefs",
-                    "description": "[Licence](http://creativecommons.org/licenses/by/3.0/au/)",
-                    "dataCustodian": "[Australian Bureau of Meteorology](http://www.bom.gov.au/water/geofabric/)",
-                    "url": "http://ereeftds.bom.gov.au/ereefs/tds/wms/ereefs/mwq_gridAgg_P1D",
-                    "type": "wms-getCapabilities",
-                    "parameters": {
-                        "TIME": "2015-01-01T03:55:08.000Z"
-                     }
+                    "type": "group",                    
+                    "items": [
+                    {
+                      "name": "Monthly aggregation",                  
+                      "dataCustodian": "[Australian Bureau of Meteorology](http://www.bom.gov.au/water/geofabric/)",
+                      "url": "http://ereeftds.bom.gov.au/ereefs/tds/wms/ereefs/mwq_gridAgg_P1M",
+                      "type": "wms-getCapabilities",
+                      "titlefield": "name"
+                    },
+                    {
+                      "name": "Yearly aggregation",                  
+                      "dataCustodian": "[Australian Bureau of Meteorology](http://www.bom.gov.au/water/geofabric/)",
+                      "url": "http://ereeftds.bom.gov.au/ereefs/tds/wms/ereefs/mwq_gridAgg_P1A",
+                      "type": "wms-getCapabilities",
+                      "titlefield": "abstract"
+                    }
+                    ]
                 },
                 {
                     "name": "Geofabric",
