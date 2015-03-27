@@ -138,7 +138,7 @@ if (start) {
         BrandBarViewModel.create(ui, {
             elements: [
                 '<a target="_blank" href="http://www.gov.au/"><img src="images/gov-brand.png" height="52" /></a>',
-                '<div class="brand-bar-name">National Environmental<br/> <small>Information Infrastructure (beta)</small></div>',
+                '<div class="brand-bar-name">National Environmental<br/> Information Infrastructure <small>(beta)</small></div>',
                 '<a target="_blank" href="http://www.nicta.com.au"><img src="images/nicta.png" height="52" /></a>'
             ]
         });
