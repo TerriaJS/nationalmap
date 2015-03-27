@@ -23,6 +23,23 @@
                       "dataCustodian": "BOM",
                       "layers": "SD_MIM_median", 
                       "type": "wms"
+                    },
+                    {
+                      "name": "Chlorophyll-a concentration",
+                      "description": "...",
+                      "abstract": "Chlorophyll-a, reflecting wavelengths in the green part of the visible light spectrum, is the substance that helps plants capture the sun’s energy. In the water, it indicates the presence of microscopic green algae (phytoplankton). While these plants are a natural part of the reef ecosystem, elevated numbers (a bloom) of phytoplankton signal elevated nutrient levels, especially nitrogen, in the water. Typical sources are runoff from excess fertiliser being applied to crops and, to a lesser extent in the Great Barrier Reef region, sewage contamination from urban areas.",
+                      "layers": "Chl_MIM_mean",
+                      "type": "wms",
+                      "url": "http://ereeftds.bom.gov.au/ereefs/tds/wms/ereefs/mwq_gridAgg_P1A",
+                      "parameters": {
+                        "PALETTE":"mwq_chl",
+                        "STYLES":"boxfill/mwq_chl",
+                        "COLORSCALERANGE":"0,1",
+                        "NUMCOLORBANDS":"16",
+                        "ABOVEMAXCOLOR":"0xAF324B",
+                        "BELOWMINCOLOR":"transparent"
+                        
+                      }
                     }
                     ]
                 },
@@ -42,7 +59,7 @@
                       "dataCustodian": "[Australian Bureau of Meteorology](http://www.bom.gov.au/water/geofabric/)",
                       "url": "http://ereeftds.bom.gov.au/ereefs/tds/wms/ereefs/mwq_gridAgg_P1A",
                       "type": "wms-getCapabilities",
-                      "titlefield": "abstract"
+                      "titlefield": "name"
                     }
                     ]
                 },
@@ -60,7 +77,7 @@
                     {
                       "name": "GHI minimum January",
                       "layers": "GHI minimum January",
-                      "description": "[Licence](http://www.ga.gov.au/copyright)",
+                      "description": "Licence: CC-BY 3.0 AU [More info](http://www.ga.gov.au/copyright)",
                       "dataCustodian": "[Geoscience Australia](http://www.ga.gov.au/)",
                       "url": "http://www.ga.gov.au/gisimg/services/energy/Solar_Energy_GHI_Minimum/MapServer/WMSServer",
                       "type": "wms",
@@ -74,7 +91,7 @@
                     {
                       "name": "GHI minimum July",
                       "layers": "GHI minimum July",
-                      "description": "[Licence](http://www.ga.gov.au/copyright)",
+                      "description": "Licence: CC-BY 3.0 AU [More info](http://www.ga.gov.au/copyright)",
                       "dataCustodian": "[Geoscience Australia](http://www.ga.gov.au/)",
                       "url": "http://www.ga.gov.au/gisimg/services/energy/Solar_Energy_GHI_Minimum/MapServer/WMSServer",
                       "type": "wms",
