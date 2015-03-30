@@ -6,7 +6,7 @@ var fs = require('fs');
 var glob = require('glob-all');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var browserify = require('browserify');
+var browserify_ = require('browserify');
 var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
 var jsdoc = require('gulp-jsdoc');
@@ -169,12 +169,23 @@ function bundle(name, bundler, minify, catchErrors) {
     return result;
 }
 
+function borwserify(files)
+{
+  // avoid long ../../../../../../s
+  return browserify_({
+    entries : files,
+    paths : ['./node_modules',
+             './',
+             './src/']
+  });
+}
+
 function build(name, files, minify) {
     return bundle(name, browserify(files).transform('brfs').transform('deamdify'), minify, false);
 }
 
 function watch(name, files, minify) {
-    var bundler = watchify(files).transform('brfs').transform('deamdify');
+    var bundler = watchify(borwserify(files)).transform('brfs').transform('deamdify');
 
     function rebundle() {
         var start = new Date();
