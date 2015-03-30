@@ -169,7 +169,7 @@ function bundle(name, bundler, minify, catchErrors) {
     return result;
 }
 
-function borwserify(files)
+function browserify(files)
 {
   // avoid long ../../../../../../s
   return browserify_({
@@ -185,7 +185,7 @@ function build(name, files, minify) {
 }
 
 function watch(name, files, minify) {
-    var bundler = watchify(borwserify(files)).transform('brfs').transform('deamdify');
+    var bundler = watchify(browserify(files)).transform('brfs').transform('deamdify');
 
     function rebundle() {
         var start = new Date();
