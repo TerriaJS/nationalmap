@@ -68,6 +68,14 @@ var CkanCatalogGroup = function(application) {
     this.blacklist = undefined;
 
     /**
+     * Gets or sets a hash of names of whitelisted gdata sources.  If this is defined, then no data sources
+     * will be shown to the user unless they appear in this hash. The keys should be the names of the data sources 
+     * to whitelist, and the values should be "true". Whitelisting groups in to supported. This property is observable.
+     * @type {Object}
+     */
+    this.whitelist = undefined;
+
+    /**
      * Gets or sets a value indicating whether the CKAN datasets should be filtered by querying GetCapabilities from each
      * referenced WMS server and excluding datasets not found therein.  This property is observable.
      * @type {Boolean}
@@ -94,7 +102,7 @@ var CkanCatalogGroup = function(application) {
     this.includeKml = false;
     this.includeEsriMapServer = false;
 
-    knockout.track(this, ['url', 'dataCustodian', 'filterQuery', 'blacklist', 'wmsParameters']);
+    knockout.track(this, ['url', 'dataCustodian', 'filterQuery', 'blacklist', 'whitelist', 'wmsParameters']);
 };
 
 inherit(CatalogGroup, CkanCatalogGroup);
@@ -169,7 +177,7 @@ CkanCatalogGroup.defaultSerializers.isLoading = function(ckanGroup, json, proper
 freezeObject(CkanCatalogGroup.defaultSerializers);
 
 CkanCatalogGroup.prototype._getValuesThatInfluenceLoad = function() {
-    return [this.url, this.filterQuery, this.blacklist, this.filterByWmsGetCapabilities, this.minimumMaxScaleDenominator];
+    return [this.url, this.filterQuery, this.blacklist, this.whitelist, this.filterByWmsGetCapabilities, this.minimumMaxScaleDenominator];
 };
 
 CkanCatalogGroup.prototype._load = function() {
@@ -334,6 +342,10 @@ function populateGroupFromResults(ckanGroup, json) {
 
         if (ckanGroup.blacklist && ckanGroup.blacklist[item.title]) {
             console.log('Provider Feedback: Filtering out ' + item.title + ' (' + item.name + ') because it is blacklisted.');
+            continue;
+        }
+        if (ckanGroup.whitelist && !ckanGroup.whitelist[item.title]) {
+            console.log('Provider Feedback: Filtering out ' + item.title + ' (' + item.name + ') because it is not on the whitelist.');
             continue;
         }
 
