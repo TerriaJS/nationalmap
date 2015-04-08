@@ -8,7 +8,7 @@
         "www.abc.net.au"
     ],
     "initializationUrls" : [
-        "nm"
+        "init_neii.json"
     ]
 }
 
