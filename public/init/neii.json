@@ -13,6 +13,20 @@
             "isOpen": true,
             "items": [
                 {
+                    "name": "eReefs, data aggregated annually",
+                    "type": "group",
+                    "items": [
+                    {
+                      "name": "Water clarity",
+                      "description": "Annual median water clarity, as measured by the depth at which a Secchi observation disk can be seen.",
+                      "url": "http://ereeftds.bom.gov.au/ereefs/tds/wms/ereefs/mwq_gridAgg_P1A",
+                      "dataCustodian": "BOM",
+                      "layers": "SD_MIM_median", 
+                      "type": "wms"
+                    }
+                    ]
+                },
+                {
                     "name": "eReefs",
                     "type": "group",
 
