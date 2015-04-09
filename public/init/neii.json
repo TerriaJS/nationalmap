@@ -16,6 +16,7 @@
                     "name": "eReefs",
                     "type": "group",
                     "isOpen": true,
+                    "preserveOrder": true,
 
                     "items": [
                         {
