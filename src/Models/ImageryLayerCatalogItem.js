@@ -21,6 +21,7 @@ var CatalogItem = require('./CatalogItem');
 var CesiumTileLayer = require('../Map/CesiumTileLayer');
 var inherit = require('../Core/inherit');
 var ModelError = require('./ModelError');
+var overrideProperty = require('../Core/overrideProperty');
 var pollToPromise = require('../Core/pollToPromise');
 var rectangleToLatLngBounds = require('../Map/rectangleToLatLngBounds');
 
@@ -62,6 +63,15 @@ var ImageryLayerCatalogItem = function(application) {
     this.treat404AsError = false;
 
     /**
+     * Gets or sets a value indicating whether non-specific (no HTTP status code) tile errors should be ignored. This is a
+     * last resort, for dealing with odd cases such as data sources that return non-images (eg XML) with a 200 status code.
+     * No error messages will be shown to the user.
+     * @type {Boolean}
+     * @default false
+     */
+    this.ignoreUnknownTileErrors = false;
+
+    /**
      * Gets or sets the {@link TimeIntervalCollection} defining the intervals of distinct imagery.  If this catalog item
      * is not time-dynamic, property is undefined.  This property is observable.
      * @type {ImageryLayerInterval[]}
@@ -69,10 +79,9 @@ var ImageryLayerCatalogItem = function(application) {
      */
     this.intervals = undefined;
 
-    knockout.track(this, ['_clock', 'opacity', 'treat404AsError', 'intervals']);
+    knockout.track(this, ['_clock', 'opacity', 'treat404AsError', 'ignoreUnknownTileErrors', 'intervals']);
 
-    delete this.__knockoutObservables.clock;
-    knockout.defineProperty(this, 'clock', {
+    overrideProperty(this, 'clock', {
         get : function() {
             var clock = this._clock;
             if (!clock && this.intervals && this.intervals.length > 0) {
@@ -423,18 +432,24 @@ function enableLayer(catalogItem, imageryProvider, opacity) {
         if (defined(errorEvent)) {
             errorEvent.addEventListener(function(tileProviderError) {
                 // We're only concerned about failures for tiles that actually overlap this item's extent.
-                if (defined(catalogItem.extent)) {
+                if (defined(catalogItem.rectangle)) {
                     var tilingScheme = imageryProvider.tilingScheme;
                     var tileExtent = tilingScheme.tileXYToRectangle(tileProviderError.x, tileProviderError.y, tileProviderError.level);
-                    var intersection = Rectangle.intersectWith(tileExtent, catalogItem.extent);
-                    if (Rectangle.isEmpty(intersection)) {
+                    var intersection = Rectangle.intersection(tileExtent, catalogItem.rectangle);
+                    if (!defined(intersection)) {
                         return;
                     }
                 }
 
-                if (!catalogItem.treat404AsError && defined(tileProviderError.error) && tileProviderError.error.statusCode === 404) {
+                if (defined(tileProviderError.error) && tileProviderError.error.statusCode === 404) {
+                    if(!catalogItem.treat404AsError) {
+                        return;
+                    }
+                    // ignoreUnknownTileErrors is only for genuinely unknown (no status code) issues
+                } else if (catalogItem.ignoreUnknownTileErrors && (!defined(tileProviderError.error) || !defined(tileProviderError.error.statusCode))) {
                     return;
                 }
+
 
                 // Retry 3 times.
                 if (tileProviderError.timesRetried < 3) {
