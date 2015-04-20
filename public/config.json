@@ -8,7 +8,7 @@
         "www.abc.net.au"
     ],
     "initializationUrls" : [
-        "init/neii.json",
+        "init/neii-ereefs.json",
         "init/neii-si.json",
         "init/neii-geofabric.json"
     ]
