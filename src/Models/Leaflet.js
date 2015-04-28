@@ -11,6 +11,7 @@ var EasingFunction = require('../../third_party/cesium/Source/Core/EasingFunctio
 var Ellipsoid = require('../../third_party/cesium/Source/Core/Ellipsoid');
 var knockout = require('../../third_party/cesium/Source/ThirdParty/knockout');
 var Rectangle = require('../../third_party/cesium/Source/Core/Rectangle');
+var cesiumRequestAnimationFrame = require('../../third_party/cesium/Source/Core/requestAnimationFrame');
 var TweenCollection = require('../../third_party/cesium/Source/Scene/TweenCollection');
 var when = require('../../third_party/cesium/Source/ThirdParty/when');
 
@@ -45,7 +46,9 @@ var Leaflet = function(application, map) {
             className: '',
             html: '<img src="images/NM-LocationTarget.svg" width="50" height="50" alt="" />',
             iconSize: L.point(50, 50)
-        })
+        }),
+        clickable: false,
+        keyboard: false
     });
     this._selectionIndicator.addTo(this.map);
     this._selectionIndicatorDomElement = this._selectionIndicator._icon.children[0];
@@ -203,14 +206,10 @@ function pickFeatures(leaflet, latlng) {
     var pickPosition = Ellipsoid.WGS84.cartographicToCartesian(pickedLocation);
     leaflet._pickedFeatures.pickPosition = pickPosition;
 
-    var pickedXY = leaflet.map.latLngToContainerPoint(latlng, leaflet.map.getZoom());
-    var bounds = leaflet.map.getBounds();
-    var extent = new Rectangle(CesiumMath.toRadians(bounds.getWest()), CesiumMath.toRadians(bounds.getSouth()), CesiumMath.toRadians(bounds.getEast()), CesiumMath.toRadians(bounds.getNorth()));
-
     for (var i = 0; i < dataSources.length ; ++i) {
         var dataSource = dataSources[i];
-        if (dataSource.isEnabled && dataSource.isShown && defined(dataSource.pickFeaturesInLeaflet)) {
-            promises.push(dataSource.pickFeaturesInLeaflet(extent, leaflet.map.getSize().x, leaflet.map.getSize().y, pickedXY.x, pickedXY.y));
+        if (dataSource.isEnabled && dataSource.isShown && defined(dataSource._imageryLayer) && defined(dataSource._imageryLayer.pickFeatures)) {
+            promises.push(dataSource._imageryLayer.pickFeatures(leaflet.map, CesiumMath.toRadians(latlng.lng), CesiumMath.toRadians(latlng.lat)));
         }
     }
 
@@ -229,7 +228,7 @@ function pickFeatures(leaflet, latlng) {
                         feature.position = pickedLocation;
                     }
 
-                    leaflet._pickedFeatures.features.push(leaflet._createEntityFromImageryLayerFeature(feature, Cartographic.fromDegrees(latlng.lng, latlng.lat)));
+                    leaflet._pickedFeatures.features.push(leaflet._createEntityFromImageryLayerFeature(feature));
                 }
             }
         }
@@ -264,7 +263,7 @@ function startTweens(leaflet) {
     leaflet._tweens.update();
 
     if (leaflet._tweens.length !== 0) {
-        requestAnimationFrame(startTweens.bind(undefined, leaflet));
+        cesiumRequestAnimationFrame(startTweens.bind(undefined, leaflet));
     }
 }
 

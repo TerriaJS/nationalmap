@@ -3,21 +3,15 @@
 /*global require,URI*/
 
 var ArcGisMapServerImageryProvider = require('../../third_party/cesium/Source/Scene/ArcGisMapServerImageryProvider');
-var Cartesian2 = require('../../third_party/cesium/Source/Core/Cartesian2');
-var CesiumMath = require('../../third_party/cesium/Source/Core/Math');
 var defined = require('../../third_party/cesium/Source/Core/defined');
 var defineProperties = require('../../third_party/cesium/Source/Core/defineProperties');
-var DeveloperError = require('../../third_party/cesium/Source/Core/DeveloperError');
-var ImageryLayer = require('../../third_party/cesium/Source/Scene/ImageryLayer');
+var Ellipsoid = require('../../third_party/cesium/Source/Core/Ellipsoid');
 var knockout = require('../../third_party/cesium/Source/ThirdParty/knockout');
-var Rectangle = require('../../third_party/cesium/Source/Core/Rectangle');
-var WebMercatorProjection = require('../../third_party/cesium/Source/Core/WebMercatorProjection');
 var WebMercatorTilingScheme = require('../../third_party/cesium/Source/Core/WebMercatorTilingScheme');
-var when = require('../../third_party/cesium/Source/ThirdParty/when');
 
-var CesiumTileLayer = require('../Map/CesiumTileLayer');
 var ImageryLayerCatalogItem = require('./ImageryLayerCatalogItem');
 var inherit = require('../Core/inherit');
+var overrideProperty = require('../Core/overrideProperty');
 
 /**
  * A {@link ImageryLayerCatalogItem} representing a layer from an Esri ArcGIS MapServer.
@@ -46,11 +40,18 @@ var ArcGisMapServerCatalogItem = function(application) {
      */
     this.layers = undefined;
 
-    knockout.track(this, ['url', 'layers', '_legendUrl']);
+    /**
+     * Gets or sets the denominator of the largest scale (smallest denominator) for which tiles should be requested.  For example, if this value is 1000, then tiles representing
+     * a scale larger than 1:1000 (i.e. numerically smaller denominator, when zooming in closer) will not be requested.  Instead, tiles of the largest-available scale, as specified by this property,
+     * will be used and will simply get blurier as the user zooms in closer.
+     * @type {Number}
+     */
+    this.maximumScale = undefined;
+
+    knockout.track(this, ['url', 'layers', 'maximumScale', '_legendUrl']);
 
     // dataUrl, metadataUrl, and legendUrl are derived from url if not explicitly specified.
-    delete this.__knockoutObservables.legendUrl;
-    knockout.defineProperty(this, 'legendUrl', {
+    overrideProperty(this, 'legendUrl', {
         get : function() {
             if (defined(this._legendUrl)) {
                 return this._legendUrl;
@@ -90,109 +91,33 @@ defineProperties(ArcGisMapServerCatalogItem.prototype, {
     }
 });
 
+ArcGisMapServerCatalogItem.prototype._createImageryProvider = function() {
+    var maximumLevel;
 
-ArcGisMapServerCatalogItem.prototype._enableInCesium = function() {
-    if (defined(this._imageryLayer)) {
-        throw new DeveloperError('This data source is already enabled.');
+    if (defined(this.maximumScale)) {
+        var dpi = 96; // Esri default DPI, unless we specify otherwise.
+        var centimetersPerInch = 2.54;
+        var centimetersPerMeter = 100;
+        var dotsPerMeter = dpi * centimetersPerMeter / centimetersPerInch;
+        var tileWidth = 256;
+
+        var circumferenceAtEquator = 2 * Math.PI * Ellipsoid.WGS84.maximumRadius;
+        var distancePerPixelAtLevel0 = circumferenceAtEquator / tileWidth;
+        var level0ScaleDenominator = distancePerPixelAtLevel0 * dotsPerMeter;
+
+        // 1e-6 epsilon from WMS 1.3.0 spec, section 7.2.4.6.9.
+        var ratio = level0ScaleDenominator / (this.maximumScale - 1e-6);
+        var levelAtMinScaleDenominator = Math.log(ratio) / Math.log(2);
+        maximumLevel = levelAtMinScaleDenominator | 0;
     }
 
-    var scene = this.application.cesium.scene;
-
-    this._imageryLayer = new ImageryLayer(createImageryProvider(this), {
-        show: false,
-        alpha : this.opacity
-        // Ideally we'd specify "rectangle : this.rectangle" here.
-        // But lots of data sources get the extent wrong, and even the ones that get it right
-        // specify the extent of the geometry itself, not the representation of the geometry.  So that means,
-        // for example, that if we clip the layer at the given extent, then a point centered on the edge of the
-        // extent will only be half visible.
-    });
-
-    scene.imageryLayers.add(this._imageryLayer);
-};
-
-ArcGisMapServerCatalogItem.prototype._disableInCesium = function() {
-    if (!defined(this._imageryLayer)) {
-        throw new DeveloperError('This data source is not enabled.');
-    }
-
-    var scene = this.application.cesium.scene;
-
-    scene.imageryLayers.remove(this._imageryLayer);
-    this._imageryLayer = undefined;
-};
-
-ArcGisMapServerCatalogItem.prototype._enableInLeaflet = function() {
-    if (defined(this._imageryLayer)) {
-        throw new DeveloperError('This data source is already enabled.');
-    }
-
-    var options = {
-        opacity : this.opacity,
-        layers: this.layers ? this.layers.split(',') : undefined
-        // Ideally we'd specify "bounds : rectangleToLatLngBounds(this.rectangle)" here.
-        // See comment in _enableInCesium for an explanation of why we don't.
-    };
-
-    this._imageryLayer = new CesiumTileLayer(createImageryProvider(this), options);
-};
-
-ArcGisMapServerCatalogItem.prototype._disableInLeaflet = function() {
-    if (!defined(this._imageryLayer)) {
-        throw new DeveloperError('This data source is not enabled.');
-    }
-
-    this._imageryLayer = undefined;
-};
-
-ArcGisMapServerCatalogItem.prototype.pickFeaturesInLeaflet = function(mapExtent, mapWidth, mapHeight, pickX, pickY) {
-    var projection = new WebMercatorProjection();
-    var sw = projection.project(Rectangle.southwest(mapExtent));
-    var ne = projection.project(Rectangle.northeast(mapExtent));
-
-    var tilingScheme = new WebMercatorTilingScheme({
-        rectangleSouthwestInMeters: sw,
-        rectangleNortheastInMeters: ne
-    });
-
-    // Compute the longitude and latitude of the pick location.
-    var x = CesiumMath.lerp(sw.x, ne.x, pickX / (mapWidth - 1));
-    var y = CesiumMath.lerp(ne.y, sw.y, pickY / (mapHeight - 1));
-
-    var ll = projection.unproject(new Cartesian2(x, y));
-
-    // Use a Cesium imagery provider to pick features.
-    var imageryProvider = new ArcGisMapServerImageryProvider({
-        url : cleanAndProxyUrl(this.application, this.url),
-        layers : this.layers,
-        tilingScheme : tilingScheme,
-        tileWidth : mapWidth,
-        tileHeight : mapHeight,
-        usePreCachedTilesIfAvailable : false
-    });
-
-    var deferred = when.defer();
-
-    function pollForReady() {
-        if (imageryProvider.ready) {
-            deferred.resolve(imageryProvider.pickFeatures(0, 0, 0, ll.longitude, ll.latitude));
-        } else {
-            setTimeout(pollForReady, 100);
-        }
-    }
-
-    pollForReady();
-
-    return deferred.promise;
-};
-
-function createImageryProvider(item) {
     return new ArcGisMapServerImageryProvider({
-        url : cleanAndProxyUrl(item.application, item.url),
-        layers : item.layers,
-        tilingScheme : new WebMercatorTilingScheme()
+        url: cleanAndProxyUrl(this.application, this.url),
+        layers: this.layers,
+        tilingScheme: new WebMercatorTilingScheme(),
+        maximumLevel: maximumLevel
     });
-}
+};
 
 function cleanAndProxyUrl(application, url) {
     return proxyUrl(application, cleanUrl(url));

@@ -280,12 +280,12 @@ if (start) {
         menuBar.items.push(new MenuBarItemViewModel({
             label: 'About',
             tooltip: 'About National Map.',
-            href: 'http://nicta.github.io/nationalmap/public/info.html'
+            href: 'help/About.html'
         }));
         menuBar.items.push(new MenuBarItemViewModel({
             label: 'Help',
             tooltip: 'Help using National Map.',
-            href: 'http://nicta.github.io/nationalmap/public/faq.html'
+            href: 'help/Help.html'
         }));
 
         menuBar.show(ui);
@@ -311,13 +311,13 @@ if (start) {
 
         var searchTab = new SearchTabViewModel(application);
         
+        searchTab.searchProviders.push(new CatalogItemNameSearchProviderViewModel({
+            application: application
+        }));
         searchTab.searchProviders.push(new BingMapsSearchProviderViewModel({
             application: application
         }));
         searchTab.searchProviders.push(new GazetteerSearchProviderViewModel({
-            application: application
-        }));
-        searchTab.searchProviders.push(new CatalogItemNameSearchProviderViewModel({
             application: application
         }));
 

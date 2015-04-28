@@ -10,7 +10,6 @@ var defineProperties = require('../../third_party/cesium/Source/Core/definePrope
 var freezeObject = require('../../third_party/cesium/Source/Core/freezeObject');
 var knockout = require('../../third_party/cesium/Source/ThirdParty/knockout');
 var loadXML = require('../../third_party/cesium/Source/Core/loadXML');
-var Rectangle = require('../../third_party/cesium/Source/Core/Rectangle');
 var GeographicTilingScheme = require('../../third_party/cesium/Source/Core/GeographicTilingScheme');
 
 var ModelError = require('./ModelError');
@@ -66,7 +65,13 @@ var WebMapServiceCatalogGroup = function(application) {
      */
     this.titleField = 'title';
 
-    knockout.track(this, ['url', 'dataCustodian', 'parameters', 'blacklist', 'titleField']);
+    /**
+     * Gets or sets a hash of properties that will be set on each child item.
+     * For example, { 'treat404AsError': false }
+     */
+    this.itemProperties = undefined;
+
+    knockout.track(this, ['url', 'dataCustodian', 'parameters', 'blacklist', 'titleField', 'itemProperties']);
 };
 
 inherit(CatalogGroup, WebMapServiceCatalogGroup);
@@ -145,7 +150,7 @@ WebMapServiceCatalogGroup.prototype._getValuesThatInfluenceLoad = function() {
 };
 
 WebMapServiceCatalogGroup.prototype._load = function() {
-    var url = cleanAndProxyUrl(this.application, this.url) + '?service=WMS&request=GetCapabilities&version=1.1.1&tiled=true';
+    var url = cleanAndProxyUrl(this.application, this.url) + '?service=WMS&request=GetCapabilities&version=1.3.0&tiled=true';
 
     var that = this;
     return loadXML(url).then(function(xml) {
@@ -192,18 +197,6 @@ sending an email to <a href="mailto:nationalmap@lists.nicta.com.au">nationalmap@
             } else if (defined(format.indexOf) && format.indexOf('application/vnd.ogc.gml') >= 0) {
                 supportsXmlGetFeatureInfo = true;
                 xmlContentType = 'application/vnd.ogc.gml';
-            }
-        }
-
-        if (defined(json.Capability.VendorSpecificCapabilities) &&
-            defined(json.Capability.VendorSpecificCapabilities.TileSet)) {
-
-            var tileSet = json.Capability.VendorSpecificCapabilities.TileSet;
-            for (var i = 0; i < tileSet.length; i++) {
-                if (tileSet[i].SRS ===  "EPSG:3857") {
-                    that.parameters = combine(that.parameters, {'tiled': true});
-                    break;
-                }
             }
         }
 
@@ -306,6 +299,7 @@ function createWmsDataSource(wmsGroup, layer, supportsJsonGetFeatureInfo, suppor
     result.url = wmsGroup.url;
     result.layers = layer.Name;
     result.parameters = wmsGroup.parameters;
+    result.minScaleDenominator = layer.MinScaleDenominator;
 
     result.description = '';
 
@@ -324,6 +318,12 @@ function createWmsDataSource(wmsGroup, layer, supportsJsonGetFeatureInfo, suppor
         result.description += layer.Abstract;
     }
 
+    if (typeof(wmsGroup.itemProperties) === 'object') {
+        Object.keys(wmsGroup.itemProperties).forEach(function(k) {
+            result[k] = wmsGroup.itemProperties[k];
+        });
+    }
+
 
     var queryable = defaultValue(getInheritableProperty(layer, 'queryable'), false);
 
@@ -331,15 +331,8 @@ function createWmsDataSource(wmsGroup, layer, supportsJsonGetFeatureInfo, suppor
     result.getFeatureInfoAsXml = queryable && supportsXmlGetFeatureInfo;
     result.getFeatureInfoXmlContentType = xmlContentType;
 
-    var egbb = getInheritableProperty(layer, 'EX_GeographicBoundingBox'); // required in WMS 1.3.0
-    if (defined(egbb)) {
-        result.rectangle = Rectangle.fromDegrees(egbb.westBoundLongitude, egbb.southBoundLatitude, egbb.eastBoundLongitude, egbb.northBoundLatitude);
-    } else {
-        var llbb = getInheritableProperty(layer, 'LatLonBoundingBox'); // required in WMS 1.0.0 through 1.1.1
-        if (defined(llbb)) {
-            result.rectangle = Rectangle.fromDegrees(llbb.minx, llbb.miny, llbb.maxx, llbb.maxy);
-        }
-    }
+    result.rectangle = WebMapServiceCatalogItem.getRectangleFromLayer(layer);
+    result.intervals = WebMapServiceCatalogItem.getIntervalsFromLayer(layer);
 
     var crs;
     if (defined(layer.CRS)) {

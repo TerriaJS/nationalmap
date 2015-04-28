@@ -1,9 +1,13 @@
 'use strict';
 
 /*global require,L*/
+var Cartographic = require('../../third_party/cesium/Source/Core/Cartographic');
+var defined = require('../../third_party/cesium/Source/Core/defined');
 var DeveloperError = require('../../third_party/cesium/Source/Core/DeveloperError');
 var ImageryProvider = require('../../third_party/cesium/Source/Scene/ImageryProvider');
 var WebMercatorTilingScheme = require('../../third_party/cesium/Source/Core/WebMercatorTilingScheme');
+
+var pollToPromise = require('../Core/pollToPromise');
 
 var CesiumTileLayer = L.TileLayer.extend({
     initialize: function(imageryProvider, options) {
@@ -61,9 +65,32 @@ var CesiumTileLayer = L.TileLayer.extend({
             } else if (tilingScheme.getNumberOfXTilesAtLevel(0) !== 1 || tilingScheme.getNumberOfYTilesAtLevel(0) !== 1) {
                 throw new DeveloperError('Only ImageryProviders with 1x1 or 2x2 tiles at level 0 can be used with Leaflet.');
             }
+
+            if (defined(this.imageryProvider.maximumLevel)) {
+                this.options.maxNativeZoom = this.imageryProvider.maximumLevel;
+            }
         }
 
         L.TileLayer.prototype._update.apply(this, arguments);
+    },
+
+    pickFeatures: function(map, longitudeRadians, latitudeRadians) {
+        var ll = new Cartographic(longitudeRadians, latitudeRadians, 0.0);
+
+        var level = map.getZoom();
+
+        var that = this;
+        return pollToPromise(function() {
+            return that.imageryProvider.ready;
+        }).then(function() {
+            var tilingScheme = that.imageryProvider.tilingScheme;
+            var tileCoordinates = tilingScheme.positionToTileXY(ll, level);
+            if (!defined(tileCoordinates)) {
+                return undefined;
+            }
+
+            return that.imageryProvider.pickFeatures(tileCoordinates.x, tileCoordinates.y, level, longitudeRadians, latitudeRadians);
+        });
     }
 });
 
