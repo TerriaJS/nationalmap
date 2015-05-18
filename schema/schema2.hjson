@@ -1,0 +1,431 @@
+{
+  definitions: {
+    items: {
+      title: "Items" 
+      description: List of items or groups
+      type: array
+      format: tabs
+      items:
+        {
+        type: object
+        oneOf: [
+          { "$ref": "#/definitions/wms" },
+          { "$ref": "#/definitions/ckanGroup" }
+          { "$ref": "#/definitions/group" }
+          { "$ref": "#/definitions/csv" }
+        ]
+      }
+    }
+    itemGroup: {
+      # General class for group items
+      type: object
+      properties: {
+        isOpen: {
+          title: "Is Open"
+          description: "Should this group be automatically opened when Terria loads?"
+          type: boolean
+        }
+
+        blacklist: {
+          # Blacklists are an object of { itemname: true } pairs.
+          type: object
+          description: "Names of datasets that will be filtered out of the catalogue. Set each to \"true\"."
+          additionalProperties: {
+            type: boolean
+          }
+        }
+        whitelist: {
+          type: object
+          description: "If there is a whitelist, only the names of datasets contained in it will be shown. All other datasets will be removed."
+          additionalProperties: {
+            type: boolean
+          }
+        }
+        itemProperties: {
+          type: object
+          title: "Item Properties"
+          description: "Any additional properties to set on each item in the group, overriding values retrieved from data sources."          
+        }
+      }
+    }
+    item: {
+      type: object
+      properties: {
+        dataUrlType: {
+          title: "Data URL Type"
+          description: "None: don't generate a URL for downloading data. Direct: use a hardcoded URL."
+          type: string
+          enum: [ "none", "direct" ]
+        }
+        dataUrl: {
+          title: "Data URL"
+          description: "Hard coded location of data to download. Requires dataUrlType=direct"
+          type: string
+          format: url
+        }
+        keepOnTop: {
+          title: "Keep On Top"
+          description: "Whether to show this layer above others." # I think?
+          type: boolean
+
+        }
+      }
+      #allOf: [ { "$ref": "#/definitions/itemOrGroup" } ]
+    }
+    group: {
+      title: "Group"
+      allOf: [
+        { "$ref": "#/definitions/itemOrGroup" }
+        { "$ref": "#/definitions/itemGroup" }
+      ]
+      description: "A manual grouping of more items or groups"
+      type: "object"
+      defaultProperties: [ "name", "type", "items" ]
+      properties: {
+        type: { type: "string", enum: [ "group" ] }
+        items: { "$ref":  "#/definitions/items" }
+      }
+    }
+    wms: {
+      title: "WMS layer"
+      description: "A single layer from a Web Mapping Service server"
+      type: object
+      allOf: [
+        { "$ref": "#/definitions/item" }
+        { "$ref": "#/definitions/itemOrGroup" }
+        ]
+      defaultProperties: [ "name", "type", "url", "layers" ]
+      properties: {
+        type: { type: "string", enum: [ "wms" ] }
+        layers: {
+          title: "Layer Names"
+          description: "Comma-separated list of WMS layer names to include."
+          type: string
+        }
+        abstract: {
+          type: string
+          description: "Override the abstract provided by the WMS server" # maybe?
+        }
+        parameters: {
+          type: object
+          description: "Additional parameters to pass to the WMS server."
+        }
+        clipToRectangle: {
+          type: boolean
+          title: "Clip to Rectangle"
+          description: "Whether this dataset should be clipped to the provided rectangle. False by default."
+        }
+        getFeatureInfoFormats: {
+          type: array
+          title: "GetFeatureInfo Formats"
+          description: "The formats in which to try WMS GetFeatureInfo requests"
+          items: [
+            {
+              required:
+              [
+                type
+              ]
+              type: object
+              title: "Format"
+              properties: {
+                type: {
+                  type: string
+                }
+              }
+            }
+          ]
+        }
+
+        # to add here: tilingScheme - looks unused but implemented
+      }
+    }
+    wfs: {
+      title: "WFS layer"
+      description: "A feature from a Web Feature Service server"
+      type: object
+      allOf: [
+        { "$ref": "#/definitions/item" }
+        { "$ref": "#/definitions/itemOrGroup" }
+        ]
+      defaultProperties: [ "name", "type", "url", "typeNames" ]
+      properties: {
+        type: { type: "string", enum: [ "wfs" ] }
+        typeNames: {
+          title: "Type Names"
+          description: "The WFS feature type names"
+          type: string
+        }
+      }
+    }
+    abs-itt: {
+      title: "ABS ITT" # what does ITT stand for?
+      type: object
+      allOf: [ { "$ref": "#/definitions/itemOrGroup" } ]
+      properties: {
+        type: { type: "string", enum: [ "abs-itt" ] }
+        filter:
+        {
+          items:
+          [
+            {
+              type: string
+            }
+          ]
+          type: array
+        }
+      }
+    }
+    csv: {
+      title: "CSV file"
+      description: "A comma-separated value file to be loaded as either points or mapped to regions."
+      type: object
+      allOf: [ { "$ref": "#/definitions/itemOrGroup" } ]
+      defaultProperties: [ "name", "type", "url", "tableStyle" ]
+      properties: {
+        type: { type: "string", enum: [ "csv" ] }
+        tableStyle: {
+          type: object
+          properties: {
+            scale: {
+              type: number
+            }
+            scaleByValue: {
+              type: boolean
+            }
+            colorMap:
+            {
+              items:
+              [
+                {
+                  required: [
+                    color
+                    offset
+                  ]
+                  type: object
+                  properties: {
+                    color:
+                    {
+                      type: string
+                    }
+                    offset:
+                    {
+                      type: number
+                    }
+                  }
+                }
+              ]
+              type: array
+            }
+            displayTime:{
+              type: integer
+            }
+            maxDisplayValue: {
+              type: integer
+            }
+            imageUrl: {
+              type: string
+            }
+            regionType: { #unclear how this works
+              type: string
+            }
+            minDisplayValue: {
+              type: integer
+            }
+            dataVariable: {
+              type: string
+            }
+            regionVariable: {
+              type: string
+            }
+
+          }
+        }
+
+      }
+
+    }
+    ckanGroup: {
+      title: "CKAN catalog"
+      type: object
+      allOf: [
+        { "$ref": "#/definitions/itemGroup" }
+        { "$ref": "#/definitions/itemOrGroup" }
+        ]
+      defaultProperties: [ "type", "name", "url" ]
+      properties: {
+        type: { type: "string", enum: [ "ckan" ] }
+        filterQuery: {
+          type: array
+          title: Filter Query
+          description: 
+            '''
+            The filter query to pass to CKAN when querying the available data sources and their groups.  Each string in the
+            array is passed to CKAN as an independent search string and the results are concatenated to create the complete list.  The
+            search string is equivalent to what would be in the parameters segment of the url calling the CKAN search api.
+            See the Solr documentation (http://wiki.apache.org/solr/CommonQueryParameters#fq) for information about filter queries.
+            '''
+          items: [ { "type": "string" } ]
+        }
+        includeWms: {
+          title: "Include WMS Data Sources"
+          type: boolean
+        }
+        includeKml: {
+          title: "Include KML Data Sources"
+          type: boolean
+        }
+        includeEsriMapServer: {
+          title: "Include ESRI Map Server Data Sources"
+          type: boolean
+        }
+        minimumMaxScaleDenominator: {
+          title: "Minimum Max Scale Denominator"
+          description: "The minimum MaxScaleDenominator that is allowed for a WMS dataset to be included in this CKAN group."
+          type: number
+        }
+        filterByWmsGetCapabilities: {
+          title: "Filter by WMS 'Get Capabilities'"
+          type: boolean
+
+          description: "Whether the CKAN datasets should be filtered by querying GetCapabilities from each referenced WMS server and excluding datasets not found therein."
+        }
+        wmsParameters: {
+          type: object
+          description: "Parameters that will be set on each WMS item found in the catalog"
+          properties: {
+            tiled: {
+              type: boolean
+            }
+          }
+        }
+      }
+    }
+    itemOrGroup: {
+      required: [
+        "name"
+        "type"
+      ]
+      type: object
+      properties: {
+        name: {
+          title: "Name"
+          type: string
+          description: "Name identifying this item or group."
+          propertyOrder: 1
+        }
+        type: {
+          title: "Item type"
+          type: string
+          enum: [ "wms", "group", "ckan", "csv","abs-itt","wfs" ]
+        }
+        url: {
+          title: "URL"
+          description: "URL where data is retrieved from."
+          type: string
+          format: url
+        }
+        opacity: {
+          title: "Opacity"
+          description: "Alpha level, ranging from 0 (invisible) to 1.0 (fully opaque). Defaults to 0.6"
+            type:
+            [
+              "number"
+              "string"
+            ]
+          }
+
+        dataCustodian: {
+          title: "Data Custodian"
+          description: "Text description of who is the custodian of this data source."
+          type: string
+        }
+        rectangle: {
+          type: "array" # TODO limit to 4 ? sometimes 2?
+          items: [
+            {
+              type: [
+                number
+                string
+              ]
+            }
+          ]
+        }
+        useResourceName: {
+          title: "Use Resource Name"
+          description: "Whether each catalog item's name should be populated from individual resources instead of from the CKAN dataset"
+          type: boolean
+        }
+        groupBy: {
+          title: "Group By"
+          description: "`none` - Datasets are put in a flat list; they are not grouped at all. `group` - Datasets are grouped according to their CKAN group.  Datasets that are not in any groups are put at the top level. `organization` - Datasets are grouped by their CKAN organization.  Datasets that are not associated with an organization are put at the top level."
+          type: string
+        }
+        description: {
+          title: "Description"
+          description: "Free text description of the layer, appearing in the datasource description box, overriding any retrieved metadata."
+          type: string
+        }
+      }
+    }
+  }
+  required:
+  [
+    "catalog"
+  ]
+  type: object
+  title: "Terria data source"
+  description: "This file configures one or more data sources for TerriaJS."
+  defaultProperties: [ "catalog" ]
+  properties:
+  {
+    # services: # This is [] in all the default config files. Not implemented yet?
+    # {
+    #  items: [ ]
+    #  type: array
+    #  
+    # }
+    homeCamera:
+    {
+      title: "Home Camera"
+      description: "Bounding box of initial view, given by four latitudes/longitudes"
+      required: [ "east", "north", "south", "west" ]
+      type: object
+      format: grid
+      properties: {
+        west: { type: "number" }
+        east: { type: "number" }
+        north: { type: "number" }
+        south: { type: "number" }
+      }
+    }
+    corsDomains: {
+      title: "CORS Domains"
+      description: "A list of domains that should be accessed through a proxy, due to not supporting CORS (cross-origin resource sharing)."
+      items: {
+          title: Host
+          description: "Host name without protocol. For example: arcgis.com"
+          type: string
+
+        }
+      type: array
+    }
+    catalog: {
+      title: "Catalog"
+      # $ref: "#/definitions/items"
+      description: List of items or groups
+      type: array
+      # format: tabs
+      items: {
+        type: object
+        oneOf: [
+          { "$ref": "#/definitions/wms" },
+          { "$ref": "#/definitions/ckanGroup" }
+          { "$ref": "#/definitions/group" }
+          { "$ref": "#/definitions/csv" }
+          { "$ref": "#/definitions/abs-itt" }
+          { "$ref": "#/definitions/wfs" }
+        ]
+      }
+    }
+  }
+}
