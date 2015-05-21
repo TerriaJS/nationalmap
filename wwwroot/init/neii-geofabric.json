@@ -1,0 +1,18 @@
+{
+    "catalog": [
+        {
+            "name": "NEII",
+            "type": "group",
+            "isOpen": true,
+            "items": [
+                {
+                    "name": "Geofabric",
+                    "description": "[Licence](http://creativecommons.org/licenses/by/3.0/au/)",
+                    "dataCustodian": "[Australian Bureau of Meteorology](http://www.bom.gov.au/water/geofabric/)",
+                    "url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+                    "type": "wms-getCapabilities"
+                }
+            ]
+        }
+    ]
+}

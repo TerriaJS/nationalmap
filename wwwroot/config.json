@@ -9,7 +9,9 @@
         "geoserver.aurin.org.au"
     ],
     "initializationUrls" : [
-        "nm"
+        "neii-ereefs",
+        "neii-si",
+        "neii-geofabric"
     ],
     "parameters": {
         "bingMapsKey": null,
