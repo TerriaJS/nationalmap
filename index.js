@@ -216,7 +216,8 @@ terria.start({
         mapElementToDisplace: 'cesiumContainer',
         tabs: [
             new DataCatalogTabViewModel({
-                catalog: terria.catalog
+                catalog: terria.catalog,
+                name: 'Data Services'
             }),
             new NowViewingTabViewModel({
                 nowViewing: terria.nowViewing
