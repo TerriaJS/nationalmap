@@ -24,8 +24,8 @@ body {
 	position: fixed;
 	top: 0px;
 	color: #E5E5E5;
-	background-image: url(img/globe_img.png);
-	background-position: 100% 0%;
+	background-image: url(img/NEII-webBanner.png);
+	background-position: top left  -80px;
 	background-repeat: no-repeat;
 }
 .nav {
