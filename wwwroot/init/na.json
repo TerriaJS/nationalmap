@@ -15,37 +15,219 @@
     "services": [],
     "catalog": [
         {
-            "name": "Northern Territory",
+            "name": "Western Australia Government (Landgate)",
+            "type": "group",
+            "items": [
+                {
+                    "name": "Locate Public",
+                    "dataCustodian": "[Landgate](http://slip.landgate.wa.gov.au/Pages/AboutUs.aspx)",
+                    "url": "https://mapsengine.google.com/09372590152434720789-00913315481290556980-4/wms/",
+                    "type": "wms-getCapabilities",
+                    "clipToRectangle": true,
+                    "itemProperties": {
+                        "ignoreUnknownTileErrors": true,
+                        "opacity": 0.8,
+                        "legendUrl": ""
+                    }
+                },
+                {
+                    "name": "Cultural and Society",
+                    "dataCustodian": "[Landgate](http://slip.landgate.wa.gov.au/Pages/AboutUs.aspx)",
+                    "url": "https://mapsengine.google.com/09372590152434720789-03311849775732631692-4/wms/",
+                    "type": "wms-getCapabilities",
+                    "clipToRectangle": true,
+                    "itemProperties": {
+                        "ignoreUnknownTileErrors": true,
+                        "opacity": 0.8,
+                        "legendUrl": ""
+                    }
+                },
+                {
+                    "name": "Environment",
+                    "dataCustodian": "[Landgate](http://slip.landgate.wa.gov.au/Pages/AboutUs.aspx)",
+                    "url": "https://mapsengine.google.com/09372590152434720789-11920815285354965867-4/wms/",
+                    "type": "wms-getCapabilities",
+                    "clipToRectangle": true,
+                    "itemProperties": {
+                        "ignoreUnknownTileErrors": true,
+                        "opacity": 0.8,
+                        "legendUrl": ""
+                    }
+                },
+                {
+                    "name": "Infrastructure and Utilities",
+                    "dataCustodian": "[Landgate](http://slip.landgate.wa.gov.au/Pages/AboutUs.aspx)",
+                    "url": "https://mapsengine.google.com/09372590152434720789-14702451115530212229-4/wms/",
+                    "type": "wms-getCapabilities",
+                    "clipToRectangle": true,
+                    "itemProperties": {
+                        "ignoreUnknownTileErrors": true,
+                        "opacity": 0.8,
+                        "legendUrl": ""
+                    }
+                },
+                {
+                    "name": "Property and Planning",
+                    "dataCustodian": "[Landgate](http://slip.landgate.wa.gov.au/Pages/AboutUs.aspx)",
+                    "url": "https://mapsengine.google.com/09372590152434720789-17372459662889040700-4/wms/",
+                    "type": "wms-getCapabilities",
+                    "clipToRectangle": true,
+                    "itemProperties": {
+                        "ignoreUnknownTileErrors": true,
+                        "opacity": 0.8,
+                        "legendUrl": ""
+                    }
+                },
+                {
+                    "name": "Resources",
+                    "dataCustodian": "[Landgate](http://slip.landgate.wa.gov.au/Pages/AboutUs.aspx)",
+                    "url": "https://mapsengine.google.com/09372590152434720789-11493353092997567468-4/wms/",
+                    "type": "wms-getCapabilities",
+                    "clipToRectangle": true,
+                    "itemProperties": {
+                        "ignoreUnknownTileErrors": true,
+                        "opacity": 0.8,
+                        "legendUrl": ""
+                    }
+                },
+                {
+                    "name": "Cultural and Society",
+                    "dataCustodian": "[Landgate](http://slip.landgate.wa.gov.au/Pages/AboutUs.aspx)",
+                    "url": "https://mapsengine.google.com/09372590152434720789-03311849775732631692-4/wms/",
+                    "type": "wms-getCapabilities",
+                    "clipToRectangle": true,
+                    "itemProperties": {
+                        "ignoreUnknownTileErrors": true,
+                        "opacity": 0.8,
+                        "legendUrl": ""
+                    }
+                },
+                {
+                    "name": "Locate Pilbara",
+                    "dataCustodian": "[Landgate](http://slip.landgate.wa.gov.au/Pages/AboutUs.aspx)",
+                    "url": "https://mapsengine.google.com/09372590152434720789-09499575881840677463-4/wms/",
+                    "type": "wms-getCapabilities",
+                    "clipToRectangle": true,
+                    "itemProperties": {
+                        "ignoreUnknownTileErrors": true,
+                        "opacity": 0.8,
+                        "legendUrl": ""
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Queensland Government",
+            "type": "group",
+            "items": [
+                {
+                    "name": "Resources",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/Resources/MapServer"
+                },
+                {
+                    "name": "Administrative Areas",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/AdministrativeAreas/MapServer"
+                },
+                {
+                    "name": "Boreholes",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/Boreholes/MapServer"
+                },
+                {
+                    "name": "Detailed Geology",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/GeologyDetailed/MapServer"
+                },
+                {
+                    "name": "Regional Geology",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/GeologyRegional/MapServer"
+                },
+                {
+                    "name": "State Geology",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/GeologyState/MapServer"
+                },
+                {
+                    "name": "Geophysics",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/Geophysics/MapServer"
+                },
+                {
+                    "name": "Current Mines Permits",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/MinesPermitsCurrent/MapServer"
+                },
+                {
+                    "name": "Historic Mines Permits",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/MinesPermitsHistoric/MapServer"
+                },
+                {
+                    "name": "Structural Framework",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/StructuralFramework/MapServer"
+                },
+                {
+                    "name": "Floodlines",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/StructuralFramework/MapServer"
+                },
+                {
+                    "name": "Administrative Boundaries",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/AdminBoundaries/MapServer"
+                },
+                {
+                    "name": "Agricultural Land Audit",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/AgriculturalLandAudit/MapServer"
+                },
+                {
+                    "name": "Current Land Use",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/CurrentLandUse/MapServer"
+                },
+                {
+                    "name": "QTopo",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/QTopo_WebM/MapServer"
+                },
+                {
+                    "name": "Weather and Extreme Event Risk",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/WeatherAndExtremeEventRisk/MapServer"
+                }
+            ]
+        },
+        {
+            "name": "Northern Territory Government",
             "description": "[Licence](http://www.ga.gov.au/copyright)",
             "dataCustodian": "[Geoscience Australia](http://www.ga.gov.au/)",
             "url": "http://wms1.ntlis.nt.gov.au/ilismap",
             "type": "wms-getCapabilities"
         },
         {
-            "name": "National Data Sets",
+            "name": "Supporting Data Sets",
             "isOpen": false,
             "type": "group",
             "items": [
                 {
-                    "name": "Framework",
-                    "type": "group",
-                    "items": [
-                        {
-                            "name": "NA Mask",
-                            "rectangle": [
-                                "96.816941408",
-                                "-43.74050960205765",
-                                "159.109219008",
-                                "-9.142175976703609"
-                            ],
-                            "type": "wms",
-                            "url": "http://geoserver.nationalmap.nicta.com.au/admin_bnds_abs/ows",
-                            "layers": "admin_bnds:NA_MASK",
-                            "isShown": true,
-                            "opacity": 0.9,
-                            "keepOnTop": true
-                        }
-                    ]
+                    "name": "Northern Australia Highlight",
+                    "rectangle": [
+                        "96.816941408",
+                        "-43.74050960205765",
+                        "159.109219008",
+                        "-9.142175976703609"
+                    ],
+                    "type": "wms",
+                    "url": "http://geoserver.nationalmap.nicta.com.au/admin_bnds_abs/ows",
+                    "layers": "admin_bnds:NA_MASK",
+                    "isShown": true,
+                    "opacity": 0.7,
+                    "keepOnTop": true
                 }
             ]
         }

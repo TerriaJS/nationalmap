@@ -9,7 +9,7 @@
         "geoserver.aurin.org.au"
     ],
     "initializationUrls" : [
-        "nm"
+        "na"
     ],
     "parameters": {
         "bingMapsKey": null,
