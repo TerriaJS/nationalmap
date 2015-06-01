@@ -181,12 +181,12 @@ terria.start({
             }),
             new MenuBarItemViewModel({
                 label: 'About',
-                tooltip: 'About National Map.',
+                tooltip: 'About the Northern Australia Map.',
                 href: 'help/About.html'
             }),
             new MenuBarItemViewModel({
                 label: 'Help',
-                tooltip: 'Help using National Map.',
+                tooltip: 'Help using the Northern Australia Map.',
                 href: 'help/Help.html'
             })
         ]

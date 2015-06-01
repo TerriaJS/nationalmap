@@ -2624,7 +2624,100 @@
             }
         },
         {
-            "name": "Western Australia Government (Landgate)",
+            "name": "Northern Territory Government",
+            "description": "[Licence](http://www.ga.gov.au/copyright)",
+            "dataCustodian": "[Geoscience Australia](http://www.ga.gov.au/)",
+            "url": "http://wms1.ntlis.nt.gov.au/ilismap",
+            "type": "wms-getCapabilities"
+        },
+        {
+            "name": "Queensland Government",
+            "type": "group",
+            "items": [
+                {
+                    "name": "Resources",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/Resources/MapServer"
+                },
+                {
+                    "name": "Administrative Areas",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/AdministrativeAreas/MapServer"
+                },
+                {
+                    "name": "Boreholes",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/Boreholes/MapServer"
+                },
+                {
+                    "name": "Detailed Geology",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/GeologyDetailed/MapServer"
+                },
+                {
+                    "name": "Regional Geology",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/GeologyRegional/MapServer"
+                },
+                {
+                    "name": "State Geology",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/GeologyState/MapServer"
+                },
+                {
+                    "name": "Geophysics",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/Geophysics/MapServer"
+                },
+                {
+                    "name": "Current Mines Permits",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/MinesPermitsCurrent/MapServer"
+                },
+                {
+                    "name": "Historic Mines Permits",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/MinesPermitsHistoric/MapServer"
+                },
+                {
+                    "name": "Structural Framework",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/StructuralFramework/MapServer"
+                },
+                {
+                    "name": "Floodlines",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/StructuralFramework/MapServer"
+                },
+                {
+                    "name": "Administrative Boundaries",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/AdminBoundaries/MapServer"
+                },
+                {
+                    "name": "Agricultural Land Audit",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/AgriculturalLandAudit/MapServer"
+                },
+                {
+                    "name": "Current Land Use",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/CurrentLandUse/MapServer"
+                },
+                {
+                    "name": "QTopo",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/QTopo_WebM/MapServer"
+                },
+                {
+                    "name": "Weather and Extreme Event Risk",
+                    "type": "esri-mapServer-group",
+                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/WeatherAndExtremeEventRisk/MapServer"
+                }
+            ]
+        },
+        {
+            "name": "Western Australian Government",
             "type": "group",
             "items": [
                 {
@@ -2726,99 +2819,6 @@
             ]
         },
         {
-            "name": "Queensland Government",
-            "type": "group",
-            "items": [
-                {
-                    "name": "Resources",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/Resources/MapServer"
-                },
-                {
-                    "name": "Administrative Areas",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/AdministrativeAreas/MapServer"
-                },
-                {
-                    "name": "Boreholes",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/Boreholes/MapServer"
-                },
-                {
-                    "name": "Detailed Geology",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/GeologyDetailed/MapServer"
-                },
-                {
-                    "name": "Regional Geology",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/GeologyRegional/MapServer"
-                },
-                {
-                    "name": "State Geology",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/GeologyState/MapServer"
-                },
-                {
-                    "name": "Geophysics",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/Geophysics/MapServer"
-                },
-                {
-                    "name": "Current Mines Permits",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/MinesPermitsCurrent/MapServer"
-                },
-                {
-                    "name": "Historic Mines Permits",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/MinesPermitsHistoric/MapServer"
-                },
-                {
-                    "name": "Structural Framework",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/StructuralFramework/MapServer"
-                },
-                {
-                    "name": "Floodlines",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/MINES/StructuralFramework/MapServer"
-                },
-                {
-                    "name": "Administrative Boundaries",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/AdminBoundaries/MapServer"
-                },
-                {
-                    "name": "Agricultural Land Audit",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/AgriculturalLandAudit/MapServer"
-                },
-                {
-                    "name": "Current Land Use",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/CurrentLandUse/MapServer"
-                },
-                {
-                    "name": "QTopo",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/QTopo_WebM/MapServer"
-                },
-                {
-                    "name": "Weather and Extreme Event Risk",
-                    "type": "esri-mapServer-group",
-                    "url": "https://geospatial.information.qld.gov.au/ArcGIS/rest/services/QLD/WeatherAndExtremeEventRisk/MapServer"
-                }
-            ]
-        },
-        {
-            "name": "Northern Territory Government",
-            "description": "[Licence](http://www.ga.gov.au/copyright)",
-            "dataCustodian": "[Geoscience Australia](http://www.ga.gov.au/)",
-            "url": "http://wms1.ntlis.nt.gov.au/ilismap",
-            "type": "wms-getCapabilities"
-        },
-        {
             "name": "National Data Sets",
             "isOpen": false,
             "type": "group",
@@ -2842,6 +2842,18 @@
                             "opacity": 0.7,
                             "keepOnTop": true
                         }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Related Maps",
+            "type": "group",
+            "items": [
+                {
+                    "name": "National Map",
+                    "type": "group",
+                    "items": [
                     ]
                 }
             ]
