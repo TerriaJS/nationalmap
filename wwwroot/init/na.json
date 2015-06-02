@@ -2845,18 +2845,6 @@
                     ]
                 }
             ]
-        },
-        {
-            "name": "Related Maps",
-            "type": "group",
-            "items": [
-                {
-                    "name": "National Map",
-                    "type": "group",
-                    "items": [
-                    ]
-                }
-            ]
         }
     ]
 }
