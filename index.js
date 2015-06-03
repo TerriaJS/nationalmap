@@ -27,7 +27,8 @@ var configuration = {
     cesiumBaseUrl: undefined, // use default
     bingMapsKey: undefined, // use Cesium key
     proxyBaseUrl: 'proxy/',
-    conversionServiceBaseUrl: 'convert'
+    conversionServiceBaseUrl: 'convert',
+    regionMappingDefinitionsUrl: 'data/regionMapping.json'
 };
 
 // Check browser compatibility early on.
@@ -43,6 +44,7 @@ var registerKnockoutBindings = require('terriajs/lib/Core/registerKnockoutBindin
 var corsProxy = require('terriajs/lib/Core/corsProxy');
 
 var AddDataPanelViewModel = require('terriajs/lib/ViewModels/AddDataPanelViewModel');
+var AnimationViewModel = require('terriajs/lib/ViewModels/AnimationViewModel');
 var BingMapsSearchProviderViewModel = require('terriajs/lib/ViewModels/BingMapsSearchProviderViewModel');
 var BrandBarViewModel = require('terriajs/lib/ViewModels/BrandBarViewModel');
 var CatalogItemNameSearchProviderViewModel = require('terriajs/lib/ViewModels/CatalogItemNameSearchProviderViewModel');
@@ -90,7 +92,8 @@ registerCatalogMembers();
 // Construct the TerriaJS application, arrange to show errors to the user, and start it up.
 var terria = new Terria({
     baseUrl: configuration.terriaBaseUrl,
-    cesiumBaseUrl: configuration.cesiumBaseUrl
+    cesiumBaseUrl: configuration.cesiumBaseUrl,
+    regionMappingDefinitionsUrl: configuration.regionMappingDefinitionsUrl
 });
 
 terria.error.addEventListener(function(e) {
@@ -210,6 +213,20 @@ terria.start({
         container: ui,
         terria: terria
     });
+
+    // Create the animation controls.
+    AnimationViewModel.create({
+        container: document.getElementById('cesiumContainer'),
+        terria: terria,
+        locale: "en-GB",
+        mapElementsToDisplace: [
+            'cesium-widget-credits',
+            'leaflet-control-attribution',
+            'distance-legend',
+            'location-bar'
+        ]
+    });
+
 
     // Create the explorer panel.
     ExplorerPanelViewModel.create({
