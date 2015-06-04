@@ -2627,12 +2627,14 @@
             "name": "Northern Territory Government",
             "description": "[Licence](http://www.ga.gov.au/copyright)",
             "dataCustodian": "[Geoscience Australia](http://www.ga.gov.au/)",
+            "initialMessage": "Several of the datasets available from this data provider may only be visible when you have moved closer to the ground.  If you do not see a dataset after selecting it, zoom your view in with the mouse or with zoom controls on the right of the screen.",
             "url": "http://wms1.ntlis.nt.gov.au/ilismap",
             "type": "wms-getCapabilities"
         },
         {
             "name": "Queensland Government",
             "type": "group",
+            "initialMessage": "Several of the datasets available from this data provider may only be visible when you have moved closer to the ground.  If you do not see a dataset after selecting it, zoom your view in with the mouse or with zoom controls on the right of the screen.",
             "items": [
                 {
                     "name": "Resources",
@@ -2719,6 +2721,7 @@
         {
             "name": "Western Australian Government",
             "type": "group",
+            "initialMessage": "Several of the datasets available from this data provider may only be visible when you have moved closer to the ground.  If you do not see a dataset after selecting it, zoom your view in with the mouse or with zoom controls on the right of the screen.",
             "items": [
                 {
                     "name": "Locate Public",
