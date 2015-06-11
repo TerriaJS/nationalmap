@@ -124,7 +124,6 @@
                         },
                         {
                             "name": "2011 Census AUST (CED)",
-                            "initialMessage": "This part of the 2011 Census",
                             "type": "csv",
                             "url": "test/2011Census_AUST_CED.csv"
                         },
@@ -180,7 +179,6 @@
                 {
                     "name": "Tile Sets",
                     "type": "group",
-                    "initialMessage": "This is a sample message for the catalog group.",
                     "items": [
                         {
                             "name": "Topography",
