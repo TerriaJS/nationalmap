@@ -34,6 +34,31 @@
             "isOpen": true
         },
         {
+            "name": "New South Wales Government",
+            "type": "group",
+            "isHidden": true
+        },
+        {
+            "name": "ACT Government",
+            "type": "group",
+            "isHidden": true
+        },
+        {
+            "name": "South Australian Government",
+            "type": "group",
+            "isHidden": true
+        },
+        {
+            "name": "Tasmanian Government",
+            "type": "group",
+            "isHidden": true
+        },
+        {
+            "name": "Victorian Government",
+            "type": "group",
+            "isHidden": true
+        },
+        {
             "name": "National Data Sets",
             "isOpen": false,
             "type": "group",
