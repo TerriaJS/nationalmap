@@ -19,19 +19,19 @@
             "name": "Queensland Government",
             "type": "group",
             "isPromoted": true,
-            "isOpen": true
-        },
+            "initialMessage": "Several of the datasets available from this data provider may only be visible when you have moved closer to the ground.  If you do not see a dataset after selecting it, zoom your view in with the mouse or with the zoom controls on the right of the screen."
+         },
         {
             "name": "Western Australian Government",
             "type": "group",
             "isPromoted": true,
-            "isOpen": true
+            "initialMessage": "Several of the datasets available from this data provider may only be visible when you have moved closer to the ground.  If you do not see a dataset after selecting it, zoom your view in with the mouse or with the zoom controls on the right of the screen."
         },
         {
             "name": "Northern Territory Government",
             "type": "group",
             "isPromoted": true,
-            "isOpen": true
+            "initialMessage": "Several of the datasets available from this data provider may only be visible when you have moved closer to the ground.  If you do not see a dataset after selecting it, zoom your view in with the mouse or with the zoom controls on the right of the screen."
         },
         {
             "name": "New South Wales Government",
