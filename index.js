@@ -98,7 +98,7 @@ registerCatalogMembers();
 
 // Construct the TerriaJS application, arrange to show errors to the user, and start it up.
 var terria = new Terria({
-    appName: 'NorthernAustraliaMap',
+    appName: 'Northern Australia Map',
     supportEmail: 'nationalmap@lists.nicta.com.au',
     baseUrl: configuration.terriaBaseUrl,
     cesiumBaseUrl: configuration.cesiumBaseUrl,
