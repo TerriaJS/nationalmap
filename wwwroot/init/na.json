@@ -19,19 +19,56 @@
             "name": "Queensland Government",
             "type": "group",
             "isPromoted": true,
-            "isOpen": true
+            "initialMessage": {
+                "title": "Data Services Message",
+                "content": "Several of the datasets available from the Queensland Government data services may only be visible when you have moved closer to the ground.<br><br>If you do not see a dataset after selecting it, zoom your view in with the mouse or with the zoom controls on the right of the screen.",
+                "key": "DataProvideZoomBasedViews.QLDGov"
+            }
         },
         {
             "name": "Western Australian Government",
             "type": "group",
             "isPromoted": true,
-            "isOpen": true
+            "initialMessage": {
+                "title": "Data Services Message",
+                "content": "Several of the datasets available from the Western Australia Government data services may only be visible when you have moved closer to the ground.<br><br>If you do not see a dataset after selecting it, zoom your view in with the mouse or with the zoom controls on the right of the screen.",
+                "key": "DataProvideZoomBasedViews.WAGov"
+            }
         },
         {
             "name": "Northern Territory Government",
             "type": "group",
             "isPromoted": true,
-            "isOpen": true
+            "initialMessage": {
+                "title": "Data Services Message",
+                "content": "Several of the datasets available from the Northern Territory Government data services may only be visible when you have moved closer to the ground.<br><br>If you do not see a dataset after selecting it, zoom your view in with the mouse or with the zoom controls on the right of the screen.",
+                "key": "DataProvideZoomBasedViews.NTGov"
+            }
+        },
+        {
+            "name": "New South Wales Government",
+            "type": "group",
+            "isHidden": true
+        },
+        {
+            "name": "ACT Government",
+            "type": "group",
+            "isHidden": true
+        },
+        {
+            "name": "South Australian Government",
+            "type": "group",
+            "isHidden": true
+        },
+        {
+            "name": "Tasmanian Government",
+            "type": "group",
+            "isHidden": true
+        },
+        {
+            "name": "Victorian Government",
+            "type": "group",
+            "isHidden": true
         },
         {
             "name": "National Data Sets",
