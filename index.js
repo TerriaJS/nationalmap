@@ -20,12 +20,15 @@
 
 /*global require*/
 
+var version = require('./version');
+
 var configuration = {
     terriaBaseUrl: 'build/TerriaJS',
     cesiumBaseUrl: undefined, // use default
     bingMapsKey: undefined, // use Cesium key
     proxyBaseUrl: 'proxy/',
-    conversionServiceBaseUrl: 'convert'
+    conversionServiceBaseUrl: 'convert',
+    regionMappingDefinitionsUrl: 'data/regionMapping.json'
 };
 
 // Check browser compatibility early on.
@@ -36,11 +39,12 @@ checkBrowserCompatibility('ui');
 
 var knockout = require('terriajs-cesium/Source/ThirdParty/knockout');
 
-var AusGlobeViewer = require('terriajs/lib/viewer/AusGlobeViewer');
+var TerriaViewer = require('terriajs/lib/ViewModels/TerriaViewer');
 var registerKnockoutBindings = require('terriajs/lib/Core/registerKnockoutBindings');
 var corsProxy = require('terriajs/lib/Core/corsProxy');
 
 var AddDataPanelViewModel = require('terriajs/lib/ViewModels/AddDataPanelViewModel');
+var AnimationViewModel = require('terriajs/lib/ViewModels/AnimationViewModel');
 var BingMapsSearchProviderViewModel = require('terriajs/lib/ViewModels/BingMapsSearchProviderViewModel');
 var BrandBarViewModel = require('terriajs/lib/ViewModels/BrandBarViewModel');
 var CatalogItemNameSearchProviderViewModel = require('terriajs/lib/ViewModels/CatalogItemNameSearchProviderViewModel');
@@ -58,6 +62,7 @@ var MenuBarItemViewModel = require('terriajs/lib/ViewModels/MenuBarItemViewModel
 var MenuBarViewModel = require('terriajs/lib/ViewModels/MenuBarViewModel');
 var MutuallyExclusivePanels = require('terriajs/lib/ViewModels/MutuallyExclusivePanels');
 var NavigationViewModel = require('terriajs/lib/ViewModels/NavigationViewModel');
+var NowViewingAttentionGrabberViewModel = require('terriajs/lib/ViewModels/NowViewingAttentionGrabberViewModel');
 var NowViewingTabViewModel = require('terriajs/lib/ViewModels/NowViewingTabViewModel');
 var PopupMessageViewModel = require('terriajs/lib/ViewModels/PopupMessageViewModel');
 var SearchTabViewModel = require('terriajs/lib/ViewModels/SearchTabViewModel');
@@ -70,6 +75,12 @@ var OgrCatalogItem = require('terriajs/lib/Models/OgrCatalogItem');
 var registerCatalogMembers = require('terriajs/lib/Models/registerCatalogMembers');
 var raiseErrorToUser = require('terriajs/lib/Models/raiseErrorToUser');
 var selectBaseMap = require('terriajs/lib/ViewModels/selectBaseMap');
+
+var svgInfo = require('terriajs/lib/SvgPaths/svgInfo');
+var svgPlus = require('terriajs/lib/SvgPaths/svgPlus');
+var svgRelated = require('terriajs/lib/SvgPaths/svgRelated');
+var svgShare = require('terriajs/lib/SvgPaths/svgShare');
+var svgWorld = require('terriajs/lib/SvgPaths/svgWorld');
 
 // Configure the base URL for the proxy service used to work around CORS restrictions.
 corsProxy.baseProxyUrl = configuration.proxyBaseUrl;
@@ -87,8 +98,11 @@ registerCatalogMembers();
 
 // Construct the TerriaJS application, arrange to show errors to the user, and start it up.
 var terria = new Terria({
+    appName: 'NationalMap',
+    supportEmail: 'nationalmap@lists.nicta.com.au',
     baseUrl: configuration.terriaBaseUrl,
-    cesiumBaseUrl: configuration.cesiumBaseUrl
+    cesiumBaseUrl: configuration.cesiumBaseUrl,
+    regionMappingDefinitionsUrl: configuration.regionMappingDefinitionsUrl
 });
 
 terria.error.addEventListener(function(e) {
@@ -112,7 +126,7 @@ terria.start({
     updateApplicationOnHashChange(terria, window);
 
     // Create the map/globe.
-    AusGlobeViewer.create(terria, {
+    TerriaViewer.create(terria, {
         developerAttribution: {
             text: 'NICTA',
             link: 'http://www.nicta.com.au'
@@ -138,9 +152,10 @@ terria.start({
     });
 
     // Create the brand bar.
-    BrandBarViewModel.create(ui, {
+    BrandBarViewModel.create({
+        container: ui,
         elements: [
-            '<a target="_blank" href="help/About.html"><img src="images/NationalMap_Logo_RGB72dpi_REV_Blue text_BETA.png" height="50" alt="National Map" /></a>',
+            '<a target="_blank" href="About.html"><img src="images/NationalMap_Logo_RGB72dpi_REV_Blue text_BETA.png" height="50" alt="National Map" title="Version: ' + version + '" /></a>',
             '<a target="_blank" href="http://www.gov.au/"><img src="images/AG-Rvsd-Stacked-Press.png" height="45" alt="Australian Government" /></a>'
         ]
     });
@@ -155,6 +170,9 @@ terria.start({
             new MenuBarItemViewModel({
                 label: 'Add data',
                 tooltip: 'Add your own data to the map.',
+                svgPath: svgPlus,
+                svgPathWidth: 11,
+                svgPathHeight: 12,
                 callback: function() {
                     AddDataPanelViewModel.open({
                         container: ui,
@@ -163,13 +181,19 @@ terria.start({
                 }
             }),
             new MenuBarItemViewModel({
-                label: 'Maps',
+                label: 'Base Maps',
                 tooltip: 'Change the map mode (2D/3D) and base map.',
+                svgPath: svgWorld,
+                svgPathWidth: 17,
+                svgPathHeight: 17,
                 observableToToggle: knockout.getObservable(settingsPanel, 'isVisible')
             }),
             new MenuBarItemViewModel({
                 label: 'Share',
                 tooltip: 'Share your map with others.',
+                svgPath: svgShare,
+                svgPathWidth: 11,
+                svgPathHeight: 13,
                 callback: function() {
                     SharePopupViewModel.open({
                         container: ui,
@@ -178,14 +202,28 @@ terria.start({
                 }
             }),
             new MenuBarItemViewModel({
-                label: 'About',
-                tooltip: 'About National Map.',
-                href: 'help/About.html'
+                label: 'Related Maps',
+                tooltip: 'View other maps in the NationalMap family.',
+                svgPath: svgRelated,
+                svgPathWidth: 14,
+                svgPathHeight: 13,
+                callback: function() {
+                    PopupMessageViewModel.open(ui, {
+                        title: 'Related Maps',
+                        message: require('fs').readFileSync(__dirname + '/lib/Views/RelatedMaps.html', 'utf8'),
+                        width: 600,
+                        height: 430
+                    });
+                }
             }),
             new MenuBarItemViewModel({
-                label: 'Help',
-                tooltip: 'Help using National Map.',
-                href: 'help/Help.html'
+                label: 'About',
+                tooltip: 'About National Map.',
+                svgPath: svgInfo,
+                svgPathWidth: 18,
+                svgPathHeight: 18,
+                svgFillRule: 'evenodd',
+                href: 'About.html'
             })
         ]
     });
@@ -209,18 +247,33 @@ terria.start({
         terria: terria
     });
 
+    // Create the animation controls.
+    AnimationViewModel.create({
+        container: document.getElementById('cesiumContainer'),
+        terria: terria,
+        mapElementsToDisplace: [
+            'cesium-widget-credits',
+            'leaflet-control-attribution',
+            'distance-legend',
+            'location-bar'
+        ]
+    });
+
+    var nowViewingTab = new NowViewingTabViewModel({
+        nowViewing: terria.nowViewing
+    });
+
     // Create the explorer panel.
     ExplorerPanelViewModel.create({
         container: ui,
         terria: terria,
         mapElementToDisplace: 'cesiumContainer',
+        isOpen: !terria.userProperties.hideExplorerPanel,
         tabs: [
             new DataCatalogTabViewModel({
                 catalog: terria.catalog
             }),
-            new NowViewingTabViewModel({
-                nowViewing: terria.nowViewing
-            }),
+            nowViewingTab,
             new SearchTabViewModel({
                 searchProviders: [
                     new CatalogItemNameSearchProviderViewModel({
@@ -253,6 +306,14 @@ terria.start({
         allowDropDataFiles: true,
         validDropElements: ['ui', 'cesiumContainer'],
         invalidDropClasses: ['modal-background']
+    });
+
+    // Add a popup that appears the first time a catalog item is enabled,
+    // calling the user's attention to the Now Viewing tab.
+    NowViewingAttentionGrabberViewModel.create({
+        container: ui,
+        terria: terria,
+        nowViewingTabViewModel: nowViewingTab
     });
 
     // Make sure only one panel is open in the top right at any time.

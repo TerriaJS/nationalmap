@@ -6,7 +6,9 @@
         "arcgis.com",
         "argo.jcommops.org",
         "www.abc.net.au",
-        "geoserver.aurin.org.au"
+        "geoserver.aurin.org.au",
+        "mapsengine.google.com",
+        "s3-ap-southeast-2.amazonaws.com"
     ],
     "initializationUrls" : [
         "nm"
@@ -15,7 +17,7 @@
         "bingMapsKey": null,
         "disclaimer": {
             "text": "Disclaimer: The NationalMap must not be used for navigation or precise spatial analysis",
-            "url": "help/About.html"
+            "url": "About.html"
         }
     }
 }
