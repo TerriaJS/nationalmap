@@ -28,9 +28,7 @@ var configuration = {
     bingMapsKey: undefined, // use Cesium key
     proxyBaseUrl: 'proxy/',
     conversionServiceBaseUrl: 'convert',
-    regionMappingDefinitionsUrl: 'data/regionMapping.json',
-    shortenShareUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyC_yycXgdndDbAl73c-IbxOhaQqKxUCDtA',
-    expandShareUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyC_yycXgdndDbAl73c-IbxOhaQqKxUCDtA&shortUrl=http://goo.gl/'
+    regionMappingDefinitionsUrl: 'data/regionMapping.json'
 };
 
 // Check browser compatibility early on.
@@ -74,6 +72,7 @@ var updateApplicationOnHashChange = require('terriajs/lib/ViewModels/updateAppli
 
 var Terria = require('terriajs/lib/Models/Terria');
 var OgrCatalogItem = require('terriajs/lib/Models/OgrCatalogItem');
+var GoogleUrlShortener = require('terriajs/lib/Models/GoogleUrlShortener');
 var registerCatalogMembers = require('terriajs/lib/Models/registerCatalogMembers');
 var raiseErrorToUser = require('terriajs/lib/Models/raiseErrorToUser');
 var selectBaseMap = require('terriajs/lib/ViewModels/selectBaseMap');
@@ -104,9 +103,7 @@ var terria = new Terria({
     supportEmail: 'nationalmap@communications.gov.au',
     baseUrl: configuration.terriaBaseUrl,
     cesiumBaseUrl: configuration.cesiumBaseUrl,
-    regionMappingDefinitionsUrl: configuration.regionMappingDefinitionsUrl,
-    shortenShareUrl: configuration.shortenShareUrl,
-    expandShareUrl: configuration.expandShareUrl
+    regionMappingDefinitionsUrl: configuration.regionMappingDefinitionsUrl
 });
 
 terria.error.addEventListener(function(e) {
@@ -116,18 +113,23 @@ terria.error.addEventListener(function(e) {
     });
 });
 
+var urlShortener = new GoogleUrlShortener({
+    terria: terria
+});
+
 terria.start({
     // If you don't want the user to be able to control catalog loading via the URL, remove the applicationUrl property below
     // as well as the call to "updateApplicationOnHashChange" further down.
     applicationUrl: window.location,
-    configUrl: 'config.json'
+    configUrl: 'config.json',
+    urlShortener: urlShortener
 }).otherwise(function(e) {
     raiseErrorToUser(terria, e);
 }).always(function() {
     configuration.bingMapsKey = terria.configParameters.bingMapsKey ? terria.configParameters.bingMapsKey : configuration.bingMapsKey;
 
     // Automatically update Terria (load new catalogs, etc.) when the hash part of the URL changes.
-    updateApplicationOnHashChange(terria, window);
+    updateApplicationOnHashChange(terria, window, urlShortener);
 
     // Create the map/globe.
     TerriaViewer.create(terria, {
@@ -201,7 +203,8 @@ terria.start({
                 callback: function() {
                     SharePopupViewModel.open({
                         container: ui,
-                        terria: terria
+                        terria: terria,
+                        urlShortener: urlShortener
                     });
                 }
             }),
