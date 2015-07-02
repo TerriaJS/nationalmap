@@ -29,8 +29,8 @@ var configuration = {
     proxyBaseUrl: 'proxy/',
     conversionServiceBaseUrl: 'convert',
     regionMappingDefinitionsUrl: 'data/regionMapping.json',
-    shortenShareUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyBZIS_uRrKShArQfvQtURFZasUpXyAaGDk',
-    expandShareUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyBZIS_uRrKShArQfvQtURFZasUpXyAaGDk&shortUrl=http://goo.gl/'
+    shortenShareUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyC_yycXgdndDbAl73c-IbxOhaQqKxUCDtA',
+    expandShareUrl: 'https://www.googleapis.com/urlshortener/v1/url?key=AIzaSyC_yycXgdndDbAl73c-IbxOhaQqKxUCDtA&shortUrl=http://goo.gl/'
 };
 
 // Check browser compatibility early on.
