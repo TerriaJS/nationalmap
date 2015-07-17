@@ -122,6 +122,12 @@ terria.start({
 }).otherwise(function(e) {
     raiseErrorToUser(terria, e);
 }).always(function() {
+    // var CameraView = require('terriajs/lib/Models/CameraView');
+    // var Cartographic = require('terriajs-cesium/Source/Core/Cartographic');
+    // var HeadingPitchRange = require('terriajs-cesium/Source/Scene/HeadingPitchRange');
+    // var CesiumMath = require('terriajs-cesium/Source/Core/Math');
+    // terria.initialView = CameraView.fromLookAt(Cartographic.fromDegrees(-72.503364, -13.209676, 0.0), new HeadingPitchRange(CesiumMath.toRadians(71.131493), CesiumMath.toRadians(90 - 66.768762), 14794.882995));
+
     configuration.bingMapsKey = terria.configParameters.bingMapsKey ? terria.configParameters.bingMapsKey : configuration.bingMapsKey;
 
     // Automatically update Terria (load new catalogs, etc.) when the hash part of the URL changes.

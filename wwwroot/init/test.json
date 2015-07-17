@@ -313,6 +313,11 @@
           "name": "Western Australia",
           "type": "wfs-getCapabilities",
           "url": "http://www2.landgate.wa.gov.au/ows/wfspublic_4326/wfs"
+        },
+        {
+          "name": "marlin.csiro.au",
+          "type": "csw",
+          "url": "http://www.marlin.csiro.au/geonetwork/srv/eng/csw"
         }
       ]
     },
