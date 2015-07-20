@@ -317,7 +317,10 @@
         {
           "name": "marlin.csiro.au",
           "type": "csw",
-          "url": "http://www.marlin.csiro.au/geonetwork/srv/eng/csw"
+          "url": "http://www.marlin.csiro.au/geonetwork/srv/eng/csw",
+          "getRecordsParameters": {
+            "maxrecords": 10000
+          }
         }
       ]
     },
