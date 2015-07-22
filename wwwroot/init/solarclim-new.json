@@ -1,0 +1,87 @@
+{
+    "catalog": [
+		{
+			"name": "NEII",
+			"type": "group",
+			"isOpen": true,
+			"items": [
+                {
+                  "name": "Australian Gridded Solar Climatology",
+                  "type": "group",
+                  "items": [
+                    {
+                      "name": "Monthly-hourly climatology of hourly exposure - Global Horizontal Exposure",
+                      "layers": "mean_exposure",
+                      "description": "",
+                      "dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+                      "url": "http://neii.bom.gov.au/services/solarclim/wms/data/monClim_gloHorExp1Hou.nc",
+                      "type": "wms",
+                      "rectangle": [
+                        "100.0",
+                        "-44.0",
+                        "159.0",
+                        "-4.0"
+                      ]
+                    },
+                    {
+                      "name": "Monthly-hourly climatology of hourly exposure - Direct Normal Exposure",
+                      "layers": "mean_exposure",
+                      "description": "",
+                      "dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+                      "url": "http://neii.bom.gov.au/services/solarclim/wms/data/monClim_dirNorExp1Hou.nc",
+                      "type": "wms",
+                      "rectangle": [
+                        "100.0",
+                        "-44.0",
+                        "159.0",
+                        "-4.0"
+                      ]
+                    },
+                    {
+                      "name": "Monthly climatology of daily exposure - Global Horizontal Exposure",
+                      "layers": "mean_exposure",
+                      "description": "",
+                      "dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+                      "url": "http://neii.bom.gov.au/services/solarclim/wms/data/monClim_gloHorExp1Day.nc",
+                      "type": "wms",
+                      "rectangle": [
+                        "100.0",
+                        "-44.0",
+                        "159.0",
+                        "-4.0"
+                      ]
+                    },
+                    {
+                      "name": "Monthly climatology of daily exposure - Direct Normal Exposure",
+                      "layers": "mean_exposure",
+                      "description": "",
+                      "dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+                      "url": "http://neii.bom.gov.au/services/solarclim/wms/data/monClim_dirNorExp1Day.nc",
+                      "type": "wms",
+                      "rectangle": [
+                        "100.0",
+                        "-44.0",
+                        "159.0",
+                        "-4.0"
+                      ]
+                    },
+                    {
+                      "name": "Annual climatology of daily exposure - Global Horizontal Exposure",
+                      "layers": "mean_exposure",
+                      "description": "",
+                      "dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+                      "url": "http://neii.bom.gov.au/services/solarclim/wms/data/annClim_gloHorExp1Day.nc",
+                      "type": "wms",
+                      "rectangle": [
+                        "100.0",
+                        "-44.0",
+                        "159.0",
+                        "-4.0"
+                      ]
+                    }
+                  ]
+				}
+			]
+		}
+	]
+}

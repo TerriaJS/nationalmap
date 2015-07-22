@@ -1,0 +1,607 @@
+{
+    "catalog": [
+		{
+			"name": "NEII",
+			"type": "group",
+			"isOpen": true,
+			"items": [
+				{
+					"name": "Geofabric NEW",
+					"type": "group",
+					"items": [
+						{
+							"name": "Surface Hydrology - Stream Cartography",
+							"type": "group",
+							"items": [
+								{
+									"name": "Canal Line",
+									"layers": "ahgf_shcarto:AHGFCanalLine",
+									"description": "Man-made open channels for water (mapped)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{
+									"name": "Dams",
+									"layers": "ahgf_shcarto:AHGFDam",
+									"description": "Water stored behind a constructed barrier (mapped)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Estuaries",
+									"layers": "ahgf_shcarto:AHGFEstuary",
+									"description": "Partly enclosed coastal body of water (mapped)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Hydro-Area",
+									"layers": "ahgf_shcarto:AHGFHydroArea",
+									"description": "Types of mapped areal water features",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Hydro-Line",
+									"layers": "ahgf_shcarto:AHGFHydroLine",
+									"description": "Types of mapped linear water features",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Hydro-Point",
+									"layers": "ahgf_shcartoAHGFHydroPoint",
+									"description": "Types of mapped points representing water features",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Mapped Nodes",
+									"layers": "ahgf_shcarto:AHGFMappedNode",
+									"description": "Node types derived from mapped (digitised) streams",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Mapped Streams",
+									"layers": "ahgf_shcarto:AHGFMappedStream",
+									"description": "Types of mapped (digitised) stream segments",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Sea",
+									"layers": "ahgf_shcarto:AHGFSea",
+									"description": "Water areas surrounding the Australian continent (mapped)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Water Pipeline",
+									"layers": "sh_carto:AHGFWaterPipeline",
+									"description": "Man-made pipelines used for transporting water (mapped)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Structure",
+									"layers": "sh_carto:AHGFStructure",
+									"description": "Types of water structures (mapped)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Terrain Break Lines",
+									"layers": "ahgf_shcarto:AHGFTerrainBreakLine",
+									"description": "Abrubt changes in elevation (terrain based)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{
+									"name": "Water Bodies",
+									"layers": "ahgf_shcarto:AHGFWaterbody",
+									"description": "Types of surface waterbodies (mapped)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								}
+							]
+						},
+						{
+							"name": "Surface Hydrology - Stream Network",
+							"type": "group",
+							"items": [
+								{
+									"name": "Network Nodes",
+									"layers": "ahgf_shn:AHGFNetworkNode",
+									"description": "Node types derived from network (terrain based) streams",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Network Streams",
+									"layers": "ahgf_shn:AHGFNetworkStream",
+									"description": "Types of network (terrain based) stream segments",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Major Network Streams",
+									"layers": "ahgf_shn:AHGFNetworkStreamsMajor",
+									"description": "Major Network Streams",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Water Bodies",
+									"layers": "ahgf_shn:AHGFWaterbody",
+									"description": "Types of surface waterbodies (mapped)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{
+									"name": "Water Storage Water Bodies",
+									"layers": "ahgf_shn:AHGFWaterbodyWaterStorage",
+									"description": "Water Storage Water Bodies",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Catchments",
+									"layers": "ahgf_shcatch:AHGFCatchment",
+									"description": "Surface water drainage area (terrain based)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								}
+							]
+						},
+						{
+							"name": "Surface Hydrology - Catchments",
+							"type": "group",
+							"items": [
+								{	
+									"name": "Catchments",
+									"layers": "ahgf_shcatch:AHGFCatchment",
+									"description": "Surface water drainage area (terrain based)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{
+									"name": "Level 1 Drainage Division",
+									"layers": "ahgf_shcatch:NCBLevel1DrainageDivision",
+									"description": "Level 1 Drainage Division",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Level 2 Drainage Basin Group",
+									"layers": "ahgf_shcatch:NCBLevel2DrainageBasinGroup",
+									"description": "Level 2 Drainage Basin Group",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								}
+							]
+						},
+						{
+							"name": "Hydrogeology - Groundwater Cartography",
+							"type": "group",
+							"items": [
+								{	
+									"name": "Aquifer Boundaries",
+									"layers": "ahgf_gwc:AHGFAquiferBoundary",
+									"description": "Boundaries of underlying, outcropping and subcropping aquifers",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Aquifer Contours",
+									"layers": "ahgf_gwc:AHGFAquiferContour",
+									"description": "Subtypes of aquifer surface contours",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Aquifer Contour Top",
+									"layers": "ahgf_gwc:AHGFAquiferContourTop",
+									"description": "  TBA   ",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Aquifer Contour Bottom",
+									"layers": "ahgf_gwc:AHGFAquiferContourBottom",
+									"description": "   TBA    ",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Aquifer Contour Bedrock",
+									"layers": "ahgf_gwc:AHGFAquiferContourBedrock",
+									"description": "   TBA     ",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Aquifer Outcrops",
+									"layers": "ahgf_gwc:AHGFAquiferOutcrop",
+									"description": "Outcrop areas of aquifers",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Surficial Hydrological Units",
+									"layers": "ahgf_gwc:AHGFSurficialHydrogeologicUnit",
+									"description": "Surficial units of similar hydrogeologic properties",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Water Table Aquifers",
+									"layers": "ahgf_gwc:AHGFWaterTableAquifer",
+									"description": "Water table units of similar hydrogeologic properties",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Aquifer Salinity",
+									"layers": "ahgf_gwc:IGWAquiferSalinity",
+									"description": "Aquifer Salinity",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Aquifer Yields",
+									"layers": "ahgf_gwc:IGWAquiferYield",
+									"description": "Aquifer Yields",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Water Table Hydraulic Conductivity",
+									"layers": "ahgf_gwc:IGWWaterTableHydraulicConductivity",
+									"description": "Water table hydraulic conductivity",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Water Table Salinity",
+									"layers": "ahgf_gwc:IGWWaterTableSalinity",
+									"description": "Water Table Salinity",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Water Table Yield",
+									"layers": "ahgf_gwc:IGWWaterTableYield",
+									"description": "Water table yield",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								}
+							]
+							},
+						{
+							"name": "Reporting Catchments and Regions",
+							"type": "group",
+							"items": [
+								{	
+									"name": "Contracted Catchments",
+									"layers": "ahgf_hrc:AHGFContractedCatchment",
+									"description": "Types of contracted catchment areas",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Contracted Catchment Links",
+									"layers": "ahgf_hrc:AHGFLink",
+									"description": "Surface water geoschematic link (terrain based)",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Contracted Catchment nodes",
+									"layers": "ahgf_hrc:AHGFNode",
+									"description": "Node types derived from network (terrain based) streams",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "Drainage Divisions",
+									"layers": "ahgf_hrr:AWRADrainageDivision",
+									"description": "Drainage Divisions",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								},
+								{	
+									"name": "River Regions",
+									"layers": "ahgf_hrr:RiverRegion",
+									"description": "River regions",
+									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
+									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
+									"type": "wms",
+									"rectangle": [
+										"100.0",
+										"-44.0",
+										"159.0",
+										"-4.0"
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

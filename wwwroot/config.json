@@ -11,7 +11,8 @@
     "initializationUrls" : [
         "neii-ereefs",
         "neii-si",
-        "neii-geofabric"
+        "neii-geofabric-new",
+        "neii-solarclim-new"
     ],
     "parameters": {
         "bingMapsKey": null,
