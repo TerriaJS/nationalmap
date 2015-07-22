@@ -10,7 +10,12 @@
         "mapsengine.google.com",
         "s3-ap-southeast-2.amazonaws.com",
         "adelaidecitycouncil.com",
-        "www.dptiapps.com.au"
+        "www.dptiapps.com.au",
+        "noaa.gov",
+        "usgs.gov",
+        "cgdi.ca",
+        "whoi.edu",
+        "data.gov"
     ],
     "initializationUrls" : [
         "nm"
