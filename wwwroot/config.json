@@ -10,7 +10,6 @@
     ],
     "initializationUrls" : [
         "neii-ereefs",
-        "neii-si",
         "neii-geofabric-new",
         "neii-solarclim-new"
     ],

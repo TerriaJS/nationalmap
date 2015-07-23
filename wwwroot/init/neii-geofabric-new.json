@@ -6,7 +6,7 @@
 			"isOpen": true,
 			"items": [
 				{
-					"name": "Geofabric NEW",
+					"name": "Geofabric",
 					"type": "group",
 					"items": [
 						{
@@ -85,7 +85,7 @@
 								},
 								{	
 									"name": "Hydro-Point",
-									"layers": "ahgf_shcartoAHGFHydroPoint",
+									"layers": "ahgf_shcarto:AHGFHydroPoint",
 									"description": "Types of mapped points representing water features",
 									"dataCustodian": "[Bureau of Meteorology](http://www.bom.gov.au/)",
 									"url": "http://geofabric.bom.gov.au/simplefeatures/ows",
