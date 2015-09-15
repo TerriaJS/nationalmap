@@ -10,12 +10,12 @@
         {
             "name": "NEII",
             "type": "group",
-            "isOpen": true,
+            "isOpen": false,
             "items": [
                 {
                     "name": "eReefs",
                     "type": "group",
-                    "isOpen": true,
+                    "isOpen": false,
                     "preserveOrder": true,
 
                     "items": [
