@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "brfs": "^1.2.0",
-    "browserify": "^4.2.3",
+    "browserify": "4.2.3",
     "deamdify": "^0.1.1",
     "exorcist": "^0.1.6",
     "glob": "^4.0.4",
