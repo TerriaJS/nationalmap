@@ -33,7 +33,7 @@ var BingMapsCatalogItem = function(application) {
      * {@link BingMapsApi.getKey} is used.
      * @type {String}
      */
-    this.key = undefined;
+    this.key = 'AmGvY8jZy9ym67nB81MTuCtM7Z2IaAccwxtxQ4Ka6VG1o6eEtHxQZHIqYw1m304h';
 
     knockout.track(this, ['mapStyle', 'key']);
 };
