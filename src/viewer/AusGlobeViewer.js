@@ -355,7 +355,7 @@ AusGlobeViewer.prototype._createCesiumViewer = function(container) {
     var that = this;
     
     var terrainProvider = new CesiumTerrainProvider({
-            url : '//cesiumjs.org/stk-terrain/tilesets/world/tiles'
+            url : '//assets.agi.com/stk-terrain/world
         });
 
     var options = {
