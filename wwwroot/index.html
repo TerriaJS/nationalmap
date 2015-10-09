@@ -24,31 +24,25 @@
     <link rel="manifest" href="favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#282D32">
     <meta name="msapplication-TileImage" content="favicons/ms-icon-144x144.png">
-    <meta name="theme-color" content="#282D32">
-
     <title>Northern Australia Map</title>
 
     <!-- Fonts -->
-    <link href='//fonts.googleapis.com/css?family=Roboto:300italic,400,300' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400,300' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Roboto+Mono:400,300' rel='stylesheet' type='text/css'>
-
+    <link href='//fonts.googleapis.com/css?family=Roboto:300,400,300' rel='stylesheet' type='text/css'>
     <!-- Leaflet -->
     <script>L_PREFER_CANVAS = true;</script>
-
     <link rel="stylesheet" href="build/nationalmap.css">
 </head>
 
 <body>
-
-    <div id="cesiumContainer" class="full-window map-displaced"></div>
-    <div id="ui" class="full-window transparent-to-input">
+    <div id="ui" class="full-window transparent-to-input is-collapsed">
+      <button id="hide-all">hide all</button>
+      <div id="ui-left" class="ui-left"></div>
       <div class="nationalmap-print-disclaimer">
         The Department, NICTA and Geoscience Australia (“We”) make no representations or warranties regarding the accuracy or completeness of any content or the product in connection with the NationalMap. We disclaim all responsibility and all liability (including without limitation, liability in negligence, for errors or omissions) for all expenses, loss, damage and costs which you might incur as a result of the information displayed on the NationalMap and your use of it. The NationalMap must not be used for navigation or precise spatial analysis.
       </div>
+      <div id="loadingIndicator" class="loadingIndicator"></div>
     </div>
-    <div id="loadingIndicator" class="loadingIndicator"></div>
-
+    <main id="cesiumContainer" class="full-window map-displaced"></main>
     <script src="build/nationalmap.js"></script>
 </body>
 </html>

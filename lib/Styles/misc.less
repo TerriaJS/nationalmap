@@ -1,0 +1,36 @@
+.nationalmap-print-disclaimer{
+  display: none;
+}
+
+.compass-outer-ring-background{
+  width: 68px;
+  height: 68px;
+}
+
+.compass-gyro-background{
+  top: 31px;
+  left: 31px;
+}
+
+#hide-all{
+  pointer-events: auto;
+  color: #fff;
+  text-transform: uppercase;
+  position: absolute;
+  top: @padding-base;
+  left: @left-bar-width + @left-bar-secondary-width - @icon*4;
+  cursor: pointer;
+  line-height: @icon;
+  &:before{
+    content: '';
+    display: inline-block;
+    height: @icon/2;
+    width: @icon/2;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    .rotate(-45deg);
+  }
+  .is-collapsed &{
+    display: none;
+  }
+}
