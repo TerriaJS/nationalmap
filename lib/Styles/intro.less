@@ -1,3 +1,11 @@
+a{
+  color: @orange;
+    &:hover, &:focus{
+    text-decoration: none;
+    color: @red;
+  }
+}
+
 .intro{
   color: #fff;
   height: 100vh;
@@ -21,6 +29,7 @@
   .nav-item{
     width: 50%;
     float: left;
+    padding: 1em;
     img{
       display: block;
       width: 227px;
@@ -29,6 +38,13 @@
     }
     &.nav-last{
       text-align: right;
+    }
+
+    .share{
+      display: inline-block;
+      padding: 0.5em 1em;
+      background: #fff;
+      border-radius: 20px;
     }
   }
 
@@ -40,6 +56,7 @@
   main{
     position: relative;
     width: 500px;
+    padding: 1em;
     max-width: 100%;
     margin: 0 auto;
     clear: both;
@@ -54,26 +71,24 @@
   }
   .white-button{
     text-transform: uppercase;
-    width: 50%;
+    width: 100%;
     float: left;
     margin-top:30px;
-    &.fist{
-      padding-right: 15px;
+    @media screen and (min-width: 700px){
+      width: 50%;
+      &.fist{
+        padding-right: 15px;
+      }
+      &.last{
+        padding-left: 15px;
+      }
     }
-    &.last{
-      padding-left: 15px;
-    }
+
     a{
       display: block;
       background: #fff;
       line-height: 77px;
       text-align: center;
-      color: @orange;
-      &:hover, &:focus{
-        text-decoration: none;
-        color: @red;
-      }
     }
   }
-
 }
