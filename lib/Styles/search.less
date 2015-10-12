@@ -1,0 +1,48 @@
+.search-tab{
+  .search-tab-form{
+    position: absolute;
+    left: 0;
+    top: @padding-medium*3;
+  }
+  input{
+    background: @fade;
+    width: @left-bar-secondary-width - @padding-base*2;
+    padding: @padding-base/2 @padding-base;
+    color: #fff;
+    line-height: @button-height;
+  }
+  .search-tab-input-clear{
+    right: 0;
+    .icon;
+  }
+}
+
+.search-tab-provider-header{
+  .search-tab-provider-icon-holder{
+    .icon;
+    right: @padding-base;
+  }
+  .left-bar-button(@padding-base);
+  text-transform: uppercase;
+  color: @pink;
+  position: relative;
+  .fading-border;
+}
+
+.search-tab-provider-result-top-row{
+  .left-bar-button(@padding-base);
+}
+
+.search-tab-provider-searching{
+  color: @light-grey;
+  .left-bar-button(@padding-base*3);
+  background-image: url("./../images/ring-loader.svg");
+  background-repeat: no-repeat;
+  background-position: @padding-base @padding-medium;
+  background-size: @icon @icon;
+}
+
+.search-tab-provider-message{
+  .left-bar-button(@padding-base);
+  color: @light-grey;
+}
