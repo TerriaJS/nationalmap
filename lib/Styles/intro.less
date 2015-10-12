@@ -1,0 +1,79 @@
+.intro{
+  color: #fff;
+  height: 100vh;
+  background-image: url("./../images/earth.png");
+  background-size: cover;
+
+  header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  h1{
+    font-size: 40px;
+    text-transform: uppercase;
+    margin: 15px auto 30px auto;
+    text-align: center;
+  }
+
+  .nav-item{
+    width: 50%;
+    float: left;
+    img{
+      display: block;
+      width: 227px;
+      height: auto;
+      max-width: 100%;
+    }
+    &.nav-last{
+      text-align: right;
+    }
+  }
+
+  .sub-heading{
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+
+  main{
+    position: relative;
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    clear: both;
+    height: auto;
+    overflow: auto;
+    .vertical-center;
+  }
+
+  .launch-text{
+    line-height: 1.6;
+
+  }
+  .white-button{
+    text-transform: uppercase;
+    width: 50%;
+    float: left;
+    margin-top:30px;
+    &.fist{
+      padding-right: 15px;
+    }
+    &.last{
+      padding-left: 15px;
+    }
+    a{
+      display: block;
+      background: #fff;
+      line-height: 77px;
+      text-align: center;
+      color: @orange;
+      &:hover, &:focus{
+        text-decoration: none;
+        color: @red;
+      }
+    }
+  }
+
+}

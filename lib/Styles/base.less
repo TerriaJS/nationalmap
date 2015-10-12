@@ -3,6 +3,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+//ie9
+article, aside, footer, header, hgroup, nav, section {
+    display: block;
+}
+
 div, a, p {
   box-sizing: border-box;
 }
@@ -21,6 +26,7 @@ textarea
   white-space:normal;
   background:none;
   line-height:1;
+  font-family: inherit;
 }
 
 /* Remove the stupid outer glow in Webkit */
@@ -165,3 +171,5 @@ textarea
     fill: #fff;
   }
 }
+
+
