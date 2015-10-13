@@ -1,21 +1,29 @@
 .feature-info-panel-holder{
   background: @grey;
   color: #fff;
-  width: 300px;
-  right: @padding-base;
-  padding: @padding-medium;
+  width: auto;
+  max-width: 400px;
+  padding: @padding-base;
   pointer-events: auto;
   position: absolute;
-  .vertical-center;
+  bottom: 100px;
+  right: @padding-base;
   &.feature-info-panel-holder-hidden{
     display: none;
   }
 }
 
 .feature-info-panel-section-header{
-  .left-bar-button(0);
+  padding: @padding-base 0;
+  position: relative;
 }
 .feature-info-panel-close-button{
   .icon;
-  right: @padding-base;
+  right: 0;
+}
+
+.feature-info-panel-section-content{
+  td{
+    padding: @padding-base/2 @padding-base;
+  }
 }

@@ -16,7 +16,7 @@
   }
 }
 
-.explorer-panel-frame{
+.explorer-panel-frame, .settings-panel-body{
   padding-top: @brand-bar-height;
   pointer-events: auto;
   position: absolute;
@@ -43,4 +43,62 @@
   display: none;
 }
 
+.settings-panel-section-header{
+    .left-bar-button(@padding-base);
+    .fading-border;
+    color: @silver;
+    text-transform: uppercase;
+}
+
+.settings-panel-body > .settings-panel-section:first-of-type .settings-panel-section-content{
+  .flexbox;
+  justify-content: space-between;
+  padding: @padding-base;
+
+  .settings-panel-map-view-button{
+    font-size: 0.85rem;
+    //ie9 code
+    display: inline-block;
+    float: left;
+    .pink-button;
+    padding: 0 @padding-base/2;
+
+    //in the future let's use flex box
+    &:first-of-type{
+      padding: 0 @padding-base;
+    }
+  }
+}
+
+.settings-panel-base-map-label{
+  clear: both;
+  .left-bar-button(@padding-base);
+  font-size: 0.8rem;
+  color: @silver;
+}
+
+.settings-panel-base-map-choices{
+  padding: 0 @padding-base;
+  .clearfix;
+  img{
+    width: (@left-bar-secondary-width - @padding-base)/2 - @padding-base;
+    border: 1px solid @grey;
+    float: left;
+    display: block;
+    height: auto;
+    margin-bottom: @padding-base;
+    cursor: pointer;
+    &:nth-child(2n){
+      margin-left: @padding-base;
+    }
+    &:hover, &:focus, &.settings-panel-base-map-button-selected{
+      border: 1px solid #fff;
+
+    }
+  }
+}
+
+.settings-panel-close-button{
+  display: none;
+}
 

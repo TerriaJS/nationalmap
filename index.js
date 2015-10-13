@@ -198,7 +198,7 @@ terria.start({
     var isSmallScreen = document.body.clientWidth <= 700 || document.body.clientHeight <= 420;
 
     // Create the explorer panel.
-    ExplorerPanelViewModel.create({
+    var explorerPanel = ExplorerPanelViewModel.create({
         container: uiLeft,
         terria: terria,
         mapElementToDisplace: 'cesiumContainer',
@@ -268,7 +268,7 @@ terria.start({
                 svgPathWidth: 18,
                 svgPathHeight: 18,
                 svgFillRule: 'evenodd',
-                href: 'about.html'
+                href: 'intro.html'
             })
             // new MenuBarItemViewModel({
             //     label: 'Share',

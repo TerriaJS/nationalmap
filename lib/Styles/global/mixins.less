@@ -41,6 +41,45 @@
   -o-transform:      rotate(@deg);
 }
 
+.translate (@x, @y) {
+  -webkit-transform: translate(@x, @y);
+  -moz-transform:    translate(@x, @y);
+  -ms-transform:     translate(@x, @y);
+  -o-transform:      translate(@x, @y);
+}
+
+.transform(@string){
+  -webkit-transform: @string;
+  -moz-transform:    @string;
+  -ms-transform:     @string;
+  -o-transform:      @string;
+}
+
+.flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex(@values) {
+  -webkit-box-flex: @values;
+  -moz-box-flex:  @values;
+  -webkit-flex:  @values;
+  -ms-flex:  @values;
+  flex:  @values;
+}
+
+.clearfix{
+    &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
 .left-bar-button(@padding-left, @padding-vertical:@padding-medium ){
   cursor: pointer;
   line-height: 1.3;
@@ -82,6 +121,20 @@
 .leftbar-icon{
   .icon;
   left: @padding-medium;
+}
+
+.pink-button(@border-radius: 3px){
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2;
+    border: 1px solid @fade;
+    border-radius: @border-radius;
+    cursor: pointer;
+    color: #fff;
+    &:hover, &:focus, &.settings-panel-map-view-button-selected{
+      background: @pink;
+      border-color: @pink;
+    }
 }
 
 
