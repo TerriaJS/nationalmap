@@ -102,3 +102,21 @@
   display: none;
 }
 
+//temp, need to change this later to a more reliable solution( add class or update svg)
+.explorer-panel-tab:nth-of-type(3){
+  .explorer-panel-tab-icon:after{
+    content: '+';
+    display: block;
+    position: absolute;
+    right: -@icon/6;
+    top: -@icon/6;
+    border-radius: @icon/2;
+    border: 1px solid #fff;
+    height: @icon/2;
+    width: @icon/2;
+    line-height: 1;
+    background-color: @pink;
+    text-align: center;
+    font-size: 11px;
+  }
+}

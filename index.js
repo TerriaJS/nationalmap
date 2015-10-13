@@ -331,7 +331,8 @@ terria.start({
     MutuallyExclusivePanels.create({
         panels: [
             settingsPanel,
-            featureInfoPanel
+            featureInfoPanel,
+            explorerPanel
         ]
     });
 
@@ -352,8 +353,9 @@ ui.addEventListener('click', function(e){
         ||(el.classList.contains(className2)|| hasParent(el, className2))){
             ui.classList.remove("is-collapsed");
             resize();
-            var test = knockout.contextFor(el);
-            console.log(test);
+            ;
+            console.log(knockout.contextFor(el));
+            console.log(knockout.dataFor(el));
         }
     }
 }, false);
@@ -386,3 +388,6 @@ function resize(){
 
     terria.currentViewer.notifyRepaintRequired();
 }
+
+var search = document.querySelector('.search-tab-form')[0];
+console.log(search);
