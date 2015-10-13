@@ -24,8 +24,10 @@
 
 .feature-info-panel-section-content{
   td{
+    &:nth-child(2n){
+      .force-wrap;
+    }
     padding: @padding-base/2 @padding-base;
-    .force-wrap;
     min-width: 120px;
   }
 }
