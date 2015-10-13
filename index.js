@@ -38,6 +38,7 @@ var checkBrowserCompatibility = require('terriajs/lib/ViewModels/checkBrowserCom
 checkBrowserCompatibility('ui');
 
 var knockout = require('terriajs-cesium/Source/ThirdParty/knockout');
+var defined = require('terriajs-cesium/Source/Core/defined');
 
 var isCommonMobilePlatform = require('terriajs/lib/Core/isCommonMobilePlatform');
 var TerriaViewer = require('terriajs/lib/ViewModels/TerriaViewer');
@@ -350,6 +351,7 @@ ui.addEventListener('click', function(e){
         if((el.classList.contains(className)|| hasParent(el, className))
         ||(el.classList.contains(className2)|| hasParent(el, className2))){
             ui.classList.remove("is-collapsed");
+            resize();
         }
     }
 }, false);
@@ -357,6 +359,7 @@ ui.addEventListener('click', function(e){
 hideButton.addEventListener('click', function(e){
     if(!ui.classList.contains('is-collapsed')){
         ui.classList.add("is-collapsed");
+        resize();
     }
 }, false);
 
@@ -367,4 +370,17 @@ function hasParent( e, className ) {
         el = el.parentNode && el.parentNode.classList ? el.parentNode : false;
     }
     return (el!==false);
+}
+
+function resize(){
+    // Resize Leaflet once the animation finishes.
+    if (defined( terria.leaflet)) {
+        setTimeout(function() {
+            if (defined( terria.leaflet)) {
+                    terria.leaflet.map.invalidateSize();
+            }
+        }, 300);
+    }
+
+    terria.currentViewer.notifyRepaintRequired();
 }
