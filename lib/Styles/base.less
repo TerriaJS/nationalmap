@@ -8,8 +8,10 @@ article, aside, footer, header, hgroup, nav, section {
     display: block;
 }
 
-div, a, p, img{
-  box-sizing: border-box;
+div, a, p, img, input {
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 input,
@@ -37,15 +39,6 @@ input:focus
 
 /* Box Sizing Reset
 -----------------------------------------------*/
-
-/* All of our custom controls should be what we expect them to be */
-input,
-textarea
-{
-  -webkit-box-sizing:content-box;
-  -moz-box-sizing:content-box;
-  box-sizing:content-box;
-}
 
 /* These elements are usually rendered a certain way by the browser */
 button,
@@ -136,16 +129,18 @@ input[type="submit"]
   background:none;
 }
 
-/* Textarea
------------------------------------------------*/
+table{
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
 
-textarea
-{
-  /* Move the label to the top */
-  vertical-align:top;
-
-  /* Turn off scroll bars in IE unless needed */
-  overflow:auto;
+a{
+  color: @red;
+  &:hover, &:focus{
+    color: @orange;
+  }
 }
 
 ::-webkit-scrollbar

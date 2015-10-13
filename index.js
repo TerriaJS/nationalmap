@@ -352,6 +352,8 @@ ui.addEventListener('click', function(e){
         ||(el.classList.contains(className2)|| hasParent(el, className2))){
             ui.classList.remove("is-collapsed");
             resize();
+            var test = knockout.contextFor(el);
+            console.log(test);
         }
     }
 }, false);

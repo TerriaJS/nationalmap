@@ -12,13 +12,22 @@
   left: 31px;
 }
 
+.hide-container{
+  position: absolute;
+  top: 0;
+  left: @left-bar-width;
+  width: @left-bar-secondary-width;
+  background: @grey;
+  padding: @padding-base;
+  text-align: right;
+  .is-collapsed &{
+    display: none;
+  }
+}
 #hide-all{
   pointer-events: auto;
   color: #fff;
   text-transform: uppercase;
-  position: absolute;
-  top: @padding-base;
-  left: @left-bar-width + @left-bar-secondary-width - @icon*4;
   cursor: pointer;
   line-height: @icon;
   &:before{
@@ -29,8 +38,5 @@
     border-top: 1px solid #fff;
     border-left: 1px solid #fff;
     .rotate(-45deg);
-  }
-  .is-collapsed &{
-    display: none;
   }
 }

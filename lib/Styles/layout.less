@@ -9,6 +9,10 @@
     border: 0;
 }
 
+#ui{
+  .no-select;
+}
+
 .ui-left{
   color: @panel-text-color;
   width: @left-bar-width;
@@ -35,7 +39,10 @@
   overflow-y: scroll;
   z-index: -1;
   .is-collapsed &{
-    display: none;
+    //put here so it's less abrupt when goign back
+    .transition(all 0.25 ease-out);
+    max-width: 0;
+    overflow: hidden;
   }
 }
 
