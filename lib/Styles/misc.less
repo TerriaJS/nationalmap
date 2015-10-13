@@ -40,3 +40,35 @@
     .rotate(-45deg);
   }
 }
+
+.now-viewing-attention-grabber-container{
+    position: absolute;
+    left: @left-bar-width + @icon/2;
+    background: @pink;
+    z-index: 1;
+    padding: @padding-base/2;
+    width: @left-bar-width;
+    border-radius: 3px;
+    top: @brand-bar-height + @padding-medium*3;
+    font-size: 0.8rem;
+
+    .now-viewing-attention-grabber-callout{
+      height: @icon;
+      width: @icon;
+      position: absolute;
+      left: -3px;
+      background: @pink;
+      .rotate(45deg);
+      z-index: -1;
+      //.vertical-center;
+    }
+    .now-viewing-attention-grabber-dismiss-button{
+      padding: @padding-base/2 0 0 0;
+      color: @silver;
+      cursor: pointer;
+      &:hover, &:focus{
+        color: #fff;
+      }
+    }
+
+}

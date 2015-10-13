@@ -388,6 +388,3 @@ function resize(){
 
     terria.currentViewer.notifyRepaintRequired();
 }
-
-var search = document.querySelector('.search-tab-form')[0];
-console.log(search);
