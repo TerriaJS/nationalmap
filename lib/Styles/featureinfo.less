@@ -1,0 +1,33 @@
+.feature-info-panel-holder{
+  background: @grey;
+  color: #fff;
+  width: auto;
+  max-width: 400px;
+  padding: @padding-base;
+  pointer-events: auto;
+  position: absolute;
+  bottom: 100px;
+  right: @padding-base;
+  &.feature-info-panel-holder-hidden{
+    display: none;
+  }
+}
+
+.feature-info-panel-section-header{
+  padding: @padding-base 0;
+  position: relative;
+}
+.feature-info-panel-close-button{
+  .icon;
+  right: 0;
+}
+
+.feature-info-panel-section-content{
+  td{
+    &:nth-child(2n){
+      .force-wrap;
+    }
+    padding: @padding-base/2 @padding-base;
+    min-width: 120px;
+  }
+}

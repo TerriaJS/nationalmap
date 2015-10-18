@@ -1,0 +1,67 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+#ui{
+  .no-select;
+}
+
+.ui-left{
+  color: @panel-text-color;
+  width: @left-bar-width;
+  height: 100%;
+  height: 100vh;
+  position: relative;
+  float: left;
+  pointer-events: auto;
+  .radial-gradient(@pink, @red, @orange);
+  .drop-shadow (1px, 0, 2px, 2px, 0.25);
+}
+
+.explorer-panel-body, .settings-panel{
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  height: 100vh;
+  left: @left-bar-width;
+  background: @grey;
+  width: @left-bar-secondary-width + @scroll-bar;
+  max-width: @left-bar-secondary-width + @scroll-bar;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: -1;
+  .is-collapsed &{
+    //put here so it's less abrupt when goign back
+    .transition(all 0.25 ease-out);
+    max-width: 0;
+    overflow: hidden;
+  }
+}
+
+//temp
+.full-window ~ main{
+  //.translate(@left-bar-secondary-width, 0);
+  left: @left-bar-secondary-width + @left-bar-width;
+}
+
+.is-collapsed ~ main{
+  //.translate(0, 0);
+  left: @left-bar-width;
+}
+
+.explorer-panel-collapsed .explorer-panel-frame{
+  display: none;
+}
+
+
+
+
+

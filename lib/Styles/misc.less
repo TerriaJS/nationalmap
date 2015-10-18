@@ -1,0 +1,74 @@
+.nationalmap-print-disclaimer{
+  display: none;
+}
+
+.compass-outer-ring-background{
+  width: 68px;
+  height: 68px;
+}
+
+.compass-gyro-background{
+  top: 31px;
+  left: 31px;
+}
+
+.hide-container{
+  position: absolute;
+  top: 0;
+  left: @left-bar-width;
+  width: @left-bar-secondary-width;
+  background: @grey;
+  padding: @padding-base;
+  text-align: right;
+  .is-collapsed &{
+    display: none;
+  }
+}
+#hide-all{
+  pointer-events: auto;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: @icon;
+  &:before{
+    content: '';
+    display: inline-block;
+    height: @icon/2;
+    width: @icon/2;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    .rotate(-45deg);
+  }
+}
+
+.now-viewing-attention-grabber-container{
+    position: absolute;
+    left: @left-bar-width + @icon/2;
+    background: @pink;
+    z-index: 1;
+    padding: @padding-base/2;
+    width: @left-bar-width;
+    border-radius: 3px;
+    top: @brand-bar-height + @padding-medium*3;
+    font-size: 0.8rem;
+
+    .now-viewing-attention-grabber-callout{
+      height: @icon;
+      width: @icon;
+      position: absolute;
+      left: -3px;
+      background: @pink;
+      .rotate(45deg);
+      z-index: -1;
+      //.vertical-center;
+    }
+    .now-viewing-attention-grabber-dismiss-button{
+      padding: @padding-base/2 0 0 0;
+      color: @silver;
+      cursor: pointer;
+      &:hover, &:focus{
+        color: #fff;
+      }
+    }
+
+}

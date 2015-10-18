@@ -1,0 +1,117 @@
+.explorer-panel-tab-area{
+  .explorer-panel-tab{
+    .left-bar-button(@padding-base*3);
+    .fading-border;
+  }
+  .explorer-panel-tab-badge{
+    .icon;
+    right: @padding-base;
+    height: @icon;
+    width: @icon;
+    background: #fff;
+    color: @red;
+    border-radius: @icon/5;
+    text-align: center;
+    line-height: 21px;
+  }
+}
+
+.explorer-panel-frame, .settings-panel-body{
+  padding-top: @brand-bar-height;
+  pointer-events: auto;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  &.explorer-panel-frame-inactive-right,
+  &.explorer-panel-frame-inactive-left{
+    //temp
+    display: none;
+  }
+}
+
+.explorer-panel-collapse-button{
+  display: none;
+}
+
+.explorer-panel-tab-icon {
+  .leftbar-icon;
+}
+
+.settings-panel-section-header{
+    .left-bar-button(@padding-base);
+    .fading-border;
+    color: @silver;
+    text-transform: uppercase;
+}
+
+.settings-panel-body > .settings-panel-section:first-of-type .settings-panel-section-content{
+  .flexbox;
+  justify-content: space-between;
+  padding: @padding-base;
+
+  .settings-panel-map-view-button{
+    font-size: 0.85rem;
+    //ie9 code
+    display: inline-block;
+    float: left;
+    .pink-button;
+    padding: 0 @padding-base/2;
+
+    //in the future let's use flex box
+    &:first-of-type{
+      padding: 0 @padding-base;
+    }
+  }
+}
+
+.settings-panel-base-map-label{
+  clear: both;
+  .left-bar-button(@padding-base);
+  font-size: 0.8rem;
+  color: @silver;
+}
+
+.settings-panel-base-map-choices{
+  padding: 0 @padding-base;
+  .clearfix;
+  img{
+    width: (@left-bar-secondary-width - @padding-base)/2 - @padding-base;
+    border: 1px solid @grey;
+    float: left;
+    display: block;
+    height: auto;
+    margin-bottom: @padding-base;
+    cursor: pointer;
+    &:nth-child(2n){
+      margin-left: @padding-base;
+    }
+    &:hover, &:focus, &.settings-panel-base-map-button-selected{
+      border: 1px solid #fff;
+
+    }
+  }
+}
+
+.settings-panel-close-button{
+  display: none;
+}
+
+//temp, need to change this later to a more reliable solution( add class or update svg)
+.explorer-panel-tab:nth-of-type(3){
+  .explorer-panel-tab-icon:after{
+    content: '+';
+    display: block;
+    position: absolute;
+    right: -@icon/6;
+    top: -@icon/6;
+    border-radius: @icon/2;
+    border: 1px solid #fff;
+    height: @icon/2;
+    width: @icon/2;
+    line-height: 1;
+    background-color: @pink;
+    text-align: center;
+    font-size: 11px;
+  }
+}

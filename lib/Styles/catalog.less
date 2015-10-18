@@ -1,0 +1,80 @@
+.data-catalog-top-group-header{
+  .left-bar-button(@padding-base);
+  .fading-border;
+  position: relative;
+}
+
+.data-catalog-top-group-label,
+.data-catalog-group-label{
+  padding-right: @icon*2;
+}
+
+.data-catalog-member-top-row{
+   .left-bar-button(@padding-base, @padding-base/1.5);
+}
+
+.data-catalog-item-label{
+  padding: 0 (@icon*2);
+  //temp
+  font-family: "lucida grande";
+}
+
+.data-catalog-top-group-icon,
+.data-catalog-item-info,
+.data-catalog-arrow {
+  .icon;
+  right: @padding-base;
+}
+
+
+//when class is on svg
+.data-catalog-item-checkbox, svg.data-catalog-item-checkbox{
+  //see design
+  @checkbox: 24px;
+  .icon;
+  left:@padding-base;
+  height: @checkbox - 2px;
+  width: @checkbox - 2px;
+  display: block;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  rect{
+    fill: @grey;
+  }
+  path{
+      display: none;
+    }
+  &.checked{
+    rect{
+      fill: #fff;
+    }
+  }
+}
+
+//when class on div
+div.data-catalog-item-checkbox.data-catalog-enabled-item{
+  @checkbox: 24px;
+  &:after{
+    width: @checkbox - 8px;
+    height: @checkbox - 8px;
+    display: block;
+    content: '';
+    background-color: #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 2px;
+  }
+}
+
+.generate-indents(5);
+
+.generate-indents(@n, @i: 0) when (@i =< @n) {
+  .data-catalog-indent@{i} {
+    @indent: @i*3 + @padding-base/3;
+    padding-left: @indent;
+    font-size: 95%;
+  }
+  .generate-indents(@n, (@i + 1));
+}
+

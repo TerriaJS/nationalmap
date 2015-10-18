@@ -1,0 +1,178 @@
+.text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+  text-shadow: @string;
+}
+.box-shadow (@string) {
+  -webkit-box-shadow: @string;
+  -moz-box-shadow:    @string;
+  box-shadow:         @string;
+}
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+  -webkit-box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+  -moz-box-shadow:  @x @y @blur @spread rgba(0, 0, 0, @alpha);
+  box-shadow:   @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+.radial-gradient (@startColor, @middleColor, @endColor) {
+    background: @startColor;
+    background: -webkit-radial-gradient(50% 30%, circle,@startColor 0%,@middleColor 70%,@endColor 100%);
+    background: -o-radial-gradient(50% 30%, circle,@startColor 0%,@middleColor 70%,@endColor 100%);
+    background: -moz-radial-gradient(50% 30%, circle, @startColor 0%,@middleColor 70%,@endColor 100%);
+    background: radial-gradient(circle at 50% 30%,@startColor 0%,@middleColor 70%,@endColor 100%);
+}
+
+.horizontal-gradient (@startColor, @endColor) {
+  background: @startColor;
+  background: -webkit-linear-gradient(left, @startColor 0% , @endColor 10%, @endColor 90%, @startColor 100%);
+  background: -o-linear-gradient(right, @startColor 0%, @endColor 10%, @endColor 90%, @startColor 100%);
+  background: -moz-linear-gradient(right, @startColor 0%, @endColor 10%, @endColor 90%, @startColor 100%);
+  background: linear-gradient(to right, @startColor 0% , @endColor 10%, @endColor 90%, @startColor 100%);
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition:    @transition;
+  -ms-transition:     @transition;
+  -o-transition:      @transition;
+}
+
+.rotate (@deg) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform:    rotate(@deg);
+  -ms-transform:     rotate(@deg);
+  -o-transform:      rotate(@deg);
+}
+
+.translate (@x, @y) {
+  -webkit-transform: translate(@x, @y);
+  -moz-transform:    translate(@x, @y);
+  -ms-transform:     translate(@x, @y);
+  -o-transform:      translate(@x, @y);
+}
+
+.transform(@string){
+  -webkit-transform: @string;
+  -moz-transform:    @string;
+  -ms-transform:     @string;
+  -o-transform:      @string;
+}
+
+.flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex(@values) {
+  -webkit-box-flex: @values;
+  -moz-box-flex:  @values;
+  -webkit-flex:  @values;
+  -ms-flex:  @values;
+  flex:  @values;
+}
+
+.clearfix{
+    &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+.left-bar-button(@padding-left, @padding-vertical:@padding-medium ){
+  cursor: pointer;
+  line-height: 1.3;
+  min-height: @button-height;
+  position: relative;
+  padding: @padding-vertical @padding-base @padding-vertical @padding-left;
+  opacity: 0.8;
+  &:hover, &:focus{
+    opacity: 1;
+  }
+}
+
+.fading-border{
+  &:after{
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: @fade;
+    .horizontal-gradient(rgba(255, 255, 255, 0), @fade);
+  }
+}
+
+.vertical-center{
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon{
+  height: @icon;
+  width: @icon;
+  position: absolute;
+  .vertical-center;
+  cursor: pointer;
+}
+
+.leftbar-icon{
+  .icon;
+  left: @padding-medium;
+}
+
+.pink-button(@border-radius: 3px){
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2;
+    border: 1px solid @fade;
+    border-radius: @border-radius;
+    cursor: pointer;
+    color: #fff;
+    &:hover, &:focus, &.settings-panel-map-view-button-selected{
+      background: @pink;
+      border-color: @pink;
+    }
+}
+
+.modal-box{
+  background: @grey;
+  .vertical-center;
+  color: @silver;
+  margin: 0 auto;
+  position: relative;
+  p{
+    line-height: 1.3;
+    margin: @padding-base/2 0;
+  }
+}
+
+.force-wrap {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.no-select{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+

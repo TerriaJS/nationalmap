@@ -38,6 +38,7 @@ var checkBrowserCompatibility = require('terriajs/lib/ViewModels/checkBrowserCom
 checkBrowserCompatibility('ui');
 
 var knockout = require('terriajs-cesium/Source/ThirdParty/knockout');
+var defined = require('terriajs-cesium/Source/Core/defined');
 
 var isCommonMobilePlatform = require('terriajs/lib/Core/isCommonMobilePlatform');
 var TerriaViewer = require('terriajs/lib/ViewModels/TerriaViewer');
@@ -143,6 +144,7 @@ terria.start({
 
     // We'll put the entire user interface into a DOM element called 'ui'.
     var ui = document.getElementById('ui');
+    var uiLeft = document.getElementById('ui-left');
 
     // Create the various base map options.
     var australiaBaseMaps = createAustraliaBaseMapOptions(terria);
@@ -151,88 +153,11 @@ terria.start({
     var allBaseMaps = australiaBaseMaps.concat(globalBaseMaps);
     selectBaseMap(terria, allBaseMaps, 'Bing Maps Aerial with Labels', true);
 
-    // Create the Settings / Map panel.
-    var settingsPanel = SettingsPanelViewModel.create({
-        container: ui,
-        terria: terria,
-        isVisible: false,
-        baseMaps: allBaseMaps
-    });
-
     // Create the brand bar.
     BrandBarViewModel.create({
-        container: ui,
+        container: uiLeft,
         elements: [
-            '<a target="_blank" href="About.html"><img src="images/NorthernAustraliaLarge.png" height="50" alt="Northern Australia Map" title="Version: ' + version + '" /></a>',
-            '<a target="_blank" href="http://www.gov.au/"><img src="images/AG-Rvsd-Stacked-Press.png" height="45" alt="Australian Government" /></a>'
-        ]
-    });
-
-    // Create the menu bar.
-    MenuBarViewModel.create({
-        container: ui,
-        terria: terria,
-        items: [
-            // Add a Tools menu that only appears when "tools=1" is present in the URL.
-            createToolsMenuItem(terria, ui),
-            new MenuBarItemViewModel({
-                label: 'Add data',
-                tooltip: 'Add your own data to the map.',
-                svgPath: svgPlus,
-                svgPathWidth: 11,
-                svgPathHeight: 12,
-                callback: function() {
-                    AddDataPanelViewModel.open({
-                        container: ui,
-                        terria: terria
-                    });
-                }
-            }),
-            new MenuBarItemViewModel({
-                label: 'Base Maps',
-                tooltip: 'Change the map mode (2D/3D) and base map.',
-                svgPath: svgWorld,
-                svgPathWidth: 17,
-                svgPathHeight: 17,
-                observableToToggle: knockout.getObservable(settingsPanel, 'isVisible')
-            }),
-            new MenuBarItemViewModel({
-                label: 'Share',
-                tooltip: 'Share your map with others.',
-                svgPath: svgShare,
-                svgPathWidth: 11,
-                svgPathHeight: 13,
-                callback: function() {
-                    SharePopupViewModel.open({
-                        container: ui,
-                        terria: terria
-                    });
-                }
-            }),
-            new MenuBarItemViewModel({
-                label: 'Related Maps',
-                tooltip: 'View other maps in the NationalMap family.',
-                svgPath: svgRelated,
-                svgPathWidth: 14,
-                svgPathHeight: 13,
-                callback: function() {
-                    PopupMessageViewModel.open(ui, {
-                        title: 'Related Maps',
-                        message: require('fs').readFileSync(__dirname + '/lib/Views/RelatedMaps.html', 'utf8'),
-                        width: 600,
-                        height: 430
-                    });
-                }
-            }),
-            new MenuBarItemViewModel({
-                label: 'About',
-                tooltip: 'About Northern Australia Map.',
-                svgPath: svgInfo,
-                svgPathWidth: 18,
-                svgPathHeight: 18,
-                svgFillRule: 'evenodd',
-                href: 'about.html'
-            })
+            '<a target="_blank" href="/"><img src="images/logo.png" alt="Northern Australia Map" title="Version: ' + version + '" /><h1 class="sr-only">Northern Australia Map</h1></a>'
         ]
     });
 
@@ -274,16 +199,12 @@ terria.start({
     var isSmallScreen = document.body.clientWidth <= 700 || document.body.clientHeight <= 420;
 
     // Create the explorer panel.
-    ExplorerPanelViewModel.create({
-        container: ui,
+    var explorerPanel = ExplorerPanelViewModel.create({
+        container: uiLeft,
         terria: terria,
         mapElementToDisplace: 'cesiumContainer',
         isOpen: !isSmallScreen && !terria.userProperties.hideExplorerPanel,
         tabs: [
-            new DataCatalogTabViewModel({
-                catalog: terria.catalog
-            }),
-            nowViewingTab,
             new SearchTabViewModel({
                 searchProviders: [
                     new CatalogItemNameSearchProviderViewModel({
@@ -297,7 +218,87 @@ terria.start({
                         terria: terria
                     })
                 ]
+            }),
+            nowViewingTab,
+            new DataCatalogTabViewModel({
+                catalog: terria.catalog
             })
+        ]
+    });
+
+    // Create the Settings / Map panel.
+    var settingsPanel = SettingsPanelViewModel.create({
+        container: uiLeft,
+        terria: terria,
+        isVisible: false,
+        baseMaps: allBaseMaps
+    });
+
+    // Create the menu bar.
+    MenuBarViewModel.create({
+        container: uiLeft,
+        terria: terria,
+        items: [
+            // Add a Tools menu that only appears when "tools=1" is present in the URL.
+            createToolsMenuItem(terria, uiLeft),
+            new MenuBarItemViewModel({
+                label: 'Base Maps',
+                tooltip: 'Change the map mode (2D/3D) and base map.',
+                svgPath: svgWorld,
+                svgPathWidth: 17,
+                svgPathHeight: 17,
+                observableToToggle: knockout.getObservable(settingsPanel, 'isVisible')
+            }),
+                new MenuBarItemViewModel({
+                label: 'Add data',
+                tooltip: 'Add your own data to the map.',
+                svgPath: svgPlus,
+                svgPathWidth: 11,
+                svgPathHeight: 12,
+                callback: function() {
+                    AddDataPanelViewModel.open({
+                        container: ui,
+                        terria: terria
+                    });
+                }
+            }),
+            new MenuBarItemViewModel({
+                label: 'About',
+                tooltip: 'About Northern Australia Map.',
+                svgPath: svgInfo,
+                svgPathWidth: 18,
+                svgPathHeight: 18,
+                svgFillRule: 'evenodd',
+                href: 'intro.html'
+            })
+            // new MenuBarItemViewModel({
+            //     label: 'Share',
+            //     tooltip: 'Share your map with others.',
+            //     svgPath: svgShare,
+            //     svgPathWidth: 11,
+            //     svgPathHeight: 13,
+            //     callback: function() {
+            //         SharePopupViewModel.open({
+            //             container: ui,
+            //             terria: terria
+            //         });
+            //     }
+            // }),
+            // new MenuBarItemViewModel({
+            //     label: 'Related Maps',
+            //     tooltip: 'View other maps in the NationalMap family.',
+            //     svgPath: svgRelated,
+            //     svgPathWidth: 14,
+            //     svgPathHeight: 13,
+            //     callback: function() {
+            //         PopupMessageViewModel.open(ui, {
+            //             title: 'Related Maps',
+            //             message: require('fs').readFileSync(__dirname + '/lib/Views/RelatedMaps.html', 'utf8'),
+            //             width: 600,
+            //             height: 430
+            //         });
+            //     }
+            // })
         ]
     });
 
@@ -321,7 +322,7 @@ terria.start({
     // Add a popup that appears the first time a catalog item is enabled,
     // calling the user's attention to the Now Viewing tab.
     NowViewingAttentionGrabberViewModel.create({
-        container: ui,
+        container: uiLeft,
         terria: terria,
         nowViewingTabViewModel: nowViewingTab
     });
@@ -330,9 +331,60 @@ terria.start({
     MutuallyExclusivePanels.create({
         panels: [
             settingsPanel,
-            featureInfoPanel
+            featureInfoPanel,
+            explorerPanel
         ]
     });
 
     document.getElementById('loadingIndicator').style.display = 'none';
 });
+
+//Open and collapse secondary left menu
+//temp
+var el,
+    className = 'explorer-panel-tab',
+    className2 = 'menu-bar-item',
+    hideButton = document.getElementById('hide-all');
+
+ui.addEventListener('click', function(e){
+    el = e.target;
+    if(ui.classList.contains("is-collapsed")){
+        if((el.classList.contains(className)|| hasParent(el, className))
+        ||(el.classList.contains(className2)|| hasParent(el, className2))){
+            ui.classList.remove("is-collapsed");
+            resize();
+            ;
+            console.log(knockout.contextFor(el));
+            console.log(knockout.dataFor(el));
+        }
+    }
+}, false);
+
+hideButton.addEventListener('click', function(e){
+    if(!ui.classList.contains('is-collapsed')){
+        ui.classList.add("is-collapsed");
+        resize();
+    }
+}, false);
+
+function hasParent( e, className ) {
+    if (!e) return false;
+    var el = e.target||e.srcElement||e||false;
+    while (el && el.classList.contains(className)!== true) {
+        el = el.parentNode && el.parentNode.classList ? el.parentNode : false;
+    }
+    return (el!==false);
+}
+
+function resize(){
+    // Resize Leaflet once the animation finishes.
+    if (defined( terria.leaflet)) {
+        setTimeout(function() {
+            if (defined( terria.leaflet)) {
+                    terria.leaflet.map.invalidateSize();
+            }
+        }, 300);
+    }
+
+    terria.currentViewer.notifyRepaintRequired();
+}
