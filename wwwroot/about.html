@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+  <head>
+    <title>NICTA National Map: Info</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link href='help/NMStyle.css' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    .information {
+    	padding: 50px;
+    	margin-top: 140px;
+      margin-left: 15%;
+    }
+    </style>
+  </head>
+  
+  <body>
+  
+    <header class="header">
+    
+    </header>
+    <section class="nav">
+      <strong>About NEII Viewer</strong> | <a href="help/map-navigation.html">Help</a>| <a href="http://neiiviewer.nicta.com/">Launch the  NEII Viewer</a>
+    </section>
+    
+    <section class="information">
+    
+      <h1>About the NEII Viewer</h1>
+
+      <p>The National Environmental Information Infrastructure (NEII) Programme in 
+      collaboration with NICTA has developed the NEII Viewer. The NEII Viewer leverages 
+      <a href="http://terria.io">TerriaJS</a> to display NEII conformant data services. Data currently 
+      available through the Viewer includes:</p>
+      <ul>
+      <li>the <a href="http://www.bom.gov.au/environment/doc/e-reefs_marine_water_quality_info_sheet.pdf">Marine Water Quality Dashboard</a>, which provides water quality information 
+      essential to maintaining a vibrant and healthy reef ecosystem; </li>
+      <li>the <a href="http://www.bom.gov.au/water/geofabric/index.shtml">Australian Hydrological Geospatial Fabric (Geofabric)</a>, is a specialised 
+      Geographic Information System (GIS). It registers the spatial relationships 
+      between important hydrological features such as rivers, water bodies, 
+      catchments, aquifers and monitoring points.</li>
+      <li>the <a href="http://www.bom.gov.au/climate/data-services/solar-information.shtml">Australian Solar Climatology Service</a>, which provides satellite-derived 
+      spatial and point-locational climatological statistics of global horizontal and 
+      direct normal solar data for industry, research, and environmental 
+      applications. </li>
+      </ul>
+      
+      <p>The Viewer will include additional NEII conformant environmental data as it becomes 
+      available. </p>
+      <p>The NEII Viewer adopts an open architecture and when a user accesses data is 
+      sourced direct from the custodial organisation through a NEII-conformant data 
+      service. The NEII Viewer itself does not store data - it provides a map-based view to 
+      data stored at-source.</p>
+      
+      <h2>How to use the NEII Viewer</h2>
+      
+      <p>Once on the NEII Viewer, select datasets, then check the box next to a dataset.
+      Clicking on the name of the dataset will zoom the map to the area of the data (or the 
+      whole of Australia if it covers the whole country). When a dataset is loaded on the 
+      map, you can click on the map to find out more information about that point in the 
+      dataset.</p>
+      
+    
+      <h2>NEII Viewer source code licence</h2>
+      
+      <p>The source code for TerriaJS is <a href="github.com/terriajs/terriajs">available on GitHub</a>. It is licensed
+      under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>, and source code files can only be used in 
+      compliance with the licence. 
+      </p>
+      <p>Unless required by applicable law or agreed to in writing, software distributed under 
+      the licence is distributed as is, without warranties or conditions of any kind, either 
+      express or implied. See the licence for the specific language governing permissions 
+      and limitations under the licence.</p>
+      
+      <h2>NEII Viewer open source software</h2>
+
+      <p>Open source software is used. Portions of the NEII Viewer use the following 
+      copyrighted open source material.</p>
+      
+      <ul>
+        <li><a href="http://cesiumjs.org/" target="_blank" >Cesium</a> (open source under the Apache 2.0 licence)</li>
+        <li>
+          <a href="http://leafletjs.com/" target="_blank" >Leaflet</a>,
+          <a href="https://github.com/shramov/leaflet-plugins" target="_blank" >Leaflet-plugins:Bing.js</a>
+          (open source under the simplified BSD licence)
+        </li>
+        <li><a href="http://geoserver.org/" target="_blank" >Geoserver</a> (open source under the GNU GPL 2.0 licence)</li>
+        <li>
+          <a href="http://jquery.com/" target="_blank" >JQuery</a>,
+          <a href="https://code.google.com/p/jquery-csv/" target="_blank" >jquery-csv</a>,
+          <a href="https://www.fyneworks.com/jquery/xml-to-json/" target="_blank" >jquery-xml2json</a>,
+          <a href="http://medialize.github.io/URI.js/" target="_blank" >URI.js</a>,
+          <a href="http://proj4js.org/" target="_blank" >Proj4.js<a>,
+          <a href="http://html2canvas.hertzen.com/" target="_blank" >html2canvas</a>,
+          <a href="https://github.com/humangeo/leaflet-tilefilter" target="_blank" >Leaflet Tile Filters</a>, 
+          <a href="http://knockoutjs.com/" target="_blank" >Knockout</a>,
+          <a href="https://github.com/SteveSanderson/knockout-es5" target="_blank" >Knockout ES5 plugin</a>,
+          <a href="http://github.com/pivotal/jasmine" target="_blank" >Jasmine</a> (all open source under the MIT licence)
+        </li>
+        <li><a href="https://github.com/Esri/esri-leaflet" target="_blank" >esri-leaflet.js</a> (open source under the Apache 2.0 licence)</li>
+        <li><a href="https://github.com/mapbox/togeojson" target="_blank" >togeojson</a>, Tilelayer.Bing.js (open source under the wtfpl ver 2)</li>
+      </ul>
+      <p>For more detail on the licences see NICTA's <a href="http://github.com/NICTA/NationalMap">GitHub</a>.</p>
+
+      <p>For more information about the NEII Viewer email <a href="mailto:environment@bom.gov.au">environment@bom.gov.au</a>.</p>
+    </section>
+    
+    <section class="footer">
+      <p>&copy; National ICT Australia Limited (NICTA) 2014. All Rights Reserved.</p>
+      <p><a href="http://www.nicta.com.au/terms__and__conditions">Terms and Conditions</a> | <a href="http://www.nicta.com.au/privacy">Privacy</a></p>
+    </section>
+
+  </body>
+</html>
