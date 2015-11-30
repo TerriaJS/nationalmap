@@ -50,6 +50,7 @@ var AnimationViewModel = require('terriajs/lib/ViewModels/AnimationViewModel');
 var BingMapsSearchProviderViewModel = require('terriajs/lib/ViewModels/BingMapsSearchProviderViewModel');
 var BrandBarViewModel = require('terriajs/lib/ViewModels/BrandBarViewModel');
 var CatalogItemNameSearchProviderViewModel = require('terriajs/lib/ViewModels/CatalogItemNameSearchProviderViewModel');
+var ChartPanelViewModel = require('terriajs/lib/ViewModels/ChartPanelViewModel');
 var createAustraliaBaseMapOptions = require('terriajs/lib/ViewModels/createAustraliaBaseMapOptions');
 var createGlobalBaseMapOptions = require('terriajs/lib/ViewModels/createGlobalBaseMapOptions');
 var createToolsMenuItem = require('terriajs/lib/ViewModels/createToolsMenuItem');
@@ -76,6 +77,7 @@ var updateApplicationOnHashChange = require('terriajs/lib/ViewModels/updateAppli
 var Terria = require('terriajs/lib/Models/Terria');
 var OgrCatalogItem = require('terriajs/lib/Models/OgrCatalogItem');
 var registerCatalogMembers = require('terriajs/lib/Models/registerCatalogMembers');
+var registerCustomComponentTypes = require('terriajs/lib/Models/registerCustomComponentTypes');
 var raiseErrorToUser = require('terriajs/lib/Models/raiseErrorToUser');
 var selectBaseMap = require('terriajs/lib/ViewModels/selectBaseMap');
 
@@ -306,6 +308,16 @@ terria.start({
         container: ui,
         terria: terria
     });
+
+    // Create the chart panel.
+    var chartPanel = ChartPanelViewModel.create({
+        container: ui,
+        terria: terria
+    });
+
+    // Register custom components in the core TerriaJS.  If you only want to register a subset of them, or to add your own,
+    // insert your custom version of the code in the registerCustomComponentTypes function here instead.
+    registerCustomComponentTypes({chartPanelViewModel: chartPanel});
 
     // Handle the user dragging/dropping files onto the application.
     DragDropViewModel.create({

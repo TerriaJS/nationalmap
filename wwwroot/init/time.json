@@ -1,0 +1,16 @@
+{
+  "catalog": [
+    {
+      "name": "Chart Data",
+      "type": "group",
+      "isOpen": true,
+      "items": [
+        {
+          "name": "Two column time data",
+          "type": "data",
+          "url": "/test/time_series_2col.csv"
+        }
+      ]
+    }
+  ]
+}
