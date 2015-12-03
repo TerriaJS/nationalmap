@@ -274,6 +274,15 @@
               "url": "test/bike_racks.geojson"
             },
             {
+              "name": "Bike Racks with custom template",
+              "type": "geojson",
+              "url": "test/bike_racks.geojson",
+              "featureInfoTemplate" : {
+                "name": "{{asset_numb}}",
+                "template": "Inspected {{inspection}}.<collapsible name='{{material}}'>A {{type}} with {{funding_ba}} funding.</collapsible><collapsible name='{{positional}}'>{{documents}}</collapsible>"
+              }
+            },
+            {
               "name": "Ferry Routes (GeoJSON via WFS)",
               "type": "wfs",
               "url": "http://www.ga.gov.au/gis/services/topography/Australian_Topography/MapServer/WFSServer",
