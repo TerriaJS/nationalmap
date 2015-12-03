@@ -8,7 +8,12 @@
         {
           "name": "Two column time data",
           "type": "data",
-          "url": "/test/time_series_2col.csv"
+          "url": "test/time_series_2col.csv"
+        },
+        {
+          "name": "Three column time data",
+          "type": "data",
+          "url": "test/time_series_3col.csv"
         }
       ]
     }
