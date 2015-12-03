@@ -76,6 +76,7 @@ var updateApplicationOnHashChange = require('terriajs/lib/ViewModels/updateAppli
 var Terria = require('terriajs/lib/Models/Terria');
 var OgrCatalogItem = require('terriajs/lib/Models/OgrCatalogItem');
 var registerCatalogMembers = require('terriajs/lib/Models/registerCatalogMembers');
+var registerCustomComponentTypes = require('terriajs/lib/Models/registerCustomComponentTypes');
 var raiseErrorToUser = require('terriajs/lib/Models/raiseErrorToUser');
 var selectBaseMap = require('terriajs/lib/ViewModels/selectBaseMap');
 
@@ -306,6 +307,10 @@ terria.start({
         container: ui,
         terria: terria
     });
+
+    // Register custom components in the core TerriaJS.  If you only want to register a subset of them, or to add your own,
+    // insert your custom version of the code in the registerCustomComponentTypes function here instead.
+    registerCustomComponentTypes();
 
     // Handle the user dragging/dropping files onto the application.
     DragDropViewModel.create({
