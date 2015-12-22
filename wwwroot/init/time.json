@@ -2,7 +2,7 @@
   "catalog": [
     {
       "name": "Chart Data",
-      "type": "group",
+      "type": "chart-data",
       "isOpen": true,
       "items": [
         {
