@@ -34,6 +34,82 @@
             "REGIONTYPE.SA4"
           ]
         },
+{
+          "items": [
+            {
+              "nowViewingMessage": "Look here for the *legend* and to *interactively filter* the data.",
+              "name": "ASGS 2011, 1991 to 2014",
+              "description": "[More about ABS Data](http://www.abs.gov.au/websitedbs/censushome.nsf/home/data?opendocument&navpos=200)<br>[Licence](http://creativecommons.org/licenses/by/2.5/au/)",
+              "dataCustodian": "[Australian Bureau of Statistics](http://www.abs.gov.au/)",
+              "type": "abs-itt",
+              "url": "http://stat.abs.gov.au/itt/query.jsp",
+              "dataSetID": "ABS_ANNUAL_ERP_ASGS",
+              "regionConcept": "ASGS_2011"
+            },
+            {
+              "nowViewingMessage": "Look here for the *legend* and to *interactively filter* the data.",
+              "name": "ASGS 2013",
+              "description": "[More about ABS Data](http://www.abs.gov.au/websitedbs/censushome.nsf/home/data?opendocument&navpos=200)<br>[Licence](http://creativecommons.org/licenses/by/2.5/au/)",
+              "dataCustodian": "[Australian Bureau of Statistics](http://www.abs.gov.au/)",
+              "type": "abs-itt",
+              "url": "http://stat.abs.gov.au/itt/query.jsp",
+              "dataSetID": "ABS_ANNUAL_ERP_LGA"
+            },
+            {
+              "nowViewingMessage": "Look here for the *legend* and to *interactively filter* the data.",
+              "name": "By age and sex, ASGS 2011, 2001 to 2014",
+              "description": "[More about ABS Data](http://www.abs.gov.au/websitedbs/censushome.nsf/home/data?opendocument&navpos=200)<br>[Licence](http://creativecommons.org/licenses/by/2.5/au/)",
+              "dataCustodian": "[Australian Bureau of Statistics](http://www.abs.gov.au/)",
+              "type": "abs-itt",
+              "url": "http://stat.abs.gov.au/itt/query.jsp",
+              "dataSetID": "ABS_ERP_ASGS",
+              "regionConcept": "ASGS_2011"
+            }
+          ],
+          "isOpen": false,
+          "type": "group",
+          "name": "Estimated Resident Population over Time"
+        },
+        {
+          "items": [
+            {
+              "nowViewingMessage": "Look here for the *legend* and to *interactively filter* the data.",
+              "name": "Regional Internal Migration Estimates, 2006-07 to 2013-14",
+              "description": "[More about ABS Data](http://www.abs.gov.au/websitedbs/censushome.nsf/home/data?opendocument&navpos=200)<br>[Licence](http://creativecommons.org/licenses/by/2.5/au/)",
+              "dataCustodian": "[Australian Bureau of Statistics](http://www.abs.gov.au/)",
+              "type": "abs-itt",
+              "url": "http://stat.abs.gov.au/itt/query.jsp",
+              "dataSetID": "RIME_REGION",
+              "regionConcept": "ASGS_2011_STATE_GCCSA_SA4_SA3_SA2",
+              "uniqueValuedConcepts": ["TIME_FY"]
+            },
+            {
+              "nowViewingMessage": "Look here for the *legend* and to *interactively filter* the data.",
+              "name": "Regional Internal Migration Estimates by LGA2011, 2006-07 to 2013-14",
+              "description": "[More about ABS Data](http://www.abs.gov.au/websitedbs/censushome.nsf/home/data?opendocument&navpos=200)<br>[Licence](http://creativecommons.org/licenses/by/2.5/au/)",
+              "dataCustodian": "[Australian Bureau of Statistics](http://www.abs.gov.au/)",
+              "type": "abs-itt",
+              "url": "http://stat.abs.gov.au/itt/query.jsp",
+              "dataSetID": "RIME_LGA2011",
+              "regionConcept": "LGA_2011",
+              "uniqueValuedConcepts": ["TIME_FY"]
+            },
+            {
+              "nowViewingMessage": "Look here for the *legend* and to *interactively filter* the data.",
+              "name": "Regional Internal Migration Estimates by Age and Sex, 2006-07 to 2013-14",
+              "description": "[More about ABS Data](http://www.abs.gov.au/websitedbs/censushome.nsf/home/data?opendocument&navpos=200)<br>[Licence](http://creativecommons.org/licenses/by/2.5/au/)",
+              "dataCustodian": "[Australian Bureau of Statistics](http://www.abs.gov.au/)",
+              "type": "abs-itt",
+              "url": "http://stat.abs.gov.au/itt/query.jsp",
+              "dataSetID": "RIN_SA34_GCCSA_STE",
+              "regionConcept": "ASGS_2011_SA34_GCCSA_STE",
+              "uniqueValuedConcepts": ["TIME_FY"]
+            }
+          ],
+          "isOpen": false,
+          "type": "group",
+          "name": "Regional Internal Migration Estimates"
+        },
         {
           "items": [
             {

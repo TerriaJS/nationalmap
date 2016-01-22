@@ -42,6 +42,9 @@
 	"UAI5PA" : "Usual Address Five Years Ago Indicator",
 	"FPD" : "Subject",
 	"REGIONTYPE" : "Region Type",
+	"TIME_FY" : "Financial Year",
+	"RIM" : "Arrival/Departure",
+	"SEX_ABS" : "Sex",
 	"MEASURE" : {
 	    "Persons" : "Sex",
 	    "85 years and over" : "Age",
