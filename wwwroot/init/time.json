@@ -2,17 +2,17 @@
   "catalog": [
     {
       "name": "Chart Data",
-      "type": "chart-data",
+      "type": "group",
       "isOpen": true,
       "items": [
         {
           "name": "Two column time data",
-          "type": "data",
+          "type": "csv",
           "url": "test/time_series_2col.csv"
         },
         {
           "name": "Three column time data",
-          "type": "data",
+          "type": "csv",
           "url": "test/time_series_3col.csv"
         }
       ]
