@@ -71,6 +71,7 @@ var PopupMessageViewModel = require('terriajs/lib/ViewModels/PopupMessageViewMod
 var SearchTabViewModel = require('terriajs/lib/ViewModels/SearchTabViewModel');
 var SettingsPanelViewModel = require('terriajs/lib/ViewModels/SettingsPanelViewModel');
 var SharePopupViewModel = require('terriajs/lib/ViewModels/SharePopupViewModel');
+var MapInteractionModeIndicatorViewModel = require('terriajs/lib/ViewModels/MapInteractionModeIndicatorViewModel');
 var MapProgressBarViewModel = require('terriajs/lib/ViewModels/MapProgressBarViewModel');
 var updateApplicationOnHashChange = require('terriajs/lib/ViewModels/updateApplicationOnHashChange');
 var updateApplicationOnMessageFromParentWindow = require('terriajs/lib/ViewModels/updateApplicationOnMessageFromParentWindow');
@@ -326,7 +327,12 @@ terria.start({
     });
 
     MapProgressBarViewModel.create({
-        container: document.getElementById('cesiumContainer'),
+        container: 'cesiumContainer',
+        terria: terria
+    });
+
+    MapInteractionModeIndicatorViewModel.create({
+        container: 'cesiumContainer',
         terria: terria
     });
 
