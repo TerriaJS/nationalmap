@@ -3,10 +3,8 @@
   "regionWmsMap": {
     "SA1": {
       "layerName": "region_map:FID_SA1_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SA1_MAIN11",
       "aliases": [
         "sa1_code_2011",
@@ -20,10 +18,8 @@
     },
     "SA1_7DIGIT": {
       "layerName": "region_map:FID_SA1_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SA1_7DIG11",
       "aliases": [
         "sa1_7digitcode_2011",
@@ -35,10 +31,8 @@
     },
     "SA4": {
       "layerName": "FID_SA4_2011_AUST",
-      "server": {
-        "url": "http://127.0.0.1:8000/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
-        "type": "MVT"
-      },
+      "server": "http://127.0.0.1:8000/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
+      "serverType": "MVT",
       "regionProp": "SA4_CODE11",
       "aliases": [
         "sa4_code_2011",
@@ -57,10 +51,8 @@
     },
     "SA4_NAME": {
       "layerName": "FID_SA4_2011_AUST",
-      "server": {
-        "url": "http://127.0.0.1:8000/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
-        "type": "MVT"
-      },
+      "server": "http://127.0.0.1:8000/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
+      "serverType": "MVT",
       "regionProp": "SA4_NAME11",
       "aliases": [
         "sa4_name",
@@ -77,10 +69,8 @@
     },
     "SA3": {
       "layerName": "region_map:FID_SA3_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SA3_CODE11",
       "aliases": [
         "sa3_code_2011",
@@ -93,10 +83,8 @@
     },
     "SA3_NAME": {
       "layerName": "region_map:FID_SA3_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SA3_NAME11",
       "aliases": [
         "sa3_name_2011",
@@ -108,10 +96,8 @@
     },
     "SA2": {
       "layerName": "FID_SA2_2011_AUST",
-      "server": {
-        "url": "http://127.0.0.1:8000/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
-        "type": "MVT"
-      },
+      "server": "http://127.0.0.1:8000/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
+      "serverType": "MVT",
       "regionProp": "SA2_MAIN11",
       "aliases": [
         "sa2_code_2011",
@@ -130,10 +116,8 @@
     },
     "SA2_5DIG": {
       "layerName": "FID_SA2_2011_AUST",
-      "server": {
-        "url": "http://127.0.0.1:8000/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
-        "type": "MVT"
-      },
+      "server": "http://127.0.0.1:8000/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
+      "serverType": "MVT",
       "regionProp": "SA2_5DIG11",
       "aliases": [
         "sa2_5digitcode",
@@ -151,10 +135,8 @@
     },
     "SA2_NAME": {
       "layerName": "FID_SA2_2011_AUST",
-      "server": {
-        "url": "http://127.0.0.1:8000/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
-        "type": "MVT"
-      },
+      "server": "http://127.0.0.1:8000/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
+      "serverType": "MVT",
       "regionProp": "SA2_NAME11",
       "aliases": [
         "sa2_name_2011",
@@ -171,10 +153,8 @@
     },
     "SSC": {
       "layerName": "region_map:FID_SSC_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SSC_CODE",
       "aliases": [
         "ssc_code_2011",
@@ -187,10 +167,8 @@
     },
     "SSC_NAME": {
       "layerName": "region_map:FID_SSC_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SSC_NAME",
       "aliases": [
         "ssc_name",
@@ -202,10 +180,8 @@
     },
     "LGA": {
       "layerName": "region_map:FID_LGA_2015_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "LGA_CODE15",
       "aliases": [
         "lga_code_2015",
@@ -223,10 +199,8 @@
     },
     "LGA_2011": {
       "layerName": "region_map:FID_LGA_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "LGA_CODE11",
       "aliases": [
         "lga_code_2011"
@@ -238,10 +212,8 @@
     "LGA_NAME": {
       "_comment": "This section must go before State",
       "layerName": "region_map:FID_LGA_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "LGA_NAME11",
       "aliases": [
         "lga_name_2011",
@@ -301,10 +273,8 @@
     },
     "POA": {
       "layerName": "region_map:FID_POA_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "POA_CODE",
       "aliases": [
         "poa_2011",
@@ -321,10 +291,8 @@
     },
     "CED": {
       "layerName": "region_map:FID_CED_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "CED_CODE",
       "aliases": [
         "ced_code_2011",
@@ -337,10 +305,8 @@
     },
     "CED_NAME": {
       "layerName": "region_map:FID_CED_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "CED_NAME",
       "aliases": [
         "ced_name_2011",
@@ -351,10 +317,8 @@
     },
     "CED2": {
       "layerName": "region_map:FID_COM20111216_ELB_region",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "ELECT_DIV",
       "textCodes": true,
       "aliases": [
@@ -367,10 +331,8 @@
     },
     "SED": {
       "layerName": "region_map:FID_SED_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SED_CODE",
       "aliases": [
         "sed_code_2011",
@@ -383,10 +345,8 @@
     },
     "SED_NAME": {
       "layerName": "region_map:FID_SED_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SED_NAME",
       "aliases": [
         "sed_name_2011",
@@ -397,10 +357,8 @@
     },
     "GCCSA": {
       "layerName": "region_map:FID_GCCSA_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "GCC_CODE11",
       "aliases": [
         "gccsa_code_2011",
@@ -413,10 +371,8 @@
     },
     "GCCSA_NAME": {
       "layerName": "region_map:FID_GCCSA_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "GCC_NAME11",
       "aliases": [
         "gccsa_name_2011",
@@ -427,10 +383,8 @@
     },
     "SUA": {
       "layerName": "region_map:FID_SUA_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SUA_CODE11",
       "aliases": [
         "sua_code_2011",
@@ -443,10 +397,8 @@
     },
     "SUA_NAME": {
       "layerName": "region_map:FID_SUA_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SUA_NAME11",
       "aliases": [
         "sua_name_2011",
@@ -469,10 +421,8 @@
     },
     "STE": {
       "layerName": "region_map:FID_STE_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "STE_CODE11",
       "aliases": [
         "ste_code",
@@ -484,10 +434,8 @@
     },
     "SOS": {
       "layerName": "region_map:FID_SOS_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SOS_CODE11",
       "aliases": [
         "sos_code_2011",
@@ -500,10 +448,8 @@
     },
     "SOSR": {
       "layerName": "region_map:FID_SOSR_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "SSR_CODE11",
       "aliases": [
         "sosr_code_2011",
@@ -516,10 +462,8 @@
     },
     "UCL": {
       "layerName": "region_map:FID_UCL_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "UCL_CODE11",
       "aliases": [
         "ucl_code_2011",
@@ -532,10 +476,8 @@
     },
     "IREG": {
       "layerName": "region_map:FID_IREG_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "IR_CODE11",
       "aliases": [
         "ireg_code_2011",
@@ -548,10 +490,8 @@
     },
     "ILOC": {
       "layerName": "region_map:FID_ILOC_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "IL_CODE11",
       "aliases": [
         "iloc_code_2011",
@@ -564,10 +504,8 @@
     },
     "IARE": {
       "layerName": "region_map:FID_IARE_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "IA_CODE11",
       "aliases": [
         "iare_code_2011",
@@ -580,10 +518,8 @@
     },
     "RA": {
       "layerName": "region_map:FID_RA_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "RA_CODE11",
       "aliases": [
         "ra_code_2011",
@@ -596,10 +532,8 @@
     },
     "TR": {
       "layerName": "region_map:FID_TR_2015_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "TR_CODE15",
       "aliases": [
         "tr_code_2015",
@@ -612,10 +546,8 @@
     },
     "PHN": {
       "layerName": "region_map:FID_PHN_boundaries_AUS_Sep2015_V5",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "PHN_Code",
       "aliases": [
         "phn_code_2015",
@@ -628,10 +560,8 @@
     },
     "STE_NAME": {
       "layerName": "region_map:FID_STE_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "STE_NAME11",
       "aliases": [
         "ste_name",
@@ -708,10 +638,8 @@
     },
     "CNT2": {
       "layerName": "region_map:FID_TM_WORLD_BORDERS",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "ISO2",
       "aliases": [
         "cnt2",
@@ -723,10 +651,8 @@
     },
     "CNT3": {
       "layerName": "region_map:FID_TM_WORLD_BORDERS",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "ISO3",
       "aliases": [
         "iso3",
@@ -739,10 +665,8 @@
     },
     "COUNTRY": {
       "layerName": "region_map:FID_TM_WORLD_BORDERS",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "NAME",
       "textCodes": true,
       "aliases": [
@@ -752,10 +676,8 @@
     },
     "AUS": {
       "layerName": "region_map:FID_AUS_2011_AUST",
-      "server": {
-        "url": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
-        "type": "WMS"
-      },
+      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "serverType": "WMS",
       "regionProp": "AUS_CODE",
       "aliases": [
         "aus"
