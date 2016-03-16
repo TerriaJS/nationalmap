@@ -47,7 +47,8 @@
         -43.74050960300004,
         159.109219008,
         -9.142175977000017
-      ]
+      ],
+      "nameProp": "SA4_NAME11"
     },
     "SA4_NAME": {
       "layerName": "FID_SA4_2011_AUST",
@@ -65,7 +66,8 @@
         -43.74050960300004,
         159.109219008,
         -9.142175977000017
-      ]
+      ],
+      "nameProp": "SA4_NAME11"
     },
     "SA3": {
       "layerName": "region_map:FID_SA3_2011_AUST",
@@ -112,7 +114,8 @@
         -43.74050960300004,
         159.109219008,
         -9.142175977000017
-      ]
+      ],
+      "nameProp": "SA2_NAME11"
     },
     "SA2_5DIG": {
       "layerName": "FID_SA2_2011_AUST",
@@ -131,7 +134,8 @@
         -43.74050960300004,
         159.109219008,
         -9.142175977000017
-      ]
+      ],
+      "nameProp": "SA2_NAME11"
     },
     "SA2_NAME": {
       "layerName": "FID_SA2_2011_AUST",
@@ -149,7 +153,8 @@
         -43.74050960300004,
         159.109219008,
         -9.142175977000017
-      ]
+      ],
+      "nameProp": "SA2_NAME11"
     },
     "SSC": {
       "layerName": "region_map:FID_SSC_2011_AUST",
@@ -653,7 +658,8 @@
         -85.0511,
         180,
         83.62359600000005
-      ]
+      ],
+      "nameProp": "NAME"
     },
     "CNT3": {
       "layerName": "FID_TM_WORLD_BORDERS",
@@ -673,7 +679,8 @@
         -85.0511,
         180,
         83.62359600000005
-      ]
+      ],
+      "nameProp": "NAME"
     },
     "COUNTRY": {
       "layerName": "FID_TM_WORLD_BORDERS",
@@ -690,7 +697,8 @@
         -85.0511,
         180,
         83.62359600000005
-      ]
+      ],
+      "nameProp": "NAME"
     },
     "AUS": {
       "layerName": "region_map:FID_AUS_2011_AUST",
