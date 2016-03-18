@@ -1,0 +1,116 @@
+{
+  "catalog": [
+    {
+      "name": "Administrative Boundaries",
+      "type": "group",
+      "isOpen": true,
+      "items": [
+        {
+          "name": "Suburb Boundaries (Other)",
+          "layers": "09276b8e_1447_4892_99a3_0f67c421f327",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "wms",
+          "url": "http://data.gov.au/geoserver/other-suburb-locality-boundaries-psma-administrative-boundaries/wms?service=WMS&version=1.3.0&request=GetCapabilities"
+        },
+        {
+          "name": "Suburb Boundaries (ACT)",
+          "layers": "0257a9da_b558_4d86_a987_535c775cf8d8",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "wms",
+          "url": "http://data.gov.au/geoserver/act-suburb-locality-boundaries-psma-administrative-boundaries/wms"
+        },
+        {
+          "name": "Suburb Boundaries (NSW)",
+          "layers": "91e70237_d9d1_4719_a82f_e71b811154c6",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "wms",
+          "url": "http://data.gov.au/geoserver/nsw-suburb-locality-boundaries-psma-administrative-boundaries/wms"
+        },
+        {
+          "name": "Suburb Boundaries (NT)",
+          "layers": "12eca357_6bad_4130_9c47_eaaf4c11e039",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "wms",
+          "url": "http://data.gov.au/geoserver/nt-suburb-locality-boundaries-psma-administrative-boundaries/wms"
+        },
+        {
+          "name": "Suburb Boundaries (QLD)",
+          "layers": "6bedcb55_1b1f_457b_b092_58e88952e9f0",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "wms",
+          "url": "http://data.gov.au/geoserver/qld-suburb-locality-boundaries-psma-administrative-boundaries/wms"
+        },
+        {
+          "name": "Suburb Boundaries (SA)",
+          "layers": "bcfcfc9a_7c8d_479a_9bdf_b95ca66ad29a",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "wms",
+          "url": "http://data.gov.au/geoserver/sa-suburb-locality-boundaries-psma-administrative-boundaries/wms"
+        },
+        {
+          "name": "Suburb Boundaries (TAS)",
+          "layers": "8bd7b6c1_1258_4df5_a98f_b6706e87de1e",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "wms",
+          "url": "http://data.gov.au/geoserver/tas-suburb-locality-boundaries-psma-administrative-boundaries/wms"
+        },
+        {
+          "name": "Suburb Boundaries (VIC)",
+          "layers": "af33dd8c_0534_4e18_9245_fc64440f742e",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "wms",
+          "url": "http://data.gov.au/geoserver/vic-suburb-locality-boundaries-psma-administrative-boundaries/wms"
+        },
+        {
+          "name": "Suburb Boundaries (WA)",
+          "layers": "ckan_6a0ec945_c880_4882_8a81_4dbcb85e74e5",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "wms",
+          "url": "http://data.gov.au/geoserver/wa-suburb-locality-boundaries-psma-administrative-boundaries/wms"
+        }
+      ]
+    },
+    {
+      "name": "ABC Photos",
+      "type": "group",
+      "isOpen": true,
+      "items": [
+        {
+          "name": "ABC Photos (all)",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "csv",
+          "url": "test/localphotostories20092014csv.csv",
+          "featureInfoTemplate": {
+            "template": "<div><p>{{Date}}</p>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p>Link to the full article: <a href={{URL}}>here</a>"
+          },
+          "tableStyle": {
+            "dataVariable": "State",
+            "timeColumn": null
+          }
+        },
+        {
+          "name": "ABC Photos (through time)",
+          "type": "csv",
+          "url": "test/localphotostories20092014csv.csv",
+          "featureInfoTemplate": {
+            "template": "<div><p>{{Date}}</p>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p>Link to the full article: <a href={{URL}}>here</a>"
+          },
+          "tableStyle": {
+            "dataVariable": "State",
+            "displayDuration": 1440
+          }
+        }
+      ]
+    }
+  ]
+}
