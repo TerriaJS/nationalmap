@@ -155,6 +155,7 @@ var UserInterface = React.createClass({
                 </div>
                 <ProgressBar terria={terria} />
                 <FeatureInfoPanel terria={terria}
+                                  viewState={this.viewState}
                                   isVisible={this.state.featureInfoPanelIsVisible}
                                   onClose={this.closeFeatureInfoPanel}
                                   isCollapsed ={this.state.featureInfoPanelIsCollapsed}
@@ -167,6 +168,7 @@ var UserInterface = React.createClass({
                 <div className='bottom-dock'>
                     <If condition={this.state.featureInfoPanelIsVisible}>
                         <ChartPanel terria={terria}
+                            viewState={this.viewState}
                             isVisible={this.state.featureInfoPanelIsVisible}
                             onClose={this.closeFeatureInfoPanel}
                             isCollapsed ={this.state.featureInfoPanelIsCollapsed}
