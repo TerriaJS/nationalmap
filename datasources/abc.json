@@ -1,12 +1,12 @@
 {
   "catalog": [
     {
-      "name": "blah",
+      "name": "ABC Photo Stories",
       "type": "group",
       "isOpen": true,
       "items": [
         {
-          "name": "ABC Photos (all)",
+          "name": "ABC Photo Stories (2009-2014)",
           "type": "csv",
           "url": "test/localphotostories20092014.csv",
           "featureInfoTemplate": {
@@ -18,7 +18,7 @@
           }
         },
         {
-          "name": "ABC Photos (through time)",
+          "name": "ABC Photo Stories by date",
           "type": "csv",
           "url": "test/localphotostories20092014.csv",
           "featureInfoTemplate": {
