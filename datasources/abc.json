@@ -3,12 +3,20 @@
     {
       "name": "blah",
       "type": "group",
+      "isOpen": true,
       "items": [
         {
           "name": "ABC Photos",
           "type": "csv",
           "url": "test/localphotostories20092014csv.csv",
-          "displayDuration": 1440
+          "featureInfoTemplate": {
+            "template": "<div><p>{{Date}}</p>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p>Link to the full article: <a href={{URL}}>here</a>"
+          },
+          "tableStyle": {
+            "dataVariable": "State",
+            "timeColumn": null,
+            "displayDuration": 1440
+          }
         }
       ]
     }
