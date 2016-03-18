@@ -95,7 +95,7 @@ var terria = new Terria(terriaOptions);
 registerCustomComponentTypes(terria);
 
 // This is temporary
-var welcome ='<strong> Alex, you need to register <a href="http://locate-geohack-3456.devpost.com/"> here:</a></strong>';
+var welcome = '<p>This project displays photos related to news stories in Australia from 2009 to 2014.</p> <p>To see the photos and related story, enable <strong>ABC News</strong> dataset under the <strong>Data Catalog</strong> tab, and click on a data point on the map.</p><p> It uses the ABC Local Online Photo Stories 2009-2014 dataset.</p><p>This data set contains meta data and links for around 8,500 stories created around Australia by ABC Local Online reporters. All the storiesare currently published live on the abc.net.au site</p>';
 
 terria.welcome = function welcomeText() { return {__html: welcome}; };
 
