@@ -10,7 +10,7 @@
           "type": "csv",
           "url": "test/localphotostories20092014.csv",
           "featureInfoTemplate": {
-            "template": "<div><p>{{Date}}</p>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p>Link to the full article: <a href={{URL}}>here</a>"
+            "template": "<div class='abc'><small>{{Date}}</small>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}<p><a target='_blank' href={{URL}}>Read More</a></div>"
           },
           "tableStyle": {
             "dataVariable": "State",
@@ -22,7 +22,7 @@
           "type": "csv",
           "url": "test/localphotostories20092014.csv",
           "featureInfoTemplate": {
-            "template": "<div><p>{{Date}}</p>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p>Link to the full article: <a href={{URL}}>here</a>"
+            "template": "<div class='abc'><small>{{Date}}</small>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}<p><a target='_blank' href={{URL}}>Read More</a></div>"
           },
           "tableStyle": {
             "dataVariable": "State",
