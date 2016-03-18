@@ -1,9 +1,42 @@
 {
   "catalog": [
     {
-      "name": "Administrative Boundaries",
+      "name": "ABC Photos",
       "type": "group",
       "isOpen": true,
+      "items": [
+        {
+          "name": "ABC Photo Stories (2009-2014)",
+          "isEnabled": true,
+          "isShown": true,
+          "type": "csv",
+          "url": "test/localphotostories20092014.csv",
+          "featureInfoTemplate": {
+            "template": "<div class='abc'><small>{{Date}}</small>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}<p><a target='_blank' href={{URL}}>Read More</a></div>"
+          },
+          "tableStyle": {
+            "dataVariable": "State",
+            "timeColumn": null
+          }
+        },
+        {
+          "name": "ABC Photo Stories by date",
+          "type": "csv",
+          "url": "test/localphotostories20092014.csv",
+          "featureInfoTemplate": {
+            "template": "<div class='abc'><small>{{Date}}</small>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}<p><a target='_blank' href={{URL}}>Read More</a></div>"
+          },
+          "tableStyle": {
+            "dataVariable": "State",
+            "displayDuration": 1440
+          }
+        }
+      ]
+    },
+    {
+      "name": "Administrative Boundaries",
+      "type": "group",
+      "isOpen": false,
       "items": [
         {
           "name": "Suburb Boundaries (Other)",
@@ -76,39 +109,6 @@
           "isShown": true,
           "type": "wms",
           "url": "http://data.gov.au/geoserver/wa-suburb-locality-boundaries-psma-administrative-boundaries/wms"
-        }
-      ]
-    },
-    {
-      "name": "ABC Photos",
-      "type": "group",
-      "isOpen": true,
-      "items": [
-        {
-          "name": "ABC Photos (all)",
-          "isEnabled": true,
-          "isShown": true,
-          "type": "csv",
-          "url": "test/localphotostories20092014csv.csv",
-          "featureInfoTemplate": {
-            "template": "<div><p>{{Date}}</p>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p>Link to the full article: <a href={{URL}}>here</a>"
-          },
-          "tableStyle": {
-            "dataVariable": "State",
-            "timeColumn": null
-          }
-        },
-        {
-          "name": "ABC Photos (through time)",
-          "type": "csv",
-          "url": "test/localphotostories20092014csv.csv",
-          "featureInfoTemplate": {
-            "template": "<div><p>{{Date}}</p>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p>Link to the full article: <a href={{URL}}>here</a>"
-          },
-          "tableStyle": {
-            "dataVariable": "State",
-            "displayDuration": 1440
-          }
         }
       ]
     }
