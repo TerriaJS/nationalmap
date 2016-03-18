@@ -1,0 +1,16 @@
+{
+  "catalog": [
+    {
+      "name": "blah",
+      "type": "group",
+      "items": [
+        {
+          "name": "ABC Photos",
+          "type": "csv",
+          "url": "test/localphotostories20092014csv.csv",
+          "displayDuration": 1440
+        }
+      ]
+    }
+  ]
+}
