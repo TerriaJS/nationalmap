@@ -22,7 +22,7 @@
           "type": "csv",
           "url": "test/localphotostories20092014csv.csv",
           "featureInfoTemplate": {
-            "template": "<div><p>{{Date}}</p>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p>Link to the full article: <a href={{URL}}>here</a>"
+            "template": "<div><small>{{Date}}</small>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p><a href={{URL}}>Read More</a>"
           },
           "tableStyle": {
             "dataVariable": "State",
