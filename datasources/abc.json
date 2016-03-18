@@ -6,7 +6,7 @@
       "isOpen": true,
       "items": [
         {
-          "name": "ABC Photos",
+          "name": "ABC Photos (all)",
           "type": "csv",
           "url": "test/localphotostories20092014csv.csv",
           "featureInfoTemplate": {
@@ -14,7 +14,18 @@
           },
           "tableStyle": {
             "dataVariable": "State",
-            "timeColumn": null,
+            "timeColumn": null
+          }
+        },
+        {
+          "name": "ABC Photos (through time)",
+          "type": "csv",
+          "url": "test/localphotostories20092014csv.csv",
+          "featureInfoTemplate": {
+            "template": "<div><p>{{Date}}</p>{{#Primary image}}<figure><img src='{{Primary image}}'/><figcaption>{{Primary image caption}}</figcaption></figure>{{/Primary image}}</div><p>Link to the full article: <a href={{URL}}>here</a>"
+          },
+          "tableStyle": {
+            "dataVariable": "State",
             "displayDuration": 1440
           }
         }
