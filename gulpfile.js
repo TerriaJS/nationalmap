@@ -207,6 +207,8 @@ function onError(e) {
 }
 
 var bundle = function(name, bundler, minify) {
+    var tsify = require('tsify');
+
     // Get a version string from "git describe".
     var version = spawnSync('git', ['describe']).stdout.toString().trim();
     var isClean = spawnSync('git', ['status', '--porcelain']).stdout.toString().length === 0;
@@ -217,7 +219,9 @@ var bundle = function(name, bundler, minify) {
     fs.writeFileSync('version.js', 'module.exports = \'' + version + '\';');
 
     // Combine main.js and its dependencies into a single file.
-    var result = bundler.bundle();
+    var result = bundler.plugin(tsify, {
+        target: 'ES5'
+    }).bundle();
 
     result = result
         .on('error', onError)
