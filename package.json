@@ -8,7 +8,7 @@
     "url": "http://github.com/NICTA/nationalmap"
   },
   "dependencies": {
-    "terriajs": "git://github.com/TerriaJS/terriajs#wps",
+    "terriajs": "git://github.com/TerriaJS/terriajs#wps-analytics",
     "terriajs-server": "^1.4.0",
     "terriajs-cesium": "1.19.1"
   },
