@@ -53,6 +53,7 @@ var PopupMessageViewModel = require('terriajs/lib/ViewModels/PopupMessageViewMod
 var SearchTabViewModel = require('terriajs/lib/ViewModels/SearchTabViewModel');
 var SettingsPanelViewModel = require('terriajs/lib/ViewModels/SettingsPanelViewModel');
 var SharePopupViewModel = require('terriajs/lib/ViewModels/SharePopupViewModel');
+var MapInteractionModeIndicatorViewModel = require('terriajs/lib/ViewModels/MapInteractionModeIndicatorViewModel');
 var MapProgressBarViewModel = require('terriajs/lib/ViewModels/MapProgressBarViewModel');
 var updateApplicationOnHashChange = require('terriajs/lib/ViewModels/updateApplicationOnHashChange');
 var updateApplicationOnMessageFromParentWindow = require('terriajs/lib/ViewModels/updateApplicationOnMessageFromParentWindow');
@@ -60,6 +61,7 @@ var updateApplicationOnMessageFromParentWindow = require('terriajs/lib/ViewModel
 var Terria = require('terriajs/lib/Models/Terria');
 var registerCatalogMembers = require('terriajs/lib/Models/registerCatalogMembers');
 var registerCustomComponentTypes = require('terriajs/lib/Models/registerCustomComponentTypes');
+var registerAnalytics = require('terriajs/lib/Models/registerAnalytics');
 var raiseErrorToUser = require('terriajs/lib/Models/raiseErrorToUser');
 
 var GoogleUrlShortener = require('terriajs/lib/Models/GoogleUrlShortener');
@@ -84,6 +86,8 @@ registerKnockoutBindings();
 // (i.e. to reduce the size of your application if you don't actually use them all), feel free to copy a subset of
 // the code in the registerCatalogMembers function here instead.
 registerCatalogMembers();
+
+registerAnalytics();
 
 terriaOptions.analytics = new GoogleAnalytics();
 
