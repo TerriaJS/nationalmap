@@ -75,6 +75,7 @@ var updateApplicationOnMessageFromParentWindow = require('terriajs/lib/ViewModel
 
 var Terria = require('terriajs/lib/Models/Terria');
 var registerCatalogMembers = require('terriajs/lib/Models/registerCatalogMembers');
+var registerAnalytics = require('terriajs/lib/Models/registerAnalytics');
 var raiseErrorToUser = require('terriajs/lib/Models/raiseErrorToUser');
 var selectBaseMap = require('terriajs/lib/ViewModels/selectBaseMap');
 var defaultValue = require('terriajs-cesium/Source/Core/defaultValue');
@@ -92,6 +93,8 @@ registerKnockoutBindings();
 // (i.e. to reduce the size of your application if you don't actually use them all), feel free to copy a subset of
 // the code in the registerCatalogMembers function here instead.
 registerCatalogMembers();
+
+registerAnalytics();
 
 terriaOptions.analytics = new GoogleAnalytics();
 
