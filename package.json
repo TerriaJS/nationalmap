@@ -63,10 +63,12 @@
     "postinstall": "echo 'Installation with NPM successful. What to do next:\\n  npm start       # Starts the server on port 3001\\n  gulp watch      # Builds NationalMap and dependencies, and rebuilds if files change.'"
   },
   "browserify": {
+    "debug": true,
     "transform": [
       [
         "babelify",
         {
+          "sourceMaps": false,
           "plugins": [
             "jsx-control-statements"
           ],
@@ -77,14 +79,6 @@
         }
       ],
       "brfs"
-    ],
-    "plugin": [
-      [
-        "browserify-resolutions",
-        [
-          "react"
-        ]
-      ]
     ]
   }
 }

@@ -24,6 +24,9 @@
 @import "partial/my_data";
 @import "partial/work_bench";
 
+//mobile only styles
+@import "component/mobile";
+
 @import "component/loader";
 @import "component/location_bar";
 @import "component/notification";
@@ -37,6 +40,9 @@
 @import "component/preview";
 @import "component/search";
 @import "component/mobile";
+@import "component/bottom_dock";
+@import "component/timeline";
+
 
 
 $offset: 10px;

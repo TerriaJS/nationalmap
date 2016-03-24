@@ -146,6 +146,7 @@ terria.start({
         ReactDOM.render(<UserInterface terria={terria} allBaseMaps={allBaseMaps}
                                        terriaViewer={terriaViewer}/>, document.getElementById('ui'));
     } catch (e) {
-        console.error(e.stack)
+        console.error(e);
+        console.error(e.stack);
     }
 });

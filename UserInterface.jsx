@@ -2,11 +2,8 @@
 
 import arrayContains from 'terriajs/lib/Core/arrayContains';
 import Branding from 'terriajs/lib/ReactViews/Branding.jsx';
-import ChartPanel from 'terriajs/lib/ReactViews/Chart/ChartPanel.jsx';
-import DistanceLegend from 'terriajs/lib/ReactViews/DistanceLegend.jsx';
 import FeatureInfoPanel from 'terriajs/lib/ReactViews/FeatureInfo/FeatureInfoPanel.jsx';
 import knockout from 'terriajs-cesium/Source/ThirdParty/knockout';
-import LocationBar from 'terriajs/lib/ReactViews/LocationBar.jsx';
 import MapNavigation from 'terriajs/lib/ReactViews/MapNavigation.jsx';
 import MobileHeader from 'terriajs/lib/ReactViews/Mobile/MobileHeader.jsx';
 import ModalWindow from 'terriajs/lib/ReactViews/ModalWindow.jsx';
@@ -16,6 +13,7 @@ import React from 'react';
 import SidePanel from 'terriajs/lib/ReactViews/SidePanel.jsx';
 import ProgressBar from 'terriajs/lib/ReactViews/ProgressBar.jsx';
 import ViewState from 'terriajs/lib/ReactViewModels/ViewState.js';
+import BottomDock from 'terriajs/lib/ReactViews/BottomDock/BottomDock.jsx';
 
 var UserInterface = React.createClass({
     propTypes: {
@@ -62,7 +60,7 @@ var UserInterface = React.createClass({
             });
         }, this);
 
-        const  that = this;
+        const that = this;
         // TO DO(chloe): change window into a container
         window.addEventListener('dragover', e => {
             if (!e.dataTransfer.types || !arrayContains(e.dataTransfer.types, 'Files')) {
@@ -119,9 +117,11 @@ var UserInterface = React.createClass({
         const terria = this.props.terria;
         const allBaseMaps = this.props.allBaseMaps;
         const terriaViewer = this.props.terriaViewer;
+
         return (
             <div>
                 <div className='header'>
+
                 <MobileHeader terria={terria}
                               viewState={this.viewState}
                 />
@@ -154,24 +154,15 @@ var UserInterface = React.createClass({
                                   onDismiss={this.closeNotification}
                     />
                 </div>
-                <ProgressBar terria={terria} />
+                <ProgressBar terria={terria}/>
                 <FeatureInfoPanel terria={terria}
                                   viewState={this.viewState}
                                   isVisible={this.state.featureInfoPanelIsVisible}
                                   onClose={this.closeFeatureInfoPanel}
-                                  isCollapsed ={this.state.featureInfoPanelIsCollapsed}
+                                  isCollapsed={this.state.featureInfoPanelIsCollapsed}
                                   onChangeFeatureInfoPanelIsCollapsed={this.changeFeatureInfoPanelIsCollapsed}
                 />
-                <div className='location-distance'>
-                  <LocationBar terria={terria}/>
-                  <DistanceLegend terria={terria}/>
-                </div>
-                <ChartPanel terria={terria}
-                            viewState={this.viewState}
-                            isVisible={this.state.featureInfoPanelIsVisible}
-                            onClose={this.closeFeatureInfoPanel}
-                            isCollapsed ={this.state.featureInfoPanelIsCollapsed}
-                />
+                <BottomDock terria={terria} />
             </div>);
     }
 });
