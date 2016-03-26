@@ -125,8 +125,8 @@ terria.start({
         // Create the map/globe.
         var terriaViewer = TerriaViewer.create(terria, {
             developerAttribution: {
-                text: 'NICTA',
-                link: 'http://www.nicta.com.au'
+                text: 'Data61',
+                link: 'http://www.csiro.au/en/Research/D61'
             }
         });
 
