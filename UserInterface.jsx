@@ -7,7 +7,8 @@ import knockout from 'terriajs-cesium/Source/ThirdParty/knockout';
 import MapNavigation from 'terriajs/lib/ReactViews/MapNavigation.jsx';
 import MobileHeader from 'terriajs/lib/ReactViews/Mobile/MobileHeader.jsx';
 import ModalWindow from 'terriajs/lib/ReactViews/ModalWindow.jsx';
-import Notification from 'terriajs/lib/ReactViews/Notification.jsx';
+import Notification from 'terriajs/lib/ReactViews/Notification/Notification.jsx';
+import MapInteractionWindow from 'terriajs/lib/ReactViews/Notification/MapInteractionWindow.jsx';
 import ObserveModelMixin from 'terriajs/lib/ReactViews/ObserveModelMixin';
 import React from 'react';
 import SidePanel from 'terriajs/lib/ReactViews/SidePanel.jsx';
@@ -151,6 +152,7 @@ var UserInterface = React.createClass({
                                   body={this.state.notificationBody}
                                   onDismiss={this.closeNotification}
                     />
+                    <MapInteractionWindow terria ={terria}/>
                 </div>
                 <ProgressBar terria={terria}/>
                 <FeatureInfoPanel terria={terria}
