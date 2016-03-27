@@ -57,6 +57,7 @@ var MapInteractionModeIndicatorViewModel = require('terriajs/lib/ViewModels/MapI
 var MapProgressBarViewModel = require('terriajs/lib/ViewModels/MapProgressBarViewModel');
 var updateApplicationOnHashChange = require('terriajs/lib/ViewModels/updateApplicationOnHashChange');
 var updateApplicationOnMessageFromParentWindow = require('terriajs/lib/ViewModels/updateApplicationOnMessageFromParentWindow');
+var ViewState = require('terriajs/lib/ReactViewModels/ViewState').default;
 
 var Terria = require('terriajs/lib/Models/Terria');
 var registerCatalogMembers = require('terriajs/lib/Models/registerCatalogMembers');
@@ -103,6 +104,15 @@ var welcome = 'welcome text';
 
 terria.welcome = function welcomeText() { return {__html: welcome}; };
 
+const viewState = new ViewState();
+
+terria.error.addEventListener(e => {
+    viewState.notifications.push({
+        title: e.title,
+        message: e.message
+    });
+});
+
 terria.start({
     // If you don't want the user to be able to control catalog loading via the URL, remove the applicationUrl property below
     // as well as the call to "updateApplicationOnHashChange" further down.
@@ -144,7 +154,8 @@ terria.start({
         // Automatically update Terria (load new catalogs, etc.) when the hash part of the URL changes.
         // updateApplicationOnHashChange(terria, window);
         ReactDOM.render(<UserInterface terria={terria} allBaseMaps={allBaseMaps}
-                                       terriaViewer={terriaViewer}/>, document.getElementById('ui'));
+                                       terriaViewer={terriaViewer}
+                                       viewState={viewState} />, document.getElementById('ui'));
     } catch (e) {
         console.error(e);
         console.error(e.stack);
