@@ -20,41 +20,13 @@ var checkBrowserCompatibility = require('terriajs/lib/ViewModels/checkBrowserCom
 
 // checkBrowserCompatibility('ui');
 
-var knockout = require('terriajs-cesium/Source/ThirdParty/knockout');
 
 var isCommonMobilePlatform = require('terriajs/lib/Core/isCommonMobilePlatform');
 var TerriaViewer = require('terriajs/lib/ViewModels/TerriaViewer');
 var registerKnockoutBindings = require('terriajs/lib/Core/registerKnockoutBindings');
 var GoogleAnalytics = require('terriajs/lib/Core/GoogleAnalytics');
 
-var AddDataPanelViewModel = require('terriajs/lib/ViewModels/AddDataPanelViewModel');
-var AnimationViewModel = require('terriajs/lib/ViewModels/AnimationViewModel');
-var BingMapsSearchProviderViewModel = require('terriajs/lib/ViewModels/BingMapsSearchProviderViewModel');
-var BrandBarViewModel = require('terriajs/lib/ViewModels/BrandBarViewModel');
-var CatalogItemNameSearchProviderViewModel = require('terriajs/lib/ViewModels/CatalogItemNameSearchProviderViewModel');
-var createAustraliaBaseMapOptions = require('terriajs/lib/ViewModels/createAustraliaBaseMapOptions');
-var createGlobalBaseMapOptions = require('terriajs/lib/ViewModels/createGlobalBaseMapOptions');
-var createToolsMenuItem = require('terriajs/lib/ViewModels/createToolsMenuItem');
-var DataCatalogTabViewModel = require('terriajs/lib/ViewModels/DataCatalogTabViewModel');
-var DistanceLegendViewModel = require('terriajs/lib/ViewModels/DistanceLegendViewModel');
-var DragDropViewModel = require('terriajs/lib/ViewModels/DragDropViewModel');
-var ExplorerPanelViewModel = require('terriajs/lib/ViewModels/ExplorerPanelViewModel');
-var FeatureInfoPanelViewModel = require('terriajs/lib/ViewModels/FeatureInfoPanelViewModel');
-var GazetteerSearchProviderViewModel = require('terriajs/lib/ViewModels/GazetteerSearchProviderViewModel');
 var GoogleUrlShortener = require('terriajs/lib/Models/GoogleUrlShortener');
-var LocationBarViewModel = require('terriajs/lib/ViewModels/LocationBarViewModel');
-var MenuBarItemViewModel = require('terriajs/lib/ViewModels/MenuBarItemViewModel');
-var MenuBarViewModel = require('terriajs/lib/ViewModels/MenuBarViewModel');
-var MutuallyExclusivePanels = require('terriajs/lib/ViewModels/MutuallyExclusivePanels');
-var NavigationViewModel = require('terriajs/lib/ViewModels/NavigationViewModel');
-var NowViewingAttentionGrabberViewModel = require('terriajs/lib/ViewModels/NowViewingAttentionGrabberViewModel');
-var NowViewingTabViewModel = require('terriajs/lib/ViewModels/NowViewingTabViewModel');
-var PopupMessageViewModel = require('terriajs/lib/ViewModels/PopupMessageViewModel');
-var SearchTabViewModel = require('terriajs/lib/ViewModels/SearchTabViewModel');
-var SettingsPanelViewModel = require('terriajs/lib/ViewModels/SettingsPanelViewModel');
-var SharePopupViewModel = require('terriajs/lib/ViewModels/SharePopupViewModel');
-var MapInteractionModeIndicatorViewModel = require('terriajs/lib/ViewModels/MapInteractionModeIndicatorViewModel');
-var MapProgressBarViewModel = require('terriajs/lib/ViewModels/MapProgressBarViewModel');
 var updateApplicationOnHashChange = require('terriajs/lib/ViewModels/updateApplicationOnHashChange');
 var updateApplicationOnMessageFromParentWindow = require('terriajs/lib/ViewModels/updateApplicationOnMessageFromParentWindow');
 var ViewState = require('terriajs/lib/ReactViewModels/ViewState').default;
@@ -67,14 +39,10 @@ var raiseErrorToUser = require('terriajs/lib/Models/raiseErrorToUser');
 
 var GoogleUrlShortener = require('terriajs/lib/Models/GoogleUrlShortener');
 var isCommonMobilePlatform = require('terriajs/lib/Core/isCommonMobilePlatform');
-var ViewerMode = require('terriajs/lib/Models/ViewerMode');
 var GoogleAnalytics = require('terriajs/lib/Core/GoogleAnalytics');
 
-var corsProxy = require('terriajs/lib/Core/corsProxy');
 var OgrCatalogItem = require('terriajs/lib/Models/OgrCatalogItem');
 
-var selectBaseMap = require('terriajs/lib/ViewModels/selectBaseMap');
-var defaultValue = require('terriajs-cesium/Source/Core/defaultValue');
 
 // Tell the OGR catalog item where to find its conversion service.  If you're not using OgrCatalogItem you can remove this.
 OgrCatalogItem.conversionServiceBaseUrl = configuration.conversionServiceBaseUrl;
