@@ -1,9 +1,10 @@
 {
   "comments": "Matching takes place in the order defined in this file. Place code matches before name matches, and smaller regions before larger ones.",
   "regionWmsMap": {
+
     "SA1": {
-      "layerName": "region_map:FID_SA1_2011_AUST",
-      "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+      "layerName": "FID_SA1_2011_AUST",
+      "server": "http://127.0.0.1:8000/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
       "regionProp": "SA1_MAIN11",
       "aliases": [
         "sa1_code_2011",
@@ -14,7 +15,14 @@
       "digits": 11,
       "description": "Statistical Area Level 1",
       "regionIdsFile": "data/regionids/region_map-FID_SA1_2011_AUST_SA1_MAIN11.json",
-      "serverType": "WMS"
+      "serverType": "MVT",
+      "bbox": [
+        96.816941408,
+        -43.74050960300004,
+        159.109219008,
+        -9.142175977000017
+      ],
+      "nameProp": "SA4_NAME11"
     },
     "SA1_7DIGIT": {
       "layerName": "region_map:FID_SA1_2011_AUST",
@@ -709,6 +717,44 @@
       ],
       "regionIdsFile": "data/regionids/region_map-FID_AUS_2011_AUST_AUS_CODE.json",
       "serverType": "WMS"
+    },
+    "okcounty": {
+      "layerName": "okcounties",
+      "server": "http://127.0.0.1:8000/okcounties/{z}/{x}/{y}.pbf",
+      "serverType": "MVT",
+      "serverSubdomains": [],
+      "bbox": [
+        -103.002647,
+        33.61576499999925,
+        -94.43121500000001,
+        37.00232699999971
+      ],
+      "regionProp": "county",
+      "aliases": [
+        "okcounty"
+      ],
+      "nameProp": "name",
+      "description": "Oklahoma Counties",
+      "regionIdsFile": "data/regionids/region_map-okcounties_county.json"
+    },
+    "okcounty_name": {
+      "layerName": "okcounties",
+      "server": "http://127.0.0.1:8000/okcounties/{z}/{x}/{y}.pbf",
+      "serverType": "MVT",
+      "serverSubdomains": [],
+      "bbox": [
+        -103.002647,
+        33.61576499999925,
+        -94.43121500000001,
+        37.00232699999971
+      ],
+      "regionProp": "name",
+      "aliases": [
+        "okcounty_name"
+      ],
+      "nameProp": "name",
+      "description": "Oklahoma Counties",
+      "regionIdsFile": "data/regionids/region_map-okcounties_name.json"
     }
   }
 }
