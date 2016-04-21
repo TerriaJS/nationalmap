@@ -1,150 +1,129 @@
-"use strict";
+'use strict';
 
 /*global require*/
-
-var fs = require('fs');
-var spawnSync = require('spawn-sync');
-var glob = require('glob-all');
+// Every module required-in here must be a `dependency` in package.json, not just a `devDependency`,
+// This matters if ever we have gulp tasks run from npm, especially post-install ones.
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var browserify = require('browserify');
-var jshint = require('gulp-jshint');
-var less = require('gulp-less');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var sourcemaps = require('gulp-sourcemaps');
-var exorcist = require('exorcist');
-var buffer = require('vinyl-buffer');
-var transform = require('vinyl-transform');
-var source = require('vinyl-source-stream');
-var watchify = require('watchify');
-var NpmImportPlugin = require('less-plugin-npm-import');
-var jsoncombine = require('gulp-jsoncombine');
+var path = require('path');
 
-var appJSName = 'nationalmap.js';
-var appCssName = 'nationalmap.css';
-var specJSName = 'nationalmap-tests.js';
-var appEntryJSName = './index.js';
-var terriaJSSource = 'node_modules/terriajs/wwwroot';
-var terriaJSDest = 'wwwroot/build/TerriaJS';
-var testGlob = './test/**/*.js';
+gulp.task('build', ['build-css', 'copy-terriajs-assets', 'build-app']);
+gulp.task('release', ['build-css', 'copy-terriajs-assets', 'release-app', 'make-editor-schema']);
+gulp.task('watch', ['watch-css', 'watch-terriajs-assets', 'watch-app']);
+gulp.task('default', ['lint', 'build']);
 
-// Create the build directory, because browserify flips out if the directory that might
-// contain an existing source map doesn't exist.
-if (!fs.existsSync('wwwroot/build')) {
-    fs.mkdirSync('wwwroot/build');
-}
+var watchOptions = {
+    interval: 1000
+};
 
-gulp.task('build-app', ['prepare-terriajs'], function() {
-    return build(appJSName, appEntryJSName, false);
+gulp.task('build-app', ['write-version'], function(done) {
+    var runWebpack = require('terriajs/buildprocess/runWebpack.js');
+    var webpack = require('webpack');
+    var webpackConfig = require('./buildprocess/webpack.config.js');
+
+    runWebpack(webpack, webpackConfig, done);
 });
 
-gulp.task('build-specs', ['prepare-terriajs'], function() {
-    return build(specJSName, glob.sync(testGlob), false);
+gulp.task('release-app', ['write-version'], function(done) {
+    var runWebpack = require('terriajs/buildprocess/runWebpack.js');
+    var webpack = require('webpack');
+    var webpackConfig = require('./buildprocess/webpack.config.js');
+
+    runWebpack(webpack, Object.assign({}, webpackConfig, {
+        devtool: 'source-map',
+        plugins: [
+            new webpack.optimize.UglifyJsPlugin(),
+            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.OccurrenceOrderPlugin()
+        ].concat(webpackConfig.plugins || [])
+    }), done);
+});
+
+gulp.task('watch-app', function(done) {
+    var fs = require('fs');
+    var watchWebpack = require('terriajs/buildprocess/watchWebpack');
+    var webpack = require('webpack');
+    var webpackConfig = require('./buildprocess/webpack.config.js');
+
+    fs.writeFileSync('version.js', 'module.exports = \'Development Build\';');
+    watchWebpack(webpack, webpackConfig, done);
 });
 
 gulp.task('build-css', function() {
+    var less = require('gulp-less');
+    var NpmImportPlugin = require('less-plugin-npm-import');
+    var rename = require('gulp-rename');
+
     return gulp.src('./index.less')
+        .on('error', onError)
         .pipe(less({
             plugins: [
                 new NpmImportPlugin()
             ]
         }))
-        .pipe(rename(appCssName))
+        .pipe(rename('nationalmap.css'))
         .pipe(gulp.dest('./wwwroot/build/'));
 });
 
-gulp.task('build', ['build-css', 'merge-datasources', 'build-app', 'build-specs']);
-
-gulp.task('release-app', ['prepare'], function() {
-    return build(appJSName, appEntryJSName, true);
-});
-
-gulp.task('release-specs', ['prepare'], function() {
-    return build(specJSName, glob.sync(testGlob), true);
-});
-
-gulp.task('release', ['build-css', 'merge-datasources', 'release-app', 'release-specs']);
-
-gulp.task('watch-app', ['prepare'], function() {
-    return watch(appJSName, appEntryJSName, false);
-    // TODO: make this automatically trigger when ./lib/Views/*.html get updated
-});
-
-gulp.task('watch-specs', ['prepare'], function() {
-    return watch(specJSName, glob.sync(testGlob), false);
-});
-
 gulp.task('watch-css', ['build-css'], function() {
-    return gulp.watch(['./index.less', './node_modules/terriajs/lib/Styles/*.less', './lib/Styles/*.less'], ['build-css']);
+    var terriaStylesGlob = path.join(getPackageRoot('terriajs'), 'lib', 'Styles', '**', '*.less');
+    var appStylesGlob = path.join(__dirname, 'lib', 'Styles', '**', '*.less');
+    return gulp.watch(['./index.less', terriaStylesGlob, appStylesGlob], watchOptions, ['build-css']);
 });
 
-gulp.task('watch-datasource-groups', ['merge-groups'], function() {
-    return gulp.watch('datasources/00_National_Data_Sets/*.json', [ 'merge-groups', 'merge-catalog' ]);
-});
+gulp.task('copy-terriajs-assets', function() {
+    var terriaWebRoot = path.join(getPackageRoot('terriajs'), 'wwwroot');
+    var sourceGlob = path.join(terriaWebRoot, '**');
+    var destPath = path.resolve(__dirname, 'wwwroot', 'build', 'TerriaJS');
 
-gulp.task('watch-datasource-catalog', ['merge-catalog'], function() {
-    return gulp.watch('datasources/*.json', [ 'merge-catalog' ]);
-});
-
-gulp.task('watch-datasources', ['watch-datasource-groups','watch-datasource-catalog']);
-
-gulp.task('watch-terriajs', ['prepare-terriajs'], function() {
-    return gulp.watch(terriaJSSource + '/**', [ 'prepare-terriajs' ]);
-});
-
-gulp.task('watch', ['watch-app', 'watch-specs', 'watch-css', 'watch-datasources', 'watch-terriajs']);
-
-gulp.task('lint', function(){
-    return gulp.src(['lib/**/*.js', 'test/**/*.js'])
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'))
-        .pipe(jshint.reporter('fail'));
-});
-
-gulp.task('prepare', ['prepare-terriajs']);
-
-gulp.task('prepare-terriajs', function() {
     return gulp
-        .src([ terriaJSSource + '/**' ], { base: terriaJSSource })
-        .pipe(gulp.dest(terriaJSDest));
+        .src([ sourceGlob ], { base: terriaWebRoot })
+        .pipe(gulp.dest(destPath));
 });
 
-gulp.task('merge-groups', function() {
-    var jsonspacing=0;
-    return gulp.src("./datasources/00_National_Data_Sets/*.json")
-    .pipe(jsoncombine("00_National_Data_Sets.json", function(data) {
-        // be absolutely sure we have the files in alphabetical order
-        var keys = Object.keys(data).slice().sort();
-        for (var i = 1; i < keys.length; i++) {
-            data[keys[0]].catalog[0].items.push(data[keys[i]].catalog[0].items[0]);
-        }
-        return new Buffer(JSON.stringify(data[keys[0]], null, jsonspacing));
-    }))
-    .pipe(gulp.dest("./datasources"));
+gulp.task('watch-terriajs-assets', ['copy-terriajs-assets'], function() {
+    var terriaWebRoot = path.join(getPackageRoot('terriajs'), 'wwwroot');
+    var sourceGlob = path.join(terriaWebRoot, '**');
+
+    return gulp.watch(sourceGlob, watchOptions, [ 'copy-terriajs-assets' ]);
 });
 
-gulp.task('merge-catalog', ['merge-groups'], function() {
-    var jsonspacing=0;
-    return gulp.src("./datasources/*.json")
-        .pipe(jsoncombine("nm.json", function(data) {
-        // be absolutely sure we have the files in alphabetical order, with 000_settings first.
-        var keys = Object.keys(data).slice().sort();
-        data[keys[0]].catalog = [];
+// Generate new schema for editor, and copy it over whatever version came with editor.
+gulp.task('make-editor-schema', ['copy-editor'], function() {
+    var generateSchema = require('generate-terriajs-schema');
 
-        for (var i = 1; i < keys.length; i++) {
-            data[keys[0]].catalog.push(data[keys[i]].catalog[0]);
-        }
-        return new Buffer(JSON.stringify(data[keys[0]], null, jsonspacing));
-    }))
-    .pipe(gulp.dest("./wwwroot/init"));
+    return generateSchema({
+        source: getPackageRoot('terriajs'),
+        dest: 'wwwroot/editor',
+        noversionsubdir: true,
+        editor: true,
+        quiet: true
+    });
 });
 
-gulp.task('merge-datasources', ['merge-catalog', 'merge-groups']);
+gulp.task('copy-editor', function() {
+    var glob = path.join(getPackageRoot('terriajs-catalog-editor'), '**');
 
-gulp.task('default', ['lint', 'build']);
+    return gulp.src(glob)
+        .pipe(gulp.dest('./wwwroot/editor'));
+});
 
-function bundle(name, bundler, minify, catchErrors) {
+gulp.task('lint', function() {
+    var runExternalModule = require('terriajs/buildprocess/runExternalModule');
+
+    runExternalModule('eslint/bin/eslint.js', [
+        '-c', path.join(getPackageRoot('terriajs'), '.eslintrc'),
+        '--ignore-pattern', 'lib/ThirdParty',
+        '--max-warnings', '0',
+        'index.js',
+        'lib'
+    ]);
+});
+
+gulp.task('write-version', function() {
+    var fs = require('fs');
+    var spawnSync = require('child_process').spawnSync;
+
     // Get a version string from "git describe".
     var version = spawnSync('git', ['describe']).stdout.toString().trim();
     var isClean = spawnSync('git', ['status', '--porcelain']).stdout.toString().length === 0;
@@ -153,75 +132,21 @@ function bundle(name, bundler, minify, catchErrors) {
     }
 
     fs.writeFileSync('version.js', 'module.exports = \'' + version + '\';');
+});
 
-    // Combine main.js and its dependencies into a single file.
-    // The poorly-named "debug: true" causes Browserify to generate a source map.
-    var result = bundler.bundle();
-
-    if (catchErrors) {
-        // Display errors to the user, and don't let them propagate.
-        result = result.on('error', function(e) {
-            gutil.log('Browserify Error', e.message);
-        });
+function onError(e) {
+    if (e.code === 'EMFILE') {
+        console.error('Too many open files. You should run this command:\n    ulimit -n 2048');
+        process.exit(1);
+    } else if (e.code === 'ENOSPC') {
+        console.error('Too many files to watch. You should run this command:\n' +
+                    '    echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p');
+        process.exit(1);
     }
-
-    result = result
-        .pipe(source(name))
-        .pipe(buffer());
-
-    if (minify) {
-        // Minify the combined source.
-        // sourcemaps.init/write maintains a working source map after minification.
-        // "preserveComments: 'some'" preserves JSDoc-style comments tagged with @license or @preserve.
-        result = result
-            .pipe(sourcemaps.init({ loadMaps: true }))
-            .pipe(uglify({preserveComments: 'some', mangle: true, compress: true}))
-            .pipe(sourcemaps.write());
-    }
-
-    result = result
-        // Extract the embedded source map to a separate file.
-        .pipe(transform(function () { return exorcist('wwwroot/build/' + name + '.map'); }))
-
-        // Write the finished product.
-        .pipe(gulp.dest('wwwroot/build'));
-
-    return result;
+    gutil.log(e.message);
+    process.exit(1);
 }
 
-function build(name, files, minify) {
-    return bundle(name, browserify({
-        entries: files,
-        debug: true
-    }), minify, false);
-}
-
-function watch(name, files, minify) {
-    var bundler = watchify(browserify({
-        entries: files,
-        debug: true,
-        cache: {},
-        packageCache: {}
-    }), { poll: 1000 } );
-
-    function rebundle(ids) {
-        // Don't rebundle if only the version changed.
-        if (ids && ids.length === 1 && /\/version\.js$/.test(ids[0])) {
-            return;
-        }
-
-        var start = new Date();
-
-        var result = bundle(name, bundler, minify, true);
-
-        result.on('end', function() {
-            console.log('Rebuilt ' + name + ' in ' + (new Date() - start) + ' milliseconds.');
-        });
-
-        return result;
-    }
-
-    bundler.on('update', rebundle);
-
-    return rebundle();
+function getPackageRoot(packageName) {
+    return path.dirname(require.resolve(packageName + '/package.json'));
 }
