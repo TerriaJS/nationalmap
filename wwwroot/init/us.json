@@ -1,0 +1,27 @@
+{
+  "homeCamera": {
+    "west": -130,
+    "south": 25,
+    "east": -60,
+    "north": 50
+  },
+  "catalog": [
+    {
+      "name": "US Test Region Mapping",
+      "type": "group",
+      "isOpen": true,
+      "items": [
+        {
+          "name": "Counties Called \"Washington County\"",
+          "type": "csv",
+          "url": "test/Washington_County.csv"
+        },
+        {
+          "name": "States of US (Random Values)",
+          "type": "csv",
+          "url": "test/us_states.csv"
+        }
+      ]
+    }
+  ]
+}
