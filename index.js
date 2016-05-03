@@ -32,6 +32,7 @@ var TerriaViewer = require('terriajs/lib/ViewModels/TerriaViewer');
 var updateApplicationOnHashChange = require('terriajs/lib/ViewModels/updateApplicationOnHashChange');
 var updateApplicationOnMessageFromParentWindow = require('terriajs/lib/ViewModels/updateApplicationOnMessageFromParentWindow');
 var UserInterface = require('./UserInterface.jsx');
+var ViewerMode = require('terriajs/lib/Models/ViewerMode');
 var ViewState = require('terriajs/lib/ReactViewModels/ViewState').default;
 
 // Tell the OGR catalog item where to find its conversion service.  If you're not using OgrCatalogItem you can remove this.
@@ -110,6 +111,7 @@ terria.start({
         var allBaseMaps = australiaBaseMaps.concat(globalBaseMaps);
         selectBaseMap(terria, allBaseMaps, 'Bing Maps Aerial with Labels', true);
 
+        terria.viewerMode = ViewerMode.CesiumEllipsoid;
         // Automatically update Terria (load new catalogs, etc.) when the hash part of the URL changes.
         // updateApplicationOnHashChange(terria, window);
         ReactDOM.render(<UserInterface terria={terria} allBaseMaps={allBaseMaps}

@@ -1,6 +1,7 @@
 {
     "initializationUrls" : [
-        "nm"
+        "nm",
+        "custom"
     ],
     "parameters": {
         "bingMapsKey": null,
