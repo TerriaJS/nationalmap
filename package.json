@@ -34,9 +34,9 @@
     "raw-loader": "^0.5.1",
     "react": "0.14.8",
     "react-dom": "0.14.8",
-    "terriajs": "git://github.com/TerriaJS/terriajs.git#newui",
+    "terriajs": "git://github.com/TerriaJS/terriajs.git#rd_cesium_3d_tiles",
     "terriajs-catalog-editor": "^0.2.0",
-    "terriajs-cesium": "1.19.3",
+    "terriajs-cesium": "git://github.com/TerriaJS/cesium.git#rd_cesium_3d_tiles",
     "terriajs-schema": "latest",
     "webpack": "^1.12.14"
   },
