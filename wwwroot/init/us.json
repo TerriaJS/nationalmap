@@ -7,6 +7,11 @@
   },
   "catalog": [
     {
+      "name": "National Data Sets",
+      "type": "group",
+      "isOpen": false
+    },
+    {
       "name": "US Test Region Mapping",
       "type": "group",
       "isOpen": true,
