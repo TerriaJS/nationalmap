@@ -28,7 +28,7 @@
     "raw-loader": "^0.5.1",
     "terriajs": "git://github.com/TerriaJS/terriajs#mapbox_vt_region_provider",
     "terriajs-catalog-editor": "^0.2.0",
-    "terriajs-cesium": "1.19.2",
+    "terriajs-cesium": "1.20.0",
     "terriajs-schema": "latest",
     "webpack": "^1.12.14"
   },
