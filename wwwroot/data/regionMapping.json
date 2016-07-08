@@ -52,8 +52,8 @@
             "regionIdsFile": "data/regionids/region_map-FID_SA4_2011_AUST_SA4_NAME11.json"
         },
         "SA3": {
-            "layerName": "region_map:FID_SA3_2011_AUST",
-            "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+            "layerName": "FID_SA3_2011_AUST",
+            "server": "http://crisp.terria.io:8000/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_CODE11",
             "aliases": [
                 "sa3_code_2011",
@@ -62,11 +62,21 @@
             ],
             "digits": 5,
             "description": "Statistical Area Level 3",
-            "regionIdsFile": "data/regionids/region_map-FID_SA3_2011_AUST_SA3_CODE11.json"
+            "regionIdsFile": "data/regionids/region_map-FID_SA3_2011_AUST_SA3_CODE11.json",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "bbox": [
+                96.816941408,
+                -43.74050960300004,
+                159.109219008,
+                -9.142175977000017
+            ],
+            "nameProp": "SA3_NAME11"
         },
         "SA3_NAME": {
-            "layerName": "region_map:FID_SA3_2011_AUST",
-            "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+            "layerName": "FID_SA3_2011_AUST",
+            "server": "http://crisp.terria.io:8000/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_NAME11",
             "aliases": [
                 "sa3_name_2011",
@@ -74,11 +84,21 @@
             ],
             "digits": 5,
             "description": "Statistical Area Level 3",
-            "regionIdsFile": "data/regionids/region_map-FID_SA3_2011_AUST_SA3_NAME11.json"
+            "regionIdsFile": "data/regionids/region_map-FID_SA3_2011_AUST_SA3_NAME11.json",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "bbox": [
+                96.816941408,
+                -43.74050960300004,
+                159.109219008,
+                -9.142175977000017
+            ],
+            "nameProp": "SA3_NAME11"
         },
         "SA2": {
-            "layerName": "region_map:FID_SA2_2011_AUST",
-            "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+            "layerName": "FID_SA2_2011_AUST",
+            "server": "http://crisp.terria.io:8000/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_MAIN11",
             "aliases": [
                 "sa2_code_2011",
@@ -87,11 +107,21 @@
             ],
             "digits": 9,
             "description": "Statistical Area Level 2",
-            "regionIdsFile": "data/regionids/region_map-FID_SA2_2011_AUST_SA2_MAIN11.json"
+            "regionIdsFile": "data/regionids/region_map-FID_SA2_2011_AUST_SA2_MAIN11.json",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "bbox": [
+                96.816941408,
+                -43.74050960300004,
+                159.109219008,
+                -9.142175977000017
+            ],
+            "nameProp": "SA2_NAME11"
         },
         "SA2_5DIG": {
-            "layerName": "region_map:FID_SA2_2011_AUST",
-            "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+            "layerName": "FID_SA2_2011_AUST",
+            "server": "http://crisp.terria.io:8000/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_5DIG11",
             "aliases": [
                 "sa2_5digitcode",
@@ -99,18 +129,38 @@
             ],
             "digits": 5,
             "description": "Statistical Area Level 2",
-            "regionIdsFile": "data/regionids/region_map-FID_SA2_2011_AUST_SA2_5DIG11.json"
+            "regionIdsFile": "data/regionids/region_map-FID_SA2_2011_AUST_SA2_5DIG11.json",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "bbox": [
+                96.816941408,
+                -43.74050960300004,
+                159.109219008,
+                -9.142175977000017
+            ],
+            "nameProp": "SA2_NAME11"
         },
         "SA2_NAME": {
-            "layerName": "region_map:FID_SA2_2011_AUST",
-            "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+            "layerName": "FID_SA2_2011_AUST",
+            "server": "http://crisp.terria.io:8000/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_NAME11",
             "aliases": [
                 "sa2_name_2011",
                 "sa2_name"
             ],
             "description": "Statistical Area Level 2",
-            "regionIdsFile": "data/regionids/region_map-FID_SA2_2011_AUST_SA2_NAME11.json"
+            "regionIdsFile": "data/regionids/region_map-FID_SA2_2011_AUST_SA2_NAME11.json",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "bbox": [
+                96.816941408,
+                -43.74050960300004,
+                159.109219008,
+                -9.142175977000017
+            ],
+            "nameProp": "SA2_NAME11"
         },
         "SSC": {
             "layerName": "region_map:FID_SSC_2011_AUST",
