@@ -1,6 +1,15 @@
 Change Log
 ==========
 
+### 2016-07-19
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.1.0.  Significant changes relevant to NationalMap users include:
+  * Worked around a problem in the Websense Web Filter that caused it to block access to some of the TerriaJS Web Workers due to a URL in the license text in a comment in a source file.
+  * Made the column title for time-based CSV exports from chart default to 'date'
+  * Stopped the CSV creation webworker from being run multiple times on viewing a chart.
+  * Removed the empty circles from non-selected base maps on the Map settings panel.
+  * Prevented text from being selected when dragging the compass control.
+
 ### 2016-07-15
 
 * Catalog (init) files can now be stored as .ejs files in /datasources, rendered by the EJS templating library. See comments in gulpfile.js.
