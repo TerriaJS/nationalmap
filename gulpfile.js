@@ -40,7 +40,9 @@ gulp.task('release-app', ['write-version'], function(done) {
 
     runWebpack(webpack, Object.assign({}, webpackConfig, {
         plugins: [
-            new webpack.optimize.UglifyJsPlugin(),
+            new webpack.optimize.UglifyJsPlugin({
+                comments: false
+            }),
             new webpack.optimize.DedupePlugin(),
             new webpack.optimize.OccurrenceOrderPlugin(),
         ].concat(webpackConfig.plugins || [])
