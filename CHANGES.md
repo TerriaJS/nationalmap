@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### 2016-07-20a
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.1.2.  Significant changes relevant to NationalMap users include:
+  * Fixed a bug that prevented sharing from working in Internet Explorer.
+
 ### 2016-07-20
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.1.1.  Significant changes relevant to NationalMap users include:
