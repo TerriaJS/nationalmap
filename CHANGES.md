@@ -1,14 +1,17 @@
 Change Log
 ==========
 
-### 2016-07-19
+### 2016-07-20
 
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.1.0.  Significant changes relevant to NationalMap users include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.1.1.  Significant changes relevant to NationalMap users include:
   * Worked around a problem in the Websense Web Filter that caused it to block access to some of the TerriaJS Web Workers due to a URL in the license text in a comment in a source file.
   * Made the column title for time-based CSV exports from chart default to 'date'
   * Stopped the CSV creation webworker from being run multiple times on viewing a chart.
   * Removed the empty circles from non-selected base maps on the Map settings panel.
   * Prevented text from being selected when dragging the compass control.
+  * Stopped IE9 from setting bizarre inline dimensions on custom branding images.
+  * Fixed workbench reordering in browsers other than Chrome.
+  * URLs on the dataset info page are now auto-selected when clicked, making them easier to copy.
 
 ### 2016-07-15
 
