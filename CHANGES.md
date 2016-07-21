@@ -1,9 +1,14 @@
 Change Log
 ==========
 
+### Next release
+
+* Now compatible with case change in Terria GnafApi, and also adds Australia-specific bulk address geocoder so that addresses in csvs can be shown on the map.
+
 ### 2016-07-15
 
 * Catalog (init) files can now be stored as .ejs files in /datasources, rendered by the EJS templating library. See comments in gulpfile.js.
+
 ### 2016-06-15
 
 * Added a prominent link to the preview of the new UI.

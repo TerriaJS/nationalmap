@@ -22,6 +22,7 @@ import OgrCatalogItem from 'terriajs/lib/Models/OgrCatalogItem';
 import raiseErrorToUser from 'terriajs/lib/Models/raiseErrorToUser';
 import registerAnalytics from 'terriajs/lib/Models/registerAnalytics';
 import registerCatalogMembers from 'terriajs/lib/Models/registerCatalogMembers';
+import GnafAddressConverter from 'terriajs/lib/Map/GnafAddressConverter.js';
 import registerCustomComponentTypes from 'terriajs/lib/ReactViews/Custom/registerCustomComponentTypes';
 import registerKnockoutBindings from 'terriajs/lib/Core/registerKnockoutBindings';
 import Terria from 'terriajs/lib/Models/Terria';
@@ -30,7 +31,7 @@ import updateApplicationOnMessageFromParentWindow from 'terriajs/lib/ViewModels/
 import ViewState from 'terriajs/lib/ReactViewModels/ViewState';
 import BingMapsSearchProviderViewModel from 'terriajs/lib/ViewModels/BingMapsSearchProviderViewModel.js';
 import GazetteerSearchProviderViewModel from 'terriajs/lib/ViewModels/GazetteerSearchProviderViewModel.js';
-import GNAFSearchProviderViewModel from 'terriajs/lib/ViewModels/GNAFSearchProviderViewModel.js';
+import GnafSearchProviderViewModel from 'terriajs/lib/ViewModels/GnafSearchProviderViewModel.js';
 
 import render from './lib/Views/render';
 
@@ -48,6 +49,7 @@ registerCatalogMembers();
 registerAnalytics();
 
 terriaOptions.analytics = new GoogleAnalytics();
+terriaOptions.batchGeocoder = new GnafAddressConverter();
 
 // Construct the TerriaJS application, arrange to show errors to the user, and start it up.
 var terria = new Terria(terriaOptions);
@@ -95,7 +97,7 @@ terria.start({
                 key: configuration.bingMapsKey
             }),
             new GazetteerSearchProviderViewModel({terria}),
-            new GNAFSearchProviderViewModel({terria})
+            new GnafSearchProviderViewModel({terria})
         ];
 
         // Automatically update Terria (load new catalogs, etc.) when the hash part of the URL changes.
