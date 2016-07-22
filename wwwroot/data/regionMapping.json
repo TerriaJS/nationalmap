@@ -33,6 +33,7 @@
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
             "bbox": [
                 96.816941408,
                 -43.74050960300004,
@@ -56,6 +57,7 @@
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
             "bbox": [
                 96.816941408,
                 -43.74050960300004,
