@@ -1,13 +1,9 @@
 Change Log
 ==========
 
-### 2016-08-15b
-
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.2.1, which fixes a bug that prevented the preview map from appearing on mobile devices.
-
 ### 2016-08-15
 
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.2.0.  Significant changes relevant to NationalMap users include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.2.1.  Significant changes relevant to NationalMap users include:
   * Added support for ArcGis FeatureServers, using the new catalog types `esri-featureServer` and `esri-featureServer-group`. Catalog type `esri-group` can load REST service, MapServer and FeatureServer endpoints. (For backwards compatability, catalog type `esri-mapServer-group` continues to work for REST service as well as MapServer endpoints.)
   * Adds bulk geocoding capability for Australian addresses. So GnafAPI can be used with batches of addresses, if configured.
   * Updated to [Cesium](http://cesiumjs.org) 1.23 (from 1.20).  See the [change log](https://github.com/AnalyticalGraphicsInc/cesium/blob/1.23/CHANGES.md) for details.
