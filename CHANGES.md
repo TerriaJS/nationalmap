@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 2016-08-15b
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.2.1, which fixes a bug that prevented the preview map from appearing on mobile devices.
+
 ### 2016-08-15
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.2.0.  Significant changes relevant to NationalMap users include:
