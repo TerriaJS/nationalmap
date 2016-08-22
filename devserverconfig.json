@@ -1,8 +1,5 @@
 {
-    # Port to listen on.
     "port": 3001,
-
-    # List of domains which our server is willing to proxy for. Subdomains are included automatically.
     "allowProxyFor" : [
         "nicta.com.au",
         "gov.au",
