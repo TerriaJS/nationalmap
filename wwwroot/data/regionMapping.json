@@ -50,9 +50,10 @@
             "nameProp": "SA2_NAME11"
         },
         "SA4": {
-            "layerName": "region_map:FID_SA4_2011_AUST",
-            "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+            "layerName": "FID_SA4_2011_AUST",
+            "server": "http://vector-tiles.terria.io:8000/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_CODE11",
+            "nameProp": "SA4_NAME11",
             "aliases": [
                 "sa4_code_2011",
                 "sa4_code",
@@ -60,18 +61,41 @@
             ],
             "digits": 3,
             "description": "Statistical Area Level 4",
-            "regionIdsFile": "data/regionids/region_map-FID_SA4_2011_AUST_SA4_CODE11.json"
+            "regionIdsFile": "data/regionids/region_map-FID_SA4_2011_AUST_SA4_CODE11.json",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694140799998,
+                -43.74050960300003,
+                159.10921900799997,
+                -9.142175976999999
+            ]
         },
         "SA4_NAME": {
-            "layerName": "region_map:FID_SA4_2011_AUST",
-            "server": "http://geoserver.nationalmap.nicta.com.au/region_map/ows",
+            "layerName": "FID_SA4_2011_AUST",
+            "server": "http://vector-tiles.terria.io:8000/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_NAME11",
+            "nameProp": "SA4_NAME11",
             "aliases": [
                 "sa4_name",
                 "sa4_name_2011"
             ],
             "description": "Statistical Area Level 4",
-            "regionIdsFile": "data/regionids/region_map-FID_SA4_2011_AUST_SA4_NAME11.json"
+            "regionIdsFile": "data/regionids/region_map-FID_SA4_2011_AUST_SA4_NAME11.json",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694140799998,
+                -43.74050960300003,
+                159.10921900799997,
+                -9.142175976999999
+            ]
         },
        "SA3": {
             "layerName": "FID_SA3_2011_AUST",
