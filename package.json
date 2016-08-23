@@ -22,7 +22,7 @@
     "awsEc2ImageId": "ami-2a644649",
     "awsKeyName": "natmap-kring",
     "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2016-07-14.json",
-    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2016-07-14.json",
+    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2016-08-09.json",
     "northernAustraliaPath": "../NorthernAustralia"
   },
   "devDependencies": {
@@ -59,7 +59,7 @@
     "sass-loader": "^3.2.0",
     "style-loader": "git://github.com/TerriaJS/style-loader#chromeWorkaround",
     "svg-sprite-loader": "0.0.26",
-    "terriajs": "4.1.2",
+    "terriajs": "4.2.1",
     "terriajs-catalog-editor": "^0.2.0",
     "terriajs-cesium": "1.20.1",
     "terriajs-schema": "latest",

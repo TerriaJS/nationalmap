@@ -44,7 +44,7 @@ module.exports = function(devMode, hot) {
                 },
                 {
                     test: /\.scss$/,
-                    include: [path.resolve(__dirname, '..', 'lib'), path.resolve(__dirname, '..', 'nationalmap.scss')],
+                    include: [path.resolve(__dirname, '..', 'lib')],
                     loader: hot ?
                         require.resolve('style-loader') + '!' +
                         require.resolve('css-loader') + '?sourceMap&modules&camelCase&localIdentName=nm-[name]__[local]&importLoaders=2!' +
@@ -72,4 +72,4 @@ module.exports = function(devMode, hot) {
     };
 
     return configureWebpackForTerriaJS(path.dirname(require.resolve('terriajs/package.json')), config, devMode, hot, ExtractTextPlugin);
-}
+};
