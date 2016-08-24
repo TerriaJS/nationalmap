@@ -11,7 +11,7 @@ module.exports = function(devMode, hot) {
         entry: './index.js',
         output: {
             path: 'wwwroot/build',
-            filename: 'TerriaMap.js',
+            filename: 'nationalmap.js',
             // work around chrome needing the full URL when using sourcemaps (http://stackoverflow.com/questions/34133808/webpack-ots-parsing-error-loading-fonts/34133809#34133809)
             publicPath: hot ? 'http://localhost:3003/build/' : 'build/',
             sourcePrefix: '' // to avoid breaking multi-line string literals by inserting extra tabs.
@@ -47,11 +47,11 @@ module.exports = function(devMode, hot) {
                     include: [path.resolve(__dirname, '..', 'lib')],
                     loader: hot ?
                         require.resolve('style-loader') + '!' +
-                        require.resolve('css-loader') + '?sourceMap&modules&camelCase&localIdentName=tm-[name]__[local]&importLoaders=2!' +
+                        require.resolve('css-loader') + '?sourceMap&modules&camelCase&localIdentName=nm-[name]__[local]&importLoaders=2!' +
                         require.resolve('resolve-url-loader') + '?sourceMap!' +
                         require.resolve('sass-loader') + '?sourceMap'
                      : ExtractTextPlugin.extract(
-                        require.resolve('css-loader') + '?sourceMap&modules&camelCase&localIdentName=tm-[name]__[local]&importLoaders=2!' +
+                        require.resolve('css-loader') + '?sourceMap&modules&camelCase&localIdentName=nm-[name]__[local]&importLoaders=2!' +
                         require.resolve('resolve-url-loader') + '?sourceMap!' +
                         require.resolve('sass-loader') + '?sourceMap',
                         {
@@ -67,7 +67,7 @@ module.exports = function(devMode, hot) {
                     'NODE_ENV': devMode ? '"development"' : '"production"'
                 }
             }),
-            new ExtractTextPlugin("TerriaMap.css", {disable: hot, ignoreOrder: true})
+            new ExtractTextPlugin("nationalmap.css", {disable: hot, ignoreOrder: true})
         ]
     };
 
