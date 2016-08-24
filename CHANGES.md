@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 2016-08-25
+
+* Added `"ungroupedTitle": null` to `tind.json` to fix the Telecommunications in New Developments embedded map.
+
 ### 2016-08-15b
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.2.1.  Significant changes relevant to NationalMap users include:
