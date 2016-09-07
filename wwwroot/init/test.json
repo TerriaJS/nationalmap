@@ -277,6 +277,45 @@
           ]
         },
         {
+          "name": "WPS",
+          "type": "group",
+          "preserveOrder": true,
+          "items": [
+            {
+              "name": "PointTest",
+              "type": "wps",
+              "url": "http://sparrow.terria.io:5001/wps?service=wps",
+              "identifier": "point_test",
+              "opacity" : 0.6,
+              "ignoreUnknownTileErrors": true
+            },
+            {
+              "name": "LineTest",
+              "type": "wps",
+              "url": "http://sparrow.terria.io:5001/wps?service=wps",
+              "identifier": "line_test",
+              "opacity" : 0.6,
+              "ignoreUnknownTileErrors": true
+            },
+            {
+              "name": "RectangleTest",
+              "type": "wps",
+              "url": "http://sparrow.terria.io:5001/wps?service=wps",
+              "identifier": "bbox_test",
+              "opacity" : 0.6,
+              "ignoreUnknownTileErrors": true
+            },
+            {
+              "name": "PolygonTest",
+              "type": "wps",
+              "url": "http://sparrow.terria.io:5001/wps?service=wps",
+              "identifier": "polygon_test",
+              "opacity" : 0.6,
+              "ignoreUnknownTileErrors": true
+            }
+          ]
+        },
+        {
           "name": "GeoJSON files",
           "type": "group",
           "items": [
@@ -410,7 +449,7 @@
                     }
                   }
                 ]
-              }              
+              }
             }
           ]
         },
