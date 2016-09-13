@@ -2,7 +2,7 @@
 National Map
 ============
 
-[![Build Status](https://travis-ci.org/NICTA/nationalmap.svg?branch=master)](https://travis-ci.org/NICTA/nationalmap)
+[![Build Status](https://travis-ci.org/TerriaJS/nationalmap.svg?branch=master)](https://travis-ci.org/TerriaJS/nationalmap)
 
 The [National Map](http://nationalmap.gov.au) is a website for map-based access to Australian spatial data from government agencies. It is an initiative of the Australian Commonwealth Government's [Department of the Prime Minister and Cabinet](http://www.dpmc.gov.au/) and the software has been developed by [Data61](http://www.csiro.au/en/Research/D61) (formerly NICTA) working closely with the Department of the Prime Minister and Cabinet, [Geoscience Australia](http://www.ga.gov.au/) and other government agencies.
 
