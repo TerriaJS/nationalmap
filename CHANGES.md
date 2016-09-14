@@ -1,6 +1,8 @@
 Change Log
 ==========
 
+### 2016-09-15
+* Clean up support for commonwealth electoral boundaries with ABS and AEC sources. `com_elb_id_2016` and `com_elb_name_2016` are the standard field names now. 
 ### 2016-08-25
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.3.2.  Significant changes relevant to NationalMap users include:
