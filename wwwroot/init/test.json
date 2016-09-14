@@ -282,6 +282,12 @@
           "preserveOrder": true,
           "items": [
             {
+              "name": "InputsTest",
+              "type": "wps",
+              "url": "http://sparrow.terria.io:5001/wps?service=wps",
+              "identifier": "inputs_test"
+            },
+            {
               "name": "PointTest",
               "type": "wps",
               "url": "http://sparrow.terria.io:5001/wps?service=wps",
