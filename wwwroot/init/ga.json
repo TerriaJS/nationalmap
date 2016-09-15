@@ -66,6 +66,132 @@
                     "type": "esri-mapServer-group"
                 }
             ]
+        },
+        {
+            "name": "Elevation Information",
+            "type": "group",
+            "isOpen": true,
+            "preserveOrder":true,
+            "items": [
+                {
+                    "name": "Preview Elevation",
+                    "dataCustodian": "[GA](http://www.ga.gov.au/)",
+                    "url": "http://www.ga.gov.au/elvis/service/path/elevation",
+                    "type": "wps"
+                },
+                {
+                    "name": "SRTM-derived 1 Second Digital Elevation Models Version 1.0",
+                    "type": "group",
+                    "isOpen": false,
+                    "items": [
+                        {
+                            "name": "View on map",
+                            "url": "http://services.ga.gov.au/gis/services/DEM_SRTM_1Second/MapServer/WMSServer",
+                            "type": "wms",
+                            "layers":"Image"
+                        },
+                        {
+                            "name": "Download",
+                            "type": "wps",
+                            "url": "https://elvis20161a-ga.fmecloud.com/fmedatastreaming/dev_space/ELVIS_WPS.fmw",
+                            "identifier": "DEMClipZipShip_Master_S3Source",
+                            "delimiter": "&",
+                            "parameterOverrides": {
+                                "ymin": {"hidden": true, "value": "-35.2"},
+                                "ymax": {"hidden": true, "value": "-34.5"},
+                                "xmin": {"hidden": true, "value": "142.7"},
+                                "xmax": {"hidden": true, "value": "143.4"},
+                                "geocat_number": {"hidden": true, "value": "aac46307-fce8-449d-e044-00144fdd4fa6"},
+                                "out_grid_name": {"patternConstraint": "[a-zA-Z0-9_]{9}"}
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "DEM SRTM 1 Second Hydrologically Enforced",
+                    "type": "group",
+                    "isOpen": false,
+                    "items": [
+                        {
+                            "name": "View on map",
+                            "url": "http://services.ga.gov.au/site_9/services/DEM_SRTM_1Second_Hydro_Enforced/MapServer/WMSServer",
+                            "type": "wms",
+                            "layers":"Image"
+                        },
+                        {
+                            "name": "Download",
+                            "type": "wps",
+                            "url": "https://elvis20161a-ga.fmecloud.com/fmedatastreaming/dev_space/ELVIS_WPS.fmw",
+                            "identifier": "DEMClipZipShip_Master_S3Source",
+                            "delimiter": "&",
+                            "parameterOverrides": {
+                                "ymin": {"hidden": true, "value": "-35.2"},
+                                "ymax": {"hidden": true, "value": "-34.5"},
+                                "xmin": {"hidden": true, "value": "142.7"},
+                                "xmax": {"hidden": true, "value": "143.4"},
+                                "geocat_number": {"hidden": true, "value": "a05f7893-0050-7506-e044-00144fdd4fa6"},
+                                "out_grid_name": {"patternConstraint": "[a-zA-Z0-9_]{9}"}
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "5 metre Digital Elevation Model (DEM)",
+                    "type": "group",
+                    "isOpen": false,
+                    "items": [
+                        {
+                            "name": "View on map",
+                            "url": "http://services.ga.gov.au/site_9/services/DEM_LiDAR_5m/MapServer/WMSServer",
+                            "type": "wms",
+                            "layers":"Image"
+                        },
+                        {
+                            "name": "Download",
+                            "type": "wps",
+                            "url": "https://elvis20161a-ga.fmecloud.com/fmedatastreaming/dev_space/ELVIS_WPS.fmw",
+                            "identifier": "DEMClipZipShip_Master_S3Source",
+                            "delimiter": "&",
+                            "parameterOverrides": {
+                                "ymin": {"hidden": true, "value": "-35.2"},
+                                "ymax": {"hidden": true, "value": "-34.5"},
+                                "xmin": {"hidden": true, "value": "142.7"},
+                                "xmax": {"hidden": true, "value": "143.4"},
+                                "geocat_number": {"hidden": true, "value": "22be4b55-2465-4320-e053-10a3070a5236"},
+                                "out_grid_name": {"patternConstraint": "[a-zA-Z0-9_]{9}"}
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "25 metre Digital Elevation Model (DEM)",
+                    "type": "group",
+                    "isOpen": false,
+                    "items": [
+                        {
+                            "name": "View on map",
+                            "url": "http://services.ga.gov.au/site_9/services/DEM_LiDAR_25m/MapServer/WMSServer",
+                            "type": "wms",
+                            "layers":"Image"
+                        },
+                        {
+                            "name": "Download",
+                            "type": "wps",
+                            "url": "https://elvis20161a-ga.fmecloud.com/fmedatastreaming/dev_space/ELVIS_WPS.fmw",
+                            "identifier": "DEMClipZipShip_Master_S3Source",
+                            "delimiter": "&",
+                            "parameterOverrides": {
+                                "ymin": {"hidden": true, "value": "-35.2"},
+                                "ymax": {"hidden": true, "value": "-34.5"},
+                                "xmin": {"hidden": true, "value": "142.7"},
+                                "xmax": {"hidden": true, "value": "143.4"},
+                                "geocat_number": {"hidden": true, "value": "22be4b55-2485-4320-e053-10a3070a5236"},
+                                "out_grid_name": {"patternConstraint": "[a-zA-Z0-9_]{9}"}
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
