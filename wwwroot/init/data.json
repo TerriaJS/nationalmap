@@ -1,0 +1,37 @@
+{
+   "services":[
+
+   ],
+   "homeCamera":{
+      "north":-8,
+      "east":158,
+      "south":-45,
+      "west":109
+   },
+   "corsDomains":[
+      "corsproxy.com",
+      "programs.communications.gov.au",
+      "www.asris.csiro.au",
+      "mapsengine.google.com",
+      "s3-ap-southeast-2.amazonaws.com",
+      "data.melbourne.vic.gov.au",
+      "data.act.gov.au"
+   ],
+   "catalog":[
+      {
+         "blacklist":{
+            "Rainforests (EVC_2005)":true
+         },
+         "groupBy":"organization",
+         "minimumMaxScaleDenominator":10000000000,
+         "filterByWmsGetCapabilities":false,
+         "filterQuery":[
+            "fq=+(id%3aab7eddce-84df-4098-bc8f-500d0d9776d1%20OR%20id%3afa0b0d71-b8b8-4af8-bc59-0b000ce0d5e4%20OR%20id%3a96b79da6-2cee-406b-81cd-3d1351d1a905)"
+         ],
+         "url":"http://www.data.gov.au",
+         "type":"ckan",
+         "name":"Data.gov.au",
+         "includeCsv":true
+      }
+    ]
+}
