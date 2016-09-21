@@ -15,14 +15,14 @@
     "terriajs-server": "^2.5.1"
   },
   "config": {
-    "awsProfile": "nationalmap",
-    "awsS3PackagesPath": "s3://nationalmap-apps/nationalmap",
+    "awsProfile": "terria",
+    "awsS3PackagesPath": "s3://terria-apps/nationalmap-aristotle",
     "awsRegion": "ap-southeast-2",
     "awsEc2InstanceType": "t2.medium",
     "awsEc2ImageId": "ami-2a644649",
-    "awsKeyName": "natmap-kring",
-    "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2016-07-14.json",
-    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2016-08-09.json",
+    "awsKeyName": "terria-rdengate",
+    "awsS3ServerConfigOverridePath": "s3://terria-apps/map/privateserverconfig-2016-08-31.json",
+    "awsS3ClientConfigOverridePath": "s3://terria-apps/map/privateserverconfig-2016-08-31.json",
     "northernAustraliaPath": "../NorthernAustralia"
   },
   "devDependencies": {
