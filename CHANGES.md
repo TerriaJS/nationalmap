@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 2016-10-15
+
+* Support `openAddData` option in config.json. If true, the "Add Data" dialog is automatically opened at start up.
+
 ### 2016-09-15
 
 * Clean up support for commonwealth electoral boundaries with ABS and AEC sources. `com_elb_id_2016` and `com_elb_name_2016` are the standard field names now.
