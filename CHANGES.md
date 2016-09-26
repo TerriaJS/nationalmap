@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 2016-10-15
+
+* Automatically check for dependency version mismatches.
+
 ### 2016-09-15
 
 * Clean up support for commonwealth electoral boundaries with ABS and AEC sources. `com_elb_id_2016` and `com_elb_name_2016` are the standard field names now.
