@@ -113,6 +113,10 @@ terria.start({
         var allBaseMaps = australiaBaseMaps.concat(globalBaseMaps);
         selectBaseMap(terria, allBaseMaps, 'Bing Maps Aerial with Labels', true);
 
+        if (terria.configParameters.openAddData) {
+            viewState.openAddData();
+        }
+
         render(terria, allBaseMaps, viewState);
     } catch (e) {
         console.error(e);
