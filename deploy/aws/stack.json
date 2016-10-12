@@ -145,7 +145,7 @@
                 {
                   "Ref": "WebServerPort"
                 },
-                "/"
+                "/ping"
               ]
             ]
           },
