@@ -62,6 +62,7 @@
               "name": "Auto Incidents (CSV)",
               "type": "csv",
               "url": "test/incidents.csv",
+              "idColumns": null,
               "tableStyle": {
                 "colorMap": [
                   {
