@@ -1451,7 +1451,8 @@
             "server": "http://vector-tiles.terria.io/FID_AUS_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "AUS_CODE",
             "aliases": [
-                "aus"
+                "aus",
+                "aus_code"
             ],
             "regionIdsFile": "data/regionids/region_map-FID_AUS_2011_AUST_AUS_CODE.json",
             "serverType": "MVT",
