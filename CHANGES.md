@@ -1,10 +1,39 @@
 Change Log
 ==========
 
-### 2016-10-14
+### 2016-10-13
 
 * Support `openAddData` option in config.json. If true, the "Add Data" dialog is automatically opened at start up.
 * Switched to using vector tiles for region mapping.  This means region mapping is now faster and has much improved visual quality, but it no longer works with very old browsers like Internet Explorer 9.
+* Updated list of LGAs from data.gov.au.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.5.0.  Significant changes relevant to NationalMap users include:
+  * Added support for the Sensor Observation Service format, via the `SensorObservationServiceCatalogItem`.
+  * Added support for end date columns in CSV data (automatic with column names containing `end_date`, `end date`, `end_time`, `end time`; or set in json file using `isEndDate` in `tableStyle.columns`.
+  * Fixed calculation of end dates for moving-point CSV files, which could lead to points disappearing periodically.
+  * Fixed a bug that prevented fractional seconds in time-varying WMS periodicity.
+  * Added the ability to the workbench UI to select the `style` to use to display a Web Map Service (WMS) layer when multiple styles are available.
+  * Added the ability to the workbench UI to select from among the available dimensions of a Web Map Service (WMS) layer.
+  * Improved the error reporting and handling when specifying invalid values for the WMS COLORSCALERANGE parameter in the UI.
+  * Added the ability to drag existing points when creating a `UserDrawing`.
+  * Fixed a bug that could cause nonsensical legends for CSV columns with all null values.
+  * Fixed a bug that prevented the Share panel from being used at all if the URL shortening service encountered an error.
+  * Fixed a bug that could cause an error when adding multiple catalog items to the map quickly.
+  * Tweaked the z-order of the window that appears when hovering over a chart series, so that it does not appear on top of the Feature Information panel.
+  * Fixed a bug that could lead to incorrect colors in a legend for a CSV file with explicit `colorBins` and cut off at a minimum and maximum.
+  * We now show the feature info panel the first time a dataset is added, containing a suggestion to click the map to learn more about a location.  Also improved the wording for the feature info panel when there is no data.
+  * Fixed support for time-varying feature info for vector tile based region mapping.
+  * `updateApplicationOnMessageFromParentWindow` now also allows messages from the `opener` window, i.e. the window that opened the page by calling `window.open`.  The parent or opener may now also send a message with an `allowOrigin` property to specify an origin that should be allowed to post messages.
+  * Fixed a bug that prevented charts from loading http urls from https.
+  * The `isNcWMS` property of `WebMapServiceCatalogItem` is now set to true, and the COLORSCALERANGE controls are available in the UI, for ncWMS2 servers.
+  * Added the ability to prevent CSVs with time and `id` columns from appearing as moving points, by setting `idColumns` to either `null` or `[]`.
+  * Fixed a bug that prevented default parameters to `CatalogFunction`s from being shown in the user interface.
+  * Fixed a problem that made `BooleanParameter`s show up incorrectly in the user interface.
+  * Embedded `<chart>` elements now support two new optional attributes:
+     * `title`: overrides the title that would otherwise be derived from the name of the feature.
+     * `hide-buttons`: If `"true"`, the Expand and Download buttons are hidden from the chart.
+  * Fixed a bug in embedded `<collapsible>` elements that prevented them from being expandable.
+  * Improved SDMX-JSON support to make it possible to change region type in the UI.
+  * Deprecated `RegionMapping.setRegionColumnType` in favour of `RegionMapping.prototype.setRegionColumnType`. `regionDetails[].column` and `.disambigColumn` have also been deprecated.
 
 ### 2016-09-15
 
