@@ -330,7 +330,7 @@
             {
               "name": "GeoJsonTest",
               "type": "wps",
-              "url": "http://sparrow.terria.io:5001?service=wps",
+              "url": "http://sparrow.terria.io:5001/wps?service=wps",
               "identifier": "geojson_test",
               "opacity" : 0.6,
               "ignoreUnknownTileErrors": true
