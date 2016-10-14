@@ -3,7 +3,7 @@
     "regionWmsMap": {
         "SA1": {
             "layerName": "FID_SA1_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA1_MAIN11",
             "aliases": [
                 "sa1_code_2011",
@@ -29,7 +29,7 @@
         },
         "SA1_7DIGIT": {
             "layerName": "FID_SA1_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA1_7DIG11",
             "aliases": [
                 "sa1_7digitcode_2011",
@@ -53,7 +53,7 @@
         },
         "SA4": {
             "layerName": "FID_SA4_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_CODE11",
             "aliases": [
                 "sa4_code_2011",
@@ -78,7 +78,7 @@
         },
         "SA4_NAME": {
             "layerName": "FID_SA4_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_NAME11",
             "aliases": [
                 "sa4_name",
@@ -101,7 +101,7 @@
         },
         "SA3": {
             "layerName": "FID_SA3_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_CODE11",
             "aliases": [
                 "sa3_code_2011",
@@ -126,7 +126,7 @@
         },
         "SA3_NAME": {
             "layerName": "FID_SA3_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_NAME11",
             "aliases": [
                 "sa3_name_2011",
@@ -150,7 +150,7 @@
         },
         "SA2": {
             "layerName": "FID_SA2_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_MAIN11",
             "aliases": [
                 "sa2_code_2011",
@@ -175,7 +175,7 @@
         },
         "SA2_5DIG": {
             "layerName": "FID_SA2_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_5DIG11",
             "aliases": [
                 "sa2_5digitcode",
@@ -199,7 +199,7 @@
         },
         "SA2_NAME": {
             "layerName": "FID_SA2_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_NAME11",
             "aliases": [
                 "sa2_name_2011",
@@ -222,7 +222,7 @@
         },
         "SSC": {
             "layerName": "FID_SSC_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SSC_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SSC_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SSC_CODE",
             "aliases": [
                 "ssc_code_2011",
@@ -247,7 +247,7 @@
         },
         "SSC_NAME": {
             "layerName": "FID_SSC_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SSC_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SSC_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SSC_NAME",
             "aliases": [
                 "ssc_name",
@@ -271,7 +271,7 @@
         },
         "LGA": {
             "layerName": "FID_LGA_2015_AUST",
-            "server": "http://vector-tiles.terria.io/FID_LGA_2015_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_LGA_2015_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "LGA_CODE15",
             "aliases": [
                 "lga_code_2015",
@@ -299,7 +299,7 @@
         },
         "LGA_2013": {
             "layerName": "FID_LGA_2013_AUST",
-            "server": "http://vector-tiles.terria.io/FID_LGA_2013_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_LGA_2013_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "LGA_CODE13",
             "aliases": [
                 "lga_code_2013"
@@ -322,7 +322,7 @@
         },
         "LGA_2011": {
             "layerName": "FID_LGA_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_LGA_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_LGA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "LGA_CODE11",
             "aliases": [
                 "lga_code_2011"
@@ -346,7 +346,7 @@
         "LGA_NAME": {
             "_comment": "This section must go before State",
             "layerName": "FID_LGA_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_LGA_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_LGA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "LGA_NAME11",
             "aliases": [
                 "lga_name_2011",
@@ -418,7 +418,7 @@
         },
         "POA": {
             "layerName": "FID_POA_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_POA_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_POA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "POA_CODE",
             "aliases": [
                 "poa_2011",
@@ -453,7 +453,7 @@
         },
         "CED_CODE_2016": {
             "layerName": "FID_CED_2016_AUST",
-            "server": "http://vector-tiles.terria.io/FID_CED_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_CED_2016_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "CED_CODE16",
             "aliases": [
                 "ced_code_2016",
@@ -478,7 +478,7 @@
         },
         "CED_NAME_2016": {
             "layerName": "FID_CED_2016_AUST",
-            "server": "http://vector-tiles.terria.io/FID_CED_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_CED_2016_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "CED_NAME16",
             "aliases": [
                 "ced_name_2016",
@@ -501,7 +501,7 @@
         },
         "CED_CODE_2013": {
             "layerName": "FID_CED_2013_AUST",
-            "server": "http://vector-tiles.terria.io/FID_CED_2013_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_CED_2013_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "CED_CODE13",
             "aliases": [
                 "ced_code_2013"
@@ -524,7 +524,7 @@
         },
         "CED_NAME_2013": {
             "layerName": "FID_CED_2013_AUST",
-            "server": "http://vector-tiles.terria.io/FID_CED_2013_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_CED_2013_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "CED_NAME13",
             "aliases": [
                 "ced_name_2013"
@@ -546,7 +546,7 @@
         },
         "CED_CODE_2011": {
             "layerName": "FID_CED_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_CED_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_CED_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "CED_CODE",
             "aliases": [
                 "ced_code_2011"
@@ -570,7 +570,7 @@
         },
         "CED_NAME_2011": {
             "layerName": "FID_CED_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_CED_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_CED_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "CED_NAME",
             "aliases": [
                 "ced_name_2011"
@@ -592,7 +592,7 @@
         },
         "COM_ELB_ID_2016": {
             "layerName": "FID_COM20160509_ELB",
-            "server": "http://vector-tiles.terria.io/FID_COM20160509_ELB/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_COM20160509_ELB/{z}/{x}/{y}.pbf",
             "regionProp": "DIV_ID",
             "aliases": [
                 "divisionid",
@@ -618,7 +618,7 @@
         },
         "COM_ELB_NAME_2016": {
             "layerName": "FID_COM20160509_ELB",
-            "server": "http://vector-tiles.terria.io/FID_COM20160509_ELB/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_COM20160509_ELB/{z}/{x}/{y}.pbf",
             "regionProp": "ELECT_DIV",
             "textCodes": true,
             "aliases": [
@@ -643,7 +643,7 @@
         },
         "COM_ELB_NAME_2011": {
             "layerName": "FID_COM20111216_ELB_region",
-            "server": "http://vector-tiles.terria.io/FID_COM20111216_ELB_region/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_COM20111216_ELB_region/{z}/{x}/{y}.pbf",
             "regionProp": "ELECT_DIV",
             "textCodes": true,
             "aliases": [
@@ -666,7 +666,7 @@
         },
         "SED": {
             "layerName": "FID_SED_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SED_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SED_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SED_CODE",
             "aliases": [
                 "sed_code_2011",
@@ -691,7 +691,7 @@
         },
         "SED_NAME": {
             "layerName": "FID_SED_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SED_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SED_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SED_NAME",
             "aliases": [
                 "sed_name_2011",
@@ -714,7 +714,7 @@
         },
         "GCCSA": {
             "layerName": "FID_GCCSA_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "GCC_CODE11",
             "aliases": [
                 "gccsa_code_2011",
@@ -739,7 +739,7 @@
         },
         "GCCSA_NAME": {
             "layerName": "FID_GCCSA_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "GCC_NAME11",
             "aliases": [
                 "gccsa_name_2011",
@@ -762,7 +762,7 @@
         },
         "SUA": {
             "layerName": "FID_SUA_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SUA_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SUA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SUA_CODE11",
             "aliases": [
                 "sua_code_2011",
@@ -787,7 +787,7 @@
         },
         "SUA_NAME": {
             "layerName": "FID_SUA_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SUA_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SUA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SUA_NAME11",
             "aliases": [
                 "sua_name_2011",
@@ -822,7 +822,7 @@
         },
         "STE": {
             "layerName": "FID_STE_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "STE_CODE11",
             "aliases": [
                 "ste_code",
@@ -846,7 +846,7 @@
         },
         "SOS": {
             "layerName": "FID_SOS_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SOS_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SOS_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SOS_CODE11",
             "aliases": [
                 "sos_code_2011",
@@ -871,7 +871,7 @@
         },
         "SOSR": {
             "layerName": "FID_SOSR_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_SOSR_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_SOSR_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SSR_CODE11",
             "aliases": [
                 "sosr_code_2011",
@@ -896,7 +896,7 @@
         },
         "UCL": {
             "layerName": "FID_UCL_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_UCL_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_UCL_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "UCL_CODE11",
             "aliases": [
                 "ucl_code_2011",
@@ -921,7 +921,7 @@
         },
         "IREG": {
             "layerName": "FID_IREG_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_IREG_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_IREG_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "IR_CODE11",
             "aliases": [
                 "ireg_code_2011",
@@ -946,7 +946,7 @@
         },
         "ILOC": {
             "layerName": "FID_ILOC_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_ILOC_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_ILOC_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "IL_CODE11",
             "aliases": [
                 "iloc_code_2011",
@@ -971,7 +971,7 @@
         },
         "IARE": {
             "layerName": "FID_IARE_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_IARE_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_IARE_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "IA_CODE11",
             "aliases": [
                 "iare_code_2011",
@@ -996,7 +996,7 @@
         },
         "RA": {
             "layerName": "FID_RA_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_RA_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_RA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "RA_CODE11",
             "aliases": [
                 "ra_code_2011",
@@ -1021,7 +1021,7 @@
         },
         "TR": {
             "layerName": "FID_TR_2015_AUST",
-            "server": "http://vector-tiles.terria.io/FID_TR_2015_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_TR_2015_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "TR_CODE15",
             "aliases": [
                 "tr_code_2015",
@@ -1046,7 +1046,7 @@
         },
         "TR_2013": {
             "layerName": "FID_TR_2013_AUST",
-            "server": "http://vector-tiles.terria.io/FID_TR_2013_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_TR_2013_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "TR_CODE13",
             "aliases": [
                 "tr_code_2013",
@@ -1070,7 +1070,7 @@
         },
         "NRMR": {
             "layerName": "FID_NRMR_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_NRMR_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_NRMR_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "NRMR_CODE",
             "aliases": [
                 "nrmr",
@@ -1095,7 +1095,7 @@
         },
         "NRMR_NAME": {
             "layerName": "FID_NRMR_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_NRMR_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_NRMR_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "NRMR_NAME",
             "aliases": [
                 "nrmr_name"
@@ -1117,7 +1117,7 @@
         },
         "ADD": {
             "layerName": "FID_ADD_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_ADD_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_ADD_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "ADD_CODE",
             "aliases": [
                 "add",
@@ -1142,7 +1142,7 @@
         },
         "ADD_NAME": {
             "layerName": "FID_ADD_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_ADD_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_ADD_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "ADD_NAME",
             "aliases": [
                 "add_name"
@@ -1164,7 +1164,7 @@
         },
         "PHN": {
             "layerName": "FID_PHN_boundaries_AUS_Sep2015_V5",
-            "server": "http://vector-tiles.terria.io/FID_PHN_boundaries_AUS_Sep2015_V5/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_PHN_boundaries_AUS_Sep2015_V5/{z}/{x}/{y}.pbf",
             "regionProp": "PHN_Code",
             "aliases": [
                 "phn_code_2015",
@@ -1189,7 +1189,7 @@
         },
         "STE_NAME": {
             "layerName": "FID_STE_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "STE_NAME11",
             "aliases": [
                 "ste_name",
@@ -1278,7 +1278,7 @@
         },
         "SLA": {
             "layerName": "fid_asgc06_sla",
-            "server": "http://vector-tiles.terria.io/fid_asgc06_sla/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/fid_asgc06_sla/{z}/{x}/{y}.pbf",
             "regionProp": "SLA_CODE06",
             "nameProp": "SLA_NAME06",
             "aliases": [
@@ -1305,7 +1305,7 @@
         },
         "SLA_5DIGITCODE": {
             "layerName": "fid_asgc06_sla",
-            "server": "http://vector-tiles.terria.io/fid_asgc06_sla/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/fid_asgc06_sla/{z}/{x}/{y}.pbf",
             "regionProp": "SLA_5DIGIT",
             "nameProp": "SLA_NAME06",
             "aliases": [
@@ -1329,7 +1329,7 @@
         },
         "SLA_NAME": {
             "layerName": "fid_asgc06_sla",
-            "server": "http://vector-tiles.terria.io/fid_asgc06_sla/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/fid_asgc06_sla/{z}/{x}/{y}.pbf",
             "regionProp": "SLA_NAME06",
             "nameProp": "SLA_NAME06",
             "aliases": [
@@ -1352,7 +1352,7 @@
         },
         "CD": {
             "layerName": "fid_asgc06_cd",
-            "server": "http://vector-tiles.terria.io/fid_asgc06_cd/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/fid_asgc06_cd/{z}/{x}/{y}.pbf",
             "regionProp": "CD_CODE06",
             "aliases": [
                 "cd_7digitcode_2006",
@@ -1378,7 +1378,7 @@
         },
         "CNT2": {
             "layerName": "FID_TM_WORLD_BORDERS",
-            "server": "http://vector-tiles.terria.io/FID_TM_WORLD_BORDERS/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_TM_WORLD_BORDERS/{z}/{x}/{y}.pbf",
             "regionProp": "ISO2",
             "aliases": [
                 "cnt2",
@@ -1402,7 +1402,7 @@
         },
         "CNT3": {
             "layerName": "FID_TM_WORLD_BORDERS",
-            "server": "http://vector-tiles.terria.io/FID_TM_WORLD_BORDERS/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_TM_WORLD_BORDERS/{z}/{x}/{y}.pbf",
             "regionProp": "ISO3",
             "aliases": [
                 "cnt3",
@@ -1426,7 +1426,7 @@
         },
         "COUNTRY": {
             "layerName": "FID_TM_WORLD_BORDERS",
-            "server": "http://vector-tiles.terria.io/FID_TM_WORLD_BORDERS/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_TM_WORLD_BORDERS/{z}/{x}/{y}.pbf",
             "regionProp": "NAME",
             "textCodes": true,
             "aliases": [
@@ -1448,7 +1448,7 @@
         },
         "AUS": {
             "layerName": "FID_AUS_2011_AUST",
-            "server": "http://vector-tiles.terria.io/FID_AUS_2011_AUST/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_AUS_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "AUS_CODE",
             "aliases": [
                 "aus",
