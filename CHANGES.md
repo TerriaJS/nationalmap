@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-### 2016-10-13
+### 2016-10-14
 
 * Support `openAddData` option in config.json. If true, the "Add Data" dialog is automatically opened at start up.
 * Switched to using vector tiles for region mapping.  This means region mapping is now faster and has much improved visual quality, but it no longer works with very old browsers like Internet Explorer 9.
