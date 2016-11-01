@@ -1467,6 +1467,53 @@
                 -9.142175976999999
             ],
             "nameProp": "AUS_NAME"
+        },
+        "ESA_2009": {
+            "layerName": "FID_AUS_ESA_09",
+            "server": "https://vector-tiles-2016-11-01b.terria.io/FID_AUS_ESA_09/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                114.97040099999998,
+                -43.74050999999999,
+                159.10921899999994,
+                -9.142175999999997
+            ],
+            "regionProp": "ESA_CODE",
+            "aliases": [
+                "esa",
+                "esa_code",
+                "esa_code_2009"
+            ],
+            "nameProp": "ESA_NAME",
+            "description": "Department of Employment Employment Service Areas 2009-2015",
+            "regionIdsFile": "data/regionids/region_map-FID_AUS_ESA_09_ESA_CODE.json"
+        },
+        "ESA_2009_NAME": {
+            "layerName": "FID_AUS_ESA_09",
+            "server": "https://vector-tiles-2016-11-01b.terria.io/FID_AUS_ESA_09/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                114.97040099999998,
+                -43.74050999999999,
+                159.10921899999994,
+                -9.142175999999997
+            ],
+            "regionProp": "ESA_NAME",
+            "aliases": [
+                "esa_name",
+                "esa_name_2009"
+            ],
+            "nameProp": "ESA_NAME",
+            "description": "Department of Employment Employment Service Areas 2009-2015",
+            "regionIdsFile": "data/regionids/region_map-FID_AUS_ESA_09_ESA_NAME.json"
         }
     }
 }
