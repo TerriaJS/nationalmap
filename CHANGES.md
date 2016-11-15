@@ -4,6 +4,7 @@ Change Log
 ### 2016-11-15
 
 * Fixed link to NEII viewer in related maps.
+* Added a button below the map navigation buttons to measure the distance between points.
 
 ### 2016-10-14
 
