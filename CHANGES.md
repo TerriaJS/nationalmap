@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 2016-11-15
+
+* Fixed link to NEII viewer in related maps.
+
 ### 2016-10-14
 
 * Support `openAddData` option in config.json. If true, the "Add Data" dialog is automatically opened at start up.
