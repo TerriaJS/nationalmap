@@ -5,6 +5,24 @@ Change Log
 
 * Fixed link to NEII viewer in related maps.
 * Added a button below the map navigation buttons to measure the distance between points.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.6.0.  Significant changes relevant to NationalMap users include:
+  * Change in defaults:
+    * The `clipToRectangle` property of raster catalog items (`WebMapServiceCatalogItem`, `ArcGisMapServerCatalogItem`, etc.) now defaults to `true`.  It was `false` in previous releases.  Using `false` prevents features (especially point features) right at the edge of the layer's rectangle from being cut off when the server reports too tight a rectangle, but also causes the layer to load much more slowly in many cases.  Starting in this version, we favour performance and the much more common case that the rectangle can be trusted.
+  * Made `WebMapServiceCatalogItem` tolerant of a `GetCapabilities` where a `LegendURL` element does not have an `OnlineResource` or a `Dimension` does not have any values.
+  * Add support for 'Long' type hint to CSV data for specifying longitude.
+  * The marker indicating the location of a search result is now placed correctly on the terrain surface.
+  * `CatalogFunction` region parameters are now selected on the main map rather than the preview map.
+  * Some regions that were previously not selectable in Analytics, except via autocomplete, are now selectable.
+  * Added hover text that shows the position of data catalog search results in the full catalog.
+  * Widened scrollbars and improve their contrast.
+  * Removed the default maximum number of 10 results when searching the data catalog.
+  * Allow users to browse for JSON configuration files when adding "Local Data".
+  * Made it easier to use custom fonts and colors in applications built on TerriaJS, via new SCSS variables.
+  * Fixed a bug that caused a `CswCatalogGroup` to fail to load if the server had a `references` element without a `protocol`.
+  * The order of the legend for an `ArcGisMapServerCatalogItem` now matches the order used by ArcGIS itself.
+  * Large legends are now scaled down to fit within the width of the workbench panel.
+  * Improved the styling of links inside the Feature Information panel.
+  * Fixed a bug that could cause the Feature Information panel's close button to initially appear in the wrong place, and then jump to the right place when moving the mouse near it.
 
 ### 2016-10-14
 
