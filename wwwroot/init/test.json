@@ -278,64 +278,10 @@
           ]
         },
         {
-          "name": "WPS",
+          "name": "WPS with extra data",
           "type": "group",
           "preserveOrder": true,
           "items": [
-            {
-              "name": "InputsTest",
-              "type": "wps",
-              "url": "http://sparrow.terria.io:5001/wps?service=wps",
-              "identifier": "inputs_test"
-            },
-            {
-              "name": "PointTest",
-              "type": "wps",
-              "url": "http://sparrow.terria.io:5001/wps?service=wps",
-              "identifier": "point_test",
-              "opacity" : 0.6,
-              "ignoreUnknownTileErrors": true
-            },
-            {
-              "name": "LineTest",
-              "type": "wps",
-              "url": "http://sparrow.terria.io:5001/wps?service=wps",
-              "identifier": "line_test",
-              "opacity" : 0.6,
-              "ignoreUnknownTileErrors": true
-            },
-            {
-              "name": "RectangleTest",
-              "type": "wps",
-              "url": "http://sparrow.terria.io:5001/wps?service=wps",
-              "identifier": "bbox_test",
-              "opacity" : 0.6,
-              "ignoreUnknownTileErrors": true
-            },
-            {
-              "name": "PolygonTest",
-              "type": "wps",
-              "url": "http://sparrow.terria.io:5001/wps?service=wps",
-              "identifier": "polygon_test",
-              "opacity" : 0.6,
-              "ignoreUnknownTileErrors": true
-            },
-            {
-              "name": "RegionTest",
-              "type": "wps",
-              "url": "http://sparrow.terria.io:5001/wps?service=wps",
-              "identifier": "region_test",
-              "opacity" : 0.6,
-              "ignoreUnknownTileErrors": true
-            },
-            {
-              "name": "GeoJsonTest",
-              "type": "wps",
-              "url": "http://sparrow.terria.io:5001/wps?service=wps",
-              "identifier": "geojson_test",
-              "opacity" : 0.6,
-              "ignoreUnknownTileErrors": true
-            },
             {
               "name": "ContextTest",
               "type": "wps",
@@ -359,6 +305,12 @@
                 }
             }
           ]
+        },
+        {
+          "name":"WPS",
+          "description":"All services from WPS test server",
+          "url":"http://sparrow.terria.io:5001/wps",
+          "type":"wps-getCapabilities"
         },
         {
           "name": "GeoJSON files",
