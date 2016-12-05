@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+### 2016-12-05
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.7.1.  Significant changes relevant to NationalMap users include:
+  * Fixed a bug leading to oversized graphics being displayed from WPS calls.
+  * Fixed a bug where providing feedback did not properly share the map view.
+
 ### 2016-12-03
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.7.0.  Significant changes relevant to NationalMap users include:
