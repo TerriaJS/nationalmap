@@ -39,6 +39,10 @@ You can customize these settings by changing `package.json`, or by using `npm co
 npm config set nationalmap:awsProfile myprofilename
 ```
 
+## Release
+
+Instructions on releasing (or publishing) a new version of TerriaJS and NationalMap are given [here](https://github.com/TerriaJS/nationalmap/wiki/Releasing-NationalMap).
+
 ## Deploy
 
 Prior to deploying, please tag the release, e.g.
