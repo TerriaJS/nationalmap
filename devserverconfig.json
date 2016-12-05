@@ -16,7 +16,9 @@
         "geoserver-123.aodn.org.au",
         "geoserver.imos.org.au",
         "nci.org.au",
-        "static.nationalmap.nicta.com.au"
+        "static.nationalmap.nicta.com.au",
+        "localhost:8080",
+        "flask-env.hnnuy8zpns.ap-southeast-2.elasticbeanstalk.com"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
@@ -25,6 +27,14 @@
         "userAgent": "TerriaBot (TerriaJS Feedback)",
         "issuesUrl": "https://api.github.com/repos/TerriaJS/NationalMap-Feedback/issues",
         "accessToken": null
+    },
+    "keys": {
+        // eg. With this key, a call to http://example.com/proxywithkey/abs/api.com/v1/users/18
+        // would return the response of http://api.com/v1/users/18?key=natmap.
+        "abs": [{
+            "key": "key",
+            "value": "natmapkey"
+        }]
     }
 }
 
