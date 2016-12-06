@@ -31,7 +31,7 @@
     },
     "keys": {
         // eg. With this key, a call to http://example.com/proxywithkey/abs/api.com/v1/users/18
-        // would return the response of http://api.com/v1/users/18?key=natmap.
+        // would return the response of http://api.com/v1/users/18?key=natmapkey.
         "abs": [{
             "key": "key",
             "value": "natmapkey"
