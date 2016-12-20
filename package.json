@@ -51,7 +51,7 @@
     "less-plugin-npm-import": "^2.1.0",
     "nationalmap-catalog": "git://github.com/TerriaJS/NationalMap-Catalog",
     "node-notifier": "^4.5.0",
-    "node-sass": "^3.4.2",
+    "node-sass": "^4.1.1",
     "raw-loader": "^0.5.1",
     "react": "15.4.1",
     "react-dom": "15.4.1",
