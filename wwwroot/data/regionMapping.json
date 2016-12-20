@@ -1470,7 +1470,7 @@
         },
         "ESA_09": {
             "layerName": "FID_AUS_ESA_09",
-            "server": "http://vector-tiles-2016-12-05.terria.io/FID_AUS_ESA_09/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_AUS_ESA_09/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -1494,7 +1494,7 @@
         },
         "ESA_NAME_09": {
             "layerName": "FID_AUS_ESA_09",
-            "server": "http://vector-tiles-2016-12-05.terria.io/FID_AUS_ESA_09/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/FID_AUS_ESA_09/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -1516,7 +1516,7 @@
         },
         "IBRA7_REG": {
             "layerName": "ibra7_regions",
-            "server": "http://vector-tiles-2016-12-05.terria.io/ibra7_regions/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/ibra7_regions/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -1538,7 +1538,7 @@
         },
         "IBRA7_REG_NAME": {
             "layerName": "ibra7_regions",
-            "server": "http://vector-tiles-2016-12-05.terria.io/ibra7_regions/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/ibra7_regions/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -1560,7 +1560,7 @@
         },
         "IBRA7_SUB": {
             "layerName": "ibra7_subregions",
-            "server": "http://vector-tiles-2016-12-05.terria.io/ibra7_subregions/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/ibra7_subregions/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -1582,7 +1582,7 @@
         },
         "IBRA7_SUB_NAME": {
             "layerName": "ibra7_subregions",
-            "server": "http://vector-tiles-2016-12-05.terria.io/ibra7_subregions/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/ibra7_subregions/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
