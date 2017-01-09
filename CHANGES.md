@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+### 2017-01-09
+
+* Added Gnaf bulk geocoder. When a csv file that contains addresses is added, instead of showing data per region, the addresses will be geocoded and the data shown by lat-long point.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.7.4.  Significant changes relevant to NationalMap users include:
+  * Gnaf geocoder performance now considerably faster.
+
 ### 2016-12-05
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.7.1.  Significant changes relevant to NationalMap users include:
