@@ -70,6 +70,18 @@ if (process.env.NODE_ENV !== "production" && module.hot) {
     document.styleSheets[0].disabled = true;
 }
 
+terria.filterStartDataCallback = function(startData) {
+    // Do not allow share URLs to load old versions of the catalog that
+    // are included in the initSources.
+    startData.initSources = startData.initSources.filter(function(initSource) {
+        if (typeof initSource === 'string') {
+            return initSource.indexOf('static.nationalmap.nicta.com.au/init') < 0 &&
+                   initSource.indexOf('init/nm.json') < 0;
+        }
+        return true;
+    });
+};
+
 terria.start({
     // If you don't want the user to be able to control catalog loading via the URL, remove the applicationUrl property below
     // as well as the call to "updateApplicationOnHashChange" further down.
