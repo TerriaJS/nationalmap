@@ -4,6 +4,7 @@ Change Log
 ### 2017-01-10
 
 * Added a bulk geocoder based on the Geocoded National Address File (G-NAF). When a CSV file that contains addresses is added, instead of showing data per region, the addresses will be geocoded and the resulting lat-long points will be shown.
+* Added `localdata.net.au` to the proxy whitelist.
 * This release includes no new catalog changes.  However, the following already-live catalog changes were made since the last release:
   * Renamed `National Data Sets` to `National Datasets`.
   * Renamed `ABS statistical boundaries` to `ABS Statistical Boundaries`.
