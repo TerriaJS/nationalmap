@@ -1,11 +1,39 @@
 Change Log
 ==========
 
-### 2017-01-09
+### 2017-01-10
 
-* Added Gnaf bulk geocoder. When a csv file that contains addresses is added, instead of showing data per region, the addresses will be geocoded and the data shown by lat-long point.
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.7.4.  Significant changes relevant to NationalMap users include:
-  * Gnaf geocoder performance now considerably faster.
+* Added a bulk geocoder based on the Geocoded National Address File (G-NAF). When a CSV file that contains addresses is added, instead of showing data per region, the addresses will be geocoded and the resulting lat-long points will be shown.
+* This release includes no new catalog changes.  However, the following already-live catalog changes were made since the last release:
+  * Renamed `National Data Sets` to `National Datasets`.
+  * Renamed `ABS statistical boundaries` to `ABS Statistical Boundaries`.
+  * Added New Victorian LGAs.
+  * Added 2012-13 and 2013-14 Taxation Statistics.
+  * Updated ABS 2016 Boundaries.
+  * Updated Taxation Statistics ColorPalettes and ColorBins.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.8.0.  Significant changes relevant to NationalMap users include:
+  * Updated G-NAF API to new Lucene-based backend, which should improve performance.
+  * Updated custom `<chart>` tag to allow a `colors` attribute, containing comma separated css strings (one per column), allowing users to customize chart colors. The `colors` attribute in charts can also be passed through from a WPS ComplexData response.
+  * Updated styling of Give Feedback form.
+  * Improved consistency of "Search" and "Add Data" font sizes.
+  * Improved flexibility of Feature Info Panel styling.
+  * Fixed a bug that could cause an extra `/` to be added to end of URLs by `ArcGisMapServerCatalogItem`, causing some servers to reject the request.
+  * Added a workaround for a bug in Internet Explorer 11 on Windows 7 that could cause the user interface to hang.
+  * Canceled pending tile requests when removing a layer from the 2D map.  This should drastically improve the responsiveness when dragging the time slider of a time-dynamic layer in 2D mode.
+  * Added the data source and data service details to the "About this dataset" (preview) panel.
+  * Renamed `SpatialDetailingFunction`, `WhyAmISpecialFunction`, and `PlacesLikeMeFunction` to `SpatialDetailingCatalogFunction`, `WhyAmISpecialCatalogFunction`, and `PlacesLikeMeCatalogFunction`, respectively.  The old names will be removed in a future release.
+  * Fixed incorrect tooltip text for the Share button.
+  * Improved the build process and content of the user guide documentation.
+  * Fixed a bug that prevented downloading data from the chart panel if the map was started in 2D mode.
+  * Changed the default opacity of table data to 0.8 from 0.6.
+  * Added the ability to read dates in the format "2017-Q2".
+  * Improved support for SDMX-JSON, including showing values as a percent of regional totals, showing the selected conditions in a more concise format, and fixing some bugs.
+  * Updated `TableCatalogItem`s to show a download URL in About This Dataset, which downloads the entire dataset as csv, even if the original data was more complex (eg. from an API).
+  * The icon specified to the `MenuPanel` / `DropdownPanel` theme can now be either the identifier of an icon from `Icon.GLYPHS` or an actual SVG `require`'d via the `svg-sprite-loader`.
+  * Fixed a bug that caused time-varying points from a CSV file to leave a trail on the 2D map.
+  * Add `Terria.filterStartDataCallback`.  This callback gives an application the opportunity to modify start (share) data supplied in a URL before TerriaJS loads it.
+  * Reduced the size of the initial TerriaJS JavaScript code by about 30% when starting in 2D mode.
+  * Upgraded to [Cesium 1.29](https://github.com/AnalyticalGraphicsInc/cesium/blob/1.29/CHANGES.md).
 
 ### 2016-12-05
 
