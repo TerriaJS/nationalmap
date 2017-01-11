@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-### 2017-01-10
+### 2017-01-12
 
 * Added a bulk geocoder based on the Geocoded National Address File (G-NAF). When a CSV file that contains addresses is added, instead of showing data per region, the addresses will be geocoded and the resulting lat-long points will be shown.
 * Added `localdata.net.au` to the proxy whitelist.
@@ -12,7 +12,7 @@ Change Log
   * Added 2012-13 and 2013-14 Taxation Statistics.
   * Updated ABS 2016 Boundaries.
   * Updated Taxation Statistics ColorPalettes and ColorBins.
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.8.0.  Significant changes relevant to NationalMap users include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.8.1.  Significant changes relevant to NationalMap users include:
   * Updated G-NAF API to new Lucene-based backend, which should improve performance.
   * Updated custom `<chart>` tag to allow a `colors` attribute, containing comma separated css strings (one per column), allowing users to customize chart colors. The `colors` attribute in charts can also be passed through from a WPS ComplexData response.
   * Updated styling of Give Feedback form.
@@ -33,7 +33,10 @@ Change Log
   * The icon specified to the `MenuPanel` / `DropdownPanel` theme can now be either the identifier of an icon from `Icon.GLYPHS` or an actual SVG `require`'d via the `svg-sprite-loader`.
   * Fixed a bug that caused time-varying points from a CSV file to leave a trail on the 2D map.
   * Add `Terria.filterStartDataCallback`.  This callback gives an application the opportunity to modify start (share) data supplied in a URL before TerriaJS loads it.
-  * Reduced the size of the initial TerriaJS JavaScript code by about 30% when starting in 2D mode.
+    * Reduced the size of the initial TerriaJS JavaScript code by about 30% when starting in 2D mode.
+  * `CkanCatalogGroup` now automatically adds the type of the resource (e.g. `(WMS)`) after the name when a dataset contains multiple resources that can be turned into catalog items and `useResourceName` is false.
+  * Added support for ArcGIS FeatureServers to `CkanCatalogGroup` and `CkanCatalogItem`.  In order for `CkanCatalogGroup` to include FeatureServers, `includeEsriFeatureServer` must be set to true.
+  * Changed default URL for the share service from `/share` to `share` and made it configurable by specifying `shareUrl` in config.json.  This helps with deployments in subdirectories.
   * Upgraded to [Cesium 1.29](https://github.com/AnalyticalGraphicsInc/cesium/blob/1.29/CHANGES.md).
 
 ### 2016-12-05
