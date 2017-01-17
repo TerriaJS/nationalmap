@@ -1467,6 +1467,143 @@
                 -9.142175976999999
             ],
             "nameProp": "AUS_NAME"
+        },
+        "ESA_09": {
+            "layerName": "FID_AUS_ESA_09",
+            "server": "https://vector-tiles.terria.io/FID_AUS_ESA_09/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81676599999999,
+                -43.74050999999999,
+                159.10921899999994,
+                -9.142175999999997
+            ],
+            "regionProp": "ESA_CODE",
+            "aliases": [
+                "esa",
+                "esa_code",
+                "esa_code_2009"
+            ],
+            "nameProp": "ESA_NAME",
+            "description": "Employment Service Areas 2009-2015+",
+            "regionIdsFile": "data/regionids/region_map-FID_AUS_ESA_09_ESA_CODE.json"
+        },
+        "ESA_NAME_09": {
+            "layerName": "FID_AUS_ESA_09",
+            "server": "https://vector-tiles.terria.io/FID_AUS_ESA_09/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81676599999999,
+                -43.74050999999999,
+                159.10921899999994,
+                -9.142175999999997
+            ],
+            "regionProp": "ESA_NAME",
+            "aliases": [
+                "esa_name",
+                "esa_name_2009"
+            ],
+            "nameProp": "ESA_NAME",
+            "description": "Employment Service Areas 2009-2015+",
+            "regionIdsFile": "data/regionids/region_map-FID_AUS_ESA_09_ESA_NAME.json"
+        },
+        "IBRA7_REG": {
+            "layerName": "ibra7_regions",
+            "server": "https://vector-tiles.terria.io/ibra7_regions/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                72.57737629065888,
+                -54.776992953536805,
+                167.9981399159851,
+                -9.141289999999968
+            ],
+            "regionProp": "REG_CODE_7",
+            "aliases": [
+                "ibra7_reg",
+                "ibra7_reg_code"
+            ],
+            "nameProp": "REG_NAME_7",
+            "description": "IBRA Regions v7",
+            "regionIdsFile": "data/regionids/region_map-ibra7_regions_REG_CODE_7.json"
+        },
+        "IBRA7_REG_NAME": {
+            "layerName": "ibra7_regions",
+            "server": "https://vector-tiles.terria.io/ibra7_regions/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                72.57737629065888,
+                -54.776992953536805,
+                167.9981399159851,
+                -9.141289999999968
+            ],
+            "regionProp": "REG_NAME_7",
+            "aliases": [
+                "ibra7_reg_name"
+            ],
+            "nameProp": "REG_NAME_7",
+            "description": "IBRA Regions v7",
+            "regionIdsFile": "data/regionids/region_map-ibra7_regions_REG_NAME_7.json"
+        },
+        "IBRA7_SUB": {
+            "layerName": "ibra7_subregions",
+            "server": "https://vector-tiles.terria.io/ibra7_subregions/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                72.57737629065888,
+                -54.77699295353692,
+                167.9981399159851,
+                -9.141289999999968
+            ],
+            "regionProp": "SUB_CODE_7",
+            "aliases": [
+                "ibra7_sub",
+                "ibra7_sub_code"
+            ],
+            "nameProp": "SUB_NAME_7",
+            "description": "IBRA Subregions v7",
+            "regionIdsFile": "data/regionids/region_map-ibra7_subregions_SUB_CODE_7.json"
+        },
+        "IBRA7_SUB_NAME": {
+            "layerName": "ibra7_subregions",
+            "server": "https://vector-tiles.terria.io/ibra7_subregions/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                72.57737629065888,
+                -54.77699295353692,
+                167.9981399159851,
+                -9.141289999999968
+            ],
+            "regionProp": "SUB_NAME_7",
+            "aliases": [
+                "ibra7_sub_name"
+            ],
+            "nameProp": "SUB_NAME_7",
+            "description": "IBRA Subregions v7",
+            "regionIdsFile": "data/regionids/region_map-ibra7_subregions_SUB_NAME_7.json"
         }
     }
 }

@@ -23,7 +23,6 @@ import raiseErrorToUser from 'terriajs/lib/Models/raiseErrorToUser';
 import registerAnalytics from 'terriajs/lib/Models/registerAnalytics';
 import registerCatalogMembers from 'terriajs/lib/Models/registerCatalogMembers';
 import registerCustomComponentTypes from 'terriajs/lib/ReactViews/Custom/registerCustomComponentTypes';
-import registerKnockoutBindings from 'terriajs/lib/Core/registerKnockoutBindings';
 import Terria from 'terriajs/lib/Models/Terria';
 import updateApplicationOnHashChange from 'terriajs/lib/ViewModels/updateApplicationOnHashChange';
 import updateApplicationOnMessageFromParentWindow from 'terriajs/lib/ViewModels/updateApplicationOnMessageFromParentWindow';
@@ -33,13 +32,10 @@ import GazetteerSearchProviderViewModel from 'terriajs/lib/ViewModels/GazetteerS
 import GnafSearchProviderViewModel from 'terriajs/lib/ViewModels/GnafSearchProviderViewModel.js';
 import defined from 'terriajs-cesium/Source/Core/defined';
 import render from './lib/Views/render';
+import GnafAddressGeocoder from 'terriajs/lib/Map/GnafAddressGeocoder.js';
 
 // Tell the OGR catalog item where to find its conversion service.  If you're not using OgrCatalogItem you can remove this.
 OgrCatalogItem.conversionServiceBaseUrl = configuration.conversionServiceBaseUrl;
-
-// Register custom Knockout.js bindings.  If you're not using the TerriaJS user interface, you can remove this.
-registerKnockoutBindings();
-
 
 // Register all types of catalog members in the core TerriaJS.  If you only want to register a subset of them
 // (i.e. to reduce the size of your application if you don't actually use them all), feel free to copy a subset of
@@ -48,6 +44,7 @@ registerCatalogMembers();
 registerAnalytics();
 
 terriaOptions.analytics = new GoogleAnalytics();
+terriaOptions.batchGeocoder = new GnafAddressGeocoder();
 
 // Construct the TerriaJS application, arrange to show errors to the user, and start it up.
 var terria = new Terria(terriaOptions);
@@ -72,6 +69,18 @@ if (process.env.NODE_ENV === "development") {
 if (process.env.NODE_ENV !== "production" && module.hot) {
     document.styleSheets[0].disabled = true;
 }
+
+terria.filterStartDataCallback = function(startData) {
+    // Do not allow share URLs to load old versions of the catalog that
+    // are included in the initSources.
+    startData.initSources = startData.initSources.filter(function(initSource) {
+        if (typeof initSource === 'string') {
+            return initSource.indexOf('static.nationalmap.nicta.com.au/init') < 0 &&
+                   initSource.indexOf('init/nm.json') < 0;
+        }
+        return true;
+    });
+};
 
 terria.start({
     // If you don't want the user to be able to control catalog loading via the URL, remove the applicationUrl property below

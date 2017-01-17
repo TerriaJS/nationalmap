@@ -19,7 +19,8 @@
         "static.nationalmap.nicta.com.au",
         "localhost:8080",
         "127.0.0.1:8080",
-        "flask-env.hnnuy8zpns.ap-southeast-2.elasticbeanstalk.com"
+        "flask-env.hnnuy8zpns.ap-southeast-2.elasticbeanstalk.com",
+        "localdata.net.au"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
