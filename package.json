@@ -12,7 +12,7 @@
     "url": "http://github.com/NICTA/nationalmap"
   },
   "dependencies": {
-    "terriajs-server": "git://github.com/TerriaJS/terriajs-server.git#proxy_with_server"
+    "terriajs-server": "git://github.com/TerriaJS/terriajs-server.git#proxy_with_key"
   },
   "config": {
     "awsProfile": "nationalmap",
