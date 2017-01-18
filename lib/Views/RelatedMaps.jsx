@@ -60,7 +60,7 @@ function RelatedMaps(props) {
             </div>
 
             <div className={classNames(PanelStyles.section, Styles.section)}>
-                <a target="_blank" href="http://neiiviewer.nicta.com.au">
+                <a target="_blank" href="http://www.neii.gov.au/viewer/">
                     <img className={Styles.image} src={require('../../wwwroot/images/neii.jpg')}
                          alt="NEII Viewer"/>
                 </a>
