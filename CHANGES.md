@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 2017-02-15
+
+* Fixed the link to the "NEII viewer" related map when the image is clicked.
+
 ### 2017-01-12
 
 * Added a bulk geocoder based on the Geocoded National Address File (G-NAF). When a CSV file that contains addresses is added, instead of showing data per region, the addresses will be geocoded and the resulting lat-long points will be shown.
