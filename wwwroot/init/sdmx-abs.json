@@ -29,12 +29,19 @@
                 "MEASURE": [
                   "3"
                 ],
-                "SPC": [
-                  "TT"
-                ],
                 "AGE": [
                   "TT",
                   "O15"
+                ],
+                "SPC": [
+                  "TT"
+                ]
+              },
+              "whitelist": {
+                "AGE": [
+                  "A[0-9]+",
+                  "T.*",
+                  "O.*"
                 ]
               },
               "selectedInitially": {

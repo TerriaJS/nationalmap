@@ -1,3 +1,12 @@
+// Pass optionally
+// group:    The group name to include this in, eg. "Dwellings"
+// name:     The name of the item, eg. "Number of Motor Vehicles by Dwellings"
+// id:       The dataset id for the item, eg. "ABS_CENSUS2011_B29"
+// isLGA:    Is this an LGA-only dataset?
+// hasState: Do we need to aggregate over the unnecessary STATE dimension?
+// singleValuedDimensionIds: An array of dimensions which can only take a single value, eg. ["SPC"].
+// sexId:    The sex dimension id - usually "MEASURE". Pass "" if none.
+// ageId:    The age dimension id - usually "AGE" (eg. ABS_CENSUS2011_B45 puts AGE in MEASURE, sex in SEX). Pass "" if none.
 {
     "name": "<%= group %>",
     "type": "group",
@@ -9,25 +18,38 @@
             "sortValues": true,
             "url": "http://stat.data.abs.gov.au/sdmx-json/data/<%= id %>",
             "description": "You can view this data, along with additional information about the meaning of terms, on the ABS.Stat website at http://stat.data.abs.gov.au/Index.aspx?DatasetCode=<%= id %>",
-            <% if(hasState){ %>
+            <% if (hasState) { %>
                "aggregatedDimensionIds": ["STATE"],
             <% } %>
-            <% if(singleValuedDimensionIds){ %>
+            <% if (singleValuedDimensionIds) { %>
                 "singleValuedDimensionIds": <%- JSON.stringify(singleValuedDimensionIds) %>,
             <% } %>
             "totalValueIds": {
                 "*": ["TOT"],
-                "MEASURE": ["3"],
+                <% if (sexId) { %>
+                    "<%= sexId %>": ["3"],
+                <% } %>
+                <% if (ageId) { %>
+                    "<%= ageId %>": ["TT", "O15"],
+                <% } %>
                 "SPC": ["TT"],
-                "AGE": ["TT", "O15"]
             },
+            "whitelist": {
+                <% if (isLGA) { %>
+                    "REGIONTYPE": ["LGA2011"],
+                <% } %>
+                "<%= ageId %>": ["A[0-9]+", "T.*", "O.*"] // Only shows five-year ranges and totals, not individual years.
+            },
+            <% if (regionDimensionId) { %>
+                "regionDimensionId": "<%= regionDimensionId %>",
+            <% } %>
             "selectedInitially": {
-                <% if(isLGA){ %>
+                <% if (isLGA) { %>
                     "REGIONTYPE": ["LGA2011"]
                 <% } else { %>
                     "REGIONTYPE": ["SA4"]
                 <% } %>
             }
-        }                
+        }
     ]
 }
