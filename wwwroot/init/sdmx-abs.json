@@ -1,0 +1,51 @@
+{
+  "catalog": [
+    {
+      "name": "ABS SDMX-JSON for testing only",
+      "type": "group",
+      "isOpen": true,
+      "items": [
+        {
+          "name": "Selected Person Characteristics",
+          "type": "group",
+          "isOpen": false,
+          "items": [
+            {
+              "name": "Selected Person Characteristics",
+              "type": "sdmx-json",
+              "sortValues": true,
+              "url": "http://stat.data.abs.gov.au/sdmx-json/data/ABS_CENSUS2011_B01",
+              "description": "You can view this data, along with additional information about the meaning of terms, on the ABS.Stat website at http://stat.data.abs.gov.au/Index.aspx?DatasetCode=ABS_CENSUS2011_B01",
+              "aggregatedDimensionIds": [
+                "STATE"
+              ],
+              "singleValuedDimensionIds": [
+                "SPC"
+              ],
+              "totalValueIds": {
+                "*": [
+                  "TOT"
+                ],
+                "MEASURE": [
+                  "3"
+                ],
+                "SPC": [
+                  "TT"
+                ],
+                "AGE": [
+                  "TT",
+                  "O15"
+                ]
+              },
+              "selectedInitially": {
+                "REGIONTYPE": [
+                  "SA4"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

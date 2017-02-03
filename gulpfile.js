@@ -300,7 +300,7 @@ function mergeConfigs(original, override) {
 
     If you want to pass parameters to the included file, do this instead:
 
-    <%- include('includes/foo', { name: 'Cool layer' } %>
+    <%- include('includes/foo', { name: 'Cool layer' }) %>
 
     and in includes/foo:
 

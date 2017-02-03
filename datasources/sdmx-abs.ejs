@@ -1,0 +1,17 @@
+{
+    "catalog": [{
+        "name": "ABS SDMX-JSON for testing only",
+        "type": "group",
+        "isOpen": true,
+        "items": [
+            <%- include('includes/sdmx-abs-item', {
+                "group": "Selected Person Characteristics",
+                "name": "Selected Person Characteristics",
+                "id": "ABS_CENSUS2011_B01",
+                "isLGA": false,
+                "hasState": true,
+                "singleValuedDimensionIds": ["SPC"],
+            }) %>
+        ]
+    }]
+}

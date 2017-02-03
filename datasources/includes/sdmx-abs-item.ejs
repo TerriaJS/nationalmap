@@ -1,0 +1,33 @@
+{
+    "name": "<%= group %>",
+    "type": "group",
+    "isOpen": false,
+    "items": [
+        {
+            "name": "<%= name %>",
+            "type": "sdmx-json",
+            "sortValues": true,
+            "url": "http://stat.data.abs.gov.au/sdmx-json/data/<%= id %>",
+            "description": "You can view this data, along with additional information about the meaning of terms, on the ABS.Stat website at http://stat.data.abs.gov.au/Index.aspx?DatasetCode=<%= id %>",
+            <% if(hasState){ %>
+               "aggregatedDimensionIds": ["STATE"],
+            <% } %>
+            <% if(singleValuedDimensionIds){ %>
+                "singleValuedDimensionIds": <%- JSON.stringify(singleValuedDimensionIds) %>,
+            <% } %>
+            "totalValueIds": {
+                "*": ["TOT"],
+                "MEASURE": ["3"],
+                "SPC": ["TT"],
+                "AGE": ["TT", "O15"]
+            },
+            "selectedInitially": {
+                <% if(isLGA){ %>
+                    "REGIONTYPE": ["LGA2011"]
+                <% } else { %>
+                    "REGIONTYPE": ["SA4"]
+                <% } %>
+            }
+        }                
+    ]
+}
