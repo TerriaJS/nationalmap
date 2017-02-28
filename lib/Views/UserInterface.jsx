@@ -22,7 +22,7 @@ export default function UserInterface(props) {
                 <MeasureTool terria={props.viewState.terria} key="measure-tool"/>
             </Nav>
             <Nav>
-                <AugmentedVirtualityTool terria={props.viewState.terria} key="augmented-virtuality-tool"/>
+                <AugmentedVirtualityTool viewState={props.viewState} terria={props.viewState.terria} key="augmented-virtuality-tool"/>
             </Nav>
         </StandardUserInterface>
     );
