@@ -5,7 +5,7 @@ import version from '../../version';
 import StandardUserInterface from 'terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.jsx';
 import MenuItem from 'terriajs/lib/ReactViews/StandardUserInterface/customizable/MenuItem';
 import RelatedMaps from './RelatedMaps';
-import { Menu, Nav } from 'terriajs/lib/ReactViews/StandardUserInterface/customizable/Groups';
+import { Menu, Nav, Experimental } from 'terriajs/lib/ReactViews/StandardUserInterface/customizable/Groups';
 import MeasureTool from 'terriajs/lib/ReactViews/Map/Navigation/MeasureTool';
 import AugmentedVirtualityTool from 'terriajs/lib/ReactViews/Map/Navigation/AugmentedVirtualityTool.jsx';
 
@@ -21,9 +21,9 @@ export default function UserInterface(props) {
             <Nav>
                 <MeasureTool terria={props.viewState.terria} key="measure-tool"/>
             </Nav>
-            <Nav>
+            <Experimental>
                 <AugmentedVirtualityTool viewState={props.viewState} terria={props.viewState.terria} key="augmented-virtuality-tool"/>
-            </Nav>
+            </Experimental>
         </StandardUserInterface>
     );
 }
