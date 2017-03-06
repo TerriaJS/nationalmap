@@ -73,13 +73,15 @@ if (process.env.NODE_ENV !== "production" && module.hot) {
 terria.filterStartDataCallback = function(startData) {
     // Do not allow share URLs to load old versions of the catalog that
     // are included in the initSources.
-    startData.initSources = startData.initSources.filter(function(initSource) {
-        if (typeof initSource === 'string') {
-            return initSource.indexOf('static.nationalmap.nicta.com.au/init') < 0 &&
-                   initSource.indexOf('init/nm.json') < 0;
-        }
-        return true;
-    });
+    if (startData.initSources) {
+        startData.initSources = startData.initSources.filter(function(initSource) {
+            if (typeof initSource === 'string') {
+                return initSource.indexOf('static.nationalmap.nicta.com.au/init') < 0 &&
+                    initSource.indexOf('init/nm.json') < 0;
+            }
+            return true;
+        });
+    }
 };
 
 terria.start({
