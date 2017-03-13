@@ -4,6 +4,25 @@ Change Log
 ### 2017-02-15
 
 * Fixed the link to the "NEII viewer" related map when the image is clicked.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 4.10.1.  Changes include:
+  * Changed defaults:
+    * `WebProcessingServiceCatalogFunction` now defaults to invoking the `Execute` service via an HTTP POST with XML encoding rather than an HTTP GET with KVP encoding.  This is a more sensible default because the WPS specification requires that servers support POST/XML while GET/KVP is optional.  Plus, POST/XML allows large input parameters, such as a polygon descibing all of Australia, to be successfully passed to the WPS process.  To force use of GET/KVP, set the `executeWithHttpGet` property to `true`.
+  * Improved the SDMX-JSON catalog item to handle huge dimensions, allow a blacklist, handle bad responses better, and more.
+  * Fixed a bug that prevented the proxy from being used for loading legends, even in situations where it is necessary such as an `http` legend accessed from an `https` site.
+  * Added link to re-download local files, noting that TerriaJS may have done additional processing (eg. geocoding).
+  * Fixed problems with third-party dependencies causing `npm install` and `npm run gulp` to fail.
+  * Added a help overlay system. A TerriaJS application can define a set of help sequences that interactively walk the user through a task, such as adding data to the map or changing map settings. The help sequences usually appear as a drop-down Help menu in the top-right corner.
+  * Fixed a bug with calculating bounding rectangles in `ArcGisCatalogItem` caused by changes to `proj4` package.
+  * Fixed a bug preventing chart axis labels from being visible on a white background.
+  * Fixed a bug that caused the Feedback panel to appear below the chart panel, making it difficult to use.
+  * Fixed a bug that prevented a `shareUrl` specified in `config.json` from actually being used by the `ShareDataService`.
+  * Adding a JSON init file by dropping it on the map or selecting it from the My Data tab no longer adds an entry to the Workbench and User-Added Data catalog.
+  * WPS return type can now be `application/vnd.terriajs.catalog-member+json` which allows a json catalog member to be returned in WPS along with the usual attributes to control display.
+  * `chartLineColor` tableStyle attribute added, allowing per column specification of chart line color.
+  * Fixed a bug that caused a `WebMapServiceCatalogItem` inside a `WebMapServiceCatalogGroup` to revert to defaults from GetCapabilities instead of using shared properties.
+  * Fix a bug that prevented drawing the marker and zooming to the point when searching for a location in 2D.
+  * Fixed a bug where `WebMapTileServiceCatalogItem` would incorrectly interpret a bounding box and return only the lower left corner causing Cesium to crash on render.
+  * Fixed a bug that caused the feedback form to be submitted when unchecking "Share my map view".
 
 ### 2017-01-12
 

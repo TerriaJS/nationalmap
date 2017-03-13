@@ -308,8 +308,12 @@ function mergeConfigs(original, override) {
  */
 gulp.task('render-datasource-templates', function() {
     var ejs = require('ejs');
+    var fs = require('fs-extra');
     var JSON5 = require('json5');
     var templateDir = 'datasources';
+
+    fs.copySync(require.resolve('nationalmap-catalog/build/sdmx-abs-beta.json'), 'wwwroot/init/sdmx-abs-beta.json');
+
     try {
         fs.accessSync(templateDir);
     } catch (e) {
@@ -337,7 +341,6 @@ gulp.task('render-datasource-templates', function() {
             fs.writeFileSync(path.join('wwwroot/init', outFilename), new Buffer(result));
         }
     });
-
 });
 
 gulp.task('watch-datasource-templates', ['render-datasource-templates'], function() {
