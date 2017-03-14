@@ -312,8 +312,6 @@ gulp.task('render-datasource-templates', function() {
     var JSON5 = require('json5');
     var templateDir = 'datasources';
 
-    fs.copySync(require.resolve('nationalmap-catalog/build/sdmx-abs-beta.json'), 'wwwroot/init/sdmx-abs-beta.json');
-
     try {
         fs.accessSync(templateDir);
     } catch (e) {
