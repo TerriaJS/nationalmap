@@ -1,0 +1,70 @@
+{
+  "homeCamera": {
+    "west": 112,
+    "south": -48,
+    "east": 155,
+    "north": -5
+  },
+  "catalog": [
+    {
+      "name": "Regionmapping test csvs",
+      "type": "group",
+      "items": [
+        {
+          "name": "IBRA7 Regions and Subregions",
+          "type": "group",
+          "items": [
+            {
+              "name": "ibra7_reg",
+              "type": "csv",
+              "url": "test/regionmapping/ibra7_reg.csv"
+            },
+            {
+              "name": "ibra7_reg_name",
+              "type": "csv",
+              "url": "test/regionmapping/ibra7_reg_name.csv"
+            },
+            {
+              "name": "ibra7_sub",
+              "type": "csv",
+              "url": "test/regionmapping/ibra7_sub.csv"
+            },
+            {
+              "name": "ibra7_sub_name",
+              "type": "csv",
+              "url": "test/regionmapping/ibra7_sub_name.csv"
+            }
+          ]
+        },
+        {
+          "name": "ESA 2009",
+          "type": "group",
+          "items": [
+            {
+              "name": "esa_code",
+              "type": "csv",
+              "url": "test/regionmapping/esa_code.csv"
+            },
+            {
+              "name": "esa_name",
+              "type": "csv",
+              "url": "test/regionmapping/esa_name.csv"
+            }
+          ]
+        },
+        {
+          "name": "COM_ELB",
+          "type": "group",
+          "items": [
+            {
+              "name": "com_elb_2016_name",
+              "type": "csv",
+              "url": "test/regionmapping/com_elb_2016_name.csv"
+            }
+          ]
+        }
+      ],
+      "isOpen": true
+    }
+  ]
+}
