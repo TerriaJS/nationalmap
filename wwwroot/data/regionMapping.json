@@ -50,7 +50,7 @@
         },
         "SA1_2016": {
             "layerName": "SA1_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/SA1_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/SA1_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -75,7 +75,7 @@
         },
         "SA1_7DIGIT_2016": {
             "layerName": "SA1_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/SA1_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/SA1_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -143,7 +143,7 @@
         },
         "SA4_2016": {
             "layerName": "SA4_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/SA4_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/SA4_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -167,7 +167,7 @@
         },
         "SA4_NAME_2016": {
             "layerName": "SA4_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/SA4_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/SA4_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -236,7 +236,7 @@
         },
         "SA3_2016": {
             "layerName": "SA3_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/SA3_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/SA3_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -260,7 +260,7 @@
         },
         "SA3_NAME_2016": {
             "layerName": "SA3_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/SA3_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/SA3_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -351,7 +351,7 @@
         },
         "SA2_2016": {
             "layerName": "SA2_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/SA2_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/SA2_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -375,7 +375,7 @@
         },
         "SA2_5DIG_2016": {
             "layerName": "SA2_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/SA2_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/SA2_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -398,7 +398,7 @@
         },
         "SA2_NAME_2016": {
             "layerName": "SA2_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/SA2_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/SA2_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -958,7 +958,7 @@
         },
         "GCCSA_2016": {
             "layerName": "GCCSA_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/GCCSA_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/GCCSA_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -982,7 +982,7 @@
         },
         "GCCSA_NAME_2016": {
             "layerName": "GCCSA_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/GCCSA_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/GCCSA_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -1087,7 +1087,7 @@
         },
         "STE_2016": {
             "layerName": "STE_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/STE_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/STE_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
@@ -1541,7 +1541,7 @@
         },
         "STE_NAME_2016": {
             "layerName": "STE_2016_AUST",
-            "server": "http://staging.vector-tiles.terria.io/STE_2016_AUST/{z}/{x}/{y}.pbf",
+            "server": "http://vector-tiles-2017-03-15b.terria.io/STE_2016_AUST/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverSubdomains": [],
             "serverMinZoom": 0,
