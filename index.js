@@ -71,9 +71,9 @@ if (process.env.NODE_ENV !== "production" && module.hot) {
 }
 
 terria.filterStartDataCallback = function(startData) {
-    // Do not allow share URLs to load old versions of the catalog that
-    // are included in the initSources.
     if (startData.initSources) {
+        // Do not allow share URLs to load old versions of the catalog that
+        // are included in the initSources.
         startData.initSources = startData.initSources.filter(function(initSource) {
             if (typeof initSource === 'string') {
                 return initSource.indexOf('static.nationalmap.nicta.com.au/init') < 0 &&
@@ -81,6 +81,19 @@ terria.filterStartDataCallback = function(startData) {
             }
             return true;
         });
+
+        // Backward compatibility for old ABS-ITT catalog items.  Go load an annex catalog that contains them.
+        const containsAbsIttItems = startData.initSources.some(function(initSource) {
+            return initSource.sharedCatalogMembers && Object.keys(initSource.sharedCatalogMembers).some(shareKey => initSource.sharedCatalogMembers[shareKey].type === 'abs-itt');
+        });
+
+        if (containsAbsIttItems) {
+            terria.error.raiseEvent({
+                title: 'Warning',
+                message: 'The share link you just visited is using an old interface to the ABS census data that will stop working in a future version of NationalMap.  If this is your link, please update it to use the new ABS catalog items in the National Datasets section.'
+            });
+            startData.initSources.unshift('init/abs-itt.json');
+        }
     }
 };
 
