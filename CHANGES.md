@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 2017-04-15
+
+* Turned off the automatic animation of time-series data when an item is enabled. The user must now explicitly press the play button to see this.
+
 ### 2017-03-15
 
 * Deprecated the old Australian Bureau of Statistics group and instead interspersed ABS items (now based on SDMX-JSON) into National Datasets.  Moved a few existing items into subfolders as appropriate.
