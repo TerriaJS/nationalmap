@@ -1,7 +1,7 @@
 {
     "comments": "Matching takes place in the order defined in this file. Place code matches before name matches, and smaller regions before larger ones.",
     "regionWmsMap": {
-        "SA1": {
+        "SA1_2011": {
             "layerName": "FID_SA1_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA1_MAIN11",
@@ -25,7 +25,7 @@
             ],
             "nameProp": "SA2_NAME11"
         },
-        "SA1_7DIGIT": {
+        "SA1_7DIGIT_2011": {
             "layerName": "FID_SA1_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA1_7DIG11",
@@ -96,7 +96,7 @@
             "description": "Statistical Area Level 1 2016 (ABS)",
             "regionIdsFile": "data/regionids/region_map-SA1_2016_AUST_SA1_7DIG16.json"
         },
-        "SA4": {
+        "SA4_2011": {
             "layerName": "FID_SA4_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_CODE11",
@@ -119,7 +119,7 @@
             ],
             "nameProp": "SA4_NAME11"
         },
-        "SA4_NAME": {
+        "SA4_NAME_2011": {
             "layerName": "FID_SA4_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_NAME11",
@@ -188,7 +188,7 @@
             "description": "Statistical Area Level 4 2016 (ABS)",
             "regionIdsFile": "data/regionids/region_map-SA4_2016_AUST_SA4_NAME16.json"
         },
-        "SA3": {
+        "SA3_2011": {
             "layerName": "FID_SA3_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_CODE11",
@@ -211,7 +211,7 @@
             ],
             "nameProp": "SA3_NAME11"
         },
-        "SA3_NAME": {
+        "SA3_NAME_2011": {
             "layerName": "FID_SA3_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_NAME11",
@@ -281,7 +281,7 @@
             "description": "Statistical Area Level 3 2016 (ABS)",
             "regionIdsFile": "data/regionids/region_map-SA3_2016_AUST_SA3_NAME16.json"
         },
-        "SA2": {
+        "SA2_2011": {
             "layerName": "FID_SA2_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_MAIN11",
@@ -304,7 +304,7 @@
             ],
             "nameProp": "SA2_NAME11"
         },
-        "SA2_5DIG": {
+        "SA2_5DIG_2011": {
             "layerName": "FID_SA2_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_5DIG11",
@@ -327,7 +327,7 @@
             ],
             "nameProp": "SA2_NAME11"
         },
-        "SA2_NAME": {
+        "SA2_NAME_2011": {
             "layerName": "FID_SA2_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_NAME11",
@@ -542,7 +542,7 @@
             ],
             "nameProp": "LGA_NAME11"
         },
-        "LGA_NAME": {
+        "LGA_NAME_2011": {
             "_comment": "This section must go before State",
             "layerName": "FID_LGA_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_LGA_2011_AUST/{z}/{x}/{y}.pbf",
@@ -598,7 +598,7 @@
                 ]
             ],
             "disambigProp": "STE_NAME11",
-            "disambigRegionId": "STE_NAME",
+            "disambigRegionId": "STE_NAME_2011",
             "description": "Local government areas",
             "regionIdsFile": "data/regionids/region_map-FID_LGA_2011_AUST_LGA_NAME11.json",
             "regionDisambigIdsFile": "data/regionids/region_map-FID_LGA_2011_AUST_STE_NAME11.json",
@@ -911,7 +911,7 @@
             ],
             "nameProp": "SED_NAME"
         },
-        "GCCSA": {
+        "GCCSA_2011": {
             "layerName": "FID_GCCSA_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "GCC_CODE11",
@@ -934,7 +934,7 @@
             ],
             "nameProp": "GCC_NAME11"
         },
-        "GCCSA_NAME": {
+        "GCCSA_NAME_2011": {
             "layerName": "FID_GCCSA_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "GCC_NAME11",
@@ -1063,7 +1063,7 @@
             ],
             "nameProp": "SUA_NAME11"
         },
-        "STE": {
+        "STE_2011": {
             "layerName": "FID_STE_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "STE_CODE11",
@@ -1452,7 +1452,7 @@
             ],
             "nameProp": "PHN_Name"
         },
-        "STE_NAME": {
+        "STE_NAME_2011": {
             "layerName": "FID_STE_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "STE_NAME11",
