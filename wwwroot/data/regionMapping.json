@@ -6,6 +6,8 @@
             "server": "https://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA1_MAIN11",
             "aliases": [
+                "sa1",
+                "sa1_code",
                 "sa1_code_2011",
                 "sa1_maincode_2011"
             ],
@@ -30,6 +32,7 @@
             "server": "https://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA1_7DIG11",
             "aliases": [
+                "sa1_7digitcode",
                 "sa1_7digitcode_2011"
             ],
             "digits": 7,
@@ -64,8 +67,6 @@
             ],
             "regionProp": "SA1_MAIN16",
             "aliases": [
-                "sa1",
-                "sa1_code",
                 "sa1_maincode_2016",
                 "sa1_code_2016"
             ],
@@ -89,7 +90,6 @@
             ],
             "regionProp": "SA1_7DIG16",
             "aliases": [
-                "sa1_7digitcode",
                 "sa1_7digitcode_2016"
             ],
             "nameProp": "SA2_NAME16",
@@ -101,6 +101,8 @@
             "server": "https://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_CODE11",
             "aliases": [
+                "sa4",
+                "sa4_code",
                 "sa4_code_2011"
             ],
             "digits": 3,
@@ -124,6 +126,7 @@
             "server": "https://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_NAME11",
             "aliases": [
+                "sa4_name",
                 "sa4_name_2011"
             ],
             "description": "Statistical Area Level 4",
@@ -157,8 +160,6 @@
             ],
             "regionProp": "SA4_CODE16",
             "aliases": [
-                "sa4",
-                "sa4_code",
                 "sa4_code_2016"
             ],
             "nameProp": "SA4_NAME16",
@@ -181,7 +182,6 @@
             ],
             "regionProp": "SA4_NAME16",
             "aliases": [
-                "sa4_name",
                 "sa4_name_2016"
             ],
             "nameProp": "SA4_NAME16",
@@ -193,6 +193,8 @@
             "server": "https://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_CODE11",
             "aliases": [
+                "sa3",
+                "sa3_code",
                 "sa3_code_2011"
             ],
             "digits": 5,
@@ -216,6 +218,7 @@
             "server": "https://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_NAME11",
             "aliases": [
+                "sa3_name",
                 "sa3_name_2011"
             ],
             "digits": 5,
@@ -250,8 +253,6 @@
             ],
             "regionProp": "SA3_CODE16",
             "aliases": [
-                "sa3",
-                "sa3_code",
                 "sa3_code_2016"
             ],
             "nameProp": "SA3_NAME16",
@@ -274,7 +275,6 @@
             ],
             "regionProp": "SA3_NAME16",
             "aliases": [
-                "sa3_name",
                 "sa3_name_2016"
             ],
             "nameProp": "SA3_NAME16",
@@ -286,6 +286,8 @@
             "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_MAIN11",
             "aliases": [
+                "sa2",
+                "sa2_code",
                 "sa2_code_2011"
             ],
             "digits": 9,
@@ -309,6 +311,7 @@
             "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_5DIG11",
             "aliases": [
+                "sa2_5digitcode",
                 "sa2_5digitcode_2011"
             ],
             "digits": 5,
@@ -332,6 +335,7 @@
             "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_NAME11",
             "aliases": [
+                "sa2_name",
                 "sa2_name_2011"
             ],
             "description": "Statistical Area Level 2",
@@ -365,8 +369,6 @@
             ],
             "regionProp": "SA2_MAIN16",
             "aliases": [
-                "sa2",
-                "sa2_code",
                 "sa2_code_2016"
             ],
             "nameProp": "SA2_NAME16",
@@ -389,7 +391,6 @@
             ],
             "regionProp": "SA2_5DIG16",
             "aliases": [
-                "sa2_5digitcode",
                 "sa2_5digitcode_2016"
             ],
             "nameProp": "SA2_NAME16",
@@ -412,7 +413,6 @@
             ],
             "regionProp": "SA2_NAME16",
             "aliases": [
-                "sa2_name",
                 "sa2_name_2016"
             ],
             "nameProp": "SA2_NAME16",
@@ -916,6 +916,8 @@
             "server": "https://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "GCC_CODE11",
             "aliases": [
+                "gccsa",
+                "gccsa_code",
                 "gccsa_code_2011"
             ],
             "digits": 5,
@@ -939,6 +941,7 @@
             "server": "https://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "GCC_NAME11",
             "aliases": [
+                "gccsa_name",
                 "gccsa_name_2011"
             ],
             "description": "Greater capital city statistical areas",
@@ -972,8 +975,6 @@
             ],
             "regionProp": "GCC_CODE16",
             "aliases": [
-                "gccsa",
-                "gccsa_code",
                 "gccsa_code_2016"
             ],
             "nameProp": "GCC_NAME16",
@@ -996,7 +997,6 @@
             ],
             "regionProp": "GCC_NAME16",
             "aliases": [
-                "gccsa_name",
                 "gccsa_name_2016"
             ],
             "nameProp": "GCC_NAME16",
@@ -1068,6 +1068,8 @@
             "server": "https://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "STE_CODE11",
             "aliases": [
+                "ste",
+                "ste_code",
                 "ste_code_2011"
             ],
             "digits": 1,
@@ -1101,8 +1103,6 @@
             ],
             "regionProp": "STE_CODE16",
             "aliases": [
-                "ste",
-                "ste_code",
                 "ste_code_2016"
             ],
             "nameProp": "STE_NAME16",
@@ -1457,6 +1457,8 @@
             "server": "https://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "STE_NAME11",
             "aliases": [
+                "state",
+                "ste_name",
                 "ste_name_2011"
             ],
             "dataReplacements": [
@@ -1555,8 +1557,6 @@
             ],
             "regionProp": "STE_NAME16",
             "aliases": [
-                "state",
-                "ste_name",
                 "ste_name_2016"
             ],
             "nameProp": "STE_NAME16",
