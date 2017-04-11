@@ -1957,6 +1957,28 @@
             "nameProp": "SUB_NAME_7",
             "description": "IBRA Subregions v7",
             "regionIdsFile": "data/regionids/region_map-ibra7_subregions_SUB_NAME_7.json"
+        },
+        "AREMI_ADV_det": {
+            "layerName": "aremi_ADV_det_collected",
+            "server": "http://localhost:8000/aremi_ADV_det_collected/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                132.08681491599998,
+                -43.86037410079999,
+                153.63906767999995,
+                -9.173114009939999
+            ],
+            "regionProp": "Name",
+            "aliases": [
+                "aremi_adv_det"
+            ],
+            "nameProp": "Name",
+            "description": "AREMI ADV_det",
+            "regionIdsFile": "data/regionids/region_map-aremi_ADV_det_collected_Name.json"
         }
     }
 }

@@ -11,6 +11,11 @@
       "type": "group",
       "items": [
         {
+          "name": "AREMI ADV_det",
+          "type": "csv",
+          "url": "test/regionmapping/test-aremi_ADV_det_collected_Name.csv"
+        },
+        {
           "name": "IBRA7 Regions and Subregions",
           "type": "group",
           "items": [
