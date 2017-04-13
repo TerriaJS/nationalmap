@@ -40,8 +40,7 @@ gulp.task('release-app', ['check-terriajs-dependencies', 'write-version'], funct
 
     runWebpack(webpack, Object.assign({}, webpackConfig, {
         plugins: [
-            new webpack.optimize.UglifyJsPlugin(),
-            new webpack.optimize.DedupePlugin(),
+            new webpack.optimize.UglifyJsPlugin({sourceMap: true}),
             new webpack.optimize.OccurrenceOrderPlugin(),
         ].concat(webpackConfig.plugins || [])
     }), done);
@@ -209,6 +208,8 @@ gulp.task('make-package', function() {
     var spawnSync = require('child_process').spawnSync;
     var json5 = require('json5');
 
+    fs.copySync(require.resolve('nationalmap-catalog/build/abs-itt.json'), 'wwwroot/init/abs-itt.json');
+
     var packageName = argv.packageName || (process.env.npm_package_name + '-' + spawnSync('git', ['describe']).stdout.toString().trim());
     var packagesDir = path.join('.', 'deploy', 'packages');
 
@@ -311,8 +312,6 @@ gulp.task('render-datasource-templates', function() {
     var fs = require('fs-extra');
     var JSON5 = require('json5');
     var templateDir = 'datasources';
-
-    fs.copySync(require.resolve('nationalmap-catalog/build/sdmx-abs-beta.json'), 'wwwroot/init/sdmx-abs-beta.json');
 
     try {
         fs.accessSync(templateDir);
