@@ -5,6 +5,7 @@ Change Log
 
 * Turned off the automatic animation of time-series data when an item is enabled. The user must now explicitly press the play button to see this.
 * The filter that extracts Local Governments from the general data.gov.au organisations now uses a precise field instead of guessing based on the name.
+* Fixed incorrect region IDs for ABS CED 2016 layers.
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.1.0.  Changes include:
   * Breaking changes:
     * Starting with this release, TerriaJS is meant to be built with Webpack 2.  The best way to upgrade your application is to merge from [TerriaMap](https://github.com/TerriaJS/TerriaMap).  If you run into trouble, post a message on the [TerriaJS forum](https://groups.google.com/forum/#!forum/terriajs).
