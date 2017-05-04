@@ -1,5 +1,6 @@
 {
     "port": 3001,
+
     "allowProxyFor" : [
         "nicta.com.au",
         "gov.au",
@@ -16,7 +17,8 @@
         "geoserver.imos.org.au",
         "nci.org.au",
         "static.nationalmap.nicta.com.au",
-        "magda-legostormtroopr.c9users.io"
+        "localdata.net.au",
+        "aristotlecloud.io"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"

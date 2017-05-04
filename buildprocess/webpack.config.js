@@ -10,7 +10,7 @@ module.exports = function(devMode, hot) {
     var config = {
         entry: './index.js',
         output: {
-            path: 'wwwroot/build',
+            path: path.resolve(__dirname, '..', 'wwwroot', 'build'),
             filename: 'nationalmap.js',
             // work around chrome needing the full URL when using sourcemaps (http://stackoverflow.com/questions/34133808/webpack-ots-parsing-error-loading-fonts/34133809#34133809)
             publicPath: hot ? 'http://localhost:3003/build/' : 'build/',
@@ -20,24 +20,29 @@ module.exports = function(devMode, hot) {
         module: {
             loaders: [
                 {
+                    test: /\.html$/,
+                    include: path.resolve(__dirname, '..', 'lib', 'Views'),
+                    loader: 'raw-loader'
+                },
+                {
                     test: /\.(js|jsx)$/,
                     include: [
                         path.resolve(__dirname, '..', 'index.js'),
                         path.resolve(__dirname, '..', 'lib')
                     ],
-                    loader: require.resolve('babel-loader'),
+                    loader: 'babel-loader',
                     query: {
                         sourceMap: false, // generated sourcemaps are currently bad, see https://phabricator.babeljs.io/T7257
                         presets: ['es2015', 'react'],
                         plugins: [
-                            require.resolve('jsx-control-statements')
+                            'jsx-control-statements'
                         ]
                     }
                 },
                 {
                     test: /\.(png|jpg|svg|gif)$/,
                     include: path.resolve(__dirname, '..', 'wwwroot', 'images'),
-                    loader: require.resolve('url-loader'),
+                    loader: 'url-loader',
                     query: {
                         limit: 8192
                     }
@@ -45,19 +50,37 @@ module.exports = function(devMode, hot) {
                 {
                     test: /\.scss$/,
                     include: [path.resolve(__dirname, '..', 'lib')],
-                    loader: hot ?
-                        require.resolve('style-loader') + '!' +
-                        require.resolve('css-loader') + '?sourceMap&modules&camelCase&localIdentName=nm-[name]__[local]&importLoaders=2!' +
-                        require.resolve('resolve-url-loader') + '?sourceMap!' +
-                        require.resolve('sass-loader') + '?sourceMap'
-                     : ExtractTextPlugin.extract(
-                        require.resolve('css-loader') + '?sourceMap&modules&camelCase&localIdentName=nm-[name]__[local]&importLoaders=2!' +
-                        require.resolve('resolve-url-loader') + '?sourceMap!' +
-                        require.resolve('sass-loader') + '?sourceMap',
+                    loader: hot ? [
+                        'style-loader',
                         {
-                            publicPath: ''
-                        }
-                    )
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                                modules: true,
+                                camelCase: true,
+                                localIdentName: 'nm-[name]__[local]',
+                                importLoaders: 2
+                            }
+                        },
+                        'resolve-url-loader?sourceMap',
+                        'sass-loader?sourceMap'
+                    ] : ExtractTextPlugin.extract({
+                        use: [
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    sourceMap: true,
+                                    modules: true,
+                                    camelCase: true,
+                                    localIdentName: 'nm-[name]__[local]',
+                                    importLoaders: 2
+                                }
+                            },
+                            'resolve-url-loader?sourceMap',
+                            'sass-loader?sourceMap'
+                        ],
+                        publicPath: ''
+                    })
                 }
             ]
         },
@@ -67,9 +90,13 @@ module.exports = function(devMode, hot) {
                     'NODE_ENV': devMode ? '"development"' : '"production"'
                 }
             }),
-            new ExtractTextPlugin("nationalmap.css", {disable: hot, ignoreOrder: true})
-        ]
+            new ExtractTextPlugin({filename: "nationalmap.css", disable: hot, ignoreOrder: true})
+        ],
+       resolve: {
+            alias: {},
+            modules: ['node_modules']
+        }
     };
-
+    config.resolve.alias['terriajs-variables'] = require.resolve('../lib/Styles/variables.scss');
     return configureWebpackForTerriaJS(path.dirname(require.resolve('terriajs/package.json')), config, devMode, hot, ExtractTextPlugin);
 };
