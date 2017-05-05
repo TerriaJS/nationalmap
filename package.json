@@ -22,8 +22,7 @@
     "awsEc2ImageId": "ami-2a644649",
     "awsKeyName": "terria-kring",
     "awsS3ServerConfigOverridePath": "s3://terria-apps/map/privateserverconfig-2016-08-31.json",
-    "awsS3ClientConfigOverridePath": "s3://terria-apps/map/privateserverconfig-2016-08-31.json",
-    "northernAustraliaPath": "../NorthernAustralia"
+    "awsS3ClientConfigOverridePath": "s3://terria-apps/map/privateserverconfig-2016-08-31.json"
   },
   "devDependencies": {
     "babel-eslint": "^7.0.0",
