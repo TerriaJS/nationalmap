@@ -3,9 +3,10 @@ Change Log
 
 ### 2017-05-15
 
+* Added a link to the State of Environment Map under Related Maps.
 * Added `lakemac.com.au` to proxy whitelist. ([#477](https://github.com/TerriaJS/nationalmap/issues/477))
 * Added `data.aodn.org.au` to the proxy whitelist. ([#479](https://github.com/TerriaJS/nationalmap/issues/479))
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.3.  Changes include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.4.  Changes include:
   * Fixed a bug that caused an 'added' and a 'shown' event for "Unnamed Item" to be logged to Google Analytics when previewing an item in the catalog.
   * Added a 'preview' Google Analytics event when a catalog item is shown on the preview map in the catalog.
   * Fixed a bug that prevented csv files with missing dates from loading.
@@ -24,6 +25,7 @@ Change Log
   * Fixed download of selected dataset (as csv) so that quotes are handled in accordance with https://tools.ietf.org/html/rfc4180. As a result, more such downloads can be directly re-loaded in Terria by dragging and dropping them.
   * Fixed a bug that gave expanded Sensor Observation Service charts poor names.
   * Fixed a bug that prevented some table-based datasets from loading.
+  * Fixed a bug that prevented error messages, such as when a dataset fails to load, from being shown to the user. Instead, the errors were silently ignored.
 
 ### 2017-04-13
 
