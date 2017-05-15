@@ -3,6 +3,8 @@ Change Log
 
 ### 2017-05-15
 
+* Added `lakemac.com.au` to proxy whitelist. ([#477](https://github.com/TerriaJS/nationalmap/issues/477))
+* Added `data.aodn.org.au` to the proxy whitelist. ([#479](https://github.com/TerriaJS/nationalmap/issues/479))
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.3.  Changes include:
   * Fixed a bug that caused an 'added' and a 'shown' event for "Unnamed Item" to be logged to Google Analytics when previewing an item in the catalog.
   * Added a 'preview' Google Analytics event when a catalog item is shown on the preview map in the catalog.
