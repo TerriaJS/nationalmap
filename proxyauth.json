@@ -1,0 +1,8 @@
+{
+    "localhost:8080": {
+        "parameters": [{
+             "key": "Auth-Key",
+             "value": "natmapkey"
+         }]
+    }
+}

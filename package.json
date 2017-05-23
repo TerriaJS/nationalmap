@@ -66,7 +66,7 @@
     "yargs": "^8.0.1"
   },
   "scripts": {
-    "start": "bash ./node_modules/terriajs-server/run_server.sh --config-file devserverconfig.json",
+    "start": "bash ./node_modules/terriajs-server/run_server.sh --config-file devserverconfig.json --proxy-auth proxyauth.json",
     "stop": "bash ./node_modules/terriajs-server/stop_server.sh",
     "postinstall": "echo 'Installation with NPM successful. What to do next:\\n  npm start       # Starts the server on port 3001\\n  gulp watch      # Builds NationalMap and dependencies, and rebuilds if files change.'",
     "hot": "webpack-dev-server --inline --config buildprocess/webpack.config.hot.js --hot --host 0.0.0.0",

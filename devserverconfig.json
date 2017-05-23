@@ -17,7 +17,9 @@
         "geoserver.imos.org.au",
         "nci.org.au",
         "static.nationalmap.nicta.com.au",
-        "localdata.net.au"
+        "localdata.net.au",
+        "localhost:8080",
+        "http://flask-env.hnnuy8zpns.ap-southeast-2.elasticbeanstalk.com"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
