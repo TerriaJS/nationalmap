@@ -1,6 +1,32 @@
 Change Log
 ==========
 
+### 2017-05-15
+
+* Added a link to the State of Environment Map under Related Maps.
+* Added `lakemac.com.au` to proxy whitelist. ([#477](https://github.com/TerriaJS/nationalmap/issues/477))
+* Added `data.aodn.org.au` to the proxy whitelist. ([#479](https://github.com/TerriaJS/nationalmap/issues/479))
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.4.  Changes include:
+  * Fixed a bug that caused an 'added' and a 'shown' event for "Unnamed Item" to be logged to Google Analytics when previewing an item in the catalog.
+  * Added a 'preview' Google Analytics event when a catalog item is shown on the preview map in the catalog.
+  * Fixed a bug that prevented csv files with missing dates from loading.
+  * Fixed a bug that could cause an error when adding a layer without previewing it first.
+  * Fixed a bug that caused layer disclaimers to fail to appear when the layer was enabled via a share link.  Since the user was unable to accept the disclaimer, the layer also failed to appear.
+  * Added `AugmentedVirtuality` (user facing feature name Augmented Reality) to allow users to use their mobile device's orientation to set the camera view.
+  * Added the `showFeaturesAtAllTimes` option to Sensor Observation Service items. This improves the user experience if the server returns
+    some features starting in 1990, say, and some starting in 1995, so that the latter still appear (as grey points with no data) in 1990.
+  * Fixed a bug that prevented preview charts in the feature info panel from updating when the user changed the Sensor Observation Service frequency.
+  * Fixed a bug that allowed the user to de-select all the display choices for Sensor Observation Service items.
+  * Improved the appearance of charts where all the y-values are null. (It now shows "No preview available".)
+  * Upgraded to Leaflet 1.0.3 for the 2D and preview maps.
+  * Upgraded to [Cesium 1.33](https://github.com/AnalyticalGraphicsInc/cesium/blob/1.33/CHANGES.md) for the 3D view.
+  * Changed the default opacity for points from CSV files without a value column to 1.0 (previously it was 0.6).  This is a workaround for a Cesium bug (https://github.com/AnalyticalGraphicsInc/cesium/issues/5307) but really a better choice anyway.
+  * Fixed a bug which meant non-standard properties of some table data sources (eg. csv, SOS, SDMX-JSON) were missing in the feature info panel, because of a breaking change in Cesium 1.33.
+  * Fixed download of selected dataset (as csv) so that quotes are handled in accordance with https://tools.ietf.org/html/rfc4180. As a result, more such downloads can be directly re-loaded in Terria by dragging and dropping them.
+  * Fixed a bug that gave expanded Sensor Observation Service charts poor names.
+  * Fixed a bug that prevented some table-based datasets from loading.
+  * Fixed a bug that prevented error messages, such as when a dataset fails to load, from being shown to the user. Instead, the errors were silently ignored.
+
 ### 2017-04-13
 
 * Turned off the automatic animation of time-series data when an item is enabled. The user must now explicitly press the play button to see this.
