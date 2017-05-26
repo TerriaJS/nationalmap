@@ -21,7 +21,7 @@
         "lakemac.com.au",
         "data.aodn.org.au",
         "localhost:8080",
-        "http://flask-env.hnnuy8zpns.ap-southeast-2.elasticbeanstalk.com"
+        "flask-env.hnnuy8zpns.ap-southeast-2.elasticbeanstalk.com"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
