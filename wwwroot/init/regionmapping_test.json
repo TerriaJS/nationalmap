@@ -42,6 +42,22 @@
           ]
         },
         {
+          "name": "CED 2016 (ABS)",
+          "type": "group",
+          "items": [
+            {
+              "name": "ced_code_2016",
+              "type": "csv",
+              "url": "test/regionmapping/test-FID_CED_2016_AUST_CED_CODE16.csv"
+            },
+            {
+              "name": "ced_name_2016",
+              "type": "csv",
+              "url": "test/regionmapping/test-FID_CED_2016_AUST_CED_NAME16.csv"
+            }
+          ]
+        },
+        {
           "name": "ESA 2009",
           "type": "group",
           "items": [
