@@ -88,6 +88,21 @@ function RelatedMaps(props) {
                     decision makers.
                 </p>
             </div>
+
+            <div className={classNames(PanelStyles.section, Styles.section)}>
+                <a target="_blank" href="https://soe.terria.io">
+                    <img className={Styles.image} src={require('../../wwwroot/images/soe.jpg')}
+                         alt="State of the Environment Map"/>
+                </a>
+
+                <a target="_blank" className={Styles.link} href="https://soe.terria.io">State of the Environment Map</a>
+
+                <p>
+                    The Australia state of the environment 2016 report has been prepared by independent experts using a range of best available information
+                    to support assessments of environmental condition, pressures, management effectiveness, resilience, risks and outlooks.
+                    The full report is available from <a target="_blank" className={Styles.link} href="https://soe.environment.gov.au/">https://soe.environment.gov.au/</a>
+                </p>
+            </div>
         </MenuPanel>
     );
 }
