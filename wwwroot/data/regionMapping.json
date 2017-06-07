@@ -1979,6 +1979,71 @@
             "nameProp": "Name",
             "description": "AREMI ADV_det",
             "regionIdsFile": "data/regionids/region_map-aremi_ADV_det_collected_Name.json"
+        },
+        "NZ_AU_2017": {
+            "layerName": "NZ_AU2017_HD_Clipped",
+            "server": "http://localhost:8000/NZ_AU2017_HD_Clipped/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                -176.89314232298426,
+                -47.28999251282331,
+                178.57724348546415,
+                -34.392630183116
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "AU2017",
+            "nameProp": "AU2017_NAM",
+            "aliases": [
+                "nz_au_2017_code",
+                "nz_au"
+            ],
+            "description": "Stats New Zealand Area Units 2017",
+            "regionIdsFile": "data/regionids/region_map-NZ_AU2017_HD_Clipped_AU2017.json"
+        },
+        "NZ_AU_2017_NAME": {
+            "layerName": "NZ_AU2017_HD_Clipped",
+            "server": "http://localhost:8000/NZ_AU2017_HD_Clipped/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                -176.89314232298426,
+                -47.28999251282331,
+                178.57724348546415,
+                -34.392630183116
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "AU2017_NAM",
+            "nameProp": "AU2017_NAM",
+            "aliases": [
+                "nz_au_name_2017"
+            ],
+            "description": "Stats New Zealand Area Units 2017",
+            "regionIdsFile": "data/regionids/region_map-NZ_AU2017_HD_Clipped_AU2017_NAM.json"
+        },
+        "NZ_MB_2017": {
+            "layerName": "NZ_MB2017_HD_Clipped",
+            "server": "http://localhost:8000/NZ_MB2017_HD_Clipped/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                -176.89314232298426,
+                -47.28999251282331,
+                178.57724348546415,
+                -34.392630183116
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "MB2017",
+            "nameProp": "MB2017",
+            "aliases": [
+                "nz_mb_code_2017",
+                "nz_mb"
+            ],
+            "description": "Stats New Zealand Mesh Blocks 2017",
+            "regionIdsFile": "data/regionids/region_map-NZ_MB2017_HD_Clipped_MB2017.json"
         }
     }
 }

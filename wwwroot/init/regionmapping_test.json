@@ -190,6 +190,27 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Stats New Zealand",
+          "type": "group",
+          "items": [
+            {
+              "name": "Area Unit Code",
+              "type": "csv",
+              "url": "test/regionmapping/test-NZ_AU2017_HD_Clipped_AU2017.csv"
+            },
+            {
+              "name": "Area Unit Name",
+              "type": "csv",
+              "url": "test/regionmapping/test-NZ_AU2017_HD_Clipped_AU2017_NAM.csv"
+            },
+            {
+              "name": "Mesh Block Code",
+              "type": "csv",
+              "url": "test/regionmapping/test-NZ_MB2017_HD_Clipped_MB2017.csv"
+            }
+          ]
         }
       ],
       "isOpen": true
