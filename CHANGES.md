@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### next
+
+* Add SA1-4, GCCSA & STE from ASGS 2016 and update short region mapping aliases to point to these.
+* Add Stats New Zealand Area Units and Mesh Blocks to region mapping. These are available under the aliases nz_au_code_2017, nz_au_name_2017 & nz_mb_2017_code.
+
 ### 2017-05-15
 
 * Added a link to the State of Environment Map under Related Maps.

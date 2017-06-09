@@ -1,15 +1,13 @@
 {
     "comments": "Matching takes place in the order defined in this file. Place code matches before name matches, and smaller regions before larger ones.",
     "regionWmsMap": {
-        "SA1": {
+        "SA1_2011": {
             "layerName": "FID_SA1_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA1_MAIN11",
             "aliases": [
                 "sa1_code_2011",
-                "sa1_maincode_2011",
-                "sa1_code",
-                "sa1"
+                "sa1_maincode_2011"
             ],
             "digits": 11,
             "description": "Statistical Area Level 1",
@@ -27,13 +25,12 @@
             ],
             "nameProp": "SA2_NAME11"
         },
-        "SA1_7DIGIT": {
+        "SA1_7DIGIT_2011": {
             "layerName": "FID_SA1_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA1_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA1_7DIG11",
             "aliases": [
-                "sa1_7digitcode_2011",
-                "sa1_7digitcode"
+                "sa1_7digitcode_2011"
             ],
             "digits": 7,
             "description": "Statistical Area Level 1",
@@ -51,14 +48,60 @@
             ],
             "nameProp": "SA2_NAME11"
         },
-        "SA4": {
+        "SA1_2016": {
+            "layerName": "SA1_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SA1_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SA1_MAIN16",
+            "aliases": [
+                "sa1",
+                "sa1_code",
+                "sa1_maincode_2016",
+                "sa1_code_2016"
+            ],
+            "nameProp": "SA2_NAME16",
+            "description": "Statistical Area Level 1 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-SA1_2016_AUST_SA1_MAIN16.json"
+        },
+        "SA1_7DIGIT_2016": {
+            "layerName": "SA1_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SA1_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SA1_7DIG16",
+            "aliases": [
+                "sa1_7digitcode",
+                "sa1_7digitcode_2016"
+            ],
+            "nameProp": "SA2_NAME16",
+            "description": "Statistical Area Level 1 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-SA1_2016_AUST_SA1_7DIG16.json"
+        },
+        "SA4_2011": {
             "layerName": "FID_SA4_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_CODE11",
             "aliases": [
-                "sa4_code_2011",
-                "sa4_code",
-                "sa4"
+                "sa4_code_2011"
             ],
             "digits": 3,
             "description": "Statistical Area Level 4",
@@ -76,12 +119,11 @@
             ],
             "nameProp": "SA4_NAME11"
         },
-        "SA4_NAME": {
+        "SA4_NAME_2011": {
             "layerName": "FID_SA4_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA4_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA4_NAME11",
             "aliases": [
-                "sa4_name",
                 "sa4_name_2011"
             ],
             "description": "Statistical Area Level 4",
@@ -99,14 +141,59 @@
             ],
             "nameProp": "SA4_NAME11"
         },
-        "SA3": {
+        "SA4_2016": {
+            "layerName": "SA4_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SA4_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SA4_CODE16",
+            "aliases": [
+                "sa4",
+                "sa4_code",
+                "sa4_code_2016"
+            ],
+            "nameProp": "SA4_NAME16",
+            "description": "Statistical Area Level 4 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-SA4_2016_AUST_SA4_CODE16.json"
+        },
+        "SA4_NAME_2016": {
+            "layerName": "SA4_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SA4_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SA4_NAME16",
+            "aliases": [
+                "sa4_name",
+                "sa4_name_2016"
+            ],
+            "nameProp": "SA4_NAME16",
+            "description": "Statistical Area Level 4 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-SA4_2016_AUST_SA4_NAME16.json"
+        },
+        "SA3_2011": {
             "layerName": "FID_SA3_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_CODE11",
             "aliases": [
-                "sa3_code_2011",
-                "sa3_code",
-                "sa3"
+                "sa3_code_2011"
             ],
             "digits": 5,
             "description": "Statistical Area Level 3",
@@ -124,13 +211,12 @@
             ],
             "nameProp": "SA3_NAME11"
         },
-        "SA3_NAME": {
+        "SA3_NAME_2011": {
             "layerName": "FID_SA3_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA3_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA3_NAME11",
             "aliases": [
-                "sa3_name_2011",
-                "sa3_name"
+                "sa3_name_2011"
             ],
             "digits": 5,
             "description": "Statistical Area Level 3",
@@ -148,14 +234,59 @@
             ],
             "nameProp": "SA3_NAME11"
         },
-        "SA2": {
+        "SA3_2016": {
+            "layerName": "SA3_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SA3_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SA3_CODE16",
+            "aliases": [
+                "sa3",
+                "sa3_code",
+                "sa3_code_2016"
+            ],
+            "nameProp": "SA3_NAME16",
+            "description": "Statistical Area Level 3 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-SA3_2016_AUST_SA3_CODE16.json"
+        },
+        "SA3_NAME_2016": {
+            "layerName": "SA3_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SA3_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SA3_NAME16",
+            "aliases": [
+                "sa3_name",
+                "sa3_name_2016"
+            ],
+            "nameProp": "SA3_NAME16",
+            "description": "Statistical Area Level 3 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-SA3_2016_AUST_SA3_NAME16.json"
+        },
+        "SA2_2011": {
             "layerName": "FID_SA2_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_MAIN11",
             "aliases": [
-                "sa2_code_2011",
-                "sa2_code",
-                "sa2"
+                "sa2_code_2011"
             ],
             "digits": 9,
             "description": "Statistical Area Level 2",
@@ -173,12 +304,11 @@
             ],
             "nameProp": "SA2_NAME11"
         },
-        "SA2_5DIG": {
+        "SA2_5DIG_2011": {
             "layerName": "FID_SA2_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_5DIG11",
             "aliases": [
-                "sa2_5digitcode",
                 "sa2_5digitcode_2011"
             ],
             "digits": 5,
@@ -197,13 +327,12 @@
             ],
             "nameProp": "SA2_NAME11"
         },
-        "SA2_NAME": {
+        "SA2_NAME_2011": {
             "layerName": "FID_SA2_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_SA2_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SA2_NAME11",
             "aliases": [
-                "sa2_name_2011",
-                "sa2_name"
+                "sa2_name_2011"
             ],
             "description": "Statistical Area Level 2",
             "regionIdsFile": "data/regionids/region_map-FID_SA2_2011_AUST_SA2_NAME11.json",
@@ -219,6 +348,76 @@
                 -9.142175976999999
             ],
             "nameProp": "SA2_NAME11"
+        },
+        "SA2_2016": {
+            "layerName": "SA2_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SA2_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SA2_MAIN16",
+            "aliases": [
+                "sa2",
+                "sa2_code",
+                "sa2_code_2016"
+            ],
+            "nameProp": "SA2_NAME16",
+            "description": "Statistical Area Level 2 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-SA2_2016_AUST_SA2_MAIN16.json"
+        },
+        "SA2_5DIG_2016": {
+            "layerName": "SA2_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SA2_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SA2_5DIG16",
+            "aliases": [
+                "sa2_5digitcode",
+                "sa2_5digitcode_2016"
+            ],
+            "nameProp": "SA2_NAME16",
+            "description": "Statistical Area Level 2 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-SA2_2016_AUST_SA2_5DIG16.json"
+        },
+        "SA2_NAME_2016": {
+            "layerName": "SA2_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SA2_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SA2_NAME16",
+            "aliases": [
+                "sa2_name",
+                "sa2_name_2016"
+            ],
+            "nameProp": "SA2_NAME16",
+            "description": "Statistical Area Level 2 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-SA2_2016_AUST_SA2_NAME16.json"
         },
         "SSC": {
             "layerName": "FID_SSC_2011_AUST",
@@ -343,7 +542,7 @@
             ],
             "nameProp": "LGA_NAME11"
         },
-        "LGA_NAME": {
+        "LGA_NAME_2011": {
             "_comment": "This section must go before State",
             "layerName": "FID_LGA_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_LGA_2011_AUST/{z}/{x}/{y}.pbf",
@@ -399,7 +598,7 @@
                 ]
             ],
             "disambigProp": "STE_NAME11",
-            "disambigRegionId": "STE_NAME",
+            "disambigRegionId": "STE_NAME_2011",
             "description": "Local government areas",
             "regionIdsFile": "data/regionids/region_map-FID_LGA_2011_AUST_LGA_NAME11.json",
             "regionDisambigIdsFile": "data/regionids/region_map-FID_LGA_2011_AUST_STE_NAME11.json",
@@ -712,14 +911,12 @@
             ],
             "nameProp": "SED_NAME"
         },
-        "GCCSA": {
+        "GCCSA_2011": {
             "layerName": "FID_GCCSA_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "GCC_CODE11",
             "aliases": [
-                "gccsa_code_2011",
-                "gccsa_code",
-                "gccsa"
+                "gccsa_code_2011"
             ],
             "digits": 5,
             "description": "Greater capital city statistical areas",
@@ -737,13 +934,12 @@
             ],
             "nameProp": "GCC_NAME11"
         },
-        "GCCSA_NAME": {
+        "GCCSA_NAME_2011": {
             "layerName": "FID_GCCSA_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_GCCSA_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "GCC_NAME11",
             "aliases": [
-                "gccsa_name_2011",
-                "gccsa_name"
+                "gccsa_name_2011"
             ],
             "description": "Greater capital city statistical areas",
             "regionIdsFile": "data/regionids/region_map-FID_GCCSA_2011_AUST_GCC_NAME11.json",
@@ -759,6 +955,53 @@
                 -9.142175976999999
             ],
             "nameProp": "GCC_NAME11"
+        },
+        "GCCSA_2016": {
+            "layerName": "GCCSA_2016_AUST",
+            "server": "https://vector-tiles.terria.io/GCCSA_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "GCC_CODE16",
+            "aliases": [
+                "gccsa",
+                "gccsa_code",
+                "gccsa_code_2016"
+            ],
+            "nameProp": "GCC_NAME16",
+            "description": "Greater capital city statistical areas 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-GCCSA_2016_AUST_GCC_CODE16.json"
+        },
+        "GCCSA_NAME_2016": {
+            "layerName": "GCCSA_2016_AUST",
+            "server": "https://vector-tiles.terria.io/GCCSA_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "GCC_NAME16",
+            "aliases": [
+                "gccsa_name",
+                "gccsa_name_2016"
+            ],
+            "nameProp": "GCC_NAME16",
+            "description": "Greater capital city statistical areas 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-GCCSA_2016_AUST_GCC_NAME16.json"
         },
         "SUA": {
             "layerName": "FID_SUA_2011_AUST",
@@ -820,14 +1063,12 @@
             ],
             "nameProp": "SUA_NAME11"
         },
-        "STE": {
+        "STE_2011": {
             "layerName": "FID_STE_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "STE_CODE11",
             "aliases": [
-                "ste_code",
-                "ste_code_2011",
-                "ste"
+                "ste_code_2011"
             ],
             "digits": 1,
             "regionIdsFile": "data/regionids/region_map-FID_STE_2011_AUST_STE_CODE11.json",
@@ -843,6 +1084,30 @@
                 -9.142175976999999
             ],
             "nameProp": "STE_NAME11"
+        },
+        "STE_2016": {
+            "layerName": "STE_2016_AUST",
+            "server": "https://vector-tiles.terria.io/STE_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "STE_CODE16",
+            "aliases": [
+                "ste",
+                "ste_code",
+                "ste_code_2016"
+            ],
+            "nameProp": "STE_NAME16",
+            "description": "States and Territories 2016 (ABS)",
+            "regionIdsFile": "data/regionids/region_map-STE_2016_AUST_STE_CODE16.json"
         },
         "SOS": {
             "layerName": "FID_SOS_2011_AUST",
@@ -1187,14 +1452,12 @@
             ],
             "nameProp": "PHN_Name"
         },
-        "STE_NAME": {
+        "STE_NAME_2011": {
             "layerName": "FID_STE_2011_AUST",
             "server": "https://vector-tiles.terria.io/FID_STE_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "STE_NAME11",
             "aliases": [
-                "ste_name",
-                "ste_name_2011",
-                "state"
+                "ste_name_2011"
             ],
             "dataReplacements": [
                 [
@@ -1275,6 +1538,96 @@
                 -9.142175976999999
             ],
             "nameProp": "STE_NAME11"
+        },
+        "STE_NAME_2016": {
+            "layerName": "STE_2016_AUST",
+            "server": "https://vector-tiles.terria.io/STE_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "STE_NAME16",
+            "aliases": [
+                "state",
+                "ste_name",
+                "ste_name_2016"
+            ],
+            "nameProp": "STE_NAME16",
+            "description": "States and Territories 2016 (ABS)",
+            "dataReplacements": [
+                [
+                    "^Vic[.]?$",
+                    "Victoria"
+                ],
+                [
+                    "^N[ .]?S[ .]?W[ .]?$",
+                    "New South Wales"
+                ],
+                [
+                    "^S[ .]?A[ .]?$",
+                    "South Australia"
+                ],
+                [
+                    "^N[ .]?T[ .]?$",
+                    "Northern Territory"
+                ],
+                [
+                    "^W[ .]?A[ .]?$",
+                    "Western Australia"
+                ],
+                [
+                    "^Tas[.]?$",
+                    "Tasmania"
+                ],
+                [
+                    "^Q[ .]?L[ .]?D[ .]?$",
+                    "Queensland"
+                ],
+                [
+                    "^A[ .]?C[ .]?T[ .]?$",
+                    "Australian Capital Territory"
+                ],
+                [
+                    "^1$",
+                    "New South Wales"
+                ],
+                [
+                    "^2$",
+                    "Victoria"
+                ],
+                [
+                    "^3$",
+                    "Queensland"
+                ],
+                [
+                    "^4$",
+                    "South Australia"
+                ],
+                [
+                    "^5$",
+                    "Western Australia"
+                ],
+                [
+                    "^6$",
+                    "Northern Territory"
+                ],
+                [
+                    "^7$",
+                    "Australian Capital Territory"
+                ],
+                [
+                    "^8$",
+                    "Other Territories"
+                ]
+            ],
+            "regionIdsFile": "data/regionids/region_map-STE_2016_AUST_STE_NAME16.json"
         },
         "SLA": {
             "layerName": "fid_asgc06_sla",
@@ -1604,6 +1957,71 @@
             "nameProp": "SUB_NAME_7",
             "description": "IBRA Subregions v7",
             "regionIdsFile": "data/regionids/region_map-ibra7_subregions_SUB_NAME_7.json"
+        },
+        "NZ_AU_2017": {
+            "layerName": "NZ_AU2017_HD_Clipped",
+            "server": "https://vector-tiles.terria.io/NZ_AU2017_HD_Clipped/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                -176.89314232298426,
+                -47.28999251282331,
+                178.57724348546415,
+                -34.392630183116
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "AU2017",
+            "nameProp": "AU2017_NAM",
+            "aliases": [
+                "nz_au_code_2017",
+                "nz_au"
+            ],
+            "description": "Stats New Zealand Area Units 2017",
+            "regionIdsFile": "data/regionids/region_map-NZ_AU2017_HD_Clipped_AU2017.json"
+        },
+        "NZ_AU_2017_NAME": {
+            "layerName": "NZ_AU2017_HD_Clipped",
+            "server": "https://vector-tiles.terria.io/NZ_AU2017_HD_Clipped/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                -176.89314232298426,
+                -47.28999251282331,
+                178.57724348546415,
+                -34.392630183116
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "AU2017_NAM",
+            "nameProp": "AU2017_NAM",
+            "aliases": [
+                "nz_au_name_2017"
+            ],
+            "description": "Stats New Zealand Area Units 2017",
+            "regionIdsFile": "data/regionids/region_map-NZ_AU2017_HD_Clipped_AU2017_NAM.json"
+        },
+        "NZ_MB_2017": {
+            "layerName": "NZ_MB2017_HD_Clipped",
+            "server": "https://vector-tiles.terria.io/NZ_MB2017_HD_Clipped/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                -176.89314232298426,
+                -47.28999251282331,
+                178.57724348546415,
+                -34.392630183116
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "MB2017",
+            "nameProp": "MB2017",
+            "aliases": [
+                "nz_mb_code_2017",
+                "nz_mb"
+            ],
+            "description": "Stats New Zealand Mesh Blocks 2017",
+            "regionIdsFile": "data/regionids/region_map-NZ_MB2017_HD_Clipped_MB2017.json"
         }
     }
 }
