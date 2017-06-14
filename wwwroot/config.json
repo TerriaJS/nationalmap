@@ -28,6 +28,7 @@
             "<a target=\"_blank\" href=\"about.html\"><img src=\"images/NationalMap-text-only.png\" height=\"50\" alt=\"National Map\" title=\"Version: {{version}}\" /></a>",
             "<a target=\"_blank\" href=\"http://www.gov.au/\"><img src=\"images/AG-Rvsd-Stacked-Press.png\" height=\"45\" alt=\"Australian Government\" /></a>"
         ],
-        "autoPlay": false
+        "autoPlay": false,
+        "feedbackPreamble": "Provide feedback to the NationalMap software developers below. We would love to hear from you!\n\nIf you are commenting on the _content_ of the map, please considering sending your comments to the custodian of the dataset you're viewing, instead of using this form. Contact information for most datasets can be found by clicking \"About this Data Set\"."
     }
 }
