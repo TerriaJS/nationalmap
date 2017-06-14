@@ -1,10 +1,17 @@
 Change Log
 ==========
 
-### next
+### 2017-06-15
 
 * Add SA1-4, GCCSA & STE from ASGS 2016 and update short region mapping aliases to point to these.
 * Add Stats New Zealand Area Units and Mesh Blocks to region mapping. These are available under the aliases nz_au_code_2017, nz_au_name_2017 & nz_mb_2017_code.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.5.  Changes include:
+  * Fixed a bug with `forceProxy: true` which meant that vector tiles would try, and fail, to load over the proxy.
+  * Added documentation for customizing data appearance, and folded in existing but orphaned documentation for creating feature info templates.
+  * Changed the LocateMe button so that it toggles and continuously updates the location when Augmented Reality is enabled.
+  * Added the ability to set SDMX-JSON region names from a region type dimension, using a Mustache template. This was required so regions can be mapped to specific years, even if not specified by the SDMX-JSON server.
+  * Added `viewermode` to the users persistent local storage to remember the last `ViewerMode` used.
+  * Added the ability to customize the preamble text on the feedback form ("We would love to hear from you!") by setting `feedbackPreamble` in the `parameters` section of `config.json`.
 
 ### 2017-05-15
 
