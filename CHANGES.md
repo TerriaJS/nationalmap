@@ -5,6 +5,8 @@ Change Log
 
 * Add SA1-4, GCCSA & STE from ASGS 2016 and update short region mapping aliases to point to these.
 * Add Stats New Zealand Area Units and Mesh Blocks to region mapping. These are available under the aliases nz_au_code_2017, nz_au_name_2017 & nz_mb_2017_code.
+* Changed the 2011 ABS SDMX-JSON items to explicitly require 2011 regions, because the default will be updated to 2016.
+* Used the correct ID for the City of Launceston on data.gov.au: `city-of-launceston` instead of `cityoflaunceston`.
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.5.  Changes include:
   * Fixed a bug with `forceProxy: true` which meant that vector tiles would try, and fail, to load over the proxy.
   * Added documentation for customizing data appearance, and folded in existing but orphaned documentation for creating feature info templates.
