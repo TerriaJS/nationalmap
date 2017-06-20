@@ -2044,6 +2044,27 @@
             ],
             "description": "Stats New Zealand Mesh Blocks 2017",
             "regionIdsFile": "data/regionids/region_map-NZ_MB2017_HD_Clipped_MB2017.json"
+        },
+        "PROTARI_CURF_SA4_AGG_NAME": {
+            "layerName": "protari_curf_sa4_agg",
+            "server": "http://localhost:8000/protari_curf_sa4_agg/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                112.92111395199997,
+                -43.74050960300003,
+                159.10921900799997,
+                -10.965914264999977
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "name",
+            "nameProp": "name",
+            "aliases": [
+                "protari_curf_sa4_agg_name_2011"
+            ],
+            "description": "SA4 aggregated to multi-regions used by Protari demo CURF",
+            "regionIdsFile": "data/regionids/region_map-protari_curf_sa4_agg_name.json"
         }
     }
 }
