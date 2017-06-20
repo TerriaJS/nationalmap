@@ -211,6 +211,11 @@
               "url": "test/regionmapping/test-NZ_MB2017_HD_Clipped_MB2017.csv"
             }
           ]
+        },
+        {
+          "name": "Protari CURF SA4 Aggregated",
+          "type": "csv",
+          "url": "test/regionmapping/test-protari_curf_sa4_agg_name.csv"
         }
       ],
       "isOpen": true
