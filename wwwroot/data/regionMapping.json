@@ -1958,6 +1958,28 @@
             "description": "IBRA Subregions v7",
             "regionIdsFile": "data/regionids/region_map-ibra7_subregions_SUB_NAME_7.json"
         },
+        "AREMI_ADV_det": {
+            "layerName": "aremi_ADV_det_collected",
+            "server": "https://vector-tiles.terria.io/aremi_ADV_det_collected/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                132.08681491599998,
+                -43.86037410079999,
+                153.63906767999995,
+                -9.173114009939999
+            ],
+            "regionProp": "Name",
+            "aliases": [
+                "aremi_adv_det"
+            ],
+            "nameProp": "Name",
+            "description": "AREMI ADV_det",
+            "regionIdsFile": "data/regionids/region_map-aremi_ADV_det_collected_Name.json"
+        },
         "NZ_AU_2017": {
             "layerName": "NZ_AU2017_HD_Clipped",
             "server": "https://vector-tiles.terria.io/NZ_AU2017_HD_Clipped/{z}/{x}/{y}.pbf",
@@ -2022,6 +2044,27 @@
             ],
             "description": "Stats New Zealand Mesh Blocks 2017",
             "regionIdsFile": "data/regionids/region_map-NZ_MB2017_HD_Clipped_MB2017.json"
+        },
+        "PROTARI_CURF_SA4_AGG_NAME": {
+            "layerName": "protari_curf_sa4_agg",
+            "server": "https://vector-tiles-2017-06-20.terria.io/protari_curf_sa4_agg/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                112.92111395199997,
+                -43.74050960300003,
+                159.10921900799997,
+                -10.965914264999977
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "name",
+            "nameProp": "name",
+            "aliases": [
+                "protari_curf_sa4_agg_name_2011"
+            ],
+            "description": "SA4 aggregated to multi-regions used by Protari demo CURF",
+            "regionIdsFile": "data/regionids/region_map-protari_curf_sa4_agg_name.json"
         }
     }
 }

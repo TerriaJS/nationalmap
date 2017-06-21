@@ -1,0 +1,224 @@
+{
+  "homeCamera": {
+    "west": 112,
+    "south": -48,
+    "east": 155,
+    "north": -5
+  },
+  "catalog": [
+    {
+      "name": "Regionmapping test csvs",
+      "type": "group",
+      "items": [
+        {
+          "name": "AREMI ADV_det",
+          "type": "csv",
+          "url": "test/regionmapping/test-aremi_ADV_det_collected_Name.csv"
+        },
+        {
+          "name": "IBRA7 Regions and Subregions",
+          "type": "group",
+          "items": [
+            {
+              "name": "ibra7_reg",
+              "type": "csv",
+              "url": "test/regionmapping/ibra7_reg.csv"
+            },
+            {
+              "name": "ibra7_reg_name",
+              "type": "csv",
+              "url": "test/regionmapping/ibra7_reg_name.csv"
+            },
+            {
+              "name": "ibra7_sub",
+              "type": "csv",
+              "url": "test/regionmapping/ibra7_sub.csv"
+            },
+            {
+              "name": "ibra7_sub_name",
+              "type": "csv",
+              "url": "test/regionmapping/ibra7_sub_name.csv"
+            }
+          ]
+        },
+        {
+          "name": "CED 2016 (ABS)",
+          "type": "group",
+          "items": [
+            {
+              "name": "ced_code_2016",
+              "type": "csv",
+              "url": "test/regionmapping/test-FID_CED_2016_AUST_CED_CODE16.csv"
+            },
+            {
+              "name": "ced_name_2016",
+              "type": "csv",
+              "url": "test/regionmapping/test-FID_CED_2016_AUST_CED_NAME16.csv"
+            }
+          ]
+        },
+        {
+          "name": "ESA 2009",
+          "type": "group",
+          "items": [
+            {
+              "name": "esa_code",
+              "type": "csv",
+              "url": "test/regionmapping/esa_code.csv"
+            },
+            {
+              "name": "esa_name",
+              "type": "csv",
+              "url": "test/regionmapping/esa_name.csv"
+            }
+          ]
+        },
+        {
+          "name": "COM_ELB",
+          "type": "group",
+          "items": [
+            {
+              "name": "com_elb_2016_name",
+              "type": "csv",
+              "url": "test/regionmapping/com_elb_2016_name.csv"
+            }
+          ]
+        },
+        {
+          "name": "ASGS 2016",
+          "type": "group",
+          "items": [
+            {
+              "name": "SA1",
+              "type": "group",
+              "items": [
+                {
+                  "name": "sa1_code",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-SA1_2016_AUST_SA1_MAIN16.csv"
+                },
+                {
+                  "name": "sa1_7dig",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-SA1_2016_AUST_SA1_7DIG16.csv"
+                }
+              ]
+            },
+            {
+              "name": "SA2",
+              "type": "group",
+              "items": [
+                {
+                  "name": "sa2_code",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-SA2_2016_AUST_SA2_MAIN16.csv"
+                },
+                {
+                  "name": "sa2_5dig",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-SA2_2016_AUST_SA2_5DIG16.csv"
+                },
+                {
+                  "name": "sa2_name",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-SA2_2016_AUST_SA2_NAME16.csv"
+                }
+              ]
+            },
+            {
+              "name": "SA3",
+              "type": "group",
+              "items": [
+                {
+                  "name": "sa3_code",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-SA3_2016_AUST_SA3_CODE16.csv"
+                },
+                {
+                  "name": "sa3_name",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-SA3_2016_AUST_SA3_NAME16.csv"
+                }
+              ]
+            },
+            {
+              "name": "SA4",
+              "type": "group",
+              "items": [
+                {
+                  "name": "sa4_code",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-SA4_2016_AUST_SA4_CODE16.csv"
+                },
+                {
+                  "name": "sa4_name",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-SA4_2016_AUST_SA4_NAME16.csv"
+                }
+              ]
+            },
+            {
+              "name": "GCCSA",
+              "type": "group",
+              "items": [
+                {
+                  "name": "gccsa_code",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-GCCSA_2016_AUST_GCC_CODE16.csv"
+                },
+                {
+                  "name": "gccsa_name",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-GCCSA_2016_AUST_GCC_NAME16.csv"
+                }
+              ]
+            },
+            {
+              "name": "STE",
+              "type": "group",
+              "items": [
+                {
+                  "name": "ste_code",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-STE_2016_AUST_STE_CODE16.csv"
+                },
+                {
+                  "name": "ste_name",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-STE_2016_AUST_STE_NAME16.csv"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Stats New Zealand",
+          "type": "group",
+          "items": [
+            {
+              "name": "Area Unit Code",
+              "type": "csv",
+              "url": "test/regionmapping/test-NZ_AU2017_HD_Clipped_AU2017.csv"
+            },
+            {
+              "name": "Area Unit Name",
+              "type": "csv",
+              "url": "test/regionmapping/test-NZ_AU2017_HD_Clipped_AU2017_NAM.csv"
+            },
+            {
+              "name": "Mesh Block Code",
+              "type": "csv",
+              "url": "test/regionmapping/test-NZ_MB2017_HD_Clipped_MB2017.csv"
+            }
+          ]
+        },
+        {
+          "name": "Protari CURF SA4 Aggregated",
+          "type": "csv",
+          "url": "test/regionmapping/test-protari_curf_sa4_agg_name.csv"
+        }
+      ],
+      "isOpen": true
+    }
+  ]
+}
