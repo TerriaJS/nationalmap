@@ -1,6 +1,6 @@
 {
     "initializationUrls" : [
-        "regionmapping_test"
+        "nm"
     ],
     "parameters": {
         "feedbackUrl": "feedback",
