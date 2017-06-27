@@ -23,7 +23,7 @@
                 159.10921900799997,
                 -9.142175976999999
             ],
-            "nameProp": "SA2_NAME11"
+            "nameProp": "SA1_7DIG11"
         },
         "SA1_7DIGIT_2011": {
             "layerName": "FID_SA1_2011_AUST",
@@ -46,7 +46,7 @@
                 159.10921900799997,
                 -9.142175976999999
             ],
-            "nameProp": "SA2_NAME11"
+            "nameProp": "SA1_7DIG11"
         },
         "SA1_2016": {
             "layerName": "SA1_2016_AUST",
@@ -69,7 +69,7 @@
                 "sa1_maincode_2016",
                 "sa1_code_2016"
             ],
-            "nameProp": "SA2_NAME16",
+            "nameProp": "SA1_7DIG16",
             "description": "Statistical Area Level 1 2016 (ABS)",
             "regionIdsFile": "data/regionids/region_map-SA1_2016_AUST_SA1_MAIN16.json"
         },
@@ -92,7 +92,7 @@
                 "sa1_7digitcode",
                 "sa1_7digitcode_2016"
             ],
-            "nameProp": "SA2_NAME16",
+            "nameProp": "SA1_7DIG16",
             "description": "Statistical Area Level 1 2016 (ABS)",
             "regionIdsFile": "data/regionids/region_map-SA1_2016_AUST_SA1_7DIG16.json"
         },
@@ -862,6 +862,132 @@
                 -9.142175999999997
             ],
             "nameProp": "SORTNAME"
+        },
+        "COM_ELB_ID_2013": {
+            "layerName": "CommonwealthElectoralDivision_2013",
+            "server": "https://vector-tiles.terria.io/CommonwealthElectoralDivision_2013/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.816766,
+                -43.74051,
+                159.109219,
+                -9.142176
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "ced_code_2013",
+            "nameProp": "ced_name_2013",
+            "aliases": [
+                "com_elb_id_2013"
+            ],
+            "description": "Commonwealth electoral districts for 2013 election (Australian Electoral Commission)",
+            "regionIdsFile": "data/regionids/region_map-CommonwealthElectoralDivision_2013_ced_code_2013.json"
+        },
+        "COM_ELB_NAME_2013": {
+            "layerName": "CommonwealthElectoralDivision_2013",
+            "server": "https://vector-tiles.terria.io/CommonwealthElectoralDivision_2013/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.816766,
+                -43.74051,
+                159.109219,
+                -9.142176
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "ced_name_2013",
+            "nameProp": "ced_name_2013",
+            "aliases": [
+                "com_elb_name_2013"
+            ],
+            "description": "Commonwealth electoral districts for 2013 election (Australian Electoral Commission)",
+            "regionIdsFile": "data/regionids/region_map-CommonwealthElectoralDivision_2013_ced_name_2013.json"
+        },
+        "COM_ELB_ID_2010": {
+            "layerName": "CommonwealthElectoralDivision_2010",
+            "server": "https://vector-tiles.terria.io/CommonwealthElectoralDivision_2010/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.816766,
+                -43.74051,
+                159.109219,
+                -9.142176
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "ced_code_2010",
+            "nameProp": "ced_name_2010",
+            "aliases": [
+                "com_elb_id_2010"
+            ],
+            "description": "Commonwealth electoral districts for 2010 election (Australian Electoral Commission)",
+            "regionIdsFile": "data/regionids/region_map-CommonwealthElectoralDivision_2010_ced_code_2010.json"
+        },
+        "COM_ELB_NAME_2010": {
+            "layerName": "CommonwealthElectoralDivision_2010",
+            "server": "https://vector-tiles.terria.io/CommonwealthElectoralDivision_2010/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.816766,
+                -43.74051,
+                159.109219,
+                -9.142176
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "ced_name_2010",
+            "nameProp": "ced_name_2010",
+            "aliases": [
+                "com_elb_name_2010"
+            ],
+            "description": "Commonwealth electoral districts for 2010 election (Australian Electoral Commission)",
+            "regionIdsFile": "data/regionids/region_map-CommonwealthElectoralDivision_2010_ced_name_2010.json"
+        },
+        "COM_ELB_ID_2007": {
+            "layerName": "CommonwealthElectoralDivision_2007",
+            "server": "https://vector-tiles.terria.io/CommonwealthElectoralDivision_2007/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.817997,
+                -43.74051,
+                159.105442,
+                -9.142186
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "ced_code_2007",
+            "nameProp": "ced_name_2007",
+            "aliases": [
+                "com_elb_id_2007"
+            ],
+            "description": "Commonwealth electoral districts for 2007 election (Australian Electoral Commission)",
+            "regionIdsFile": "data/regionids/region_map-CommonwealthElectoralDivision_2007_ced_code_2007.json"
+        },
+        "COM_ELB_NAME_2007": {
+            "layerName": "CommonwealthElectoralDivision_2007",
+            "server": "https://vector-tiles.terria.io/CommonwealthElectoralDivision_2007/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.817997,
+                -43.74051,
+                159.105442,
+                -9.142186
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "ced_name_2007",
+            "nameProp": "ced_name_2007",
+            "aliases": [
+                "com_elb_name_2007"
+            ],
+            "description": "Commonwealth electoral districts for 2007 election (Australian Electoral Commission)",
+            "regionIdsFile": "data/regionids/region_map-CommonwealthElectoralDivision_2007_ced_name_2007.json"
         },
         "SED": {
             "layerName": "FID_SED_2011_AUST",
@@ -1726,7 +1852,7 @@
                 159.10921900799997,
                 -9.142175976999999
             ],
-            "nameProp": "SLA_NAME06",
+            "nameProp": "CD_CODE06",
             "regionIdsFile": "data/regionids/region_map-fid_asgc06_cd_CD_CODE06.json"
         },
         "CNT2": {
