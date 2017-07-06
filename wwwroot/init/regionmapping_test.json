@@ -216,6 +216,22 @@
           "name": "Protari CURF SA4 Aggregated",
           "type": "csv",
           "url": "test/regionmapping/test-protari_curf_sa4_agg_name.csv"
+        },
+        {
+          "name": "Papua New Guinea",
+          "type": "group",
+          "items": [
+            {
+              "name": "Districts code",
+              "type": "csv",
+              "url": "test/regionmapping/test-PNG_polbnda_adm2_2015_nso_HRPcode.csv"
+            },
+            {
+              "name": "Districts name",
+              "type": "csv",
+              "url": "test/regionmapping/test-PNG_polbnda_adm2_2015_nso_HRname.csv"
+            }
+          ]
         }
       ],
       "isOpen": true

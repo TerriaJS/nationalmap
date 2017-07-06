@@ -2065,6 +2065,51 @@
             ],
             "description": "SA4 aggregated to multi-regions used by Protari demo CURF",
             "regionIdsFile": "data/regionids/region_map-protari_curf_sa4_agg_name.json"
+        },
+        "PNG_DISTRICT_2015": {
+            "layerName": "PNG_polbnda_adm2_2015_nso",
+            "server": "http://localhost:8000/PNG_polbnda_adm2_2015_nso/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                140.83435058600003,
+                -11.655380248999904,
+                157.037780762,
+                -0.755833029999906
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "HRPcode",
+            "nameProp": "HRname",
+            "aliases": [
+                "png_district_code_2015",
+                "png_district_code",
+                "png_district"
+            ],
+            "description": "Papua New Guinea Districts",
+            "regionIdsFile": "data/regionids/region_map-PNG_polbnda_adm2_2015_nso_HRPcode.json"
+        },
+        "PNG_DISTRICT_2015_NAME": {
+            "layerName": "PNG_polbnda_adm2_2015_nso",
+            "server": "http://localhost:8000/PNG_polbnda_adm2_2015_nso/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                140.83435058600003,
+                -11.655380248999904,
+                157.037780762,
+                -0.755833029999906
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "HRname",
+            "nameProp": "HRname",
+            "aliases": [
+                "png_district_name_2015",
+                "png_district_name"
+            ],
+            "description": "Papua New Guinea Districts",
+            "regionIdsFile": "data/regionids/region_map-PNG_polbnda_adm2_2015_nso_HRname.json"
         }
     }
 }
