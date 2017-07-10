@@ -2068,7 +2068,7 @@
         },
         "PNG_DISTRICT_2015": {
             "layerName": "PNG_polbnda_adm2_2015_nso",
-            "server": "http://localhost:8000/PNG_polbnda_adm2_2015_nso/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/PNG_polbnda_adm2_2015_nso/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverMaxNativeZoom": 12,
             "serverMaxZoom": 28,
@@ -2091,7 +2091,7 @@
         },
         "PNG_DISTRICT_2015_NAME": {
             "layerName": "PNG_polbnda_adm2_2015_nso",
-            "server": "http://localhost:8000/PNG_polbnda_adm2_2015_nso/{z}/{x}/{y}.pbf",
+            "server": "https://vector-tiles.terria.io/PNG_polbnda_adm2_2015_nso/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverMaxNativeZoom": 12,
             "serverMaxZoom": 28,
