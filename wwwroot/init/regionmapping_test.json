@@ -87,6 +87,7 @@
         {
           "name": "ASGS 2016",
           "type": "group",
+          "preserveOrder": true,
           "items": [
             {
               "name": "SA1",
