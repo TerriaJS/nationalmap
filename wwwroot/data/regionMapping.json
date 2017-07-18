@@ -424,9 +424,7 @@
             "server": "https://vector-tiles.terria.io/FID_SSC_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SSC_CODE",
             "aliases": [
-                "ssc_code_2011",
-                "ssc_code",
-                "ssc"
+                "ssc_code_2011"
             ],
             "digits": 5,
             "description": "ABS approximations of suburbs",
@@ -449,9 +447,7 @@
             "server": "https://vector-tiles.terria.io/FID_SSC_2011_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "SSC_NAME",
             "aliases": [
-                "ssc_name",
-                "ssc_name_2011",
-                "suburb"
+                "ssc_name_2011"
             ],
             "description": "ABS approximations of suburbs",
             "regionIdsFile": "data/regionids/region_map-FID_SSC_2011_AUST_SSC_NAME.json",
@@ -468,14 +464,84 @@
             ],
             "nameProp": "SSC_NAME"
         },
+        "SSC_2016": {
+            "layerName": "SSC_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SSC_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SSC_CODE16",
+            "aliases": [
+                "ssc_code_2016",
+                "ssc_code",
+                "ssc"
+            ],
+            "nameProp": "SSC_NAME16",
+            "description": "ABS approximations of suburbs (2016)",
+            "regionIdsFile": "data/regionids/region_map-SSC_2016_AUST_SSC_CODE16.json"
+        },
+        "SSC_NAME_2016": {
+            "layerName": "SSC_2016_AUST",
+            "server": "https://vector-tiles.terria.io/SSC_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "SSC_NAME16",
+            "aliases": [
+                "ssc_name_2016",
+                "ssc_name",
+                "suburb"
+            ],
+            "nameProp": "SSC_NAME16",
+            "description": "ABS approximations of suburbs (2016)",
+            "regionIdsFile": "data/regionids/region_map-SSC_2016_AUST_SSC_NAME16.json"
+        },
+        "LGA_2016": {
+            "layerName": "LGA_2016_AUST",
+            "server": "https://vector-tiles.terria.io/LGA_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "LGA_CODE16",
+            "aliases": [
+                "lga_code_2016",
+                "lga_code",
+                "lga"
+            ],
+            "nameProp": "LGA_NAME16",
+            "description": "Local government areas (2016)",
+            "regionIdsFile": "data/regionids/region_map-LGA_2016_AUST_LGA_CODE16.json"
+        },
         "LGA": {
             "layerName": "FID_LGA_2015_AUST",
             "server": "https://vector-tiles.terria.io/FID_LGA_2015_AUST/{z}/{x}/{y}.pbf",
             "regionProp": "LGA_CODE15",
             "aliases": [
                 "lga_code_2015",
-                "lga_code",
-                "lga",
                 "lga_code_2014",
                 "lga_code_2012",
                 "lga_code_2010"
@@ -622,10 +688,7 @@
             "aliases": [
                 "poa_2011",
                 "postcode_2011",
-                "poa",
-                "poa_code",
                 "poa_code_2011",
-                "postcode",
                 "postcode_2015"
             ],
             "digits": 4,
@@ -649,6 +712,39 @@
                 -9.142175976999999
             ],
             "nameProp": "POA_NAME"
+        },
+        "POA_2016": {
+            "layerName": "POA_2016_AUST",
+            "server": "https://vector-tiles.terria.io/POA_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "POA_CODE16",
+            "aliases": [
+                "poa_code_2016",
+                "poa_code",
+                "poa",
+                "postcode_2016",
+                "postcode"
+            ],
+            "digits": 4,
+            "dataReplacements": [
+                [
+                    "^(?=\\d\\d\\d$)",
+                    "0"
+                ]
+            ],
+            "nameProp": "POA_NAME16",
+            "description": "Postal areas (ABS approximations of postcodes) (2016)",
+            "regionIdsFile": "data/regionids/region_map-POA_2016_AUST_POA_CODE16.json"
         },
         "CED_CODE_2016": {
             "layerName": "FID_CED_2016_AUST",
@@ -1426,6 +1522,53 @@
                 -9.142175976999997
             ],
             "nameProp": "ADD_NAME"
+        },
+        "ADD_2016": {
+            "layerName": "ADD_2016_AUST",
+            "server": "https://vector-tiles.terria.io/ADD_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "ADD_CODE16",
+            "aliases": [
+                "add_code_2016",
+                "add_code",
+                "add"
+            ],
+            "nameProp": "ADD_NAME16",
+            "description": "Australian drainage divisions (2016)",
+            "regionIdsFile": "data/regionids/region_map-ADD_2016_AUST_ADD_CODE16.json"
+        },
+        "ADD_NAME_2016": {
+            "layerName": "ADD_2016_AUST",
+            "server": "https://vector-tiles.terria.io/ADD_2016_AUST/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverSubdomains": [],
+            "serverMinZoom": 0,
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.81694139400007,
+                -43.74050960299996,
+                167.99803499600006,
+                -9.142175976999962
+            ],
+            "regionProp": "ADD_NAME16",
+            "aliases": [
+                "add_name_2016",
+                "add_name"
+            ],
+            "nameProp": "ADD_NAME16",
+            "description": "Australian drainage divisions (2016)",
+            "regionIdsFile": "data/regionids/region_map-ADD_2016_AUST_ADD_NAME16.json"
         },
         "PHN": {
             "layerName": "FID_PHN_boundaries_AUS_Sep2015_V5",

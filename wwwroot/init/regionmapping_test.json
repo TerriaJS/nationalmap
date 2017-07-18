@@ -188,6 +188,37 @@
                   "url": "test/regionmapping/test-STE_2016_AUST_STE_NAME16.csv"
                 }
               ]
+            },
+            {
+              "name": "ssc_code",
+              "type": "csv",
+              "url": "test/regionmapping/test-SSC_2016_AUST_SSC_CODE16.csv"
+            },
+            {
+              "name": "poa_code",
+              "type": "csv",
+              "url": "test/regionmapping/test-POA_2016_AUST_POA_CODE16.csv"
+            },
+            {
+              "name": "lga_code",
+              "type": "csv",
+              "url": "test/regionmapping/test-LGA_2016_AUST_LGA_CODE16.csv"
+            },
+            {
+              "name": "ADD",
+              "type": "group",
+              "items": [
+                {
+                  "name": "add_code",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-ADD_2016_AUST_ADD_CODE16.csv"
+                },
+                {
+                  "name": "add_name",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-ADD_2016_AUST_ADD_NAME16.csv"
+                }
+              ]
             }
           ]
         },
