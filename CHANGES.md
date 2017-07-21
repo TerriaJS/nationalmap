@@ -3,6 +3,7 @@ Change Log
 
 ### 2017-07-21
 
+* Added new ASGS 2016 region definitions for use with region-mapped CSVs, ABS data, etc.
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.7.  Changes include:
   * Added the Latitude and Longitude to the filename for the Feature Information file download.
   * Added the time to the timeline labels when zoomed in to a single day. Previously, the label sometimes only showed the date.
