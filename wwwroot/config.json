@@ -1,6 +1,6 @@
 {
     "initializationUrls" : [
-        "nm"
+        "broken"
     ],
     "parameters": {
         "feedbackUrl": "feedback",

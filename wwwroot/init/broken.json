@@ -1,0 +1,10 @@
+{
+  "catalog": [
+    {
+      "type": "wms",
+      "name": "Broken WMS",
+      "url": "http://not.a.wms.com/wms",
+      "isEnabled": true
+    }
+  ]
+}
