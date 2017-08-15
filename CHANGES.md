@@ -4,7 +4,7 @@ Change Log
 ### 2017-08-15
 
 * Added adelaidemetro.com.au to the proxy whitelist.
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.10.  Changes include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.11.  Changes include:
   * The Share feature now includes the current time selected on the timeline, so that anyone visiting a share link will see the map at the intended time.
   * Improved the conversion of Esri polygons to GeoJSON by `featureDataToGeoJson`.  It now correctly handles polygons with holes and with multiple outer rings.
   * Added some fields to the dataset info page for `CkanCatalogItem`.
@@ -12,6 +12,7 @@ Change Log
   * Added option to expand the HTML embed code and toggle URL shorting for the share link.
   * Fixed a bug that could cause some layers, especially the Bing Maps basemap, to occasionally be missing from the 2D map.
   * Fixed a bug that could cause the selected time to move to the end time when sharing a map with a time-dynamic layer.
+  * Pinned `urijs` to v1.18.10 to work around a breaking change in v1.18.11.
 
 ### 2017-07-21
 
