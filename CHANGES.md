@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 2017-08-15
+
+* Added adelaidemetro.com.au to the proxy whitelist.
+
 ### 2017-07-21
 
 * Added new ASGS 2016 region definitions for use with region-mapped CSVs, ABS data, etc.
