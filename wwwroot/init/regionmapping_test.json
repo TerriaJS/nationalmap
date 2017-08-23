@@ -252,17 +252,40 @@
         {
           "name": "Papua New Guinea",
           "type": "group",
+          "preserveOrder": true,
           "items": [
             {
-              "name": "Districts code",
-              "type": "csv",
-              "url": "test/regionmapping/test-PNG_polbnda_adm2_2015_nso_HRPcode.csv"
+              "name": "Old",
+              "type": "group",
+              "items": [
+                {
+                  "name": "Districts code",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-PNG_polbnda_adm2_2015_nso_HRPcode.csv"
+                },
+                {
+                  "name": "Districts name",
+                  "type": "csv",
+                  "url": "test/regionmapping/test-PNG_polbnda_adm2_2015_nso_HRname.csv"
+                }
+              ]
             },
             {
-              "name": "Districts name",
+              "name": "Provinces",
               "type": "csv",
-              "url": "test/regionmapping/test-PNG_polbnda_adm2_2015_nso_HRname.csv"
+              "url": "test/regionmapping/test-PNG_L1_Provinces_Province.csv"
+            },
+            {
+              "name": "Districts",
+              "type": "csv",
+              "url": "test/regionmapping/test-PNG_L2_Districts_District.csv"
+            },
+            {
+              "name": "Local-Level Government areas",
+              "type": "csv",
+              "url": "test/regionmapping/test-PNG_L3_LLGs_GEOCODE.csv"
             }
+
           ]
         }
       ],

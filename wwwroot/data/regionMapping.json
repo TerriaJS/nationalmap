@@ -2209,50 +2209,68 @@
             "description": "SA4 aggregated to multi-regions used by Protari demo CURF",
             "regionIdsFile": "data/regionids/region_map-protari_curf_sa4_agg_name.json"
         },
-        "PNG_DISTRICT_2015": {
-            "layerName": "PNG_polbnda_adm2_2015_nso",
-            "server": "https://vector-tiles.terria.io/PNG_polbnda_adm2_2015_nso/{z}/{x}/{y}.pbf",
+        "PNG_L3_LLG": {
+            "layerName": "PNG_L3_LLGs",
+            "server": "https://vector-tiles-2017-08-23.terria.io/PNG_L3_LLGs/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverMaxNativeZoom": 12,
             "serverMaxZoom": 28,
             "bbox": [
-                140.83435058600003,
-                -11.655380248999904,
-                157.037780762,
-                -0.755833029999906
+                140.840535,
+                -11.656156,
+                159.481793,
+                -0.757591
             ],
             "uniqueIdProp": "FID",
-            "regionProp": "HRPcode",
-            "nameProp": "HRname",
+            "regionProp": "GEOCODE",
+            "nameProp": "NAME",
             "aliases": [
-                "png_district_code_2015",
-                "png_district_code",
+                "png_llg_code"
+            ],
+            "description": "Papua New Guinea Local-Level Government areas",
+            "regionIdsFile": "data/regionids/region_map-PNG_L3_LLGs_GEOCODE.json"
+        },
+        "PNG_l2_DIST": {
+            "layerName": "PNG_L2_Districts",
+            "server": "https://vector-tiles-2017-08-23.terria.io/PNG_L2_Districts/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                140.84385,
+                -11.656154,
+                159.481792,
+                -0.757591
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "District",
+            "nameProp": "District",
+            "aliases": [
                 "png_district"
             ],
             "description": "Papua New Guinea Districts",
-            "regionIdsFile": "data/regionids/region_map-PNG_polbnda_adm2_2015_nso_HRPcode.json"
+            "regionIdsFile": "data/regionids/region_map-PNG_L2_Districts_District.json"
         },
-        "PNG_DISTRICT_2015_NAME": {
-            "layerName": "PNG_polbnda_adm2_2015_nso",
-            "server": "https://vector-tiles.terria.io/PNG_polbnda_adm2_2015_nso/{z}/{x}/{y}.pbf",
+        "PNG_L1_PROV": {
+            "layerName": "PNG_L1_Provinces",
+            "server": "https://vector-tiles-2017-08-23.terria.io/PNG_L1_Provinces/{z}/{x}/{y}.pbf",
             "serverType": "MVT",
             "serverMaxNativeZoom": 12,
             "serverMaxZoom": 28,
             "bbox": [
-                140.83435058600003,
-                -11.655380248999904,
-                157.037780762,
-                -0.755833029999906
+                140.84385,
+                -11.656154,
+                159.481792,
+                -0.757591
             ],
             "uniqueIdProp": "FID",
-            "regionProp": "HRname",
-            "nameProp": "HRname",
+            "regionProp": "Province",
+            "nameProp": "Province",
             "aliases": [
-                "png_district_name_2015",
-                "png_district_name"
+                "png_province"
             ],
-            "description": "Papua New Guinea Districts",
-            "regionIdsFile": "data/regionids/region_map-PNG_polbnda_adm2_2015_nso_HRname.json"
+            "description": "Papua New Guinea Provinces",
+            "regionIdsFile": "data/regionids/region_map-PNG_L1_Provinces_Province.json"
         }
     }
 }
