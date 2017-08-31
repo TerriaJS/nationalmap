@@ -20,7 +20,8 @@
         "localdata.net.au",
         "lakemac.com.au",
         "data.aodn.org.au",
-        "adelaidemetro.com.au"
+        "adelaidemetro.com.au",
+        "tds.gisclimatechange.ucar.edu"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
@@ -31,4 +32,3 @@
         "accessToken": null
     }
 }
-
