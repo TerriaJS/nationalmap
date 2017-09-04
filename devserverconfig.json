@@ -19,7 +19,8 @@
         "static.nationalmap.nicta.com.au",
         "localdata.net.au",
         "lakemac.com.au",
-        "data.aodn.org.au"
+        "data.aodn.org.au",
+        "adelaidemetro.com.au"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
