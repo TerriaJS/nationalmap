@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+### 2017-10-16
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.0.  Changes include:
+  * Breaking change: removed some old types that haven't been used since the new React-based user interface in v4.0.0, specifically `KnockoutHammerBinding`, `KnockoutMarkdownBinding`, `PopupMessageConfirmationViewModel`, `PopupMessageViewModel`, and `PopupViewModel`.
+  * Added the ability to use tokens from terriajs-server for layers requiring ESRI tokens.
+  * Catalog group items are now sorted by their in-catalog name
+
 ### 2017-09-15
 
 * Added more datasets from the 2016 Census.
