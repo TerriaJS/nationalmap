@@ -21,7 +21,7 @@
             "link": "http://www.csiro.au/en/Research/D61"
         },
         "appName": "NationalMap",
-        "supportEmail": "data@pmc.gov.au",
+        "supportEmail": "data@digital.gov.au",
         "proj4ServiceBaseUrl": "proj4def/",
         "brandBarElements(Remove this bit in parentheses for production deployment)": [
             "<a target=\"_blank\" href=\"about.html\"><img src=\"images/NationalMap-logo-only.png\" height=\"50\" alt=\"National Map\" title=\"Version: {{version}}\" /></a>",
