@@ -3,7 +3,7 @@ Change Log
 
 ### 2017-10-31
 
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.2.  Changes include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.3.  Changes include:
   * We no longer show the Zoom To button on the workbench when there is no rectangle to zoom to.
   * Fixed a bug when sharing SDMX-JSON catalog items.
   * Improved display of "Add Data" panel on small screens when Feedback and Feature Info panels are open.
