@@ -1,6 +1,18 @@
 Change Log
 ==========
 
+### 2017-10-31
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.2.  Changes include:
+  * We no longer show the Zoom To button on the workbench when there is no rectangle to zoom to.
+  * Fixed a bug when sharing SDMX-JSON catalog items.
+  * Improved display of "Add Data" panel on small screens when Feedback and Feature Info panels are open.
+  * Added "search in data catalog" link to mobile search.
+  * Added a button to automatically copy share url into clipboard in share panel.
+  * Added `initFragmentPaths` property to the `parameters` section of `config.json`.  It can be used to specify an array of base paths for resolving init fragments in the URL.
+  * Modified `CkanCatalogItem` to exclude files that advertise themselves as KML files but have the file extension .ZIP.
+  * Removed "View full size image" link on the share panel.  Chrome 60 removed the ability to navigate to a data URI, and other browsers are expected to follow this lead.
+
 ### 2017-10-16
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.0.  Changes include:
