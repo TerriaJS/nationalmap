@@ -1,6 +1,16 @@
 Change Log
 ==========
 
+### 2017-11-09
+
+* Removed six datasets from the catalog that have been taken down from the ABS SDMX-JSON service (ABS_ERP_LGA, ABS_ANNUAL_ERP_LGA, ABS_ANNUAL_ERP_LGA2014, ABS_ERP_LGA2014, ABS_ANNUAL_ERP_LGA2015, ABS_ERP_LGA2015)
+* Added two replacement datasets to the catalog, ABS_ERP_LGA2016 and ABS_ANNUAL_ERP_LGA2016.
+* Added ATSI_BIRTHS_SUMM, ATSI_FERTILITY, ABS_BLDG_APPROVALS_LGA2016, ABS_BA_SA2_ASGS2016, CONFINEMENTS_NUPTIALITY, CONFINEMENTS_PLURALITY, FERTILITY_AGE_STATE, PATERNITY_AGE_STATE, RES_DWELL, RES_PROP_INDEX.
+* Fixed broken link in Broadband layer descriptions and add some text explaining that the data is historical.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.4.  Changes include:
+  * Added support for specifying namespaced layer names in the `WebMapServiceCatalogItem` `layers` property.
+  * Made TerriaJS tolerant of XML/HTML inside text elements in WMS GetCapabilities without being properly wrapped in `CDATA`.
+
 ### 2017-10-31
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.3.  Changes include:
