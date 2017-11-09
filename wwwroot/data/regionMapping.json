@@ -2403,6 +2403,27 @@
             ],
             "description": "Stats New Zealand Mesh Blocks 2017",
             "regionIdsFile": "data/regionids/region_map-NZ_MB2017_HD_Clipped_MB2017.json"
+        },
+        "AEC_FED_2017_AMLS": {
+            "layerName": "AEC_FED_2017_AMLS",
+            "server": "https://vector-tiles.terria.io/AEC_FED_2017_AMLS/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.816941,
+                -43.74051,
+                167.99803499600011,
+                -9.142176
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "FED_ABB",
+            "nameProp": "FED_DIV",
+            "aliases": [
+                "aec_fed_2017_code"
+            ],
+            "description": "Australian Electoral Comission Commonwealth Electoral Boundaries for ABS   Australian Marriage Law Survey",
+            "regionIdsFile": "data/regionids/region_map-AEC_FED_2017_AMLS_FED_ABB.json"
         }
     }
 }
