@@ -1389,7 +1389,8 @@
             "aliases": [
                 "ste",
                 "ste_code",
-                "ste_code_2016"
+                "ste_code_2016",
+                "ste_code_2017"
             ],
             "nameProp": "STE_NAME16",
             "description": "States and Territories 2016 (ABS)",
@@ -2186,7 +2187,8 @@
                 "aus",
                 "aus_code",
                 "aus_code_2011",
-                "aus_code_2016"
+                "aus_code_2016",
+                "aus_code_2017"
             ],
             "regionIdsFile": "data/regionids/region_map-FID_AUS_2011_AUST_AUS_CODE.json",
             "serverType": "MVT",
@@ -2420,7 +2422,7 @@
             "regionProp": "FED_ABB",
             "nameProp": "FED_DIV",
             "aliases": [
-                "aec_fed_2017_code"
+                "fed_code_2017"
             ],
             "description": "Australian Electoral Comission Commonwealth Electoral Boundaries for ABS   Australian Marriage Law Survey",
             "regionIdsFile": "data/regionids/region_map-AEC_FED_2017_AMLS_FED_ABB.json"
