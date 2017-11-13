@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### 2017-11-13
+
+* Added `AEC_FED_2017_AMLS` region type.
+* Added `data61.io` and `d61.io` to the proxy whitelist.
+
 ### 2017-11-09
 
 * Removed six datasets from the catalog that have been taken down from the ABS SDMX-JSON service (ABS_ERP_LGA, ABS_ANNUAL_ERP_LGA, ABS_ANNUAL_ERP_LGA2014, ABS_ERP_LGA2014, ABS_ANNUAL_ERP_LGA2015, ABS_ERP_LGA2015)
