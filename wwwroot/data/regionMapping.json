@@ -1389,7 +1389,8 @@
             "aliases": [
                 "ste",
                 "ste_code",
-                "ste_code_2016"
+                "ste_code_2016",
+                "ste_code_2017"
             ],
             "nameProp": "STE_NAME16",
             "description": "States and Territories 2016 (ABS)",
@@ -2186,7 +2187,8 @@
                 "aus",
                 "aus_code",
                 "aus_code_2011",
-                "aus_code_2016"
+                "aus_code_2016",
+                "aus_code_2017"
             ],
             "regionIdsFile": "data/regionids/region_map-FID_AUS_2011_AUST_AUS_CODE.json",
             "serverType": "MVT",
@@ -2403,6 +2405,27 @@
             ],
             "description": "Stats New Zealand Mesh Blocks 2017",
             "regionIdsFile": "data/regionids/region_map-NZ_MB2017_HD_Clipped_MB2017.json"
+        },
+        "AEC_FED_2017_AMLS": {
+            "layerName": "AEC_FED_2017_AMLS",
+            "server": "https://vector-tiles.terria.io/AEC_FED_2017_AMLS/{z}/{x}/{y}.pbf",
+            "serverType": "MVT",
+            "serverMaxNativeZoom": 12,
+            "serverMaxZoom": 28,
+            "bbox": [
+                96.816941,
+                -43.74051,
+                167.99803499600011,
+                -9.142176
+            ],
+            "uniqueIdProp": "FID",
+            "regionProp": "FED_ABB",
+            "nameProp": "FED_DIV",
+            "aliases": [
+                "fed_code_2017"
+            ],
+            "description": "Australian Electoral Comission Commonwealth Electoral Boundaries for ABS   Australian Marriage Law Survey",
+            "regionIdsFile": "data/regionids/region_map-AEC_FED_2017_AMLS_FED_ABB.json"
         }
     }
 }
