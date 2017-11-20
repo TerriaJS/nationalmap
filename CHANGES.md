@@ -1,6 +1,17 @@
 Change Log
 ==========
 
+### 2017-11-21
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.3.  Changes include:
+  * Added the ability to split the screen into a left-side and right-side, and show raster and region mapped layers on only one side of the splitter.
+  * Added the ability to use a tabbed catalog in the explorer panel on desktop site. Setting `tabbedCatalog` parameter to `true` in `config.json` causes top-level groups in the catalog to list items in separate explorer panel tabs.
+  * Added the ability to use vector tile properties in feature info templates when using region mapping (data row attributes will overwrite vector tile properties with the same name).
+  * Properties available in feature info templates are now JSON parsed and replaced by their javascript object if they start with `[` or `{` and parse successfully.
+  * Decreased flickering of time-varying region mapped layers by pre-rendering the next time interval.
+  * Fixed a bug in `WebMapServiceCatalogItem` that could cause a WMS time time dimension to be interpreted incorrectly if it was specified only using dates (not times) and with a periodicity of less than a day.
+  * Added `cannotSum` property to SDMX-JSON catalog items. This is used to identify the measures that cannot be summed so that TerriaJS won't display a Total when more than one of these are selected and it will not show a "Display as a percentage of regional total" checkbox in the workbench UI. `cannotSum` can be either a mapping of concept ids to the values that prevent summing, or simply `true` to always prevent summing.
+
 ### 2017-11-13
 
 * Added `AEC_FED_2017_AMLS` region type.
