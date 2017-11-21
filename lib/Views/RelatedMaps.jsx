@@ -55,8 +55,8 @@ function RelatedMaps(props) {
                     Australia to governments, business and the public.
 
                     More information on the Government's White Paper on Developing Northern Australia is available
-                    here: <a target="_blank" className={Styles.link} href="https://northernaustralia.dpmc.gov.au">
-                    https://northernaustralia.dpmc.gov.au</a>.
+                    here: <a target="_blank" className={Styles.link} href="http://northernaustralia.gov.au/">
+                    http://northernaustralia.gov.au</a>.
                 </p>
             </div>
 
