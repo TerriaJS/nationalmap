@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+### 2017-11-30
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.4.  Changes include:
+  * Fixed a serious bug that prevented opening the Data Catalog in Internet Explorer.
+  * Fixed some problems with the Terria Spatial Analytics `CatalogFunctions`.
+
 ### 2017-11-21
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.3.  Changes include:
