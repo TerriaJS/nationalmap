@@ -6,7 +6,6 @@ Change Log
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.4.  Changes include:
   * Fixed a serious bug that prevented opening the Data Catalog in Internet Explorer.
   * Fixed some problems with the Terria Spatial Analytics `CatalogFunctions`.
-* Changed the support email address from `data@pmc.gov.au` to `data@digital.gov.au`
 
 ### 2017-11-21
 
