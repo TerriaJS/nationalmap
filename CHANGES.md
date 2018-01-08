@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### 2018-01-08
+
+* Added `tern.org.au` to the proxy whitelist.
+* Updated the contact email address to `data@digital.gov.au` in the static help pages.
+
 ### 2017-11-30
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.4.  Changes include:
