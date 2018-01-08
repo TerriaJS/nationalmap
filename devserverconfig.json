@@ -23,7 +23,7 @@
         "lakemac.com.au",
         "data.aodn.org.au",
         "adelaidemetro.com.au",
-        "acef.tern.org.au"
+        "tern.org.au"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
