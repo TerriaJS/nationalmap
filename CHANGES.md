@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-### 2018-01-08
+### 2018-01-15
 
 * Added `tern.org.au` to the proxy whitelist.
 * Updated the contact email address to `data@digital.gov.au` in the static help pages.
