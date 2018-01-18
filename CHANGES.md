@@ -1,16 +1,19 @@
 Change Log
 ==========
 
-### 2018-01-15
+### 2018-01-18
 
 * Added `tern.org.au` to the proxy whitelist.
 * Updated the contact email address to `data@digital.gov.au` in the static help pages.
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.5.  Changes include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.7.  Changes include:
   * Fixed a bug that caused the feature info panel to stop working after clicking on a location search marker.
   * Added support for ArcGIS tokens on the 2D map. Previously, tokens only worked reliably in 3D.
   * Improved handling of tile errors, making it more consistent between 2D and 3D.
   * Fixed a bug that prevented the Add Data button from working Internet Explorer 9 unless the DevTools were also open.
   * Improved the sizing of the feature info panel so it is less likely to completely obscure the map.
+  * Added support for using tokens to access WMS layers, particularly using the WMS interface to ArcGIS servers.
+  * Tweaked the sizing of the feature info panel.
+  * Fixed a bug that caused `ArcGisMapServerCatalogItem` to always use the server's single fused map cache, if available. Now, if the `layers` property is specified, we request individual dynamic layers and ignore the fused map cache.
 
 ### 2017-11-30
 
