@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+### 2018-02-15
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.6.1.  Changes include:
+  * Fixed a bug that could cause the workbench UI to hang when toggling concepts, particularly for an `SdmxJsonCatalogItem`.
+  * Added previous and next buttons to workbench catalog item date picker.
+  * Upgraded to Cesium 1.41.
+
 ### 2018-01-18
 
 * Added `tern.org.au` to the proxy whitelist.
