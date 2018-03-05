@@ -18,8 +18,9 @@ body {
 }
 
 section{
-  padding: 41px 0;
+  padding: 11px 0;
 }
+
 
 
 /* Custom page CSS
@@ -205,34 +206,28 @@ h2 > a {
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
+
 .navbar {
-  min-height: 80px;
+  height: 60px;
 }
 
 .navbar-nav>li>a {
-  margin-top: 20px;
+  margin-top: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
   cursor: pointer;
 }
 
 .navbar-brand {
-  margin-right: 80px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  margin-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .navbar-brand {
-  height: 80px;
+  height: 50px;
 }
 
-.navbar-brand img {
-  width: 170px;
-}
-
-.content {
-  margin-top: 80px;
-}
 
 .nav-header:first-of-type {
   margin-top: 25px;
@@ -241,6 +236,11 @@ h2 > a {
 .screenshot {
   margin-bottom: 20px;
 }
+
+section{
+  padding: 21px 0;
+}
+
 
 
 }

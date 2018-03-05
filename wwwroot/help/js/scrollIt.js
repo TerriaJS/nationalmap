@@ -1,10 +1,12 @@
 /**
+ * THIS IS A MODIFIED VERSION OF the FOLLOWING LIBRARY
  * ScrollIt
  * ScrollIt.js(scroll•it•dot•js) makes it easy to make long, vertically scrolling pages.
  *
  * Latest version: https://github.com/cmpolis/scrollIt.js
  *
  * License <https://github.com/cmpolis/scrollIt.js/blob/master/LICENSE.txt>
+ *
  */
 (function($) {
     'use strict';
@@ -47,8 +49,7 @@
 
         var navigate = function(ndx) {
             if(ndx < 0 || ndx > lastIndex) return;
-
-            var targetTop = $('[data-scroll-index=' + ndx + ']').offset().top + settings.topOffset + 1;
+            var targetTop = $('[data-scroll-index=' + ndx + ']').offset().top - settings.topOffset + 1;
             $('html,body').animate({
                 scrollTop: targetTop,
                 easing: settings.easing
