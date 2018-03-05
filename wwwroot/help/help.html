@@ -74,8 +74,9 @@
           <li><a href="help.html" data-scroll-nav="0">Get started with NationalMap</a></li>
           <li><a data-scroll-nav="1" data-scroll-id=#feature-info>Find out about a displayed feature</a></li>
           <li><a data-scroll-nav="2" data-scroll-id="#add-data">Display my own spatial data</a></li>
-          <li><a data-scroll-nav="3" data-scroll-id="#share">Share my NationalMap view</a></li>
-          <li><a data-scroll-nav="4" data-scroll-id="#contribute">Contribute Data Sets to NationalMap</a></li>
+          <li><a data-scroll-nav="3" data-scroll-id ="#download">Download data from NationalMap</a></li>
+          <li><a data-scroll-nav="4" data-scroll-id="#share">Share my NationalMap view</a></li>
+          <li><a data-scroll-nav="5" data-scroll-id="#contribute">Contribute Data Sets to NationalMap</a></li>
         </ul>
 
         <h4 class="nav-header">Key Features</h4>
@@ -158,7 +159,18 @@
     <p>To share a view of your data with others, you must first publish it to the web somewhere with a URL, and then load it from there.</p>
 </section>
 <section  data-scroll-index="3">
-    <h2><a class="anchor" name="share">How to share my NationalMap view with others</a></h2>
+
+    <h2><a class="anchor" name="download">How to download data from National Map</a></h2>
+
+    <p>There are two types of download:</p>
+
+    <ul>
+    <li>Raw data: Once a dataset has been selected, click the "About this data" button, then scroll down to the Data URL and click on the link. Data download depends entirely on custodians making it available. Should the raw files not be available, users need to contact custodians directly; their details are available under Data Custodian or Service Contact, on the same page.</li>
+    <li>Feature Information: Once a point or a polygon on the map is selected and the Feature Information window is shown, you can download the data in that particular feature info window, by scrolling down and clicking on Download this Table, in CSV or JSON. It will just download the feature info table, not the actual, raw data.</li>
+    </ul>
+<section>
+<section  data-scroll-index="4">
+      <h2><a class="anchor" name="share">How to share my NationalMap view with others</a></h2>
 
     <p>There are three ways:</p>
 
@@ -169,9 +181,9 @@
     </ul>
 
     <p><strong>Note that only the third method will show the data you have loaded from a local file</strong>.</p>
-  </section>
+</section>
 
-<section  data-scroll-index="4">
+<section  data-scroll-index="5">
     <h2><a class="anchor" name="contribute">How to contribute Data Sets to NationalMap</a></h2>
 
     <p>NationalMap encourages data providers to publish their spatial data using this platform. There are two routes you can take to publishing.</p>
@@ -212,8 +224,9 @@
       var contentIndex = {
         'feature-info' : 1,
         'add-data': 2,
-        'share': 3,
-        'contribute': 4
+        'download': 3,
+        'share': 4,
+        'contribute': 5
       }
       var initIndex = contentIndex[location.hash.substring(1)];
       $.scrollIt({initIndex: initIndex});
