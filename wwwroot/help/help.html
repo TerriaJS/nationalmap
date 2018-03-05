@@ -20,9 +20,12 @@
     <!-- Custom styles for this template -->
     <link href="css/custom.css" rel="stylesheet">
 
+
+
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -68,12 +71,12 @@
 
         <h4 class="nav-header">How to...</h4>
         <ul class="how-to">
-          <li><a href="help.html">Get started with NationalMap</a></li>
-          <li><a href="help.html#feature-info">Find out about a displayed feature</a></li>
-          <li><a href="help.html#add-data">Display my own spatial data</a></li>
-          <li><a href="help.html#download">Download data from NationalMap</a></li>
-          <li><a href="help.html#share">Share my NationalMap view</a></li>
-          <li><a href="help.html#contribute">Contribute Data Sets to NationalMap</a></li>
+          <li><a href="help.html" data-scroll-nav="0">Get started with NationalMap</a></li>
+          <li><a data-scroll-nav="1" data-scroll-id=#feature-info>Find out about a displayed feature</a></li>
+          <li><a data-scroll-nav="2" data-scroll-id="#add-data">Display my own spatial data</a></li>
+          <li><a data-scroll-nav="3" data-scroll-id ="#download">Download data from NationalMap</a></li>
+          <li><a data-scroll-nav="4" data-scroll-id="#share">Share my NationalMap view</a></li>
+          <li><a data-scroll-nav="5" data-scroll-id="#contribute">Contribute Data Sets to NationalMap</a></li>
         </ul>
 
         <h4 class="nav-header">Key Features</h4>
@@ -103,7 +106,8 @@
       <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2E-u0gjz9Yw"></iframe>
     </div>
 
-    <h2><a class="anchor" name="getting-started">How to get started with NationalMap</a></h2>
+    <section data-scroll-index="0">
+      <h2><a class="anchor" name="getting-started">How to get started with NationalMap</a></h2>
 
     <p>To launch NationalMap and display some basic data follow these steps.</p>
 
@@ -119,8 +123,9 @@
     </ul>
 
     <p>You can perform these steps in any order as required to tune your display of spatial data.</p>
+  </section>
 
-
+  <section data-scroll-index="1">
     <h2><a class="anchor" name="feature-info">How to find out about a displayed feature</a></h2>
 
     <p>Click on the feature which is displayed on the map. You can click on Points, on Lines or within Regions to see a display of the information available from the spatial data provider for that particular feature.</p>
@@ -129,7 +134,8 @@
 
     <p>You cannot find out further information about the features which are part of the base maps.</p>
 
-
+  </section>
+  <section data-scroll-index="2">
     <h2><a class="anchor" name="add-data">How to display my own spreadsheet or spatial data</a></h2>
 
     <p>NationalMap can display two kinds of spreadsheets:<p>
@@ -151,6 +157,8 @@
 
     <p>You can also use all of the features of the <a href="data-workbench.html">Data Workbench</a> on the data you have loaded as well.</p>
     <p>To share a view of your data with others, you must first publish it to the web somewhere with a URL, and then load it from there.</p>
+</section>
+<section  data-scroll-index="3">
 
     <h2><a class="anchor" name="download">How to download data from National Map</a></h2>
 
@@ -160,8 +168,9 @@
     <li>Raw data: Once a dataset has been selected, click the "About this data" button, then scroll down to the Data URL and click on the link. Data download depends entirely on custodians making it available. Should the raw files not be available, users need to contact custodians directly; their details are available under Data Custodian or Service Contact, on the same page.</li>
     <li>Feature Information: Once a point or a polygon on the map is selected and the Feature Information window is shown, you can download the data in that particular feature info window, by scrolling down and clicking on Download this Table, in CSV or JSON. It will just download the feature info table, not the actual, raw data.</li>
     </ul>
-
-    <h2><a class="anchor" name="share">How to share my NationalMap view with others</a></h2>
+<section>
+<section  data-scroll-index="4">
+      <h2><a class="anchor" name="share">How to share my NationalMap view with others</a></h2>
 
     <p>There are three ways:</p>
 
@@ -172,8 +181,9 @@
     </ul>
 
     <p><strong>Note that only the third method will show the data you have loaded from a local file</strong>.</p>
+</section>
 
-
+<section  data-scroll-index="5">
     <h2><a class="anchor" name="contribute">How to contribute Data Sets to NationalMap</a></h2>
 
     <p>NationalMap encourages data providers to publish their spatial data using this platform. There are two routes you can take to publishing.</p>
@@ -182,8 +192,7 @@
       <li><p>Any spatial data which is added to <a href="http://data.gov.au">data.gov.au</a> using a protocol or format supported by NationalMap (such as WMS) will automatically appear in the <strong>data.gov.au</strong> section of the <strong>Data Catalogue</strong> tab for NationalMap. See WMS Data Sets for a list of spatial data sets already on <a href="http://data.gov.au">data.gov.au</a>. See the <a href="https://toolkit.data.gov.au/index.php?title=How_to_use_data.gov.au">data.gov.au Toolkit</a> for a detailed reference on using <a href="http://data.gov.au">data.gov.au</a> and using it to publish your own data sets.</p></li>
       <li><p>If you require your data set to appear under a separate category of the NationalMap Data Catalogue, you will need to contact the support for NationalMap by emailing to <a href="mailto:data@digital.gov.au">data@digital.gov.au</a> for more information. You will need to provide an internet accessible service in a standard protocol to access your data set on the internet and appropriate references must be added to the NationalMap configuration.</p></li>
     </ul>
-
-
+</section>
     </div>
 
 
@@ -198,12 +207,32 @@
       </div>
     </footer>
 
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+    <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>');
+    </script>
+
+    <!-- better scrolling for navigation -->
+    <script src="js/scrollIt.js" type="text/javascript"></script>
+
+    <script>
+    $(function(){
+      var contentIndex = {
+        'feature-info' : 1,
+        'add-data': 2,
+        'download': 3,
+        'share': 4,
+        'contribute': 5
+      }
+      var initIndex = contentIndex[location.hash.substring(1)];
+      $.scrollIt({initIndex: initIndex, topOffset: 50});
+      });
+    </script>
+
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
