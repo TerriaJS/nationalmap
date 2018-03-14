@@ -1,6 +1,27 @@
 Change Log
 ==========
 
+### 2018-03-15
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.6.2.  Changes include:
+  * Renamed search marker to location marker.
+  * Added the clicked coordinates to the bottom of the feature info panel. Clicking the marker icon will cause the location to be indicated on the map.
+  * The location marker is now included in shared map views.
+  * Fixed a bug that could cause split WMS layers to show the incorrect layer data for the date shown in the workbench.
+  * Refactored current time handling for `CatalogItem` to reduce the complexity and number of duplicated current time states.
+  * Fixed feature info updating when the time is changed from the workbench for `TableCatalogItem`.
+  * Change the workbench catalog item date picker so that updating the date does not disable the timeslider.
+  * Fix a bug that meant that, when the current time was updated on an `ImageryCatalogItem` while the layer wasn't shown, the old time was still shown when the layer was re-enabled.
+  * Added `{{terria.currentTime}}` to feature info template.
+  * Added a way to format times within a feature info tempate. E.g. `{{#terria.formatDateTime}}{"format": "dd-mm-yyyy HH:MM:ss"}{{terria.currentTime}}{{/terria.formatDateTime}}`.
+  * Fixed a bug that caused the selection indicator to float strangely when visiting a share link with a selected feature.
+  * Fixed a bug that caused a region to be selected even when clicking on a hole in that region.
+  * Fixed a bug that prevented the selection indicator from following moving features on the 2D map.
+  * Fixed a bug that caused Leaflet to stop rendering further points in a layer and throw errors when calculating extent when one point had invalid characters in the latitude or longitude field.
+  * We now default to `autoPlay: false` if it's not specified in `config.json`.
+  * Changed search box placeholders to more precisely reflect their functionality.
+  * CartoDB basemaps are now always loaded over HTTPS.
+
 ### 2018-02-15
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.6.1.  Changes include:
