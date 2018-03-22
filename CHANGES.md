@@ -3,11 +3,12 @@ Change Log
 
 ### 2018-03-22
 
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.6.3.  Changes include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.6.4.  Changes include:
   * Display of Lat Lon changed from 3 deciml places to 5 decimal places - just over 1m precision at equator.
   * Fixed a bug that caused the timeline to appear when changing the time on the workbench for a layer not attached to the timeline.
   * The workbench date/time picker is now available for time varying point and region CSVs.
   * Fixed a bug that caused the workbench date picker controls to disappear when the item was attached to the timeline and the timeline's current time was outside the valid range for the item.
+  * Fixed a bug causing an error message when adding tabular data to the workbench before it was loaded.
 
 ### 2018-03-15
 
