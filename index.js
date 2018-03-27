@@ -1,4 +1,6 @@
 'use strict';
+// eslint-disable-next-line
+import "regenerator-runtime/runtime";
 
 /*global require,window */
 
@@ -34,6 +36,9 @@ import defined from 'terriajs-cesium/Source/Core/defined';
 import render from './lib/Views/render';
 import GnafAddressGeocoder from 'terriajs/lib/Map/GnafAddressGeocoder.js';
 
+import createCatalogMemberFromType from "terriajs/lib/Models/createCatalogMemberFromType";
+import MagdaCatalogItem from "./lib/Models/MagdaCatalogItem";
+
 // Tell the OGR catalog item where to find its conversion service.  If you're not using OgrCatalogItem you can remove this.
 OgrCatalogItem.conversionServiceBaseUrl = configuration.conversionServiceBaseUrl;
 
@@ -41,6 +46,7 @@ OgrCatalogItem.conversionServiceBaseUrl = configuration.conversionServiceBaseUrl
 // (i.e. to reduce the size of your application if you don't actually use them all), feel free to copy a subset of
 // the code in the registerCatalogMembers function here instead.
 registerCatalogMembers();
+createCatalogMemberFromType.register("magda-item", MagdaCatalogItem);
 registerAnalytics();
 
 terriaOptions.analytics = new GoogleAnalytics();
