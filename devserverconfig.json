@@ -32,6 +32,7 @@
         "userAgent": "TerriaBot (TerriaJS Feedback)",
         "issuesUrl": "https://api.github.com/repos/TerriaJS/NationalMap-Feedback/issues",
         "accessToken": null
-    }
+    },
+    "maxConversionSize": 20000000
 }
 
