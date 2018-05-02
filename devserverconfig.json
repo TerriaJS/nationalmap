@@ -23,7 +23,8 @@
         "lakemac.com.au",
         "data.aodn.org.au",
         "adelaidemetro.com.au",
-        "tern.org.au"
+        "tern.org.au",
+        "biogas.nceastg.usq.edu.au"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
