@@ -16,6 +16,8 @@ module.exports = function(devMode, hot) {
             publicPath: hot ? 'http://localhost:3003/build/' : 'build/',
             sourcePrefix: '' // to avoid breaking multi-line string literals by inserting extra tabs.
         },
+        // Firefox and Edge's debuggers don't like cheap-inline-source-map.
+        // If you're having debugger trouble, try switching to 'source-map' instead.
         devtool: devMode ? 'cheap-inline-source-map' : 'source-map',
         module: {
             loaders: [

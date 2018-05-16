@@ -22,7 +22,7 @@
     "awsEc2ImageId": "ami-2a644649",
     "awsKeyName": "natmap-kring",
     "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2018-01-18.json",
-    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2018-04-16.json",
+    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2018-05-16.json",
     "northernAustraliaPath": "../NorthernAustralia"
   },
   "devDependencies": {
