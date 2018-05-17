@@ -18,8 +18,8 @@
     "awsProfile": "nationalmap",
     "awsS3PackagesPath": "s3://nationalmap-apps/nationalmap",
     "awsRegion": "ap-southeast-2",
-    "awsEc2InstanceType": "t2.medium",
-    "awsEc2ImageId": "ami-2a644649",
+    "awsEc2InstanceType": "t2.small",
+    "awsEc2ImageId": "ami-9d73a4ff",
     "awsKeyName": "natmap-kring",
     "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2018-01-18.json",
     "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2018-05-16.json"
