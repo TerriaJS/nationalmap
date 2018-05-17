@@ -164,7 +164,7 @@
             "InstancePort": "80",
             "LoadBalancerPort": "443",
             "Protocol": "HTTPS",
-            "SSLCertificateId": "arn:aws:iam::933940466036:server-certificate/nationalmap.nicta.com.au-20150508"
+            "SSLCertificateId": "arn:aws:acm:ap-southeast-2:933940466036:certificate/27a641b4-3b04-46df-a6b1-b75a059b997f"
           }
         ]
       },
