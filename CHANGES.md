@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### 2018-05-17
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.1.  Changes include:
+  * Added `parameters` property to `ArcGisMapServerCatalogItem`, allowing arbitrary parameters to be passed in tile and feature info requests.
+
 ### 2018-05-16
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.0.  Changes include:
