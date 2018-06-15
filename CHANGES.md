@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### 2018-05-22
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.2.  Changes include:
+  * Fixed a bug that prevented interaction with the 3D map when the splitter was active.
+
 ### 2018-05-17
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.1.  Changes include:
