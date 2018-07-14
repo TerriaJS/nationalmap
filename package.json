@@ -12,7 +12,7 @@
     "url": "http://github.com/NICTA/nationalmap"
   },
   "dependencies": {
-    "terriajs-server": "^2.7.2"
+    "terriajs-server": "^2.7.3"
   },
   "config": {
     "awsProfile": "nationalmap",
@@ -21,7 +21,7 @@
     "awsEc2InstanceType": "t2.medium",
     "awsEc2ImageId": "ami-2a644649",
     "awsKeyName": "natmap-kring",
-    "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2018-01-18.json",
+    "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2018-07-14.json",
     "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2018-05-16.json",
     "northernAustraliaPath": "../NorthernAustralia"
   },
