@@ -12,7 +12,7 @@
     "url": "http://github.com/NICTA/nationalmap"
   },
   "dependencies": {
-    "terriajs-server": "^2.7.0"
+    "terriajs-server": "^2.7.2"
   },
   "config": {
     "awsProfile": "nationalmap",
@@ -56,7 +56,7 @@
     "semver": "^5.0.0",
     "style-loader": "^0.19.1",
     "svg-sprite-loader": "^3.4.0",
-    "terriajs": "6.0.2",
+    "terriajs": "6.0.4",
     "terriajs-catalog-editor": "^0.2.0",
     "terriajs-cesium": "1.41.2",
     "terriajs-schema": "latest",
