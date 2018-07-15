@@ -18,12 +18,11 @@
     "awsProfile": "nationalmap",
     "awsS3PackagesPath": "s3://nationalmap-apps/nationalmap",
     "awsRegion": "ap-southeast-2",
-    "awsEc2InstanceType": "t2.medium",
-    "awsEc2ImageId": "ami-2a644649",
+    "awsEc2InstanceType": "t2.small",
+    "awsEc2ImageId": "ami-9d73a4ff",
     "awsKeyName": "natmap-kring",
     "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2018-07-14.json",
-    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2018-05-16.json",
-    "northernAustraliaPath": "../NorthernAustralia"
+    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2018-05-16.json"
   },
   "devDependencies": {
     "babel-eslint": "^7.0.0",
@@ -71,12 +70,9 @@
     "stop": "bash ./node_modules/terriajs-server/stop_server.sh",
     "postinstall": "echo 'Installation with NPM successful. What to do next:\\n  npm start       # Starts the server on port 3001\\n  gulp watch      # Builds NationalMap and dependencies, and rebuilds if files change.'",
     "hot": "webpack-dev-server --inline --config buildprocess/webpack.config.hot.js --hot --host 0.0.0.0",
-    "deploy": "rm -rf node_modules && npm install && npm run reinstall-northern-australia && npm run deploy-without-reinstall",
-    "deploy-without-reinstall": "gulp clean && gulp release && npm run build-northern-australia && npm run deploy-current",
-    "deploy-current": "npm run copy-northern-australia && npm run get-deploy-overrides && gulp make-package --serverConfigOverride ./privateserverconfig.json --clientConfigOverride ./wwwroot/privateconfig.json && cd deploy/aws && ./stack create && cd ../.. && rm -rf wwwroot/northernaustralia",
-    "get-deploy-overrides": "aws s3 --profile $npm_package_config_awsProfile cp $npm_package_config_awsS3ServerConfigOverridePath ./privateserverconfig.json && aws s3 --profile $npm_package_config_awsProfile cp $npm_package_config_awsS3ClientConfigOverridePath ./wwwroot/privateconfig.json",
-    "reinstall-northern-australia": "if [ -d $npm_package_config_northernAustraliaPath ]; then ORIGINAL_DIR=$PWD && cd $npm_package_config_northernAustraliaPath && rm -rf node_modules && npm install && cd $ORIGINAL_DIR; fi",
-    "build-northern-australia": "if [ -d $npm_package_config_northernAustraliaPath ]; then ORIGINAL_DIR=$PWD && cd $npm_package_config_northernAustraliaPath && rm -rf wwwroot/build && gulp release && cd $ORIGINAL_DIR; fi",
-    "copy-northern-australia": "if [ -d $npm_package_config_northernAustraliaPath ]; then mkdir -p wwwroot/northernaustralia && cp -r $npm_package_config_northernAustraliaPath/wwwroot/* wwwroot/northernaustralia/; fi"
+    "deploy": "rm -rf node_modules && npm install && npm run deploy-without-reinstall",
+    "deploy-without-reinstall": "gulp clean && gulp release && npm run deploy-current",
+    "deploy-current": "npm run get-deploy-overrides && gulp make-package --serverConfigOverride ./privateserverconfig.json --clientConfigOverride ./wwwroot/privateconfig.json && cd deploy/aws && ./stack create && cd ../..",
+    "get-deploy-overrides": "aws s3 --profile $npm_package_config_awsProfile cp $npm_package_config_awsS3ServerConfigOverridePath ./privateserverconfig.json && aws s3 --profile $npm_package_config_awsProfile cp $npm_package_config_awsS3ClientConfigOverridePath ./wwwroot/privateconfig.json"
   }
 }
