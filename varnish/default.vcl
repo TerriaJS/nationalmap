@@ -9,10 +9,6 @@ acl purge {
 }
 
 sub vcl_recv {
-  if (req.url ~ "^/convert") {
-    error 503 "The conversion service is temporarily unavailable.";
-  }
-
   if (req.url == "/marriage") {
     error 750 "/#marriage";
   }
