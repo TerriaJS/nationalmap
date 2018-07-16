@@ -1,6 +1,14 @@
 Change Log
 ==========
 
+### 2018-07-16
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.5.  Changes include:
+  * Fixed a bug that caused the order of items on the Workbench to change when visiting a share link.
+  * Added `rel="noreferrer noopener"` to all `target="_blank"` links. This prevents the target page from being able to navigate the source tab to a new page.
+  * Changed `CesiumSelectionIndicator` to no longer use Knockout binding. This will avoid a problem in some environments, such as when a Content Security Policy (CSP) is in place.
+  * Fixed a bug that prevented users from being able to enter coordinates directly into catalog function point parameter fields.
+
 ### 2018-05-22
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.2.  Changes include:
