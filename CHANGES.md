@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### 2018-09-03
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.1.  Changes include:
+  * Fixed a bug that prevented `BingMapsSearchProviderViewModel` and other uses of `loadJsonp` from working correctly.
+
 ### 2018-08-30
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.1.  Changes include:
