@@ -1,9 +1,17 @@
 Change Log
 ==========
 
+### 2018-09-14
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.3.  Changes include:
+  * When clicking a `Split` button on the workbench, the new catalog item will no longer be attached to the timeline even if the original was. This avoids a confusing situation where both catalog items would be locked to the same time.
+  * Added KMZ to the whitelisted formats for `MagdaCatalogItem`.
+  * Fixed a bug that caused a crash when switching to 2D with vector data already on the map, including when visiting a share link with vector data when the map ends up being 2D.
+  * The "Hide Workbench" button is now attached to the side of the Workbench, instead of on the opposite side of the screen from it.
+
 ### 2018-09-03
 
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.1.  Changes include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.2.  Changes include:
   * Fixed a bug that prevented `BingMapsSearchProviderViewModel` and other uses of `loadJsonp` from working correctly.
 
 ### 2018-08-30
