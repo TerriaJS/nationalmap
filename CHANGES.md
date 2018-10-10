@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+### 2018-09-21
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.4.  Changes include:
+  * Fixed a bug that could cause the workbench to appear narrower than expected on some systems, and the map to be off-center when collapsing the workbench on all systems.
+
 ### 2018-09-14
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.3.  Changes include:
