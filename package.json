@@ -22,7 +22,7 @@
     "awsEc2ImageId": "ami-9d73a4ff",
     "awsKeyName": "natmap-kring",
     "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2018-07-14.json",
-    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2018-10-11.json"
+    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2018-10-12.json"
   },
   "devDependencies": {
     "babel-eslint": "^7.0.0",
