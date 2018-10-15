@@ -1,9 +1,9 @@
 Change Log
 ==========
 
-### 2018-10-11
+### 2018-10-15
 
-* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.2.0.  Changes include:
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.2.1.  Changes include:
   * Added a simple WCS "clip and ship" functionality for WMS layers with corresponding a WCS endpoint and coverage.
   * Fixed problems canceling drag-and-drop when using some web browsers.
   * Fixed a bug that created a time period where no data is shown at the end of a time-varying CSV.
@@ -12,6 +12,10 @@ Change Log
   * Added automatic retry with jittered, exponential backoff for tile requests that result in a 5xx HTTP status code. This is especially useful for servers that return 503 or 504 under load. Previously, TerriaJS would frequently disable the layer and hit the user with an error message when accessing such servers.
   * Updated British National Grid transform in `Proj4Definitions` to a more accurate (~2 m) 7 parameter version https://epsg.io/27700.
   * Distinguished between 3D Terrain and 3D Smooth in share links and init files.
+  * We now use Cesium Ion for the Bing Maps basemaps, unless a `bingMapsKey` is provided in [config.json](https://docs.terria.io/guide/customizing/client-side-config/#parameters). You can control this behavior with the `useCesiumIonBingImagery` property. Please note that if a `bingMapsKey` is not provided, the Bing Maps geocoder will always return no results.
+  * Added a Terria logo in the lower left of the map. It can be disabled by setting `"hideTerriaLogo": true` in `config.json`.
+  * Improved the credits display on the 2D map to be more similar to the 3D credits.
+  * Fixed a bug that caused some legends to be missing or incomplete in Apple Safari.
   * Upgraded to Cesium v1.50.
 
 ### 2018-09-21
