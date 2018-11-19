@@ -1,6 +1,17 @@
 Change Log
 ==========
 
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.3.4.  Changes include:
+  * Changed the "My Data" interface to be much more intuitive and tweaked the visual style of the catalog.
+  * Removed the Terria logo from the preview map and made the credit there smaller.
+  * Added the ability to add custom components to the feedback area (lower right) of the user interface.
+  * Upgraded to Cesium v1.51.
+  * Added "filterByProcedures" property to "sos" item (default: true). When false, the list of procedures is not passed as a filter to GetFeatureOfInterest request, which works better for BoM Water Data Online services.
+  * Fixed a bug that caused the compass control to be misaligned in Internet Explorer 11.
+  * Added `CartoMapCatalogItem` to connect to layers using the [Carto Maps API](https://carto.com/developers/maps-api/).
+  * Made it possible to configure the compass control's colors using CSS.
+  * Fall back to the style name in the workbench styles dropdown when no title is given for a style in WMS GetCapabilities.
+
 ### 2018-10-15
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.2.1.  Changes include:
