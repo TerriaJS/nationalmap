@@ -40,23 +40,18 @@ function RelatedMaps(props) {
             </div>
 
             <div className={classNames(PanelStyles.section, Styles.section)}>
-                <a target="_blank" href="http://nationalmap.gov.au/northernaustralia/">
-                    <img className={Styles.image} src={require('../../wwwroot/images/northernaustralia.jpg')}
+                <a target="_blank" href="http://nationalmap.gov.au/investormap/">
+                    <img className={Styles.image} src={require('../../wwwroot/images/investormap.jpg')}
 
-                         alt="Northern Australia"/>
+                         alt="Investor Map"/>
                 </a>
 
-                <a target="_blank" className={Styles.link} href="http://nationalmap.gov.au/northernaustralia/">Northern
-                    Australia</a>
+                <a target="_blank" className={Styles.link} href="http://nationalmap.gov.au/investormap/">Investor Map</a>
 
                 <p>
-                    The Northern Australia NationalMap forms part of the Government's commitment to developing
-                    northern Australia by providing easy access to authoritative and other spatial data on northern
-                    Australia to governments, business and the public.
-
-                    More information on the Government's White Paper on Developing Northern Australia is available
-                    here: <a target="_blank" className={Styles.link} href="http://northernaustralia.gov.au/">
-                    http://northernaustralia.gov.au</a>.
+                    The Investor Map is a platform for accessing over 900 datasets to assist investors with assessment
+                    of opportunities in Australia, especially in mining, tourism and agriculture. The project is a
+                    collaboration between Austrade, Geoscience Australia and Data61 Terria.
                 </p>
             </div>
 
