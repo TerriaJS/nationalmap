@@ -249,8 +249,10 @@ gulp.task('make-package', function() {
         var productionClientConfig = mergeConfigs(clientConfig, clientConfigOverride);
         fs.writeFileSync(path.join(workingDir, 'wwwroot', 'config.json'), JSON.stringify(productionClientConfig, undefined, '  '));
     }
-
-    var tarResult = spawnSync('tar', [
+    
+    var tar = /^darwin/.test(process.platform) ? 'gtar' : 'tar';
+    
+    var tarResult = spawnSync(tar, [
         'czf',
         path.join('..', 'packages', packageName + '.tar.gz')
     ].concat(fs.readdirSync(workingDir)), {
