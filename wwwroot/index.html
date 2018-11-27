@@ -32,11 +32,100 @@
     <!-- Leaflet -->
     <script>L_PREFER_CANVAS = true;</script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/load-js@1.2.0"></script>
+    <script type="text/javascript">
+      /* load your stuff */
+      loadJS(["build/nationalmap.js"])
+        .then(function() {
+          ui = document.getElementById("ui");
+          setTimeout(function(){
+            ui.setAttribute("class", "loaded-ui"); 
+          }, 5000);   
+        });
+    </script>
+    <style>
+      html{
+        background: #393F4C;
+      }
+      #ui {
+        opacity: 0;
+        width: 100vw;
+        height: 100vh;
+        transition: opacity 1s linear;
+      }
+      
+      .loader-ui-right img{
+        display: block;
+        margin: calc(50vh - 150px) auto;
+      }
+  
+      @media (min-width: 768px){
+        .loader-ui{
+          display: flex;
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: -1;
+        }
+        
+        .loader-ui-left{
+          background: #3F4854;
+          height: 100vh;
+          width: 350px;
+          border-right: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .loader-ui-right{
+          height: 100vh;
+          width: calc(100% - 350px);
+        }    
+
+        
+        .loader-search{
+          margin: 70px 5px 5px 5px;
+          height: 40px;
+          background: #ffffff;
+          border-radius: 2px;
+          filter: blur(1px);
+        }
+        
+        .loader-add-data{
+          height: 42px;
+          margin: 5px;
+          background: #08ABD5;
+          border-radius: 2px;
+          filter: blur(1px);
+        }
+        .loader-intro{
+          height: 180px;
+          background: #667080;
+          border: dashed 1px rgba(255, 255, 255, 0.5);
+          margin: 10px 5px 5px 5px;
+          border-radius: 2px;
+          filter: blur(1px);
+        }
+      }
+      
+      #ui.loaded-ui{
+        opacity: 1;
+      }
+    </style>
 </head>
 
 <body>
-
+<div class='loader-ui'>
+  <div class='loader-ui-left'>
+    <div class="loader-search"></div>
+    <div class="loader-add-data"></div>
+    <div class="loader-intro"></div>
+  </div>
+  <div class='loader-ui-right'>
+    <img src = 'images/globe.gif'/>
+  </div>
+</div>
 <div id='ui'></div>
-  <script src="build/nationalmap.js"></script>
+  
 </body>
 </html>
