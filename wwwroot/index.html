@@ -74,38 +74,27 @@
           background: #3F4854;
           height: 100vh;
           width: 350px;
-          border-right: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .loader-ui-right{
           height: 100vh;
           width: calc(100% - 350px);
-        }    
-
-        
-        .loader-search{
-          margin: 70px 5px 5px 5px;
-          height: 40px;
-          background: #ffffff;
-          border-radius: 2px;
-          filter: blur(1px);
-        }
-        
-        .loader-add-data{
-          height: 42px;
-          margin: 5px;
-          background: #08ABD5;
-          border-radius: 2px;
-          filter: blur(1px);
-        }
-        .loader-intro{
-          height: 180px;
-          background: #667080;
-          border: dashed 1px rgba(255, 255, 255, 0.5);
-          margin: 10px 5px 5px 5px;
-          border-radius: 2px;
-          filter: blur(1px);
-        }
+        } 
+        .loader-ui-grabber{
+          left: 350px;
+          top: 70px;
+          height: 15px;
+          width: 31px;
+          position: absolute;
+          margin-left: -15px;
+          transform: perspective(10px) rotateY(10deg);
+          padding: 8px 0px;
+          border-width: 0px 1px 0px 0px;
+          background: rgb(63, 72, 84);
+          border-right: 1px solid #3F4854;
+          border-radius: 0px 2px 2px 0px;
+          background: #3F4854;
+        }   
       }
       
       #ui.loaded-ui{
@@ -117,9 +106,8 @@
 <body>
 <div class='loader-ui'>
   <div class='loader-ui-left'>
-    <div class="loader-search"></div>
-    <div class="loader-add-data"></div>
-    <div class="loader-intro"></div>
+  </div>
+  <div class='loader-ui-grabber'>
   </div>
   <div class='loader-ui-right'>
     <img src = 'images/globe.gif'/>
