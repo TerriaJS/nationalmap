@@ -30,7 +30,9 @@ module.exports = function(devMode, hot) {
                     test: /\.(js|jsx)$/,
                     include: [
                         path.resolve(__dirname, '..', 'index.js'),
+                        path.resolve(__dirname, '..', 'entry.js'),
                         path.resolve(__dirname, '..', 'lib')
+                        
                     ],
                     loader: 'babel-loader',
                     query: {
