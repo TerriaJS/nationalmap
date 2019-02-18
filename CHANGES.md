@@ -1,6 +1,21 @@
 Change Log
 ==========
 
+### 2019-02-18
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.5.0.  Changes include:
+  * Add support for rendering Mapbox Vector Tiles (MVT) layers. Currently, polygons are the only supported geometry type, and all polygons are drawn with the same outline and fill colors.
+  * `wwwroot/data/regionMapping.json` is now the default region mapping file (rather than a file provided by TerriaMap), and needs to be explicitly overridden by a `regionMappingDefinitionsUrl` setting in config.json.
+  * The Feature Info panel can now be moved by clicking and dragging it.
+  * The map tool buttons are now arranged horizontally instead of vertically on small-screen mobile devices.
+  * When using a Web Map Service (WMS) catalog item with the `linkedWcsUrl` and `linkedWcsCoverage` properties, we now pass the selected WMS style to the Web Coverage Service (WCS) so that it can optionally return different information based on the selected style.
+  * Added `stationIdWhitelist` and `stationIdBlacklist` properties to `SensorObservationServiceCatalogItem` to allow filtering certain monitoring stations in/out.
+  * Fixed a bug that caused a crash when attempting to use a `style` attribute on an `<a>` tag in Markdown+HTML strings such as feature info templates.
+  * Fixed a bug that displaced the chart dropdown list on mobile Safari.
+  * Upgraded to Cesium v1.53.
+
+### 2018-12-19
+
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.3.6.  Changes include:
   * Dragging/dropping files now displays a more subtle notification rather than opening the large Add Data / My Data panel.
   * The `sendFeedback` function can now be used to send additional information if the server is configured to receive it (i.e. `devserverconfig.json`).
@@ -11,6 +26,8 @@ Change Log
   * Fixed a bug that caused the standard "Give Feedback" button to fail to open the feedback panel.
   * Swapped the positions of the group expand/collapse icon and the "Remove from catalogue" icon on the My Data panel, for more consistent alignment.
   * Made notifications honor the `width` and `height` properties. Previously, these values were ignored.
+
+### 2018-11-20c
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.3.4.  Changes include:
   * Changed the "My Data" interface to be much more intuitive and tweaked the visual style of the catalog.
