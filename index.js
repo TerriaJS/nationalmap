@@ -65,7 +65,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // If we're running in dev mode, disable the built style sheet as we'll be using the webpack style loader.
-// Note that if the first stylesheet stops being nationalmap.css then this will have to change.
+// Note that if the first stylesheet stops being TerriaMap.css then this will have to change.
 if (process.env.NODE_ENV !== "production" && module.hot) {
     document.styleSheets[0].disabled = true;
 }
@@ -97,7 +97,7 @@ terria.filterStartDataCallback = function(startData) {
     }
 };
 
-terria.start({
+module.exports = terria.start({
     // If you don't want the user to be able to control catalog loading via the URL, remove the applicationUrl property below
     // as well as the call to "updateApplicationOnHashChange" further down.
     applicationUrl: window.location,
