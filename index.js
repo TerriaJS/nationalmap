@@ -65,7 +65,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // If we're running in dev mode, disable the built style sheet as we'll be using the webpack style loader.
-// Note that if the first stylesheet stops being nationalmap.css then this will have to change.
+// Note that if the first stylesheet stops being TerriaMap.css then this will have to change.
 if (process.env.NODE_ENV !== "production" && module.hot) {
     document.styleSheets[0].disabled = true;
 }
