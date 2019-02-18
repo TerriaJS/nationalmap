@@ -19,10 +19,10 @@
     "awsS3PackagesPath": "s3://nationalmap-apps/nationalmap",
     "awsRegion": "ap-southeast-2",
     "awsEc2InstanceType": "t2.small",
-    "awsEc2ImageId": "ami-0b8519f5fbecfdd2e",
+    "awsEc2ImageId": "ami-0db7df036ebf22fae",
     "awsKeyName": "natmap-kring",
     "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2018-07-14.json",
-    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2018-12-17.json"
+    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2019-02-18.json"
   },
   "devDependencies": {
     "babel-eslint": "^7.0.0",
