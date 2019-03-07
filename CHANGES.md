@@ -1,6 +1,289 @@
 Change Log
 ==========
 
+### 2019-02-18
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.5.0.  Changes include:
+  * Add support for rendering Mapbox Vector Tiles (MVT) layers. Currently, polygons are the only supported geometry type, and all polygons are drawn with the same outline and fill colors.
+  * `wwwroot/data/regionMapping.json` is now the default region mapping file (rather than a file provided by TerriaMap), and needs to be explicitly overridden by a `regionMappingDefinitionsUrl` setting in config.json.
+  * The Feature Info panel can now be moved by clicking and dragging it.
+  * The map tool buttons are now arranged horizontally instead of vertically on small-screen mobile devices.
+  * When using a Web Map Service (WMS) catalog item with the `linkedWcsUrl` and `linkedWcsCoverage` properties, we now pass the selected WMS style to the Web Coverage Service (WCS) so that it can optionally return different information based on the selected style.
+  * Added `stationIdWhitelist` and `stationIdBlacklist` properties to `SensorObservationServiceCatalogItem` to allow filtering certain monitoring stations in/out.
+  * Fixed a bug that caused a crash when attempting to use a `style` attribute on an `<a>` tag in Markdown+HTML strings such as feature info templates.
+  * Fixed a bug that displaced the chart dropdown list on mobile Safari.
+  * Upgraded to Cesium v1.53.
+
+### 2018-12-19
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.3.6.  Changes include:
+  * Dragging/dropping files now displays a more subtle notification rather than opening the large Add Data / My Data panel.
+  * The `sendFeedback` function can now be used to send additional information if the server is configured to receive it (i.e. `devserverconfig.json`).
+  * Made custom feedback controls stay in the lower-right corner of the map.
+  * Improved the look of the toolbar icons in the top right, and added an icon for the About page.
+  * Changed the title text for the new button next to "Add Data" on the workbench to "Load local/web data".
+  * Fixed a bug that caused the area to the right of the Terria log on the 2D map to be registered as a click on the logo instead of a click on the map.
+  * Fixed a bug that caused the standard "Give Feedback" button to fail to open the feedback panel.
+  * Swapped the positions of the group expand/collapse icon and the "Remove from catalogue" icon on the My Data panel, for more consistent alignment.
+  * Made notifications honor the `width` and `height` properties. Previously, these values were ignored.
+
+### 2018-11-20c
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.3.4.  Changes include:
+  * Changed the "My Data" interface to be much more intuitive and tweaked the visual style of the catalog.
+  * Removed the Terria logo from the preview map and made the credit there smaller.
+  * Added the ability to add custom components to the feedback area (lower right) of the user interface.
+  * Upgraded to Cesium v1.51.
+  * Added "filterByProcedures" property to "sos" item (default: true). When false, the list of procedures is not passed as a filter to GetFeatureOfInterest request, which works better for BoM Water Data Online services.
+  * Fixed a bug that caused the compass control to be misaligned in Internet Explorer 11.
+  * Added `CartoMapCatalogItem` to connect to layers using the [Carto Maps API](https://carto.com/developers/maps-api/).
+  * Made it possible to configure the compass control's colors using CSS.
+  * Fall back to the style name in the workbench styles dropdown when no title is given for a style in WMS GetCapabilities.
+
+### 2018-10-15
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.2.1.  Changes include:
+  * Added a simple WCS "clip and ship" functionality for WMS layers with corresponding a WCS endpoint and coverage.
+  * Fixed problems canceling drag-and-drop when using some web browsers.
+  * Fixed a bug that created a time period where no data is shown at the end of a time-varying CSV.
+  * Fixed a bug that could cause endless tile requests with certain types of incorrect server responses.
+  * Fixed a bug that could cause endless region tile requests when loading a CSV with a time column where none of the column values could actually be interpreted as a time.
+  * Added automatic retry with jittered, exponential backoff for tile requests that result in a 5xx HTTP status code. This is especially useful for servers that return 503 or 504 under load. Previously, TerriaJS would frequently disable the layer and hit the user with an error message when accessing such servers.
+  * Updated British National Grid transform in `Proj4Definitions` to a more accurate (~2 m) 7 parameter version https://epsg.io/27700.
+  * Distinguished between 3D Terrain and 3D Smooth in share links and init files.
+  * We now use Cesium Ion for the Bing Maps basemaps, unless a `bingMapsKey` is provided in [config.json](https://docs.terria.io/guide/customizing/client-side-config/#parameters). You can control this behavior with the `useCesiumIonBingImagery` property. Please note that if a `bingMapsKey` is not provided, the Bing Maps geocoder will always return no results.
+  * Added a Terria logo in the lower left of the map. It can be disabled by setting `"hideTerriaLogo": true` in `config.json`.
+  * Improved the credits display on the 2D map to be more similar to the 3D credits.
+  * Fixed a bug that caused some legends to be missing or incomplete in Apple Safari.
+  * Upgraded to Cesium v1.50.
+
+### 2018-09-21
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.4.  Changes include:
+  * Fixed a bug that could cause the workbench to appear narrower than expected on some systems, and the map to be off-center when collapsing the workbench on all systems.
+
+### 2018-09-14
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.3.  Changes include:
+  * When clicking a `Split` button on the workbench, the new catalog item will no longer be attached to the timeline even if the original was. This avoids a confusing situation where both catalog items would be locked to the same time.
+  * Added KMZ to the whitelisted formats for `MagdaCatalogItem`.
+  * Fixed a bug that caused a crash when switching to 2D with vector data already on the map, including when visiting a share link with vector data when the map ends up being 2D.
+  * The "Hide Workbench" button is now attached to the side of the Workbench, instead of on the opposite side of the screen from it.
+
+### 2018-09-03
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.2.  Changes include:
+  * Fixed a bug that prevented `BingMapsSearchProviderViewModel` and other uses of `loadJsonp` from working correctly.
+
+### 2018-08-30
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.1.1.  Changes include:
+  * Upgraded to terriajs-server v2.7.4.
+  * The previous default terrain provider, STK World Terrain, has been deprecated by its provider. *To continue using terrain in your deployed applications, you _must_ obtain a Cesium Ion key and add it to `config.json`*. See https://cesium.com/ to create an Ion account. New options are available in `config.json` to configure terrain from Cesium Ion or from another source. See https://terria.io/Documentation/guide/customizing/client-side-config/#parameters for configuration details.
+  * Upgraded to Cesium v1.48.
+  * Added `Cesium3DTilesCatalogItem` for visualizing [Cesium 3D Tiles](https://github.com/AnalyticalGraphicsInc/3d-tiles) datasets.
+  * Added `IonImageryCatalogItem` for accessing imagery assets on [Cesium Ion](https://cesium.com/).
+  * Added support for Cesium Ion terrain assets to `CesiumTerrainProvider`. To use an asset from Ion, specify the `ionAssetId` and optionally the `ionAccessToken` and `ionServer` properties instead of specifying a `url`.
+  * Fixed a bug that could cause legends to be missing from `WebMapServiceCatalogItems` that had `isEnabled` set to true.
+
+### 2018-07-16
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.5.  Changes include:
+  * Fixed a bug that caused the order of items on the Workbench to change when visiting a share link.
+  * Added `rel="noreferrer noopener"` to all `target="_blank"` links. This prevents the target page from being able to navigate the source tab to a new page.
+  * Changed `CesiumSelectionIndicator` to no longer use Knockout binding. This will avoid a problem in some environments, such as when a Content Security Policy (CSP) is in place.
+  * Fixed a bug that prevented users from being able to enter coordinates directly into catalog function point parameter fields.
+
+### 2018-05-22
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.2.  Changes include:
+  * Fixed a bug that prevented interaction with the 3D map when the splitter was active.
+
+### 2018-05-17
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.1.  Changes include:
+  * Added `parameters` property to `ArcGisMapServerCatalogItem`, allowing arbitrary parameters to be passed in tile and feature info requests.
+
+### 2018-05-16
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.0.0.  Changes include:
+  * Breaking Changes:
+    * An application-level polyfill suite is now required for Internet Explorer 9 and 10 compatibility. The easiest approach is to add `<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>` to the `<head>` element of your application's HTML page.
+    * In TerriaJS v7.0.0 (the _next_ major release), a polyfill suite may be required for Internet Explorer 11 as well. Adopting the approach above now will ensure you don't need to worry about it then.
+  * Overhauled support for printing. There is now a Print button on the Share panel that will provide a much better printable form of the map than the browser's built-in print feature. If a user uses the browser's print button instead, a message at the top will suggest using the TerriaJS Print feature and open the Share panel. Calling `window.print` (e.g. on a TerriaJS instance inside an iframe) will invoke the new TerriaJS print feature directly.
+  * Fixed a bug that caused `Leaflet.captureScreenshot` to show all layers on both sides even with the splitter active.
+  * Fixed a bug that prevented some vector features from appearing in `Leaflet.captureScreenshot`.
+  * Added ability to move the splitter thumb position vertically so that users can move it to prevent occlusions.
+  * Added `TerriaJsonCatalogFunction`. This catalog function allows an arbitrary HTTP GET to be invoked with user-provided parameters and return TerriaJS catalog JSON.
+  * Fixed a bug that could cause the feature info panel to sometimes be nearly transparent in Internet Explorer 11.
+  * Fixed a bug that caused an expanded preview chart's workbench item to erroneously show the date picker.
+  * Updated `MagdaCatalogItem` to match Magda project
+
+### 2018-04-16
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.7.0.  Changes include:
+  * Added `MagdaCatalogItem` to load details of a catalog item from [Magda](https://github.com/TerriaJS/magda).
+  * Fixed a bug that could cause a time-dynamic WMS layer to fail to ever show up on the map if the initial time on the timeline was outside the intervals where the layer had data.
+  * Fixed a bug which could cause a crash during load from share link when the layer default is to not `useOwnClock` but the share link has `useOwnClock` set.
+  * Fixed an issue that caused a 'This data source is already shown' error in particular circumstances.
+
+### 2018-03-22
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.6.4.  Changes include:
+  * Display of Lat Lon changed from 3 deciml places to 5 decimal places - just over 1m precision at equator.
+  * Fixed a bug that caused the timeline to appear when changing the time on the workbench for a layer not attached to the timeline.
+  * The workbench date/time picker is now available for time varying point and region CSVs.
+  * Fixed a bug that caused the workbench date picker controls to disappear when the item was attached to the timeline and the timeline's current time was outside the valid range for the item.
+  * Fixed a bug causing an error message when adding tabular data to the workbench before it was loaded.
+
+### 2018-03-15
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.6.2.  Changes include:
+  * Renamed search marker to location marker.
+  * Added the clicked coordinates to the bottom of the feature info panel. Clicking the marker icon will cause the location to be indicated on the map.
+  * The location marker is now included in shared map views.
+  * Fixed a bug that could cause split WMS layers to show the incorrect layer data for the date shown in the workbench.
+  * Refactored current time handling for `CatalogItem` to reduce the complexity and number of duplicated current time states.
+  * Fixed feature info updating when the time is changed from the workbench for `TableCatalogItem`.
+  * Change the workbench catalog item date picker so that updating the date does not disable the timeslider.
+  * Fix a bug that meant that, when the current time was updated on an `ImageryCatalogItem` while the layer wasn't shown, the old time was still shown when the layer was re-enabled.
+  * Added `{{terria.currentTime}}` to feature info template.
+  * Added a way to format times within a feature info tempate. E.g. `{{#terria.formatDateTime}}{"format": "dd-mm-yyyy HH:MM:ss"}{{terria.currentTime}}{{/terria.formatDateTime}}`.
+  * Fixed a bug that caused the selection indicator to float strangely when visiting a share link with a selected feature.
+  * Fixed a bug that caused a region to be selected even when clicking on a hole in that region.
+  * Fixed a bug that prevented the selection indicator from following moving features on the 2D map.
+  * Fixed a bug that caused Leaflet to stop rendering further points in a layer and throw errors when calculating extent when one point had invalid characters in the latitude or longitude field.
+  * We now default to `autoPlay: false` if it's not specified in `config.json`.
+  * Changed search box placeholders to more precisely reflect their functionality.
+  * CartoDB basemaps are now always loaded over HTTPS.
+
+### 2018-02-15
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.6.1.  Changes include:
+  * Fixed a bug that could cause the workbench UI to hang when toggling concepts, particularly for an `SdmxJsonCatalogItem`.
+  * Added previous and next buttons to workbench catalog item date picker.
+  * Upgraded to Cesium 1.41.
+
+### 2018-01-18
+
+* Added `tern.org.au` to the proxy whitelist.
+* Updated the contact email address to `data@digital.gov.au` in the static help pages.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.7.  Changes include:
+  * Fixed a bug that caused the feature info panel to stop working after clicking on a location search marker.
+  * Added support for ArcGIS tokens on the 2D map. Previously, tokens only worked reliably in 3D.
+  * Improved handling of tile errors, making it more consistent between 2D and 3D.
+  * Fixed a bug that prevented the Add Data button from working Internet Explorer 9 unless the DevTools were also open.
+  * Improved the sizing of the feature info panel so it is less likely to completely obscure the map.
+  * Added support for using tokens to access WMS layers, particularly using the WMS interface to ArcGIS servers.
+  * Tweaked the sizing of the feature info panel.
+  * Fixed a bug that caused `ArcGisMapServerCatalogItem` to always use the server's single fused map cache, if available. Now, if the `layers` property is specified, we request individual dynamic layers and ignore the fused map cache.
+
+### 2017-11-30
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.4.  Changes include:
+  * Fixed a serious bug that prevented opening the Data Catalog in Internet Explorer.
+  * Fixed some problems with the Terria Spatial Analytics `CatalogFunctions`.
+
+### 2017-11-21
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.5.3.  Changes include:
+  * Added the ability to split the screen into a left-side and right-side, and show raster and region mapped layers on only one side of the splitter.
+  * Added the ability to use a tabbed catalog in the explorer panel on desktop site. Setting `tabbedCatalog` parameter to `true` in `config.json` causes top-level groups in the catalog to list items in separate explorer panel tabs.
+  * Added the ability to use vector tile properties in feature info templates when using region mapping (data row attributes will overwrite vector tile properties with the same name).
+  * Properties available in feature info templates are now JSON parsed and replaced by their javascript object if they start with `[` or `{` and parse successfully.
+  * Decreased flickering of time-varying region mapped layers by pre-rendering the next time interval.
+  * Fixed a bug in `WebMapServiceCatalogItem` that could cause a WMS time time dimension to be interpreted incorrectly if it was specified only using dates (not times) and with a periodicity of less than a day.
+  * Added `cannotSum` property to SDMX-JSON catalog items. This is used to identify the measures that cannot be summed so that TerriaJS won't display a Total when more than one of these are selected and it will not show a "Display as a percentage of regional total" checkbox in the workbench UI. `cannotSum` can be either a mapping of concept ids to the values that prevent summing, or simply `true` to always prevent summing.
+
+### 2017-11-13
+
+* Added `AEC_FED_2017_AMLS` region type.
+* Added `data61.io` and `d61.io` to the proxy whitelist.
+
+### 2017-11-09
+
+* Removed six datasets from the catalog that have been taken down from the ABS SDMX-JSON service (ABS_ERP_LGA, ABS_ANNUAL_ERP_LGA, ABS_ANNUAL_ERP_LGA2014, ABS_ERP_LGA2014, ABS_ANNUAL_ERP_LGA2015, ABS_ERP_LGA2015)
+* Added two replacement datasets to the catalog, ABS_ERP_LGA2016 and ABS_ANNUAL_ERP_LGA2016.
+* Added ATSI_BIRTHS_SUMM, ATSI_FERTILITY, ABS_BLDG_APPROVALS_LGA2016, ABS_BA_SA2_ASGS2016, CONFINEMENTS_NUPTIALITY, CONFINEMENTS_PLURALITY, FERTILITY_AGE_STATE, PATERNITY_AGE_STATE, RES_DWELL, RES_PROP_INDEX.
+* Fixed broken link in Broadband layer descriptions and add some text explaining that the data is historical.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.5.  Changes include:
+  * Added support for specifying namespaced layer names in the `WebMapServiceCatalogItem` `layers` property.
+  * Made TerriaJS tolerant of XML/HTML inside text elements in WMS GetCapabilities without being properly wrapped in `CDATA`.
+  * Improved behaviour of SDMX-JSON items when no data is available.
+
+### 2017-10-31
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.3.  Changes include:
+  * We no longer show the Zoom To button on the workbench when there is no rectangle to zoom to.
+  * Fixed a bug when sharing SDMX-JSON catalog items.
+  * Improved display of "Add Data" panel on small screens when Feedback and Feature Info panels are open.
+  * Added "search in data catalog" link to mobile search.
+  * Added a button to automatically copy share url into clipboard in share panel.
+  * Added `initFragmentPaths` property to the `parameters` section of `config.json`.  It can be used to specify an array of base paths for resolving init fragments in the URL.
+  * Modified `CkanCatalogItem` to exclude files that advertise themselves as KML files but have the file extension .ZIP.
+  * Removed "View full size image" link on the share panel.  Chrome 60 removed the ability to navigate to a data URI, and other browsers are expected to follow this lead.
+
+### 2017-10-16
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.4.0.  Changes include:
+  * Breaking change: removed some old types that haven't been used since the new React-based user interface in v4.0.0, specifically `KnockoutHammerBinding`, `KnockoutMarkdownBinding`, `PopupMessageConfirmationViewModel`, `PopupMessageViewModel`, and `PopupViewModel`.
+  * Added the ability to use tokens from terriajs-server for layers requiring ESRI tokens.
+  * Catalog group items are now sorted by their in-catalog name
+
+### 2017-09-15
+
+* Added more datasets from the 2016 Census.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.3.0.  Changes include:
+  * Added the ability to use the analytics region picker with vector tile region mapping by specifiying a WMS server & layer for analytics only.
+  * Updated the client side validation to use the server-provided file size limit when drag/dropping a file requiring the conversion service.
+  * `zoomOnEnable` now works even for a catalog item that is initially enabled in the catalog.  Previously, it only worked for catalog items enabled via the user interface or otherwise outside of the load process.
+  * Added `initialTimeSource` property to `CsvCatalogItem` so it is possible to specify the value of the animation timeline at start from init files.
+  * Added to documentation for customizing data appearance.
+  * Added `CatalogShortcut` for creating tool items for linking to a `CatalogItem`.
+  * Renamed `ViewState.viewCatalogItem()` to `viewCatalogMember` to reflect that it can be used for all `CatalogMembers`, not just `CatalogItems`.
+  * Fixed a bug that could cause a crash when switching to 2D when the `initialView` was just a `Rectangle` instead of a `CameraView`.
+  * Fixed a bug that caused multiple layers with generated, gradient legends to all show the same legend on the Workbench.
+
+### 2017-08-15
+
+* Added adelaidemetro.com.au to the proxy whitelist.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.11.  Changes include:
+  * The Share feature now includes the current time selected on the timeline, so that anyone visiting a share link will see the map at the intended time.
+  * Improved the conversion of Esri polygons to GeoJSON by `featureDataToGeoJson`.  It now correctly handles polygons with holes and with multiple outer rings.
+  * Added some fields to the dataset info page for `CkanCatalogItem`.
+  * A catalog item's `cacheDuration` property now takes precedence over the cache duration specified by the code.  Previously, the `cacheDuration` would only override the default duration (2 weeks).
+  * Added option to expand the HTML embed code and toggle URL shorting for the share link.
+  * Fixed a bug that could cause some layers, especially the Bing Maps basemap, to occasionally be missing from the 2D map.
+  * Fixed a bug that could cause the selected time to move to the end time when sharing a map with a time-dynamic layer.
+  * Pinned `urijs` to v1.18.10 to work around a breaking change in v1.18.11.
+
+### 2017-07-21
+
+* Added new ASGS 2016 region definitions for use with region-mapped CSVs, ABS data, etc.
+* Added Australian Bureau of Statistics Census 2016 layers to the catalog.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.7.  Changes include:
+  * Added the Latitude and Longitude to the filename for the Feature Information file download.
+  * Added the time to the timeline labels when zoomed in to a single day. Previously, the label sometimes only showed the date.
+  * Added the ability to disable the conversion service so that no user data is sent outside of the client by setting `conversionServiceBaseUrl` to `false` in the `parameters` section of `config.json`.
+  * Added the ability to disable the location button by setting `disableMyLocation` to `true` in the `parameters` section of `config.json`.
+  * Fixed a bug that caused the share functionality to fail (both screenshot and share link) in 2d mode.
+  * Fixed a bug with explicitly styled enum columns in Internet Explorer.
+  * Fixed a bug that caused the selected column in a csv to be the second column when a time column is present.
+
+### 2017-06-15
+
+* Add SA1-4, GCCSA & STE from ASGS 2016 and update short region mapping aliases to point to these.
+* Add Stats New Zealand Area Units and Mesh Blocks to region mapping. These are available under the aliases nz_au_code_2017, nz_au_name_2017 & nz_mb_2017_code.
+* Changed the 2011 ABS SDMX-JSON items to explicitly require 2011 regions, because the default will be updated to 2016.
+* Used the correct ID for the City of Launceston on data.gov.au: `city-of-launceston` instead of `cityoflaunceston`.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 5.2.5.  Changes include:
+  * Fixed a bug with `forceProxy: true` which meant that vector tiles would try, and fail, to load over the proxy.
+  * Added documentation for customizing data appearance, and folded in existing but orphaned documentation for creating feature info templates.
+  * Changed the LocateMe button so that it toggles and continuously updates the location when Augmented Reality is enabled.
+  * Added the ability to set SDMX-JSON region names from a region type dimension, using a Mustache template. This was required so regions can be mapped to specific years, even if not specified by the SDMX-JSON server.
+  * Added `viewermode` to the users persistent local storage to remember the last `ViewerMode` used.
+  * Added the ability to customize the preamble text on the feedback form ("We would love to hear from you!") by setting `feedbackPreamble` in the `parameters` section of `config.json`.
+
 ### 2017-05-15
 
 * Added a link to the State of Environment Map under Related Maps.

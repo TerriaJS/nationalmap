@@ -232,6 +232,7 @@ gulp.task('make-package', function() {
 
     fs.copySync('wwwroot', path.join(workingDir, 'wwwroot'), copyOptions);
     fs.copySync('node_modules', path.join(workingDir, 'node_modules'), copyOptions);
+    fs.copySync('varnish', path.join(workingDir, 'varnish'), copyOptions);
 
     if (argv.serverConfigOverride) {
         var serverConfig = json5.parse(fs.readFileSync('devserverconfig.json', 'utf8'));

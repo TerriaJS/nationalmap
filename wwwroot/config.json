@@ -4,7 +4,7 @@
     ],
     "parameters": {
         "feedbackUrl": "feedback",
-        "bingMapsKey": "AkaOmRFtjAb71cXgLwAGtLbj2RpkPKtVqAIroFQsocfurCBILxIeAWPkil7hhRy_",
+        "bingMapsKey": "AtftBnlXr4QgQIRFJcr0VkGKTtnys8tJ3OSCZ1gkVE8AsazTR6Ca3x6RxllCUY4Q",
         "googleUrlShortenerKey": null,
         "googleAnalyticsKey": null,
         "googleAnalyticsOptions": null,
@@ -21,13 +21,18 @@
             "link": "http://www.csiro.au/en/Research/D61"
         },
         "appName": "NationalMap",
-        "supportEmail": "data@pmc.gov.au",
+        "supportEmail": "data@digital.gov.au",
         "proj4ServiceBaseUrl": "proj4def/",
         "brandBarElements(Remove this bit in parentheses for production deployment)": [
             "<a target=\"_blank\" href=\"about.html\"><img src=\"images/NationalMap-logo-only.png\" height=\"50\" alt=\"National Map\" title=\"Version: {{version}}\" /></a>",
             "<a target=\"_blank\" href=\"about.html\"><img src=\"images/NationalMap-text-only.png\" height=\"50\" alt=\"National Map\" title=\"Version: {{version}}\" /></a>",
             "<a target=\"_blank\" href=\"http://www.gov.au/\"><img src=\"images/AG-Rvsd-Stacked-Press.png\" height=\"45\" alt=\"Australian Government\" /></a>"
         ],
-        "autoPlay": false
+        "autoPlay": false,
+        "feedbackPreamble": "Provide feedback to the NationalMap software developers below. We would love to hear from you!\n\nIf you are commenting on the _actual data_ on the map, e.g. broadband availability in a specific area, please consider sending your comments to the custodian of the dataset you're viewing, instead of using this form. Contact information for most datasets can be found by clicking \"About this Data Set\".",
+        "initFragmentPaths": [
+            "/proxy/_0s/http://static.nationalmap.nicta.com.au/init/fragments-2017-10-31/",
+            "init/"
+        ]
     }
 }
