@@ -1,0 +1,43 @@
+{
+    "catalog": [
+        {
+            "name": "BeachWatch",
+            "type": "group",
+            "items": [
+                {
+                    "name": "Sydney Ocean Beaches",
+                    "description": "<a href=\"\" style=\"display:none\">test</a>",
+                    "type": "georss",
+                    "url": "https://www.environment.nsw.gov.au/beachapp/OceanBulletin.xml",
+                    "tableStyle": {
+                        "columns": {
+                            "category": {
+                                "colorBins": [
+                                    {"value": "Pollution is unlikely", "color": "green"},
+                                    {"value": "Pollution is possible", "color": "yellow"},
+                                    {"value": "Pollution is likely", "color": "red"}
+                                ]        
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "Illawarra Ocean Beaches",
+                    "type": "georss",
+                    "url": "https://www.environment.nsw.gov.au/beachapp/IllawarraBulletin.xml",
+                    "tableStyle": {
+                        "columns": {
+                            "category": {
+                                "colorBins": [
+                                    {"value": "Pollution is unlikely", "color": "green"},
+                                    {"value": "Pollution is possible", "color": "yellow"},
+                                    {"value": "Pollution is likely", "color": "red"}
+                                ]        
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
