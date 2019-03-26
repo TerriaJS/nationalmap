@@ -21,5 +21,5 @@ wwwroot/privateconfig.json
 deploy/packages/
 deploy/work/
 wwwroot/init/sdmx-abs-beta.json
-package-lock.json
+packages/
 /wwwroot/init/abs-itt.json

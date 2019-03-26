@@ -23,7 +23,7 @@ write_files:
     NFILES=131072
     MEMLOCK=82000
     DAEMON_OPTS="-a :80 -T localhost:6082 -f /etc/varnish/default.vcl -S /etc/varnish/secret -s memcache=malloc,1G -s filecache=file,/tmp/varnish_storage.bin,10G"
-
+  
  - path: /etc/rsyslog.d/30-natmap.conf
    content: |
     :syslogtag, isequal, "natmap:" /var/log/natmap.log
