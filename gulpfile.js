@@ -1,3 +1,7 @@
+/*eslint-env node*/
+/*eslint no-sync: 0*/
+/*eslint no-process-exit: 0*/
+
 'use strict';
 
 /*global require*/
@@ -5,115 +9,23 @@
 // This matters if ever we have gulp tasks run from npm, especially post-install ones.
 var fs = require('fs');
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 var path = require('path');
-
-var minNode = require('./package.json').engines.node;
-if (!require('semver').satisfies(process.version, minNode)) {
-    console.log('Terria requires Node.js ' + minNode + ' to build. Please update your version of Node.js, delete your node_modules directory' +
-        ', then run npm install and gulp again.');
-    console.exit();
-}
-
-
-gulp.task('build', ['render-datasource-templates', 'copy-terriajs-assets', 'build-app']);
-gulp.task('release', ['render-datasource-templates', 'copy-terriajs-assets', 'release-app', 'make-editor-schema']);
-gulp.task('watch', ['watch-datasource-templates', 'watch-terriajs-assets', 'watch-app']);
-gulp.task('default', ['lint', 'build']);
+var PluginError = require('plugin-error');
 
 var watchOptions = {
     interval: 1000
 };
 
-gulp.task('build-app', ['check-terriajs-dependencies', 'write-version'], function(done) {
-    var runWebpack = require('terriajs/buildprocess/runWebpack.js');
-    var webpack = require('webpack');
-    var webpackConfig = require('./buildprocess/webpack.config.js')(true);
+gulp.task('check-terriajs-dependencies', function(done) {
+    var appPackageJson = require('./package.json');
+    var terriaPackageJson = require('terriajs/package.json');
 
-    runWebpack(webpack, webpackConfig, done);
+    syncDependencies(appPackageJson.dependencies, terriaPackageJson, true);
+    syncDependencies(appPackageJson.devDependencies, terriaPackageJson, true);
+    done();
 });
 
-gulp.task('release-app', ['check-terriajs-dependencies', 'write-version'], function(done) {
-    var runWebpack = require('terriajs/buildprocess/runWebpack.js');
-    var webpack = require('webpack');
-    var webpackConfig = require('./buildprocess/webpack.config.js')(false);
-
-    runWebpack(webpack, Object.assign({}, webpackConfig, {
-        plugins: [
-            new webpack.optimize.UglifyJsPlugin({sourceMap: true}),
-            new webpack.optimize.OccurrenceOrderPlugin(),
-        ].concat(webpackConfig.plugins || [])
-    }), done);
-});
-
-gulp.task('watch-app', ['check-terriajs-dependencies'], function(done) {
-    var fs = require('fs');
-    var watchWebpack = require('terriajs/buildprocess/watchWebpack');
-    var webpack = require('webpack');
-    var webpackConfig = require('./buildprocess/webpack.config.js')(true, false);
-
-    fs.writeFileSync('version.js', 'module.exports = \'Development Build\';');
-    watchWebpack(webpack, webpackConfig, done);
-});
-
-gulp.task('copy-terriajs-assets', function() {
-    var terriaWebRoot = path.join(getPackageRoot('terriajs'), 'wwwroot');
-    var sourceGlob = path.join(terriaWebRoot, '**');
-    var destPath = path.resolve(__dirname, 'wwwroot', 'build', 'TerriaJS');
-
-    return gulp
-        .src([ sourceGlob ], { base: terriaWebRoot })
-        .pipe(gulp.dest(destPath));
-});
-
-gulp.task('watch-terriajs-assets', ['copy-terriajs-assets'], function() {
-    var terriaWebRoot = path.join(getPackageRoot('terriajs'), 'wwwroot');
-    var sourceGlob = path.join(terriaWebRoot, '**');
-
-    return gulp.watch(sourceGlob, watchOptions, [ 'copy-terriajs-assets' ]);
-});
-
-// Generate new schema for editor, and copy it over whatever version came with editor.
-gulp.task('make-editor-schema', ['copy-editor'], function() {
-    var generateSchema = require('generate-terriajs-schema');
-
-    var terriaJSRoot = getPackageRoot('terriajs');
-
-    return generateSchema({
-        sourceGlob: [
-            path.join(terriaJSRoot, 'lib/Models/*CatalogItem.js'),
-            path.join(terriaJSRoot, 'lib/Models/*CatalogGroup.js'),
-            path.join(terriaJSRoot, 'lib/Models/*CatalogMember.js'),
-            '!' + path.join(terriaJSRoot, 'lib/Models/addUserCatalogMember.js'),
-            '!' + path.join(terriaJSRoot, 'lib/Models/AsyncFunctionResultCatalogItem.js')
-        ],
-        dest: 'wwwroot/editor',
-        noversionsubdir: true,
-        editor: true,
-        quiet: true
-    });
-});
-
-gulp.task('copy-editor', function() {
-    var glob = path.join(getPackageRoot('terriajs-catalog-editor'), '**');
-
-    return gulp.src(glob)
-        .pipe(gulp.dest('./wwwroot/editor'));
-});
-
-gulp.task('lint', function() {
-    var runExternalModule = require('terriajs/buildprocess/runExternalModule');
-
-    runExternalModule('eslint/bin/eslint.js', [
-        '-c', path.join(getPackageRoot('terriajs'), '.eslintrc'),
-        '--ignore-pattern', 'lib/ThirdParty',
-        '--max-warnings', '0',
-        'index.js',
-        'lib'
-    ]);
-});
-
-gulp.task('write-version', function() {
+gulp.task('write-version', function(done) {
     var fs = require('fs');
     var spawnSync = require('child_process').spawnSync;
 
@@ -125,84 +37,106 @@ gulp.task('write-version', function() {
     }
 
     fs.writeFileSync('version.js', 'module.exports = \'' + version + '\';');
+
+    done();
 });
 
-function onError(e) {
-    if (e.code === 'EMFILE') {
-        console.error('Too many open files. You should run this command:\n    ulimit -n 2048');
-        process.exit(1);
-    } else if (e.code === 'ENOSPC') {
-        console.error('Too many files to watch. You should run this command:\n' +
-                    '    echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p');
-        process.exit(1);
+gulp.task('build-app', gulp.series('check-terriajs-dependencies', 'write-version', function buildApp(done) {
+    var runWebpack = require('terriajs/buildprocess/runWebpack.js');
+    var webpack = require('webpack');
+    var webpackConfig = require('./buildprocess/webpack.config.js')(true);
+
+    checkForDuplicateCesium();
+
+    runWebpack(webpack, webpackConfig, done);
+}));
+
+gulp.task('release-app', gulp.series('check-terriajs-dependencies', 'write-version', function releaseApp(done) {
+    var runWebpack = require('terriajs/buildprocess/runWebpack.js');
+    var webpack = require('webpack');
+    var webpackConfig = require('./buildprocess/webpack.config.js')(false);
+
+    checkForDuplicateCesium();
+
+    runWebpack(webpack, Object.assign({}, webpackConfig, {
+        plugins: webpackConfig.plugins || []
+    }), done);
+}));
+
+gulp.task('watch-app', gulp.series('check-terriajs-dependencies', function watchApp(done) {
+    var fs = require('fs');
+    var watchWebpack = require('terriajs/buildprocess/watchWebpack');
+    var webpack = require('webpack');
+    var webpackConfig = require('./buildprocess/webpack.config.js')(true, false);
+
+    checkForDuplicateCesium();
+
+    fs.writeFileSync('version.js', 'module.exports = \'Development Build\';');
+    watchWebpack(webpack, webpackConfig, done);
+}));
+
+gulp.task('copy-terriajs-assets', function() {
+    var terriaWebRoot = path.join(getPackageRoot('terriajs'), 'wwwroot');
+    var sourceGlob = path.join(terriaWebRoot, '**');
+    var destPath = path.resolve(__dirname, 'wwwroot', 'build', 'TerriaJS');
+
+    return gulp
+        .src([ sourceGlob ], { base: terriaWebRoot })
+        .pipe(gulp.dest(destPath));
+});
+
+gulp.task('watch-terriajs-assets', gulp.series('copy-terriajs-assets', function waitForTerriaJsAssetChanges() {
+    var terriaWebRoot = path.join(getPackageRoot('terriajs'), 'wwwroot');
+    var sourceGlob = path.join(terriaWebRoot, '**');
+
+    // gulp.watch as of gulp v4.0.0 doesn't work with backslashes (the task is never triggered).
+    // But Windows is ok with forward slashes, so use those instead.
+    if (path.sep === '\\') {
+        sourceGlob = sourceGlob.replace(/\\/g, '/');
     }
-    gutil.log(e.message);
-    process.exit(1);
-}
+
+    return gulp.watch(sourceGlob, watchOptions, gulp.series('copy-terriajs-assets'));
+}));
+
+gulp.task('copy-editor', function() {
+    var glob = path.join(getPackageRoot('terriajs-catalog-editor'), '**');
+
+    return gulp.src(glob)
+        .pipe(gulp.dest('./wwwroot/editor'));
+});
+
+// Generate new schema for editor, and copy it over whatever version came with editor.
+gulp.task('make-editor-schema', gulp.series('copy-editor', function makeEditorSchema() {
+    var generateSchema = require('generate-terriajs-schema');
+    var schemaSourceGlob = require('terriajs/buildprocess/schemaSourceGlob');
+
+    return generateSchema({
+        sourceGlob: schemaSourceGlob,
+        dest: 'wwwroot/editor',
+        noversionsubdir: true,
+        editor: true,
+        quiet: true
+    });
+}));
+
+gulp.task('lint', function(done) {
+    var runExternalModule = require('terriajs/buildprocess/runExternalModule');
+
+    runExternalModule('eslint/bin/eslint.js', [
+        '-c', path.join(getPackageRoot('terriajs'), '.eslintrc'),
+        '--ignore-pattern', 'lib/ThirdParty',
+        '--max-warnings', '0',
+        'index.js',
+        'lib'
+    ]);
+    done();
+});
 
 function getPackageRoot(packageName) {
     return path.dirname(require.resolve(packageName + '/package.json'));
 }
 
-gulp.task('diagnose', function() {
-    console.log('Have you run `npm install` at least twice?  See https://github.com/npm/npm/issues/10727');
-
-    var terriajsStat = fs.lstatSync('./node_modules/terriajs');
-    var terriajsIsLinked = terriajsStat.isSymbolicLink();
-
-    if (terriajsIsLinked) {
-        console.log('TerriaJS is linked.  Have you run `npm install` at least twice in your TerriaJS directory?');
-
-        var terriaPackageJson = JSON.parse(fs.readFileSync('./node_modules/terriajs/package.json'));
-
-        var terriaPackages = fs.readdirSync('./node_modules/terriajs/node_modules');
-        terriaPackages.forEach(function(packageName) {
-            var terriaPackage = path.join('./node_modules/terriajs/node_modules', packageName);
-            var appPackage = path.join('./node_modules', packageName);
-            if (packageName === '.bin' || !fs.existsSync(appPackage)) {
-                return;
-            }
-
-            var terriaPackageStat = fs.lstatSync(terriaPackage);
-            var appPackageStat = fs.lstatSync(appPackage);
-
-            if (terriaPackageStat.isSymbolicLink() !== appPackageStat.isSymbolicLink()) {
-                console.log('Problem with package: ' + packageName);
-                console.log('  The application ' + (appPackageStat.isSymbolicLink() ? 'links' : 'does not link') + ' to the package.');
-                console.log('  TerriaJS ' + (terriaPackageStat.isSymbolicLink() ? 'links' : 'does not link') + ' to the package.');
-            }
-
-            // Verify versions only for packages required by TerriaJS.
-            if (typeof terriaPackageJson.dependencies[packageName] === 'undefined') {
-                return;
-            }
-
-            var terriaDependencyPackageJsonPath = path.join(terriaPackage, 'package.json');
-            var appDependencyPackageJsonPath = path.join(appPackage, 'package.json');
-
-            var terriaDependencyPackageJson = JSON.parse(fs.readFileSync(terriaDependencyPackageJsonPath));
-            var appDependencyPackageJson = JSON.parse(fs.readFileSync(appDependencyPackageJsonPath));
-
-            if (terriaDependencyPackageJson.version !== appDependencyPackageJson.version) {
-                console.log('Problem with package: ' + packageName);
-                console.log('  The application has version ' + appDependencyPackageJson.version);
-                console.log('  TerriaJS has version ' + terriaDependencyPackageJson.version);
-            }
-        });
-    } else {
-        console.log('TerriaJS is not linked.');
-
-        try {
-            var terriajsModules = fs.readdirSync('./node_modules/terriajs/node_modules');
-            if (terriajsModules.length > 0) {
-                console.log('./node_modules/terriajs/node_modules is not empty.  This may indicate a conflict between package versions in this application and TerriaJS, or it may indicate you\'re using an old version of npm.');
-            }
-        } catch (e) {
-        }
-    }
-});
-
-gulp.task('make-package', function() {
+gulp.task('make-package', function(done) {
     var argv = require('yargs').argv;
     var fs = require('fs-extra');
     var spawnSync = require('child_process').spawnSync;
@@ -217,8 +151,6 @@ gulp.task('make-package', function() {
         fs.mkdirSync(packagesDir);
     }
 
-    var packageFile = path.join(packagesDir, packageName + '.tar.gz');
-
     var workingDir = path.join('.', 'deploy', 'work');
     if (fs.existsSync(workingDir)) {
         fs.removeSync(workingDir);
@@ -226,13 +158,9 @@ gulp.task('make-package', function() {
 
     fs.mkdirSync(workingDir);
 
-    var copyOptions = {
-        preserveTimestamps: true
-    };
-
-    fs.copySync('wwwroot', path.join(workingDir, 'wwwroot'), copyOptions);
-    fs.copySync('node_modules', path.join(workingDir, 'node_modules'), copyOptions);
-    fs.copySync('varnish', path.join(workingDir, 'varnish'), copyOptions);
+    fs.copySync('wwwroot', path.join(workingDir, 'wwwroot'));
+    fs.copySync('node_modules', path.join(workingDir, 'node_modules'));
+    fs.copySync('deploy/varnish', path.join(workingDir, 'varnish'));
 
     if (argv.serverConfigOverride) {
         var serverConfig = json5.parse(fs.readFileSync('devserverconfig.json', 'utf8'));
@@ -250,7 +178,11 @@ gulp.task('make-package', function() {
         fs.writeFileSync(path.join(workingDir, 'wwwroot', 'config.json'), JSON.stringify(productionClientConfig, undefined, '  '));
     }
 
-    var tarResult = spawnSync('tar', [
+    // if we are on OSX make sure to use gtar for compatibility with Linux
+    // otherwise we see lots of error message when extracting with GNU tar
+    var tar = /^darwin/.test(process.platform) ? 'gtar' : 'tar';
+
+    var tarResult = spawnSync(tar, [
         'czf',
         path.join('..', 'packages', packageName + '.tar.gz')
     ].concat(fs.readdirSync(workingDir)), {
@@ -259,15 +191,19 @@ gulp.task('make-package', function() {
         shell: false
     });
     if (tarResult.status !== 0) {
-        throw new gutil.PluginError('tar', 'External module exited with an error.', { showStack: false });
+        throw new PluginError('tar', 'External module exited with an error.', { showStack: false });
     }
+
+    done();
 });
 
-gulp.task('clean', function() {
+gulp.task('clean', function(done) {
     var fs = require('fs-extra');
 
     // // Remove build products
     fs.removeSync(path.join('wwwroot', 'build'));
+
+    done();
 });
 
 function mergeConfigs(original, override) {
@@ -308,7 +244,7 @@ function mergeConfigs(original, override) {
 
     "name": "<%= name %>"
  */
-gulp.task('render-datasource-templates', function() {
+gulp.task('render-datasource-templates', function(done) {
     var ejs = require('ejs');
     var fs = require('fs-extra');
     var JSON5 = require('json5');
@@ -318,6 +254,7 @@ gulp.task('render-datasource-templates', function() {
         fs.accessSync(templateDir);
     } catch (e) {
         // Datasources directory doesn't exist? No problem.
+        done();
         return;
     }
     fs.readdirSync(templateDir).forEach(function(filename) {
@@ -341,13 +278,15 @@ gulp.task('render-datasource-templates', function() {
             fs.writeFileSync(path.join('wwwroot/init', outFilename), new Buffer(result));
         }
     });
+
+    done();
 });
 
-gulp.task('watch-datasource-templates', ['render-datasource-templates'], function() {
-    return gulp.watch(['datasources/**/*.ejs','datasources/*.json'], watchOptions, [ 'render-datasource-templates' ]);
-});
+gulp.task('watch-datasource-templates', gulp.series('render-datasource-templates', function watchDatasourceTemplates() {
+    return gulp.watch(['datasources/**/*.ejs','datasources/*.json'], watchOptions, gulp.series('render-datasource-templates'));
+}));
 
-gulp.task('sync-terriajs-dependencies', function() {
+gulp.task('sync-terriajs-dependencies', function(done) {
     var appPackageJson = require('./package.json');
     var terriaPackageJson = require('terriajs/package.json');
 
@@ -355,16 +294,9 @@ gulp.task('sync-terriajs-dependencies', function() {
     syncDependencies(appPackageJson.devDependencies, terriaPackageJson);
 
     fs.writeFileSync('./package.json', JSON.stringify(appPackageJson, undefined, '  '));
+    console.log('TerriaMap\'s package.json has been updated. Now run yarn install.');
+    done();
 });
-
-gulp.task('check-terriajs-dependencies', function() {
-    var appPackageJson = require('./package.json');
-    var terriaPackageJson = require('terriajs/package.json');
-
-    syncDependencies(appPackageJson.dependencies, terriaPackageJson, true);
-    syncDependencies(appPackageJson.devDependencies, terriaPackageJson, true);
-});
-
 
 function syncDependencies(dependencies, targetJson, justWarn) {
     for (var dependency in dependencies) {
@@ -381,3 +313,24 @@ function syncDependencies(dependencies, targetJson, justWarn) {
         }
     }
 }
+
+function checkForDuplicateCesium() {
+    var fse = require('fs-extra');
+
+    if (fse.existsSync('node_modules/terriajs-cesium') && fse.existsSync('node_modules/terriajs/node_modules/terriajs-cesium')) {
+        console.log('You have two copies of terriajs-cesium, one in this application\'s node_modules\n' +
+                    'directory and the other in node_modules/terriajs/node_modules/terriajs-cesium.\n' +
+                    'This leads to strange problems, such as knockout observables not working.\n' +
+                    'Please verify that node_modules/terriajs-cesium is the correct version and\n' +
+                    '  rm -rf node_modules/terriajs/node_modules/terriajs-cesium\n' +
+                    'Also consider running:\n' +
+                    '  npm run gulp sync-terriajs-dependencies\n' +
+                    'to prevent this problem from recurring the next time you `npm install`.');
+        throw new PluginError('checkForDuplicateCesium', 'You have two copies of Cesium.', { showStack: false });
+    }
+}
+
+gulp.task('build', gulp.series('render-datasource-templates', 'copy-terriajs-assets', 'build-app'));
+gulp.task('release', gulp.series('render-datasource-templates', 'copy-terriajs-assets', 'release-app', 'make-editor-schema'));
+gulp.task('watch', gulp.parallel('watch-datasource-templates', 'watch-terriajs-assets', 'watch-app'));
+gulp.task('default', gulp.series('lint', 'build'));
