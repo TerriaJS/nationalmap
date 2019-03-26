@@ -9,6 +9,7 @@ var terriaOptions = {
 // checkBrowserCompatibility('ui');
 import GoogleAnalytics from 'terriajs/lib/Core/GoogleAnalytics';
 import ShareDataService from 'terriajs/lib/Models/ShareDataService';
+import isCommonMobilePlatform from 'terriajs/lib/Core/isCommonMobilePlatform';
 import raiseErrorToUser from 'terriajs/lib/Models/raiseErrorToUser';
 import registerAnalytics from 'terriajs/lib/Models/registerAnalytics';
 import registerCatalogMembers from 'terriajs/lib/Models/registerCatalogMembers';
@@ -87,6 +88,7 @@ module.exports = terria.start({
     // as well as the call to "updateApplicationOnHashChange" further down.
     applicationUrl: window.location,
     configUrl: 'config.json',
+    defaultTo2D: isCommonMobilePlatform(),
     shareDataService: new ShareDataService({
         terria: terria
     })
