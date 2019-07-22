@@ -8,6 +8,8 @@ import SplitPoint from 'terriajs/lib/ReactViews/SplitPoint';
 import StandardUserInterface from 'terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.jsx';
 import version from '../../version';
 
+import Celebration from './Celebration.jsx';
+
 import './global.scss';
 
 function loadAugmentedVirtuality(callback) {
@@ -23,20 +25,26 @@ function isBrowserSupportedAV() {
 
 export default function UserInterface(props) {
     return (
+        <>
         <StandardUserInterface {... props} version={version}>
             <Menu>
                 <RelatedMaps viewState={props.viewState} />
                 <MenuItem caption="About" href="about.html" key="about-link"/>
+                <button>yay</button>
             </Menu>
             <Nav>
                 <MeasureTool terria={props.viewState.terria} key="measure-tool"/>
+                <Celebration key="celebration" />
             </Nav>
             <ExperimentalMenu>
                 <If condition={isBrowserSupportedAV()}>
                     <SplitPoint loadComponent={loadAugmentedVirtuality} viewState={props.viewState} terria={props.viewState.terria} experimentalWarning={true}/>
                 </If>
             </ExperimentalMenu>
+
         </StandardUserInterface>
+
+        </>
     );
 }
 
