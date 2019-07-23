@@ -8,7 +8,9 @@ import SplitPoint from 'terriajs/lib/ReactViews/SplitPoint';
 import StandardUserInterface from 'terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.jsx';
 import version from '../../version';
 
-import Celebration from './Celebration.jsx';
+import classNames from 'classnames';
+import Celebration from './Anniversary/Celebration.jsx';
+import CelebrationStyles from './Anniversary/celebration.scss';
 
 import './global.scss';
 
@@ -30,11 +32,15 @@ export default function UserInterface(props) {
             <Menu>
                 <RelatedMaps viewState={props.viewState} />
                 <MenuItem caption="About" href="about.html" key="about-link"/>
-                <button>yay</button>
             </Menu>
             <Nav>
                 <MeasureTool terria={props.viewState.terria} key="measure-tool"/>
-                <Celebration key="celebration" />
+                    <button
+                        className={classNames(CelebrationStyles.toggleCelebration, {
+                            [CelebrationStyles.toggleCelebrationActive]: props.viewState.showCelebration
+                        })}
+                        onClick={() => {props.viewState.showCelebration = true;}}
+                    >🎉</button>
             </Nav>
             <ExperimentalMenu>
                 <If condition={isBrowserSupportedAV()}>
@@ -44,6 +50,7 @@ export default function UserInterface(props) {
 
         </StandardUserInterface>
 
+        <Celebration viewState={props.viewState} key="celebration" />
         </>
     );
 }
