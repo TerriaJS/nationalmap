@@ -36,6 +36,7 @@ export default function UserInterface(props) {
             <Nav>
                 <MeasureTool terria={props.viewState.terria} key="measure-tool"/>
                     <button
+                        title="Show anniversary celebration"
                         className={CelebrationStyles.toggleCelebration}
                         onClick={() => {props.viewState.showCelebration = true;}}
                     >              <HatIcon

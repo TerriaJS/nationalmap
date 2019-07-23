@@ -34,15 +34,13 @@ const Celebration = createReactClass({
     const viewState = this.props.viewState || {};
 
     return (
-      <div>
-        <CelebrationPure
-          showCelebration={viewState.showCelebration}
-          setShowCelebration={bool => {
-            viewState.showCelebration = bool;
-          }}
-          viewState={this.props.viewState}
-        />
-      </div>
+      <CelebrationPure
+        showCelebration={viewState.showCelebration}
+        setShowCelebration={bool => {
+          viewState.showCelebration = bool;
+        }}
+        viewState={this.props.viewState}
+      />
     );
   }
 });
@@ -76,6 +74,7 @@ export const CelebrationPure = ({
   }, [showCelebration]);
 
   // We need to make sure the component stays mounted while it's animating
+  // but also disable the rest of the modal once it's finished
   useEffect(() => {
     if (celebrationIsAnimating) {
       setTimeout(() => {
@@ -91,6 +90,8 @@ export const CelebrationPure = ({
     setCelebrationIsAnimating(true);
     setCelebrationVisible(false);
     setTimeout(() => {
+      // Ensures next open of it starts from the correct beginning frame
+      setCelebrationVisible(true);
       setShowCelebration(false);
     }, 300);
   };
@@ -144,6 +145,7 @@ export const CelebrationPure = ({
               <a
                 href={`mailto:info@terria.io?subject=National Map Anniversary Feedback&body=What%20impact%20has%20NationalMap%20had%20on%20you%3F%0A%0AWhat%20changes%20would%20you%20like%20to%20see%3F`}
                 className={Styles.popupModalButton}
+                title="Send us a birthday email!"
               >
                 <MailIcon
                   className={Styles.popupModalButtonIcon}
@@ -181,10 +183,10 @@ export const CelebrationPure = ({
                   onClick={handleClose}
                 >{`Don't show again`}</button>
               </p>
-              <footer className={Styles.popupModalFooter}>
-                Be gentle, we read all of your comments (thank you!)
-              </footer>
             </span>
+            <footer className={Styles.popupModalFooter}>
+              Be gentle, we read all of your comments (thank you!)
+            </footer>
           </article>
         </div>
       </If>

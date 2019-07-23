@@ -37,6 +37,15 @@
   }
 }
 
+@include keyframes(streamers-stretch) {
+  0% {
+    transform: scale(1,5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @include keyframes(streamers-pop) {
   50% {
     transform: translate(-50%, 0) scale(1, 1.5);
@@ -112,9 +121,9 @@
   fill-opacity: 0;
   stroke-dasharray: 200;
   stroke-dashoffset: 200;
-  @include animation("streamers-draw, streamers-fill");
+  @include animation("streamers-draw, streamers-fill, streamers-stretch");
   animation-timing-function: linear, linear;
-  animation-duration: 2s, 0.3s;
+  animation-duration: 2s, 0.3s, 1.5s;
   animation-delay: 0.5s, 2s;
   animation-fill-mode: forwards, forwards;
 }
@@ -182,6 +191,7 @@
   opacity: 1;
   @include animation("fade-in");
   animation-duration: 0.3s;
+  animation-fill-mode: forwards;
 }
 .PopupModalWrapper-closing {
   @include animation("fade-out");
@@ -216,7 +226,9 @@
   max-width: 100%;
 
   @include transform(translate(-50%, -50%));
-  @include animation("slide-up 0.3s");
+  @include animation("slide-up");
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
   h1 {
     position:relative;
     font-family: "Montserrat";
