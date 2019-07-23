@@ -9,6 +9,9 @@ import knockout from "terriajs-cesium/Source/ThirdParty/knockout";
 import Styles from "./celebration.scss";
 
 import Streamers from "./Streamers.jsx";
+import MailIcon from "./MailIcon.jsx";
+import FeedbackIcon from "./FeedbackIcon.jsx";
+import HatIcon from "./HatIcon.jsx";
 import CloseButton from "./CloseButton.jsx";
 
 import { useKeyPress } from "./useKeyPress.js";
@@ -100,7 +103,6 @@ export const CelebrationPure = ({
             [Styles.popupModalWrapper]: true,
             [Styles.popupModalWrapperClosing]: !celebrationVisible
           })}
-          // onClick={toggleCelebration}
           onClick={handleClose.bind(null, false)}
         >
           <article
@@ -118,7 +120,14 @@ export const CelebrationPure = ({
               />
             </span>
             <CloseButton onClick={handleClose.bind(null, false)} />
-            <h1>NationalMap is turning 5!</h1>
+            <h1>
+              <HatIcon
+                className={Styles.hat}
+                role="presentation"
+                aria-hidden="true"
+              />
+              NationalMap is turning 5!
+            </h1>
             <span className={Styles.popupModalBody}>
               <p>
                 We’re looking for great stories.
@@ -136,6 +145,11 @@ export const CelebrationPure = ({
                 href={`mailto:info@terria.io?subject=National Map Anniversary Feedback&body=What%20impact%20has%20NationalMap%20had%20on%20you%3F%0A%0AWhat%20changes%20would%20you%20like%20to%20see%3F`}
                 className={Styles.popupModalButton}
               >
+                <MailIcon
+                  className={Styles.popupModalButtonIcon}
+                  role="presentation"
+                  aria-hidden="true"
+                />
                 Send us a birthday email
               </a>
               <button
@@ -147,6 +161,11 @@ export const CelebrationPure = ({
                   }, 300);
                 }}
               >
+                <FeedbackIcon
+                  className={Styles.popupModalButtonIcon}
+                  role="presentation"
+                  aria-hidden="true"
+                />
                 Leave feedback
               </button>
               <p>

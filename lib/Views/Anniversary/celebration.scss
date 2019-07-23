@@ -59,6 +59,38 @@
   }
 }
 
+@include keyframes(hat-drop) {
+  0% {
+    transform: translateY(-300%);
+    opacity:0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity:1;
+  }
+}
+
+.Hat {
+  @media (max-width: $sm) {
+    display:none;
+  }
+
+  position:absolute;
+  top: 3px;
+  left: 9px;
+  width: 18px;
+  height: 18px;
+
+  transform: translateY(-300%);
+  opacity:0;
+
+  @include animation("hat-drop");
+  animation-timing-function: linear;
+  animation-duration: 0.3s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
 /* Streamers */
 
 .Streamers--wrapper {
@@ -129,7 +161,7 @@
   composes: btn from "~terriajs/lib/ReactViews/Map/Navigation/nav.scss";
   &:not(:root) {
     text-align: center;
-    padding-left: 5px;
+    padding-left: 2px;
   }
   &:hover,
   &:focus {
@@ -151,11 +183,11 @@
   @include animation("fade-in");
   animation-duration: 0.3s;
 }
-.PopupModalWrapper--closing {
+.PopupModalWrapper-closing {
   @include animation("fade-out");
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
-  & > div {
+  & > article {
     @include animation("slide-down");
     animation-duration: 0.3s;
   }
@@ -186,36 +218,47 @@
   @include transform(translate(-50%, -50%));
   @include animation("slide-up 0.3s");
   h1 {
+    position:relative;
     font-family: "Montserrat";
     font-size: 40px;
     width: 70%;
-    @media (max-width: $sm) {
-      width: 100%;
-    }
+    // @media (max-width: $sm) {
+    //   width: 100%;
+    // }
     margin: 0 auto;
     margin-bottom: 30px;
   }
 }
-.PopupModal--button {
+.PopupModal-button {
   composes: btn from "~terriajs/lib/Sass/common/_buttons.scss";
   composes: btn-primary from "~terriajs/lib/Sass/common/_buttons.scss";
+  position:relative;
   &:not(:root) {
     width: 280px;
     margin: 0 auto 10px;
   }
 }
-.PopupModal--body {
+.PopupModal-button--Icon {
+  position:absolute;
+  width:20px;
+  height:20px;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translate(0, -50%);
+}
+.PopupModal-body {
   color: rgba($text-light, 0.8);
   font-size: 20px;
   line-height: 28px;
   font-weight: 600;
 }
-.PopupModal--questions {
+.PopupModal-questions {
   font-style: italic;
   font-size: 16px;
   line-height: 28px;
 }
-.PopupModal--closeLink {
+.PopupModal-closeLink {
   font-size: 14px;
   background: none;
   border: none;
@@ -224,7 +267,7 @@
     text-decoration: underline;
   }
 }
-.PopupModal--footer {
+.PopupModal-footer {
   display: flex;
   justify-content: center;
   align-items: center;

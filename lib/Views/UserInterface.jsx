@@ -8,8 +8,8 @@ import SplitPoint from 'terriajs/lib/ReactViews/SplitPoint';
 import StandardUserInterface from 'terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.jsx';
 import version from '../../version';
 
-import classNames from 'classnames';
 import Celebration from './Anniversary/Celebration.jsx';
+import HatIcon from './Anniversary/HatIcon.jsx';
 import CelebrationStyles from './Anniversary/celebration.scss';
 
 import './global.scss';
@@ -36,11 +36,12 @@ export default function UserInterface(props) {
             <Nav>
                 <MeasureTool terria={props.viewState.terria} key="measure-tool"/>
                     <button
-                        className={classNames(CelebrationStyles.toggleCelebration, {
-                            [CelebrationStyles.toggleCelebrationActive]: props.viewState.showCelebration
-                        })}
+                        className={CelebrationStyles.toggleCelebration}
                         onClick={() => {props.viewState.showCelebration = true;}}
-                    >🎉</button>
+                    >              <HatIcon
+                    role="presentation"
+                    aria-hidden="true"
+                  /></button>
             </Nav>
             <ExperimentalMenu>
                 <If condition={isBrowserSupportedAV()}>
