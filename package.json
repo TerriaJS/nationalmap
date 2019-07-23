@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "pm2": "^3.2.2",
-    "terriajs-server": "^3.0.1"
+    "terriajs-server": "^3.0.0"
   },
   "config": {
     "awsProfile": "nationalmap",
     "awsS3PackagesPath": "s3://nationalmap-apps/nationalmap",
     "awsRegion": "ap-southeast-2",
     "awsEc2InstanceType": "t2.small",
-    "awsEc2ImageId": "ami-07e6faad15db3b345",
+    "awsEc2ImageId": "ami-0065540df76a93885",
     "awsKeyName": "natmap-kring",
     "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2018-07-14.json",
     "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2019-02-18.json"
