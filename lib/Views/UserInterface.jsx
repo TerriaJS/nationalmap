@@ -8,6 +8,10 @@ import SplitPoint from 'terriajs/lib/ReactViews/SplitPoint';
 import StandardUserInterface from 'terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.jsx';
 import version from '../../version';
 
+import Celebration from './Anniversary/Celebration.jsx';
+import HatIcon from './Anniversary/HatIcon.jsx';
+import CelebrationStyles from './Anniversary/celebration.scss';
+
 import './global.scss';
 
 function loadAugmentedVirtuality(callback) {
@@ -23,6 +27,7 @@ function isBrowserSupportedAV() {
 
 export default function UserInterface(props) {
     return (
+        <>
         <StandardUserInterface {... props} version={version}>
             <Menu>
                 <RelatedMaps viewState={props.viewState} />
@@ -30,13 +35,24 @@ export default function UserInterface(props) {
             </Menu>
             <Nav>
                 <MeasureTool terria={props.viewState.terria} key="measure-tool"/>
+                    <button
+                        title="Show anniversary celebration"
+                        className={CelebrationStyles.toggleCelebration}
+                        onClick={() => {props.viewState.showCelebration = true;}}
+                    >
+                        <HatIcon role="presentation" aria-hidden="true" />
+                    </button>
             </Nav>
             <ExperimentalMenu>
                 <If condition={isBrowserSupportedAV()}>
                     <SplitPoint loadComponent={loadAugmentedVirtuality} viewState={props.viewState} terria={props.viewState.terria} experimentalWarning={true}/>
                 </If>
             </ExperimentalMenu>
+
         </StandardUserInterface>
+
+        <Celebration viewState={props.viewState} key="celebration" />
+        </>
     );
 }
 
