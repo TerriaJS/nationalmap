@@ -39,10 +39,9 @@ export default function UserInterface(props) {
                         title="Show anniversary celebration"
                         className={CelebrationStyles.toggleCelebration}
                         onClick={() => {props.viewState.showCelebration = true;}}
-                    >              <HatIcon
-                    role="presentation"
-                    aria-hidden="true"
-                  /></button>
+                    >
+                        <HatIcon role="presentation" aria-hidden="true" />
+                    </button>
             </Nav>
             <ExperimentalMenu>
                 <If condition={isBrowserSupportedAV()}>

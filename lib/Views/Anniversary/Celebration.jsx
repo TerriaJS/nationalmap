@@ -54,22 +54,15 @@ export const CelebrationPure = ({
   const [celebrationIsAnimating, setCelebrationIsAnimating] = useState(false);
 
   useKeyPress("Escape", () => {
-    // does double animation if we use handleClose?(my lack of hook understanding)
-    // - force close for now
-    setShowCelebration(false);
-    setCelebrationIsAnimating(false);
-    // if (showCelebration) {
-    //   handleClose(false);
-    // }
+    if (showCelebration) {
+      handleClose(false);
+    }
   });
 
   // Listen to viewState's version of whether we show the modal
   useEffect(() => {
     if (showCelebration) {
       setCelebrationVisible(true);
-    }
-    if (!showCelebration) {
-      setCelebrationIsAnimating(true);
     }
   }, [showCelebration]);
 

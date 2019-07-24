@@ -47,16 +47,24 @@
 }
 
 @include keyframes(streamers-pop) {
+  0% {
+    transform: translate(-50%, 0) scale(1, 1);
+  }
   50% {
     transform: translate(-50%, 0) scale(1, 1.5);
+  }
+  100% {
+    transform: translate(-50%, 0) scale(1, 1);
   }
 }
 @include keyframes(streamers-draw) {
   0% {
-    stroke-dashoffset: 200;
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 100%;
   }
   100% {
-    stroke-dashoffset: 0;
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 0%;
   }
 }
 @include keyframes(streamers-fill) {
@@ -67,7 +75,14 @@
     fill-opacity: 1;
   }
 }
-
+@include keyframes(streamers-drop) {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
 @include keyframes(hat-drop) {
   0% {
     transform: translateY(-300%);
@@ -110,31 +125,26 @@
   transform: translate(-50%, 0);
 
   @include animation("streamers-pop");
-
   transform-origin: top;
   animation-timing-function: linear;
   animation-duration: 0.3s;
   animation-delay: 2s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 .Streamers path {
-  fill-opacity: 0;
-  stroke-dasharray: 200;
-  stroke-dashoffset: 200;
   @include animation("streamers-draw, streamers-fill, streamers-stretch");
   animation-timing-function: linear, linear;
   animation-duration: 2s, 0.3s, 1.5s;
   animation-delay: 0.5s, 2s;
-  animation-fill-mode: forwards, forwards;
+  animation-fill-mode: both, both, both;
 }
 .Streamers circle,
 .Streamers ellipse {
-  fill-opacity: 0;
-  @include animation("streamers-fill");
+  @include animation("streamers-drop");
   animation-timing-function: linear;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-delay: 1s;
-  animation-fill-mode: forwards;
+  animation-fill-mode: both;
 }
 
 @include keyframes(rainbow) {
@@ -171,6 +181,7 @@
   &:not(:root) {
     text-align: center;
     padding-left: 2px;
+    margin: 0 auto;
   }
   &:hover,
   &:focus {
@@ -291,6 +302,7 @@
   min-height: 32px;
   text-align: center;
   font-size: 14px;
+  line-height:32px;
 
   color: #69513a;
   background-color: #cea67d;
