@@ -134,9 +134,9 @@ module.exports = terria.start({
                 // This can be expressed as a devHostRegex ("any site starting with staging.") or a negative prodHostRegex ("any site not ending in .gov.au")
                 if (defined(globalDisclaimer.devHostRegex) && hostname.match(globalDisclaimer.devHostRegex) ||
                     defined(globalDisclaimer.prodHostRegex) && !hostname.match(globalDisclaimer.prodHostRegex)) {
-                        // message += require('./lib/Views/DevelopmentDisclaimerPreamble.html');
+                        message += require('./lib/Views/DevelopmentDisclaimerPreamble.html');
                 }
-                // message += require('./lib/Views/GlobalDisclaimer.html');
+                message += require('./lib/Views/GlobalDisclaimer.html');
 
                 var options = {
                     title: (globalDisclaimer.title !== undefined) ? globalDisclaimer.title : 'Warning',
