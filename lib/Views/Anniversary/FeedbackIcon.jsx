@@ -1,6 +1,6 @@
 import React from "react";
 
-const FeedbackIcon = props => (
+export const FeedbackIcon = props => (
   <svg width="1em" height="1em" viewBox="0 0 18 18" {...props}>
     <defs>
       <path

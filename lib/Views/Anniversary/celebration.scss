@@ -39,7 +39,7 @@
 
 @include keyframes(streamers-stretch) {
   0% {
-    transform: scale(1,5);
+    transform: scale(1, 5);
   }
   100% {
     transform: scale(1);
@@ -86,27 +86,27 @@
 @include keyframes(hat-drop) {
   0% {
     transform: translateY(-300%);
-    opacity:0;
+    opacity: 0;
   }
   100% {
     transform: translateY(0);
-    opacity:1;
+    opacity: 1;
   }
 }
 
 .Hat {
   @media (max-width: $sm) {
-    display:none;
+    display: none;
   }
 
-  position:absolute;
+  position: absolute;
   top: 3px;
   left: 9px;
   width: 18px;
   height: 18px;
 
   transform: translateY(-300%);
-  opacity:0;
+  opacity: 0;
 
   @include animation("hat-drop");
   animation-timing-function: linear;
@@ -241,7 +241,7 @@
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
   h1 {
-    position:relative;
+    position: relative;
     font-family: "Montserrat";
     font-size: 40px;
     width: 70%;
@@ -255,16 +255,16 @@
 .PopupModal-button {
   composes: btn from "~terriajs/lib/Sass/common/_buttons.scss";
   composes: btn-primary from "~terriajs/lib/Sass/common/_buttons.scss";
-  position:relative;
+  position: relative;
   &:not(:root) {
     width: 280px;
     margin: 0 auto 10px;
   }
 }
 .PopupModal-button--Icon {
-  position:absolute;
-  width:20px;
-  height:20px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
   position: absolute;
   top: 50%;
   left: 12px;
@@ -302,7 +302,7 @@
   min-height: 32px;
   text-align: center;
   font-size: 14px;
-  line-height:32px;
+  line-height: 32px;
 
   color: #69513a;
   background-color: #cea67d;
