@@ -209,8 +209,10 @@
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
   & > article {
-    @include animation("slide-down");
-    animation-duration: 0.3s;
+    @media (min-width: $sm) {
+      @include animation("slide-down");
+      animation-duration: 0.3s;
+    }
   }
 }
 
@@ -224,10 +226,22 @@
 
   margin: 0;
   width: 480px;
+  @media (max-width: $sm) {
+    position: relative;
+    width: 100%;
+    transform: none;
+    left: 0;
+    top: 0;
+    overflow: scroll;
+    height: 100vh;
+  }
+  @media (min-width: $sm) {
+    min-height: 560px;
+  }
 
-  min-height: 495px;
-  padding: 65px 0 0 0;
-  // background-color: black;
+  padding: 0;
+  // fallback for bad image
+  background-color: #072734;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 4px;
@@ -237,19 +251,20 @@
   max-width: 100%;
 
   @include transform(translate(-50%, -50%));
-  @include animation("slide-up");
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
+  @media (min-width: $sm) {
+    @include animation("slide-up");
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  }
   h1 {
     position: relative;
     font-family: "Montserrat";
     font-size: 40px;
     width: 70%;
-    // @media (max-width: $sm) {
-    //   width: 100%;
-    // }
-    margin: 0 auto;
-    margin-bottom: 30px;
+    @media (max-width: $sm) {
+      width: 100%;
+    }
+    margin: 65px auto 30px;
   }
 }
 .PopupModal-button {
@@ -295,8 +310,10 @@
   justify-content: center;
   align-items: center;
 
-  position: absolute;
-  bottom: 0;
+  @media (min-width: $sm) {
+    position: absolute;
+    bottom: 0;
+  }
 
   width: 100%;
   min-height: 32px;
