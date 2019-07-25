@@ -1,6 +1,75 @@
 Change Log
 ==========
 
+### 2019-07-24
+* Added 5th anniversary celebration
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 7.6.6.  Changes include:
+
+  * Basemaps are now loaded before being enabled & showed
+  * Add the filename to a workbench item from a drag'n'dropped file so it isn't undisplayed as 'Unnamed item'.
+  * Fixed inability to share SOS items.
+  * Added an option to the mobile menu to allow a story to be resumed after it is closed.
+  * The "Introducing Data Stories" prompt now only needs to be dismissed once. Previously it would continue to appear on every load until you clicked the "Story" button.
+  * Fixed a crash that could occur when the feature info panel has a chart but the selected feature has no chart data.
+  * Fixed a bug where the feature info panel would show information on a vector tile region mapped dataset that had no match.
+  * Add scrollbar to dropdown boxes.
+  * Add support for SDMX version 2.1 to existing `SdmxJsonCatalogItem`.
+  * Add a warning when sharing a map describing datasets which will be missing.
+  * Enable the story panel to be ordered to the front. 
+  * Disable the autocomplete on the title field when adding a new scene to a story.
+  * Fix SED codes for regionmapping
+  * Fixed a bug with picking features that cross the anti-meridian in 2D mode .
+  * Fixed a bug where `ArcGisMapServerCatalogItem` legends were being created during search.
+  * Fixed a bug where region mapping would not accurately reflect share link parameters.
+  * Fixed a bug that made some input boxes unreadable in some web browsers.
+  * Fixed a bug that prevented the "Feedback" button from working correctly.
+  * Fix a bug that could cause a lot of extra space to the left of a chart on the feature info panel.
+  * Added video intro to building a story
+  * Allow vector tiles for region mapping to return 404 for empty tiles. 
+  * Upgraded to Cesium v1.58.1.
+  * Charts are now shared in share & story links
+  * Fixed a bug in Cesium that prevented the new Bing Maps "on demand" basemaps from working on `https` sites.
+  * Added the "Story" feature for building and sharing guided tours of maps and data.
+  * Added sharing within the data catalog to share a given catalog group or item
+  * Switched to using the new "on demand" versions of the Bing Maps aerial and roads basemaps. The previous versions are deprecated.
+  * Remove dangling comma in `regionMapping.json`.
+  * `WebMapServicCatalogItem` now includes the current `style` in generated `GetLegendGraphic` URLs. 
+  * Upgraded to Cesium v1.57.
+  * Fixed a bug where all available styles were being retrieved from a `GetCapabilities` for each layer within a WMS Group resulting in memory crashes on WMSs with many layers.
+  * Support State Electoral Districts 2018 and 2016 (SED_Code_2018, SED_Code_2016, SED_Name_2018, SED_Name_2016)
+  * Added `GltfCatalogItem` for displaying [glTF](https://www.khronos.org/gltf/) models on the 3D scene.
+  * Fixed a bug where the Map settings '2D' button activated '3D Smooth' view when configured without support for '3D Terrain'.
+  * Added `clampToTerrain` property to `GeoJsonCatalogItem`.
+  * When clicking a polygon in 3D Terrain mode, the white outline is now correctly shown on the terrain surface. Note that Internet Explorer 11 and old GPU hardware cannot support drawing the highlight on terrain, so it will not be drawn at all in these environments.
+  * Removed an extra close curly brace from `regionMapping.json`.
+  * Added `hideLayerAfterMinScaleDenominator` property to `WebMapServiceCatalogItem`. When true, TerriaJS will show a message and display nothing rather than silently show a scaled-up version of the layer when the user zooms in past the layer's advertised `MinScaleDenominator`.
+  * Added `GeoJsonParameterEditor`.
+  * Fixed a bug that resulted in blank titles for catalog groups loaded from automatically detected (WMS) servers
+  * Fixed a bug that caused some chart "Expand" options to be hidden.
+  * Added `CED_CODE18` and `CED_NAME18` region types to `regionMapping.json`. These are now the default for CSV files that reference `ced`, `ced_code` and `ced_name` (previously the 2016 versions were used).
+  * Improved support for WMTS, setting a maximum level to request tiles at.
+  * Support displaying availability for imagery layers on charts, by adding `"showOnChart": true" or clicking a button in the UI.
+  * Added a `featureTimesProperty` property to all `ImageryLayerCatalogItem`s. This is useful for datasets that do not have data for all locations at all times, such as daily sensor swaths of near-real-time or historical satellite imagery. The property specifies the name of a property returned by the layer's feature information query that indicates the times when data is available at that particular location. When this property is set, TerriaJS will display an interface on the workbench to allow the user to filter the times to only those times where data is available at a particular location. It will also display a button at the bottom of the Feature Information panel allowing the user to filter for the selected location.
+  * Added `disablePreview` option to all catalog items. This is useful when the preview map in the catalog will be slow to load.
+  * When using the splitter, the feature info panel will now show only the features on the clicked side of the splitter.
+  * Vector polygons and polylines are now higlighted when clicked.
+  * Fixed a bug that prevented catalog item split state (left/right/both) from being shared for CSV layers.
+  * Fixed a bug where the 3D globe would not immediately refresh when toggling between the "Terrain" and "Smooth" viewer modes.
+  * Fixed a bug that could cause the chart panel at the bottom to flicker on and off rapidly when there is an error loading chart data.
+  * Fixed map tool button positioning on small-screen devices when viewing time series layers.
+  * Fixed a bug that prevented billboard images from working on the 2D map.
+  * Implemented "Zoom To" support for KML, CZML, and other vector data sources.
+  * Upgraded to Cesium v1.55.
+
+  * Breaking Changes:
+    * TerriaJS no longer supports Internet Explorer 9 or 10.
+    * An application-level polyfill suite is now highly recommended, and it is required for Internet Explorer 11 compatibility. The easiest approach is to add `<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>` to the `<head>` element of your application's HTML page, which will deliver a polyfill suite tailored to the end-user's browser.
+    * TerriaJS now requires Node.js v8.0 or later.
+    * TerriaJS now requires Webpack v4.0 or later.
+    * TerriaJS now uses Gulp v4.0. If you have Gulp 3 installed globally, you'll need to use `npm run gulp` to run TerriaJS gulp tasks, or upgrade your global Gulp to v4 with `npm install -g gulp@4`.
+    * TerriaJS now uses Babel v7.0.
+    * Removed `UrthecastCatalogItem`, `UrthecastCatalogGroup`, and `registerUrthcastCatalogItems`. The Urthecast functionality was dependent on an npm package that hadn't been updated in three years and had potential security vulnerabilities. Please [let us know](https://gitter.im/TerriaJS/terriajs) if you were using this functionality.
+
 ### 2019-02-18
 
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 6.5.0.  Changes include:
