@@ -95,7 +95,7 @@
 }
 
 .Hat {
-  @media (max-width: $sm) {
+  @media (max-width: $sm), (max-height: 559px) {
     display: none;
   }
 
@@ -209,7 +209,7 @@
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
   & > article {
-    @media (min-width: $sm) {
+    @media (min-width: $sm) and (min-height: 560px) {
       @include animation("slide-down");
       animation-duration: 0.3s;
     }
@@ -226,7 +226,7 @@
 
   margin: 0;
   width: 480px;
-  @media (max-width: $sm) {
+  @media (max-width: $sm), (max-height: 559px) {
     position: relative;
     width: 100%;
     transform: none;
@@ -235,7 +235,7 @@
     overflow: scroll;
     height: 100vh;
   }
-  @media (min-width: $sm) {
+  @media (min-width: $sm) and (min-height: 560px) {
     min-height: 560px;
   }
 
@@ -246,12 +246,12 @@
   background-repeat: no-repeat;
   border-radius: 4px;
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   max-width: 100%;
 
   @include transform(translate(-50%, -50%));
-  @media (min-width: $sm) {
+  @media (min-width: $sm) and (min-height: 560px) {
     @include animation("slide-up");
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
@@ -310,7 +310,7 @@
   justify-content: center;
   align-items: center;
 
-  @media (min-width: $sm) {
+  @media (min-width: $sm) and (min-height: 560px) {
     position: absolute;
     bottom: 0;
   }
