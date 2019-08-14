@@ -3,6 +3,7 @@ Change Log
 
 ### 2019-08-14
 
+* Added Australia Post location data.
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 7.6.9.  Changes include:
   * Automatically set `linkedWcsCoverage` on a WebMapServiceCatalogItem.
   * Added ability in TerriaJsonCatalogFunction to handle long requests via HTTP:202 Accepted.
