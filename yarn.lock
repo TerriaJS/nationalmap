@@ -6161,7 +6161,7 @@ nanomatch@^1.2.1, nanomatch@^1.2.9:
 
 "nationalmap-catalog@git://github.com/TerriaJS/NationalMap-Catalog":
   version "1.1.0"
-  resolved "git://github.com/TerriaJS/NationalMap-Catalog#0e489520e51fde88a9d7b2450539bac7a075a254"
+  resolved "git://github.com/TerriaJS/NationalMap-Catalog#dedf58d5cb8b8d21c4e2049cebbc575285779bce"
   dependencies:
     json5 "^0.5.0"
 
