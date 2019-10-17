@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### Next Changes
+
+* Added CDP regions geojson for the new CDP regions layer
+
 ### 2019-09-13
 
 * Upgraded to terriajs v7.6.11
