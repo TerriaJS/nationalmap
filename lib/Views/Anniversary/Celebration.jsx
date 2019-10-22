@@ -25,9 +25,7 @@ const Celebration = createReactClass({
     viewState: PropTypes.object.isRequired
   },
   componentWillMount() {
-    const { viewState } = this.props;
-    const shouldShow = !viewState.terria.getLocalProperty(LOCAL_PROPERTY_KEY);
-    this.props.viewState.showCelebration = shouldShow;
+    this.props.viewState.showCelebration = false;
     knockout.track(this.props.viewState, ["showCelebration"]);
   },
   render() {
@@ -77,9 +75,6 @@ export const CelebrationPure = ({
   }, [celebrationIsAnimating]);
 
   const handleClose = (persist = true) => {
-    if (persist) {
-      viewState.terria.setLocalProperty(LOCAL_PROPERTY_KEY, true);
-    }
     setCelebrationIsAnimating(true);
     setCelebrationVisible(false);
     setTimeout(() => {
@@ -120,7 +115,7 @@ export const CelebrationPure = ({
                 role="presentation"
                 aria-hidden="true"
               />
-              NationalMap is turning 5!
+              NationalMap has turned 5!
             </h1>
             <span className={Styles.popupModalBody}>
               <p>
@@ -170,11 +165,6 @@ export const CelebrationPure = ({
                 >
                   Maybe later
                 </button>{" "}
-                |
-                <button
-                  className={Styles.popupModalCloseLink}
-                  onClick={handleClose}
-                >{`Don't show again`}</button>
               </p>
             </span>
             <footer className={Styles.popupModalFooter}>
