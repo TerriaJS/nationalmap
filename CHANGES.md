@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-### 2019-10-22
+### 2019-10-23
 
 * Added CDP regions geojson for the new CDP regions layer
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 7.7.0.  Changes include:
