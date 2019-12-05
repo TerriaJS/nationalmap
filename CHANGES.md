@@ -1,6 +1,32 @@
 Change Log
 ==========
 
+### 2019-12-05
+* Updated catalog to 2019-12-05
+  * Updated GSKY blended service
+  * Added Barest Earth 30 years 
+  * Added Forests of Australia (2018)
+  * Added GA Sentinel hotspots
+
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs) 7.10.0.  Changes include:
+  * Added proper basic internationalisation beginnings via i18next & react-i18next
+  * Fixed a bug where calling `openAddData()` or `closeCatalog()` on ViewState did not correctly apply the relevant `mobileViewOptions` for mobile views.
+  * Fixed filter by available dates on ImageryLayerCatalogItem not copying to the clone when the item is split.
+  * Fixed an error in `regionMapping.json` that causes some states to be mismatched when using Australian state codes in a column labelled "state". It is still recommended to use "ste", "ste_code" or "ste_code_2016" over "state" for column labels when matching against Australian state codes.
+  * Fixed bug where "User data" catalog did not have add-buttons.
+  * Added ability to re-add "User data" CSV items once removed from workbench.
+  * Changed catalog item event labels to include the full catalog item path, rather than just the catalog item name.
+  * Added support for `openAddData` option in config.json.  If true, the "Add Data" dialog is automatically opened at startup.
+  * Welcome message, in-app guides & new feature prompts are now disabled by default. These can be re-enabled by setting the `showWelcomeMessage`, `showInAppGuides` & `showFeaturePrompts` options in config.json. 
+  * Updated Welcome Message to pass its props to `WelcomeMessagePrimaryBtnClick` & `WelcomeMessageSecondaryBtnClick` overrides
+  * Fixed a bug in anti-meridian handling causing excessive memory use.
+  * Handled coordinate conversion for GeoJson geometries with an empty `coordinates` array.
+  * Upgraded to Cesium v1.63.1. This upgrade may cause more problems than usual because Cesium has switched from AMD to ES6 modules. If you run into problems, please contact us: https://terria.io/contact
+  * Added ability to do in-app, "static guides" through `<Guide />`s
+  * Added in-app Guide for time enabled WMS items
+  * Initial implementation of language overrides to support setting custom text throughout the application.
+  * Added ability to pass `leafletUpdateInterval` to an `ImageryLayerCatalogItem` to throttle the number of requests made to a server.
+
 ### 2019-10-23
 
 * Added CDP regions geojson for the new CDP regions layer

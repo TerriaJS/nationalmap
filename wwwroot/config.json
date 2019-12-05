@@ -33,6 +33,15 @@
         "initFragmentPaths": [
             "/proxy/_0s/http://static.nationalmap.nicta.com.au/init/fragments-2017-10-31/",
             "init/"
-        ]
+        ],
+
+        // True to display welcome message on startup.
+        // "showWelcomeMessage": false,
+
+        // True to display in-app guides.
+        "showInAppGuides": true,
+
+        // True to display new feature popups.
+        "showFeaturePrompts": true
     }
 }
