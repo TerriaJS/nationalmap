@@ -1,5 +1,8 @@
 Change Log
 ==========
+### 2019-12-06
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs/tree/7.10.1) 7.10.1.  Changes include:
+  * Re-release of v7.10.0 without i18next & react-i18next due to the introduction of multiple bugs including being unable to reorder items.
 
 ### 2019-12-05
 * Updated catalog to 2019-12-05
