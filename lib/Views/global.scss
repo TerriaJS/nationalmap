@@ -29,4 +29,15 @@ body {
       padding: 5px;
     }
   }
+
+  .nm-featureInfo-button {
+    background: #509bc2;
+    border: none;
+    padding: 6px 20px;
+    margin: 10px 0px;
+    a,
+    a:visited {
+      color: white;
+    }
+  }
 }

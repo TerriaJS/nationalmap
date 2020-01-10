@@ -25,6 +25,11 @@ import defined from 'terriajs-cesium/Source/Core/defined';
 import render from './lib/Views/render';
 import GnafAddressGeocoder from 'terriajs/lib/Map/GnafAddressGeocoder.js';
 
+import RfsCatalogItem from './lib/Models/RFS';
+import NswLiveTrafficCatalogItem from './lib/Models/NswLiveTraffic';
+import VicEmergencyCatalogItem from './lib/Models/VicEmergency';
+import SaCFSCatalogItem from './lib/Models/SaCFS';
+
 // Register all types of catalog members in the core TerriaJS.  If you only want to register a subset of them
 // (i.e. to reduce the size of your application if you don't actually use them all), feel free to copy a subset of
 // the code in the registerCatalogMembers function here instead.
@@ -33,6 +38,11 @@ registerAnalytics();
 
 terriaOptions.analytics = new GoogleAnalytics();
 terriaOptions.batchGeocoder = new GnafAddressGeocoder();
+
+RfsCatalogItem.register();
+NswLiveTrafficCatalogItem.register();
+VicEmergencyCatalogItem.register();
+SaCFSCatalogItem.register();
 
 // Construct the TerriaJS application, arrange to show errors to the user, and start it up.
 var terria = new Terria(terriaOptions);

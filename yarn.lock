@@ -5623,9 +5623,9 @@ jsonfile@^4.0.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
-"jsonschema@git+https://github.com/terriajs/jsonschema":
+jsonschema@terriajs/jsonschema:
   version "1.0.3"
-  resolved "git+https://github.com/terriajs/jsonschema#55cedb27a265bbae2b366a3824863c586c5d34cf"
+  resolved "https://codeload.github.com/terriajs/jsonschema/tar.gz/55cedb27a265bbae2b366a3824863c586c5d34cf"
 
 jsprim@^1.2.2:
   version "1.4.1"
@@ -9459,10 +9459,10 @@ terriajs-server@^3.0.1:
     when "^3.7.7"
     yargs "^13.2.4"
 
-terriajs@7.10.0:
-  version "7.10.0"
-  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-7.10.0.tgz#8ed446ae24e20b3c4394b92e2093f0d17edd00e4"
-  integrity sha512-EAgvLoahKJSiqsyPDNcutzI0Ei1Cv/i953weJun668mJ4NM5hyVS8nBE8ecpOc84zcLlovC4IubMns2TRgXd0A==
+terriajs@7.10.1:
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-7.10.1.tgz#d76f9b8cc01a132f46645ae7926285071b8e5924"
+  integrity sha512-UG2KgQo28beKoU4UpAcknedR6QC9HFEZVzyvuMF/wh/Uy3rxUG4HBdn+bn2IkWXHoISUYG+AhZuamh54LdMpNQ==
   dependencies:
     "@babel/core" "^7.3.3"
     "@babel/plugin-transform-modules-commonjs" "^7.2.0"
