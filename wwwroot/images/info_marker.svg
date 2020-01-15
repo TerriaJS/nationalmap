@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="47px" viewBox="0 0 48 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Slice</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="info_marker" transform="translate(8.000000, 4.000000)">
+            <circle id="Oval" stroke="#6A6A6A" stroke-width="2" fill="#1F5DA7" fill-rule="nonzero" cx="16" cy="19" r="16"></circle>
+            <text id="i" fill="#FFFFFF" font-family="TimesNewRomanPS-BoldItalicMT, Times New Roman" font-size="32" font-style="italic" font-weight="bold">
+                <tspan x="11" y="29">i</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

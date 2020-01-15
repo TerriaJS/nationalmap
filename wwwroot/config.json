@@ -20,6 +20,15 @@
             "text": "Data61",
             "link": "http://www.csiro.au/en/Research/D61"
         },
+        "globalDisclaimer": {
+            "confirmationRequired": true,
+            "buttonTitle": "Acknowledge",
+            "denyText": "Cancel",
+            "title": "Disclaimer",
+            "height": 400,
+            "enableOnLocalhost": true
+        },
+
         "appName": "NationalMap",
         "supportEmail": "data@digital.gov.au",
         "proj4ServiceBaseUrl": "proj4def/",

@@ -152,7 +152,7 @@ module.exports = terria.start({
                     title: (globalDisclaimer.title !== undefined) ? globalDisclaimer.title : 'Warning',
                     confirmText: (globalDisclaimer.buttonTitle || "Ok"),
                     width: 600,
-                    height: 550,
+                    height: 300,
                     message: message,
                     horizontalPadding : 100
                 };
