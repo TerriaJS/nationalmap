@@ -1,5 +1,13 @@
 Change Log
 ==========
+### 2020--3-17
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs/tree/7.11.3) 7.11.3.  Changes include:
+  * Upgraded to Cesium v1.66.
+  * Added WA CKAN catalogue.
+  * Added Tenure of Australia’s forests (2018).
+  * Added Australia’s Indigenous Forest Estate (2018).
+  * Added Fire in Australia’s Forests (Fire type and number of fires 2011-12 to 2015-16).
+  
 ### 2019-12-06
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs/tree/7.10.1) 7.10.1.  Changes include:
   * Re-release of v7.10.0 without i18next & react-i18next due to the introduction of multiple bugs including being unable to reorder items.
