@@ -3228,7 +3228,7 @@ dom-helpers@^5.0.1:
     "@babel/runtime" "^7.6.3"
     csstype "^2.6.7"
 
-dom-serializer@0, dom-serializer@^0.2.1:
+dom-serializer@0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-0.2.2.tgz#1afb81f533717175d478655debc5e332d9f9bb51"
   integrity sha512-2/xPb3ORsQ42nHYiSunXkDjPLBaEj/xTwUO4B7XCZQTRk7EBtTOPaygh10YAAh2OI1Qrp6NWfpAhzswj0ydt9g==
@@ -3251,19 +3251,12 @@ domelementtype@^2.0.1:
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-2.0.1.tgz#1f8bdfe91f5a78063274e803b4bdcedf6e94f94d"
   integrity sha512-5HOHUDsYZWV8FGWN0Njbr/Rn7f/eWSQi1v7+HsUVwXgn8nWWlL64zKDkS0n8ZmQ3mlWOMuXOnR+7Nx/5tMO5AQ==
 
-domhandler@^2.3.0:
+domhandler@^2.3.0, domhandler@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-2.4.2.tgz#8805097e933d65e85546f726d60f5eb88b44f803"
   integrity sha512-JiK04h0Ht5u/80fdLMCEmV4zkNh2BcoMFBmZ/91WtYZ8qVXSKjiw7fXMgFPnHcSZgOo3XdinHvmnDUeMf5R4wA==
   dependencies:
     domelementtype "1"
-
-domhandler@^3.0, domhandler@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-3.0.0.tgz#51cd13efca31da95bbb0c5bee3a48300e333b3e9"
-  integrity sha512-eKLdI5v9m67kbXQbJSNn1zjh0SDzvzWVWtX+qEI3eMjZw8daH9k8rlj1FZY9memPwjiskQFbe7vHVVJIAqoEhw==
-  dependencies:
-    domelementtype "^2.0.1"
 
 dompurify@^2.0.7:
   version "2.0.7"
@@ -3290,15 +3283,6 @@ domutils@^1.5.1:
   dependencies:
     dom-serializer "0"
     domelementtype "1"
-
-domutils@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/domutils/-/domutils-2.0.0.tgz#15b8278e37bfa8468d157478c58c367718133c08"
-  integrity sha512-n5SelJ1axbO636c2yUtOGia/IcJtVtlhQbFiVDBZHKV5ReJO1ViX7sFEemtuyoAnBxk5meNSYgA8V4s0271efg==
-  dependencies:
-    dom-serializer "^0.2.1"
-    domelementtype "^2.0.1"
-    domhandler "^3.0.0"
 
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
@@ -3626,11 +3610,6 @@ eslint@^5.14.1:
     strip-json-comments "^2.0.1"
     table "^5.2.3"
     text-table "^0.2.0"
-
-esm@^3.2.25:
-  version "3.2.25"
-  resolved "https://registry.yarnpkg.com/esm/-/esm-3.2.25.tgz#342c18c29d56157688ba5ce31f8431fbb795cc10"
-  integrity sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==
 
 espree@^5.0.1:
   version "5.0.1"
@@ -4732,13 +4711,14 @@ html-parse-stringify2@2.0.1:
   dependencies:
     void-elements "^2.0.1"
 
-html-to-react@^1.3.4:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/html-to-react/-/html-to-react-1.4.2.tgz#7b628ab56cd63a52f2d0b79d0fa838a51f088a57"
-  integrity sha512-TdTfxd95sRCo6QL8admCkE7mvNNrXtGoVr1dyS+7uvc8XCqAymnf/6ckclvnVbQNUo2Nh21VPwtfEHd0khiV7g==
+html-to-react@1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/html-to-react/-/html-to-react-1.3.4.tgz#647b3a54fdec73a6461864b129fb0d1eec7d4589"
+  integrity sha512-/tWDdb/8Koi/QEP5YUY1653PcDpBnnMblXRhotnTuhFDjI1Fc6Wzox5d4sw73Xk5rM2OdM5np4AYjT/US/Wj7Q==
   dependencies:
-    domhandler "^3.0"
-    htmlparser2 "^4.0"
+    domhandler "^2.4.2"
+    escape-string-regexp "^1.0.5"
+    htmlparser2 "^3.10.0"
     lodash.camelcase "^4.3.0"
     ramda "^0.26"
 
@@ -4755,7 +4735,7 @@ html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-htmlparser2@^3.3.0, htmlparser2@^3.8.3:
+htmlparser2@^3.10.0, htmlparser2@^3.3.0, htmlparser2@^3.8.3:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.10.1.tgz#bd679dc3f59897b6a34bb10749c855bb53a9392f"
   integrity sha512-IgieNijUMbkDovyoKObU1DUhm1iwNYE/fuifEoEHfd1oZKZDaONBSkal7Y01shxsM49R4XaMdGez3WnF9UfiCQ==
@@ -4766,16 +4746,6 @@ htmlparser2@^3.3.0, htmlparser2@^3.8.3:
     entities "^1.1.1"
     inherits "^2.0.1"
     readable-stream "^3.1.1"
-
-htmlparser2@^4.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-4.0.0.tgz#6034658db65b7713a572a9ebf79f650832dceec8"
-  integrity sha512-cChwXn5Vam57fyXajDtPXL1wTYc8JtLbr2TN76FYu05itVVVealxLowe2B3IEznJG4p9HAYn/0tJaRlGuEglFQ==
-  dependencies:
-    domelementtype "^2.0.1"
-    domhandler "^3.0.0"
-    domutils "^2.0.0"
-    entities "^2.0.0"
 
 http-deceiver@^1.2.7:
   version "1.2.7"
@@ -9398,13 +9368,12 @@ terriajs-catalog-editor@^0.2.0:
   resolved "https://registry.yarnpkg.com/terriajs-catalog-editor/-/terriajs-catalog-editor-0.2.0.tgz#d9c6679e53c4d92e87a531af896c6148888ed8e4"
   integrity sha1-2cZnnlPE2S6HpTGviWxhSIiO2OQ=
 
-terriajs-cesium@1.66.0:
-  version "1.66.0"
-  resolved "https://registry.yarnpkg.com/terriajs-cesium/-/terriajs-cesium-1.66.0.tgz#f10fa9d78f73d0dc431192503f0218f339b10a80"
-  integrity sha512-Grht6r4KHbWUEMcPDoysQsuZsD7uBlFr8LLmVpBw9W1OTDhjm0Q3faVe6iweDwULck8vRqWSJOxlnGoVqgaJLA==
+terriajs-cesium@1.71.3:
+  version "1.71.3"
+  resolved "https://registry.yarnpkg.com/terriajs-cesium/-/terriajs-cesium-1.71.3.tgz#2026462025f733d8788b286db891aeda854448f0"
+  integrity sha512-u1EGGA8hVcXM7gD8BCOJj8+TQqhfPKE9tZGgZ/nalLmEZZierCyhfnYrUlTWXZ5IO8fDkTvgTRTd4x4nbnZ19Q==
   dependencies:
     dompurify "^2.0.7"
-    esm "^3.2.25"
 
 terriajs-html2canvas@1.0.0-alpha.12-terriajs-1:
   version "1.0.0-alpha.12-terriajs-1"
@@ -9459,10 +9428,10 @@ terriajs-server@^3.0.1:
     when "^3.7.7"
     yargs "^13.2.4"
 
-terriajs@7.11.3:
-  version "7.11.3"
-  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-7.11.3.tgz#ff6e09dfb2b8614349ee14da417bc8c89dac239d"
-  integrity sha512-ElTt1VIxctZ/qqc84FgPgkxK8bl0QSnJOW/cIj26fP5Zq1k6iBR+fi/CNWa0y0ZjINd8rSqaILnngMkMBE9g6A==
+terriajs@7.11.8:
+  version "7.11.8"
+  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-7.11.8.tgz#e0d86ab865b2ea46cbf877d21d4c2207bd5672cb"
+  integrity sha512-GrCkfQBMdRTmMe7uGfPgrWWOo87/I1wcGEEwhl8HhUYjJ/lcJr2s+qx7BQGmfHMo2pcyLWYB24Qd6wkm8DlVWw==
   dependencies:
     "@babel/core" "^7.3.3"
     "@babel/plugin-transform-modules-commonjs" "^7.2.0"
@@ -9495,7 +9464,7 @@ terriajs@7.11.3:
     file-saver "^1.3.8"
     gulp "^4.0.0"
     hammerjs "^2.0.6"
-    html-to-react "^1.3.4"
+    html-to-react "1.3.4"
     i18next "^19.0.0"
     i18next-browser-languagedetector "^4.0.1"
     imports-loader "^0.8.0"
@@ -9535,7 +9504,7 @@ terriajs@7.11.3:
     string-replace-webpack-plugin "^0.1.3"
     style-loader "^0.23.1"
     svg-sprite-loader "4.1.3"
-    terriajs-cesium "1.66.0"
+    terriajs-cesium "1.71.3"
     terriajs-html2canvas "1.0.0-alpha.12-terriajs-1"
     urijs "^1.18.12"
     url-loader "^1.1.2"
