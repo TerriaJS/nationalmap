@@ -1,5 +1,32 @@
 Change Log
 ==========
+### 2020-08-24
+* Removed 5 year anniversary modal.
+* Updated to [TerriaJS](https://github.com/TerriaJS/terriajs/tree/7.11.3) 7.11.10. Changes include:
+  * Upgraded to Cesium v1.71.
+  * Remove caching from TerriaJsonCatalogFunction requests.
+  * Upgraded minimum node-sass version to one that has binaries for node v14.
+  * Update Geoscience Australia Topo basemap.
+  * Remove caching from WPS requests.
+  * Fix entity outline alpha value when de-selecting a feature.
+  * Add additional region mapping boundaries.
+  * Rework the handling of point datasets on the anti-meridian when using LeafletJS.
+  * Fix indices in some translation strings including strings for descriptions of WMS and WMS service.
+  * Added `GeoRssCatalogItem` for displaying GeoRSS files comming from rss2 and atom feeds.
+  * Bug fix: Prevent geojson files from appearing twice in the workbench when dropped with the .json extension
+  * Story related enhancements:
+    * Added a title to story panel with ability to close story panel. 
+    * Added a popup on remove all stories.
+    * Added button for sharing stories.
+    * Added a question popup on window close (if there are stories on the map so users don't lose their work).
+  * Pinned `html-to-react` to version 1.3.4 to avoid IE11 incompatibility with newer version of deep dependency `entities`. See https://github.com/fb55/entities/issues/209
+  * Added a `MapboxStyleCatalogItem` for showing Mapbox styles.
+  * Add a `tileErrorThresholdBeforeDisabling` parameter to `ImageryLayerCatalogItem` to allow a threshold to set for allowed number of tile failures before disabling the layer.
+  * Add support for `classBreaks` renderer to `ArcGisFeatureServerCatalogItem`.
+  * Replace `defineProperties` and `freezeObject` to `Object.defineProperties` and `Object.freeze` respectively.
+  * Bumped travis build environment to node 10.
+  * Upgraded `generate-terriajs-schema` to v1.5.0.
+
 ### 2020--3-17
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs/tree/7.11.3) 7.11.3.  Changes include:
   * Upgraded to Cesium v1.66.
