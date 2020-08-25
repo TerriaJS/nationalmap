@@ -2,6 +2,7 @@ Change Log
 ==========
 ### 2020-08-24
 * Removed 5 year anniversary modal.
+* Added announcement for terriajs v8.
 * Updated to [TerriaJS](https://github.com/TerriaJS/terriajs/tree/7.11.3) 7.11.10. Changes include:
   * Upgraded to Cesium v1.71.
   * Remove caching from TerriaJsonCatalogFunction requests.
