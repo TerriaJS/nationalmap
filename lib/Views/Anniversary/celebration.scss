@@ -259,7 +259,7 @@
   h1 {
     position: relative;
     font-family: "Montserrat";
-    font-size: 40px;
+    font-size: 31px;
     width: 70%;
     @media (max-width: $sm) {
       width: 100%;
@@ -292,18 +292,18 @@
   font-weight: 600;
 }
 .PopupModal-questions {
-  font-style: italic;
   font-size: 16px;
-  line-height: 28px;
+  line-height: 23px;
+  padding: 5px 30px;
+  a {
+    color: rgba($text-light, 0.8);
+  }
 }
 .PopupModal-closeLink {
   font-size: 14px;
   background: none;
   border: none;
-  &:hover,
-  *:focus {
-    text-decoration: underline;
-  }
+  text-decoration: underline;
 }
 .PopupModal-footer {
   display: flex;

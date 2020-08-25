@@ -102,35 +102,54 @@ export const CelebrationPure = ({
             // Allows interaction w/ modal without closing
             onClick={e => e.stopPropagation()}
           >
-            <span className={Styles.streamersWrapper}>
+            {/* Most of the code here are just commented out so we 
+                could potentially reuse them in the future */}
+
+            {/* <span className={Styles.streamersWrapper}>
               <Streamers
                 alt="Anniversary Streamers"
                 className={Styles.streamers}
               />
-            </span>
+            </span> */}
             <CloseButton onClick={handleClose.bind(null, false)} />
             <h1>
-              <HatIcon
+              {/* <HatIcon
                 className={Styles.hat}
                 role="presentation"
                 aria-hidden="true"
-              />
-              NationalMap has turned 5!
+              /> */}
+              Coming soon:
+              <br />A new NationalMap!
             </h1>
             <span className={Styles.popupModalBody}>
-              <p>
+              {/* <p>
                 We’re looking for great stories.
                 <br />
                 Help us tell yours!
-              </p>
-              <span className={Styles.popupModalQuestions}>
+              </p> */}
+              <div className={Styles.popupModalQuestions}>
                 <p>
-                  What impact has NationalMap had on you?
-                  <br />
-                  What changes would you like to see?
+                  Hello everyone, NationalMap is going through some renovations
+                  - our team is working on rolling it out with the new TerriaJS
+                  v8 by December 2020. This means that support for the current
+                  version, including fixing bugs and issues will be very limited
+                  between Sep to Dec 2020.
                 </p>
-              </span>
-              <a
+                <p>
+                  We hope NationalMap will be ready by Xmas with new features
+                  such as user onboarding, faster data rendering, better
+                  integration with{" "}
+                  <a href="https://data.gov.au/" target="_blank">
+                    data.gov.au
+                  </a>{" "}
+                  using the{" "}
+                  <a href="https://magda.io/" target="_blank">
+                    Magda API
+                  </a>{" "}
+                  and of course a new V8 piston engine. Stay safe!
+                </p>
+              </div>
+              {/* <a
                 href={`mailto:info@terria.io?subject=National Map Anniversary Feedback&body=What%20impact%20has%20NationalMap%20had%20on%20you%3F%0A%0AWhat%20changes%20would%20you%20like%20to%20see%3F`}
                 className={Styles.popupModalButton}
                 title="Send us a birthday email!"
@@ -157,19 +176,19 @@ export const CelebrationPure = ({
                   aria-hidden="true"
                 />
                 Leave feedback
-              </button>
+              </button> */}
               <p>
                 <button
                   className={Styles.popupModalCloseLink}
                   onClick={handleClose.bind(null, false)}
                 >
-                  Maybe later
+                  Close message
                 </button>{" "}
               </p>
             </span>
-            <footer className={Styles.popupModalFooter}>
+            {/* <footer className={Styles.popupModalFooter}>
               Be gentle, we read all of your comments (thank you!)
-            </footer>
+            </footer> */}
           </article>
         </div>
       </If>
