@@ -128,21 +128,26 @@ export const CelebrationPure = ({
                 Help us tell yours!
               </p> */}
               <div className={Styles.popupModalQuestions}>
-                Hello everyone, NationalMap is going through some renovations -
-                our team is working on rolling it out with the new TerriaJS v8
-                by December 2020. This means that support for the current
-                version, including fixing bugs and issues will be very limited
-                between Sep to Dec 2020. We hope NationalMap will be ready by
-                Xmas with new features such as user onboarding, faster data
-                rendering, better integration with{" "}
-                <a href="https://data.gov.au/" target="_blank">
-                  data.gov.au
-                </a>{" "}
-                using the{" "}
-                <a href="https://magda.io/" target="_blank">
-                  Magda API
-                </a>{" "}
-                and of course a new V8 piston engine. Stay safe!
+                <p>
+                  Hello everyone, NationalMap is going through some renovations
+                  - our team is working on rolling it out with the new TerriaJS
+                  v8 by December 2020. This means that support for the current
+                  version, including fixing bugs and issues will be very limited
+                  between Sep to Dec 2020.
+                </p>
+                <p>
+                  We hope NationalMap will be ready by Xmas with new features
+                  such as user onboarding, faster data rendering, better
+                  integration with{" "}
+                  <a href="https://data.gov.au/" target="_blank">
+                    data.gov.au
+                  </a>{" "}
+                  using the{" "}
+                  <a href="https://magda.io/" target="_blank">
+                    Magda API
+                  </a>{" "}
+                  and of course a new V8 piston engine. Stay safe!
+                </p>
               </div>
               {/* <a
                 href={`mailto:info@terria.io?subject=National Map Anniversary Feedback&body=What%20impact%20has%20NationalMap%20had%20on%20you%3F%0A%0AWhat%20changes%20would%20you%20like%20to%20see%3F`}
