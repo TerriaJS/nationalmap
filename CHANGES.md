@@ -1,5 +1,9 @@
 Change Log
 ==========
+
+### 2020-09-03
+* Added warning about dropping IE support
+
 ### 2020-08-24
 * Removed 5 year anniversary modal.
 * Added announcement for terriajs v8.
