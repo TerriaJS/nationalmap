@@ -42,6 +42,8 @@
         "showInAppGuides": true,
 
         // True to display new feature popups.
-        "showFeaturePrompts": true
+        "showFeaturePrompts": true,
+
+        "showIEMessage": true
     }
 }

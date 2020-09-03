@@ -25,7 +25,7 @@ const Celebration = createReactClass({
     viewState: PropTypes.object.isRequired
   },
   componentWillMount() {
-    this.props.viewState.showCelebration = false;
+    this.props.viewState.showCelebration = true;
     knockout.track(this.props.viewState, ["showCelebration"]);
   },
   render() {
@@ -133,7 +133,14 @@ export const CelebrationPure = ({
                   - our team is working on rolling it out with the new TerriaJS
                   v8 by December 2020. This means that support for the current
                   version, including fixing bugs and issues will be very limited
-                  between Sep to Dec 2020.
+                  between Sep to Dec 2020. As part of this, we are ending
+                  support for Internet Explorer 11 on 1 November 2020.{" "}
+                  <a
+                    href="https://medium.com/terria/terria-is-ending-support-for-internet-explorer-11-a75383f4b18e?sk=cc2aa3aec002b2f743afa3301ce3daf0"
+                    target="_blank"
+                  >
+                    Here&apos;s why.
+                  </a>
                 </p>
                 <p>
                   We hope NationalMap will be ready by Xmas with new features
