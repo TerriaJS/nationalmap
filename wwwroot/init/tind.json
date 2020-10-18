@@ -26,7 +26,8 @@
             "isOpen": true,
             "itemProperties": {
                 "cacheDuration": "1d"
-            }
+            },
+            "ungroupedTitle": null
         }
     ]
 }

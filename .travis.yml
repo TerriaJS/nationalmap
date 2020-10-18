@@ -1,9 +1,8 @@
 language: node_js
 node_js:
-- '0.10'
+- '6'
 script:
-- npm run submodules
-- gulp lint docs release
+- gulp lint release
 #deploy:
 #  provider: s3
 #  access_key_id: AKIAJI2CLEK7CFXORVWA
