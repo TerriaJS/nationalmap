@@ -102,7 +102,7 @@ export const CelebrationPure = ({
             // Allows interaction w/ modal without closing
             onClick={e => e.stopPropagation()}
           >
-            {/* Most of the code here are just commented out so we 
+            {/* Most of the code here are just commented out so we
                 could potentially reuse them in the future */}
 
             {/* <span className={Styles.streamersWrapper}>
@@ -118,8 +118,13 @@ export const CelebrationPure = ({
                 role="presentation"
                 aria-hidden="true"
               /> */}
-              Coming soon:
-              <br />A new NationalMap!
+              <a
+                href="https://nationalmap.prod.saas.terria.io/"
+                target="_blank"
+              >
+                NationalMap v2.0
+              </a>{" "}
+              is now in beta!
             </h1>
             <span className={Styles.popupModalBody}>
               {/* <p>
@@ -129,31 +134,26 @@ export const CelebrationPure = ({
               </p> */}
               <div className={Styles.popupModalQuestions}>
                 <p>
-                  Hello everyone, NationalMap is going through some renovations
-                  - our team is working on rolling it out with the new TerriaJS
-                  v8 by December 2020. This means that support for the current
-                  version, including fixing bugs and issues will be very limited
-                  between Sep to Dec 2020. As part of this, we are ending
-                  support for Internet Explorer 11 on 1 November 2020.{" "}
+                  Hello everyone! We’re counting on you to shape the future
+                  release of NationalMap 2.0!
+                  <br />
+                  We have developed the new version of NationalMap on the latest
+                  TerriaJS and we need the community to take it for a test
+                  drive. Users have new tools for onboarding and help, an
+                  improved user interface and more datasets from the Australian
+                  open data platform, data.gov.au.
+                  <br />
+                  Let us know what you think of this release on
                   <a
-                    href="https://medium.com/terria/terria-is-ending-support-for-internet-explorer-11-a75383f4b18e?sk=cc2aa3aec002b2f743afa3301ce3daf0"
+                    href="https://nationalmap.prod.saas.terria.io/"
                     target="_blank"
                   >
-                    Here&apos;s why.
+                    NationalMap 2.0 on Beta
                   </a>
-                </p>
-                <p>
-                  We hope NationalMap will be ready by Xmas with new features
-                  such as user onboarding, faster data rendering, better
-                  integration with{" "}
-                  <a href="https://data.gov.au/" target="_blank">
-                    data.gov.au
-                  </a>{" "}
-                  using the{" "}
-                  <a href="https://magda.io/" target="_blank">
-                    Magda API
-                  </a>{" "}
-                  and of course a new V8 piston engine. Stay safe!
+                  by emailing <a href="mailto:info@terria.io">info@terria.io</a>
+                  .
+                  <br />
+                  Happy holidays!
                 </p>
               </div>
               {/* <a
