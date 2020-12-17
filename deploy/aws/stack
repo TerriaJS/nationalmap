@@ -21,7 +21,7 @@ fi
 
 echo "Deploying $PACKAGE_NAME"
 
-aws s3 cp ../packages/$PACKAGE_NAME.tar.gz $npm_package_config_awsS3PackagesPath/$PACKAGE_NAME.tar.gz
+aws s3 --profile $npm_package_config_awsProfile cp ../packages/$PACKAGE_NAME.tar.gz $npm_package_config_awsS3PackagesPath/$PACKAGE_NAME.tar.gz
 if [[ $? -ne 0 ]]; then
     exit 1
 fi
@@ -32,7 +32,7 @@ echo "Length of the BASE64 encoded user-data is ${#BASE64_USERDATA} (max size al
 
 # run the AWS CloudFormation command to take action
 aws cloudformation $1-stack \
-    \
+    --profile $npm_package_config_awsProfile \
     --region $npm_package_config_awsRegion \
     --stack-name "$PACKAGE_NAME" \
     --template-body file://stack.json \
