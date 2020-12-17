@@ -614,6 +614,17 @@ Change Log
   * "Download Data" in FeatureInfoSection now "Download Data for this Feature".
   * Fixed the color of visited links in client apps with their own css variables.
   * Fixed a bug that prevented the scale bar from displaying correctly.
+* Fix manifest.json start_url
+
+### Next Release
+
+* Fix the hot reload script.
+
+### 2017-XX-XX
+
+* Use `gtar` when building `make-package` on OSX to create GNU tar compatible tarballs.
+* Change deafult mobile view mode to a configuration parameter rather then hard coded to 2D.
+* Add Augmented Reality mode for iOS and Android devices with a compass and accelerometer, activated by enabling `experimentalFeatures` in `config.json` and adding the AugmentedVirtualityTool to the ExperimentalMenu in the customisable user interface.
 
 ### 2016-11-15
 
