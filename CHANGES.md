@@ -1,6 +1,9 @@
 Change Log
 ==========
 
+### 2020-12-18
+* Add NationalMap v2.0 Beta announcement
+
 ### 2020-09-03
 * Added warning about dropping IE support
 
