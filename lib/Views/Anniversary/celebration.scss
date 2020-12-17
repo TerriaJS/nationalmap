@@ -266,6 +266,9 @@
     }
     margin: 40px auto 26px;
   }
+  a {
+    color: rgba($text-light, 0.8);
+  }
 }
 .PopupModal-button {
   composes: btn from "~terriajs/lib/Sass/common/_buttons.scss";
@@ -295,9 +298,6 @@
   font-size: 16px;
   line-height: 23px;
   padding: 5px 30px;
-  a {
-    color: rgba($text-light, 0.8);
-  }
 }
 .PopupModal-closeLink {
   font-size: 14px;

@@ -143,13 +143,13 @@ export const CelebrationPure = ({
                   improved user interface and more datasets from the Australian
                   open data platform, data.gov.au.
                   <br />
-                  Let us know what you think of this release on
+                  Let us know what you think of{" "}
                   <a
                     href="https://nationalmap.prod.saas.terria.io/"
                     target="_blank"
                   >
-                    NationalMap 2.0 on Beta
-                  </a>
+                    NationalMap v2.0 Beta
+                  </a>{" "}
                   by emailing <a href="mailto:info@terria.io">info@terria.io</a>
                   .
                   <br />
