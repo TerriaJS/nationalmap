@@ -264,7 +264,7 @@
     @media (max-width: $sm) {
       width: 100%;
     }
-    margin: 40px auto 26px;
+    margin: 40px auto 0px;
   }
   a {
     color: rgba($text-light, 0.8);
@@ -326,5 +326,6 @@
 }
 
 .aremiNotice {
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bolder;
 }

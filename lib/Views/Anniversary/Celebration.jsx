@@ -153,10 +153,15 @@ export const CelebrationPure = ({
                   by emailing <a href="mailto:info@terria.io">info@terria.io</a>
                   .
                 </p>
-                <p className={Styles.aremiNotice}>
-                  <b>Dear AREMI users,</b><br/>
-                  Please check the <a href="https://nationalmap.prod.saas.terria.io/#share=s-uQvnloR2FjBbnr9SlMMAwfBHcca">Energy data group in NationalMap Beta</a> version to access electricity and renewables datasets.
-                </p>
+                <div className={Styles.aremiNotice}>
+                  <b>Dear AREMI users,</b>
+                  <br />
+                  Please check the{" "}
+                  <a href="https://nationalmap.prod.saas.terria.io/#share=s-uQvnloR2FjBbnr9SlMMAwfBHcca">
+                    Energy data group in NationalMap Beta
+                  </a>{" "}
+                  version to access electricity and renewables datasets.
+                </div>
               </div>
               {/* <a
                 href={`mailto:info@terria.io?subject=National Map Anniversary Feedback&body=What%20impact%20has%20NationalMap%20had%20on%20you%3F%0A%0AWhat%20changes%20would%20you%20like%20to%20see%3F`}
@@ -186,14 +191,12 @@ export const CelebrationPure = ({
                 />
                 Leave feedback
               </button> */}
-              <p>
-                <button
-                  className={Styles.popupModalCloseLink}
-                  onClick={handleClose.bind(null, false)}
-                >
-                  Close message
-                </button>{" "}
-              </p>
+              <button
+                className={Styles.popupModalCloseLink}
+                onClick={handleClose.bind(null, false)}
+              >
+                Close message
+              </button>
             </span>
             {/* <footer className={Styles.popupModalFooter}>
               Be gentle, we read all of your comments (thank you!)
