@@ -152,8 +152,10 @@ export const CelebrationPure = ({
                   </a>{" "}
                   by emailing <a href="mailto:info@terria.io">info@terria.io</a>
                   .
-                  <br />
-                  Happy holidays!
+                </p>
+                <p className={Styles.aremiNotice}>
+                  <b>Dear AREMI users,</b><br/>
+                  Please check the <a href="https://nationalmap.prod.saas.terria.io/#share=s-uQvnloR2FjBbnr9SlMMAwfBHcca">Energy data group in NationalMap Beta</a> version to access electricity and renewables datasets.
                 </p>
               </div>
               {/* <a
