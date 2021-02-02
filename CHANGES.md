@@ -1,6 +1,9 @@
 Change Log
 ==========
 
+### 2020-02-02
+* Add message for AREMI users to check National Map beta for ported datasets.
+
 ### 2020-12-18
 * Add NationalMap v2.0 Beta announcement
 
