@@ -112,20 +112,14 @@ export const CelebrationPure = ({
               />
             </span> */}
             <CloseButton onClick={handleClose.bind(null, false)} />
-            <h1>
+            <h2>
               {/* <HatIcon
                 className={Styles.hat}
                 role="presentation"
                 aria-hidden="true"
               /> */}
-              <a
-                href="https://nationalmap.prod.saas.terria.io/"
-                target="_blank"
-              >
-                NationalMap v2.0
-              </a>{" "}
-              is now in beta!
-            </h1>
+              NationalMap needs you!
+            </h2>
             <span className={Styles.popupModalBody}>
               {/* <p>
                 We’re looking for great stories.
@@ -134,34 +128,23 @@ export const CelebrationPure = ({
               </p> */}
               <div className={Styles.popupModalQuestions}>
                 <p>
-                  Hello everyone! We’re counting on you to shape the future
-                  release of NationalMap 2.0!
-                  <br />
-                  We have developed the new version of NationalMap on the latest
-                  TerriaJS and we need the community to take it for a test
-                  drive. Users have new tools for onboarding and help, an
-                  improved user interface and more datasets from the Australian
-                  open data platform, data.gov.au.
-                  <br />
-                  Let us know what you think of{" "}
-                  <a
-                    href="https://nationalmap.prod.saas.terria.io/"
-                    target="_blank"
-                  >
-                    NationalMap v2.0 Beta
-                  </a>{" "}
-                  by emailing <a href="mailto:info@terria.io">info@terria.io</a>
-                  .
+                  A new version of NationalMap is now in beta and we need the
+                  community (that's you) to take it for a test drive.
                 </p>
-                <div className={Styles.aremiNotice}>
-                  <b>Dear AREMI users,</b>
-                  <br />
-                  Please check the{" "}
-                  <a href="https://nationalmap.prod.saas.terria.io/#share=s-uQvnloR2FjBbnr9SlMMAwfBHcca">
-                    Energy data group in NationalMap Beta
-                  </a>{" "}
-                  version to access electricity and renewables datasets.
-                </div>
+                <a
+                  class="tjs-_buttons__btn tjs-_buttons__btn-primary"
+                  href="https://beta.nationalmap.terria.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Preview NationalMap (beta)
+                </a>
+                <hr />
+                <p>
+                  <strong>AREMI datasets</strong> are now available via
+                  NationalMap (under '<strong>Energy</strong>' in the data
+                  catalogue)
+                </p>
               </div>
               {/* <a
                 href={`mailto:info@terria.io?subject=National Map Anniversary Feedback&body=What%20impact%20has%20NationalMap%20had%20on%20you%3F%0A%0AWhat%20changes%20would%20you%20like%20to%20see%3F`}
