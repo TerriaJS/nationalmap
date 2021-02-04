@@ -25,11 +25,17 @@ import defined from 'terriajs-cesium/Source/Core/defined';
 import render from './lib/Views/render';
 import GnafAddressGeocoder from 'terriajs/lib/Map/GnafAddressGeocoder.js';
 
+import NswTrafficVolume from './lib/Models/NswTrafficVolume';
+import NswTrafficHourlyVolume from './lib/Models/NswTrafficHourlyVolume';
+
 // Register all types of catalog members in the core TerriaJS.  If you only want to register a subset of them
 // (i.e. to reduce the size of your application if you don't actually use them all), feel free to copy a subset of
 // the code in the registerCatalogMembers function here instead.
 registerCatalogMembers();
 registerAnalytics();
+
+NswTrafficVolume.register();
+NswTrafficHourlyVolume.register();
 
 terriaOptions.analytics = new GoogleAnalytics();
 terriaOptions.batchGeocoder = new GnafAddressGeocoder();

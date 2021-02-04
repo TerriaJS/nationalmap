@@ -44,6 +44,7 @@
         // True to display new feature popups.
         "showFeaturePrompts": true,
 
-        "showIEMessage": true
+        "showIEMessage": true,
+        "regionMappingDefinitionsUrl": "data/regionMapping.json"
     }
 }
