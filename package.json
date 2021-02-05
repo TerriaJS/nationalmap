@@ -43,7 +43,7 @@
     "husky": "^2.2.0",
     "json-2-csv": "^3.7.5",
     "json5": "^2.1.0",
-    "nationalmap-catalog": "git://github.com/TerriaJS/NationalMap-Catalog",
+    "nationalmap-catalog": "git://github.com/TerriaJS/NationalMap-Catalog.git",
     "node-notifier": "^5.1.2",
     "node-sass": "^4.14.1",
     "plugin-error": "^1.0.1",
