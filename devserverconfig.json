@@ -25,7 +25,8 @@
         "adelaidemetro.com.au",
         "tern.org.au",
         "biogas.nceastg.usq.edu.au",
-        "agrifutures.com.au"
+        "agrifutures.com.au",
+        "cefc-rooftop-solar-potential.s3-ap-southeast-2.amazonaws.com
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
@@ -37,4 +38,3 @@
     },
     "maxConversionSize": 20000000
 }
-

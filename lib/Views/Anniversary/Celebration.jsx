@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import ObserveModelMixin from "terriajs/lib/ReactViews/ObserveModelMixin";
+import Icon from "terriajs/lib/ReactViews/Icon";
 import knockout from "terriajs-cesium/Source/ThirdParty/knockout";
 
 import Styles from "./celebration.scss";
@@ -112,21 +113,15 @@ export const CelebrationPure = ({
               />
             </span> */}
             <CloseButton onClick={handleClose.bind(null, false)} />
-            <h1>
+            <h2>
               {/* <HatIcon
                 className={Styles.hat}
                 role="presentation"
                 aria-hidden="true"
               /> */}
-              <a
-                href="https://nationalmap.prod.saas.terria.io/"
-                target="_blank"
-              >
-                NationalMap v2.0
-              </a>{" "}
-              is now in beta!
-            </h1>
-            <span className={Styles.popupModalBody}>
+              NationalMap needs you!
+            </h2>
+            <div className={Styles.popupModalBody}>
               {/* <p>
                 We’re looking for great stories.
                 <br />
@@ -134,34 +129,17 @@ export const CelebrationPure = ({
               </p> */}
               <div className={Styles.popupModalQuestions}>
                 <p>
-                  Hello everyone! We’re counting on you to shape the future
-                  release of NationalMap 2.0!
-                  <br />
-                  We have developed the new version of NationalMap on the latest
-                  TerriaJS and we need the community to take it for a test
-                  drive. Users have new tools for onboarding and help, an
-                  improved user interface and more datasets from the Australian
-                  open data platform, data.gov.au.
-                  <br />
-                  Let us know what you think of{" "}
-                  <a
-                    href="https://nationalmap.prod.saas.terria.io/"
-                    target="_blank"
-                  >
-                    NationalMap v2.0 Beta
-                  </a>{" "}
-                  by emailing <a href="mailto:info@terria.io">info@terria.io</a>
-                  .
+                  A new version of NationalMap is now in beta and we need the
+                  community (that's you) to take it for a test drive.
                 </p>
-                <div className={Styles.aremiNotice}>
-                  <b>Dear AREMI users,</b>
-                  <br />
-                  Please check the{" "}
-                  <a href="https://nationalmap.prod.saas.terria.io/#share=s-uQvnloR2FjBbnr9SlMMAwfBHcca">
-                    Energy data group in NationalMap Beta
-                  </a>{" "}
-                  version to access electricity and renewables datasets.
-                </div>
+                <a
+                  className={Styles.betaBtn}
+                  href="https://beta.nationalmap.terria.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>Preview NationalMap (beta)</span>
+                </a>
               </div>
               {/* <a
                 href={`mailto:info@terria.io?subject=National Map Anniversary Feedback&body=What%20impact%20has%20NationalMap%20had%20on%20you%3F%0A%0AWhat%20changes%20would%20you%20like%20to%20see%3F`}
@@ -191,16 +169,25 @@ export const CelebrationPure = ({
                 />
                 Leave feedback
               </button> */}
+            </div>
+            {/* <footer className={Styles.popupModalFooter}>
+              Be gentle, we read all of your comments (thank you!)
+            </footer> */}
+
+            <footer className={Styles.notification}>
+              <div>
+                <strong>AREMI datasets</strong> are now available via
+                NationalMap
+                <br />
+                (under '<strong>Energy</strong>' in the data catalogue)
+              </div>
               <button
                 className={Styles.popupModalCloseLink}
                 onClick={handleClose.bind(null, false)}
               >
                 Close message
               </button>
-            </span>
-            {/* <footer className={Styles.popupModalFooter}>
-              Be gentle, we read all of your comments (thank you!)
-            </footer> */}
+            </footer>
           </article>
         </div>
       </If>
