@@ -240,7 +240,7 @@
     height: 100vh;
   }
   @media (min-width: $sm) and (min-height: 560px) {
-    min-height: 460px;
+    min-height: 500px;
   }
 
   padding: 0;
@@ -348,6 +348,10 @@
   font-weight: bold;
 
   width: 60%;
+  @media (max-width: $sm) {
+    width: 100%;
+  }
+
   margin: auto;
   margin-top: 2em;
 
