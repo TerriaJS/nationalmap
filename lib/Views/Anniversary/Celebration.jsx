@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import ObserveModelMixin from "terriajs/lib/ReactViews/ObserveModelMixin";
+import Icon from "terriajs/lib/ReactViews/Icon";
 import knockout from "terriajs-cesium/Source/ThirdParty/knockout";
 
 import Styles from "./celebration.scss";
@@ -120,7 +121,7 @@ export const CelebrationPure = ({
               /> */}
               NationalMap needs you!
             </h2>
-            <span className={Styles.popupModalBody}>
+            <div className={Styles.popupModalBody}>
               {/* <p>
                 We’re looking for great stories.
                 <br />
@@ -132,19 +133,13 @@ export const CelebrationPure = ({
                   community (that's you) to take it for a test drive.
                 </p>
                 <a
-                  class="tjs-_buttons__btn tjs-_buttons__btn-primary"
+                  className={Styles.betaBtn}
                   href="https://beta.nationalmap.terria.io"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Preview NationalMap (beta)
+                  <span>Preview NationalMap (beta)</span>
                 </a>
-                <hr />
-                <p>
-                  <strong>AREMI datasets</strong> are now available via
-                  NationalMap (under '<strong>Energy</strong>' in the data
-                  catalogue)
-                </p>
               </div>
               {/* <a
                 href={`mailto:info@terria.io?subject=National Map Anniversary Feedback&body=What%20impact%20has%20NationalMap%20had%20on%20you%3F%0A%0AWhat%20changes%20would%20you%20like%20to%20see%3F`}
@@ -174,16 +169,25 @@ export const CelebrationPure = ({
                 />
                 Leave feedback
               </button> */}
+            </div>
+            {/* <footer className={Styles.popupModalFooter}>
+              Be gentle, we read all of your comments (thank you!)
+            </footer> */}
+
+            <footer className={Styles.notification}>
+              <div>
+                <strong>AREMI datasets</strong> are now available via
+                NationalMap
+                <br />
+                (under '<strong>Energy</strong>' in the data catalogue)
+              </div>
               <button
                 className={Styles.popupModalCloseLink}
                 onClick={handleClose.bind(null, false)}
               >
                 Close message
               </button>
-            </span>
-            {/* <footer className={Styles.popupModalFooter}>
-              Be gentle, we read all of your comments (thank you!)
-            </footer> */}
+            </footer>
           </article>
         </div>
       </If>

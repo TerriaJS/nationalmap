@@ -221,6 +221,10 @@
   text-align: center;
   box-shadow: $box-shadow;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -236,7 +240,7 @@
     height: 100vh;
   }
   @media (min-width: $sm) and (min-height: 560px) {
-    min-height: 560px;
+    min-height: 460px;
   }
 
   padding: 0;
@@ -270,6 +274,13 @@
     color: rgba($text-light, 0.8);
   }
 }
+
+.PopupModal:before {
+  content: "";
+  width: 1px;
+  margin-bottom: auto; /* Required so that the child items in this flex are pushed to center */
+}
+
 .PopupModal-button {
   composes: btn from "~terriajs/lib/Sass/common/_buttons.scss";
   composes: btn-primary from "~terriajs/lib/Sass/common/_buttons.scss";
@@ -304,6 +315,7 @@
   background: none;
   border: none;
   text-decoration: underline;
+  margin: 1em;
 }
 .PopupModal-footer {
   display: flex;
@@ -328,4 +340,33 @@
 .aremiNotice {
   font-size: 18px;
   font-weight: bolder;
+}
+
+.betaBtn {
+  composes: btn from "~terriajs/lib/Sass/common/_buttons.scss";
+  composes: btn-primary from "~terriajs/lib/Sass/common/_buttons.scss";
+  font-weight: bold;
+
+  width: 60%;
+  margin: auto;
+  margin-top: 2em;
+
+  span:before {
+    content: url("/images/externalLink-20.svg");
+    height: 20px;
+    display: block;
+    float: left;
+    margin-right: 0.5em;
+  }
+}
+
+.notification {
+  margin-top: auto; /* So that this item is flush to the bottom inside the parent flex */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.notification:before {
+  content: url("/images/notification-badge-32.svg");
+  position: relative;
+  top: -16px;
 }
