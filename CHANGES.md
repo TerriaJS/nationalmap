@@ -1,5 +1,7 @@
 Change Log
 ==========
+### 2020-04-09
+* Add proxy to nsw-digital-twin-data.terria.io.
 
 ### 2020-02-02
 * Add message for AREMI users to check National Map beta for ported datasets.
