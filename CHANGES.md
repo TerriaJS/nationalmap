@@ -1,6 +1,6 @@
 Change Log
 ==========
-### 2020-04-09
+### 2021-04-12
 * Add proxy to nsw-digital-twin-data.terria.io.
 
 ### 2020-02-02
