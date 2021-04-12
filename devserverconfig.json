@@ -26,7 +26,8 @@
         "tern.org.au",
         "biogas.nceastg.usq.edu.au",
         "agrifutures.com.au",
-        "cefc-rooftop-solar-potential.s3-ap-southeast-2.amazonaws.com"
+        "cefc-rooftop-solar-potential.s3-ap-southeast-2.amazonaws.com",
+        "nsw-digital-twin-data.terria.io"
     ],
     "initPaths": [
         "node_modules/nationalmap-catalog/build"
