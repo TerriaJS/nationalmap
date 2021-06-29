@@ -6,7 +6,7 @@
         "feedbackUrl": "feedback",
         "bingMapsKey": "AtftBnlXr4QgQIRFJcr0VkGKTtnys8tJ3OSCZ1gkVE8AsazTR6Ca3x6RxllCUY4Q",
         "googleUrlShortenerKey": null,
-        "googleAnalyticsKey": null,
+        "googleAnalyticsKey": "UA-63280156-20",
         "googleAnalyticsOptions": null,
         "disclaimer": {
             "text": "Disclaimer: NationalMap must not be used for navigation or precise spatial analysis",
