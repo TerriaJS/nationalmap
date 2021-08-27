@@ -19,23 +19,11 @@
         "geoserver.imos.org.au",
         "nci.org.au",
         "static.nationalmap.nicta.com.au",
-        "localdata.net.au",
-        "lakemac.com.au",
-        "data.aodn.org.au",
-        "adelaidemetro.com.au",
-        "tern.org.au",
-        "biogas.nceastg.usq.edu.au",
-        "agrifutures.com.au",
-        "cefc-rooftop-solar-potential.s3-ap-southeast-2.amazonaws.com",
-        "nsw-digital-twin-data.terria.io"
-    ],
-    "initPaths": [
-        "node_modules/nationalmap-catalog/build"
-    ],
-    "feedback": {
-        "userAgent": "TerriaBot (TerriaJS Feedback)",
-        "issuesUrl": "https://api.github.com/repos/TerriaJS/NationalMap-Feedback/issues",
-        "accessToken": null
-    },
-    "maxConversionSize": 20000000
+        "githubusercontent.com",
+        "gov",
+        "gov.uk",
+        "gov.nz",
+        "sample.aero3dpro.com.au",
+        "services.aremi.data61.io"
+    ]
 }
