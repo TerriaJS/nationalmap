@@ -1,5 +1,9 @@
 Change Log
 ==========
+### 2021-08-30
+* Upgrade to v8 version of terriajs.
+* Update catalogue.
+
 ### 2021-04-12
 * Add proxy to nsw-digital-twin-data.terria.io.
 
