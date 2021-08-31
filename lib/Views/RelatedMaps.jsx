@@ -28,85 +28,103 @@ function RelatedMaps(props) {
       <p>Clicking on a map below will open it in a separate window or tab.</p>
 
       <div className={classNames(PanelStyles.section, Styles.section)}>
-        <a target="_blank" href="http://nationalmap.gov.au/renewables/">
+        <a target="_blank" href="https://nsw.digitaltwin.terria.io/">
           <img
             className={Styles.image}
-            src={require("../../wwwroot/images/aremi.jpg")}
-            alt="AREMI"
+            src={require("../../wwwroot/images/nsw-dt.png")}
+            alt="NSW Spatial Digital Twin"
           />
         </a>
 
         <a
           target="_blank"
           className={Styles.link}
-          href="http://nationalmap.gov.au/renewables/"
+          href="https://nsw.digitaltwin.terria.io/"
         >
-          AREMI
+          NSW Spatial Digital Twin
         </a>
 
         <p>
-          AREMI provides access to Australian spatial data relevant to the
-          Renewable Energy industry, sourced from Government, Industry and
-          Research.
+          The NSW Spatial Digital Twin aims to respond to the NSW State
+          Infrastructure Strategy by developing a 4D (3D+time) Foundation
+          Spatial Data Framework. The goal is to help the NSW Government with
+          infrastructure assets planning and management, integration with land
+          use planning, data collaboration, and sharing.
         </p>
       </div>
 
       <div className={classNames(PanelStyles.section, Styles.section)}>
-        <a target="_blank" href="http://nationalmap.gov.au/investormap/">
+        <a target="_blank" href="https://qld.digitaltwin.terria.io/">
           <img
             className={Styles.image}
-            src={require("../../wwwroot/images/investormap.jpg")}
-            alt="Investor Map"
+            src={require("../../wwwroot/images/qld-dt.png")}
+            alt="QLD Spatial Digital Twin"
           />
         </a>
 
         <a
           target="_blank"
           className={Styles.link}
-          href="http://nationalmap.gov.au/investormap/"
+          href="https://qld.digitaltwin.terria.io/"
         >
-          Investor Map
+          QLD Spatial Digital Twin
         </a>
 
         <p>
-          The Investor Map is a platform for accessing over 900 datasets to
-          assist investors with assessment of opportunities in Australia,
-          especially in mining, tourism and agriculture. The project is a
-          collaboration between Austrade, Geoscience Australia and Data61
-          Terria.
+          The QLD Spatial Digital Twin is an evolving 4D data platform that
+          enables users to discover, visualise, analyse and share a rich range
+          of datasets in a real world context, to enable better planning and
+          decision making. It is an initiative of Advance Queensland and the
+          Department of Resources in partnership with CSIRO-Data61.
         </p>
       </div>
 
       <div className={classNames(PanelStyles.section, Styles.section)}>
-        <a target="_blank" href="http://www.neii.gov.au/viewer/">
+        <a target="_blank" href="https://maps.dea.ga.gov.au/">
           <img
             className={Styles.image}
-            src={require("../../wwwroot/images/neii.jpg")}
-            alt="NEII Viewer"
+            src={require("../../wwwroot/images/dea.png")}
+            alt="Digital Earth Australia"
           />
         </a>
 
         <a
           target="_blank"
           className={Styles.link}
-          href="http://www.neii.gov.au/viewer/"
+          href="https://maps.dea.ga.gov.au/"
         >
-          NEII Viewer
+          Digital Earth Australia
         </a>
 
         <p>
-          The National Environmental Information Infrastructure (NEII) is an
-          information platform designed to improve discovery, access and re-use
-          of nationally significant environmental data. More information on the
-          NEII is available here:{" "}
-          <a
-            target="_blank"
-            className={Styles.link}
-            href="http://neii.gov.au/data-viewer"
-          >
-            neii.gov.au/data-viewer
-          </a>
-          .
+          Digital Earth Australia (DEA) Map is a website for map-based access to
+          DEA’s products, developed by Data61 CSIRO for Geoscience Australia.
+          DEA uses satellite data to detect physical changes across Australia in
+          unprecedented detail. It identifies soil and coastal erosion, crop
+          growth, water quality and changes to cities and regions.
+        </p>
+      </div>
+
+      <div className={classNames(PanelStyles.section, Styles.section)}>
+        <a target="_blank" href="https://map.drought.gov.au/">
+          <img
+            className={Styles.image}
+            src={require("../../wwwroot/images/droughtmap.jpg")}
+            alt="National Drought Map"
+          />
+        </a>
+
+        <a
+          target="_blank"
+          className={Styles.link}
+          href="https://map.drought.gov.au/"
+        >
+          National Drought Map
+        </a>
+
+        <p>
+          The DroughtMap is a platform built for the Australian Government to
+          assist with planning and management of drought effects in Australia.
         </p>
       </div>
 
@@ -130,35 +148,6 @@ function RelatedMaps(props) {
         <p>
           AURIN Map provides access to datasets on urban infrastructure for
           urban researchers, policy and decision makers.
-        </p>
-      </div>
-
-      <div className={classNames(PanelStyles.section, Styles.section)}>
-        <a target="_blank" href="https://soe.terria.io">
-          <img
-            className={Styles.image}
-            src={require("../../wwwroot/images/soe.jpg")}
-            alt="State of the Environment Map"
-          />
-        </a>
-
-        <a target="_blank" className={Styles.link} href="https://soe.terria.io">
-          State of the Environment Map
-        </a>
-
-        <p>
-          The Australia state of the environment 2016 report has been prepared
-          by independent experts using a range of best available information to
-          support assessments of environmental condition, pressures, management
-          effectiveness, resilience, risks and outlooks. The full report is
-          available from{" "}
-          <a
-            target="_blank"
-            className={Styles.link}
-            href="https://soe.environment.gov.au/"
-          >
-            https://soe.environment.gov.au/
-          </a>
         </p>
       </div>
     </MenuPanel>
