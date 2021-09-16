@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Icon from "terriajs/lib/ReactViews/Icon";
+import Icon from "terriajs/lib/Styled/Icon";
 
 import Styles from "./close-button.scss";
 

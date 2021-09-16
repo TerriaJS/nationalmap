@@ -4,20 +4,20 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 import ObserveModelMixin from "terriajs/lib/ReactViews/ObserveModelMixin";
-import Icon from "terriajs/lib/ReactViews/Icon";
+// import Icon from "terriajs/lib/ReactViews/Icon";
 import knockout from "terriajs-cesium/Source/ThirdParty/knockout";
 
 import Styles from "./celebration.scss";
 
-import Streamers from "./Streamers.jsx";
-import MailIcon from "./MailIcon.jsx";
-import FeedbackIcon from "./FeedbackIcon.jsx";
-import HatIcon from "./HatIcon.jsx";
+// import Streamers from "./Streamers.jsx";
+// import MailIcon from "./MailIcon.jsx";
+// import FeedbackIcon from "./FeedbackIcon.jsx";
+// import HatIcon from "./HatIcon.jsx";
 import CloseButton from "./CloseButton.jsx";
 
 import { useKeyPress } from "./useKeyPress.js";
 
-const LOCAL_PROPERTY_KEY = "anniversaryPrompted";
+// const LOCAL_PROPERTY_KEY = "anniversaryPrompted";
 
 const Celebration = createReactClass({
   displayName: "Celebration",
