@@ -114,6 +114,12 @@
             "title": "Detecting change between two points in time"
           }
         ]
+      },
+      {
+        "itemName": "mapuserguide",
+        "title": "translate#helpPanel.mapUserGuide",
+        "paneMode": "externalLink",
+        "url": "https://terriajs.gitbook.io/terriajs/"
       }
     ],
     "mobileDefaultViewerMode": "2d",
