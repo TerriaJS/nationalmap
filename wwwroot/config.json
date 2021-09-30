@@ -23,14 +23,6 @@
     "enableGeojsonMvt": true,
     "experimentalFeatures": true,
     "feedbackUrl": "feedback",
-    "globalDisclaimer": {
-      "buttonTitle": "I agree",
-      "confirmationRequired": true,
-      "devHostRegex": "\\b(staging|preview|test|dev)\\.",
-      "enableOnLocalhost": true,
-      "prodHostRegex": "gov.\\.au$",
-      "title": "Disclaimer"
-    },
     "helpContent": [
       {
         "icon": "video",

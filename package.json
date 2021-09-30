@@ -32,7 +32,7 @@
     "awsEc2ImageId": "ami-0c4e6a98ef9348899",
     "awsKeyName": "has100",
     "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2021-04-12.json",
-    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2021-09-03.json"
+    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2021-09-30.json"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
@@ -70,7 +70,7 @@
     "semver": "^5.0.0",
     "style-loader": "^0.23.1",
     "svg-sprite-loader": "4.1.3",
-    "terriajs": "8.1.0",
+    "terriajs": "8.1.1",
     "terriajs-catalog-editor": "^0.2.0",
     "terriajs-cesium": "1.81.0",
     "terriajs-schema": "latest",
