@@ -11,6 +11,7 @@
       "<a target=\"_blank\" href=\"http://www.gov.au/\"><img src=\"https://nationalmap.gov.au/images/AG-Rvsd-Stacked-Press.png\" height=\"45\" alt=\"Australian Government\" /></a>"
     ],
     "displayOneBrand": 1,
+    "catalogIndexUrl": "http://static.nationalmap.nicta.com.au/init/2021-10-01-index.json",
     "cesiumIonAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2NzYxZjdkNi1mZmUyLTQ3YjMtOTdiMC00N2Y0ZTg0NWM3Y2EiLCJpZCI6Mjk5MiwiaWF0IjoxNjIyNTA0ODY0fQ.yOdPU8vWbX_dVDbofVpjMMCP59ZA1MKZInIuHV59bRo",
     "developerAttribution": {
       "link": "https://terria.io",
