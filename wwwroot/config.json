@@ -156,7 +156,6 @@
       "trainerHeight": "64",
       "workbenchWidth": "350"
     },
-    "useCesiumIonBingImagery": true,
     "welcomeMessageVideo": {
       "placeholderImage": "https://img.youtube.com/vi/C4-gLv09Rfo/maxresdefault.jpg",
       "videoTitle": "Getting started with the map",
