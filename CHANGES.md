@@ -1,7 +1,9 @@
 Change Log
 ==========
-### 2021-10-14
-* Update terriajs and configuration.
+### 2021-10-15
+* Update to terriajs 8.1.4.
+* Change Bing/ION configuration.
+
 ### 2021-08-30
 * Upgrade to v8 version of terriajs.
 * Update catalogue.
