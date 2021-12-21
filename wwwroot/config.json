@@ -1,6 +1,6 @@
 {
   "initializationUrls": [
-    "https://raw.githubusercontent.com/TerriaJS/saas-catalogs-public/main/nationalmap/dev.json"
+    "https://terria-catalogs-public.storage.googleapis.com/nationalmap/prod.json"
   ],
   "parameters": {
     "appName": "NationalMap",
@@ -11,7 +11,7 @@
       "<a target=\"_blank\" href=\"http://www.gov.au/\"><img src=\"https://nationalmap.gov.au/images/AG-Rvsd-Stacked-Press.png\" height=\"45\" alt=\"Australian Government\" /></a>"
     ],
     "displayOneBrand": 1,
-    "catalogIndexUrl": "http://static.nationalmap.nicta.com.au/init/2021-10-01-index.json",
+    "catalogIndexUrl": "https://terria-catalogs-public.storage.googleapis.com/nationalmap/catalog-index/prod.json",
     "cesiumIonAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2NzYxZjdkNi1mZmUyLTQ3YjMtOTdiMC00N2Y0ZTg0NWM3Y2EiLCJpZCI6Mjk5MiwiaWF0IjoxNjIyNTA0ODY0fQ.yOdPU8vWbX_dVDbofVpjMMCP59ZA1MKZInIuHV59bRo",
     "developerAttribution": {
       "link": "https://terria.io",
@@ -116,7 +116,7 @@
       }
     ],
     "mobileDefaultViewerMode": "2d",
-    "regionMappingDefinitionsUrl": "https://raw.githubusercontent.com/TerriaJS/saas-catalogs-public/main/nationalmap/regionMapping-2021-06-02.json",
+    "regionMappingDefinitionsUrl": "https://terria-catalogs-public.storage.googleapis.com/nationalmap/regionMapping-2021-06-02.json",
     "showWelcomeMessage": true,
     "supportEmail": "info@terria.io",
     "theme": {
