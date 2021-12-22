@@ -24,3 +24,5 @@ wwwroot/init/sdmx-abs-beta.json
 packages/
 /wwwroot/init/abs-itt.json
 pancake/
+
+package-lock.json
