@@ -1050,7 +1050,7 @@
     },
     "ELB_2021": {
       "layerName": "ELB_2021",
-      "server": "https://tile-test.terria.io/ELB_2021-v1/{z}/{x}/{y}.pbf",
+      "server": "https://tiles.terria.io/ELB_2021/{z}/{x}/{y}.pbf",
       "serverType": "MVT",
       "serverMaxNativeZoom": 12,
       "serverMinZoom": 0,
