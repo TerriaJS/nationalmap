@@ -116,7 +116,7 @@
       }
     ],
     "mobileDefaultViewerMode": "2d",
-    "regionMappingDefinitionsUrl": "https://terria-catalogs-public.storage.googleapis.com/nationalmap/regionMapping-2021-06-02.json",
+    "regionMappingDefinitionsUrl": "https://terria-catalogs-public.storage.googleapis.com/nationalmap/regionMapping.json",
     "showWelcomeMessage": true,
     "supportEmail": "info@terria.io",
     "theme": {
