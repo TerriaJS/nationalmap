@@ -1,5 +1,10 @@
 Change Log
 ==========
+
+### 2021-02-03
+* Updated to [TerriaJS 8.1.19](https://github.com/TerriaJS/terriajs/tree/8.1.19). See [changelog](https://github.com/TerriaJS/terriajs/blob/8.1.19/CHANGES.md).
+* Upgrade nodejs to 14.x
+
 ### 2021-10-15
 * Update to terriajs 8.1.4.
 * Change Bing/ION configuration.
