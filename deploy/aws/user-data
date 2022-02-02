@@ -2,7 +2,11 @@
 
 # update and install packages, reboot if necessary
 package_update: true
-package_upgrade: true
+package_upgrade: false
+
+apt_sources:
+  - source: deb https://deb.nodesource.com/node_14.x bionic main
+    keyid: 1655a0ab68576280
 
 packages:
  - awscli
