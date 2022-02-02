@@ -24,5 +24,6 @@ wwwroot/init/sdmx-abs-beta.json
 packages/
 /wwwroot/init/abs-itt.json
 pancake/
+yarn-error.log
 
 package-lock.json

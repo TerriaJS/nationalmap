@@ -3,7 +3,6 @@ import {
   Nav,
   ExperimentalMenu
 } from "terriajs/lib/ReactViews/StandardUserInterface/customizable/Groups";
-import MeasureTool from "terriajs/lib/ReactViews/Map/Navigation/Items/MeasureTool";
 import MenuItem from "terriajs/lib/ReactViews/StandardUserInterface/customizable/MenuItem";
 import PropTypes from "prop-types";
 import React from "react";
@@ -35,9 +34,6 @@ export default function UserInterface(props) {
         <MenuItem caption="About" href="about.html" key="about-link" />
         <RelatedMaps viewState={props.viewState} />
       </MenuLeft>
-      <Nav>
-        <MeasureTool terria={props.viewState.terria} key="measure-tool" />
-      </Nav>
       <ExperimentalMenu>
         {/* <If condition={isBrowserSupportedAV()}>
           <SplitPoint
