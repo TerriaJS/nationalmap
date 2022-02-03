@@ -4537,12 +4537,7 @@ domhandler@^4.0, domhandler@^4.0.0, domhandler@^4.2.0, domhandler@^4.2.2, domhan
   dependencies:
     domelementtype "^2.2.0"
 
-dompurify@^2.0.7:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.4.tgz#1cf5cf0105ccb4debdf6db162525bd41e6ddacc6"
-  integrity sha512-6BVcgOAVFXjI0JTjEvZy901Rghm+7fDQOrNIcxB4+gdhj6Kwp6T9VBhBY/AbagKHJocRkDYGd6wvI+p4/10xtQ==
-
-dompurify@^2.3.3:
+dompurify@^2.0.7, dompurify@^2.3.3:
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.5.tgz#c83ed5a3ae5ce23e52efe654ea052ffb358dd7e3"
   integrity sha512-kD+f8qEaa42+mjdOpKeztu9Mfx5bv9gVLO6K9jRx4uGvh6Wv06Srn4jr1wPNY2OOUGGSKHNFN+A8MA3v0E0QAQ==
@@ -8042,15 +8037,10 @@ moment-timezone@^0.5.x:
   dependencies:
     moment ">= 2.9.0"
 
-moment@2.24.0:
+moment@2.24.0, "moment@>= 2.9.0", moment@^2.17.1, moment@^2.21.0, moment@^2.22.2:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
-
-"moment@>= 2.9.0", moment@^2.17.1, moment@^2.21.0, moment@^2.22.2:
-  version "2.29.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
-  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
 morgan@^1.7.0:
   version "1.10.0"
@@ -11490,10 +11480,10 @@ terriajs-server@^3.3.3:
     when "^3.7.7"
     yargs "^13.2.4"
 
-terriajs@8.1.19:
-  version "8.1.19"
-  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-8.1.19.tgz#d5181d9ddfd6e0c5232bb9ad06c79a2999d6cbe8"
-  integrity sha512-cyNr+T6T+JbFw91GdcJ5UlGTsV4Z7+8K8nBvAM2retqJZ5IxLcNfu3py9429vrICjBTuWffte1XThquY4R4wZA==
+terriajs@8.1.20:
+  version "8.1.20"
+  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-8.1.20.tgz#6cf12a7d1e141dee8c57722384e7b3a38e46ee22"
+  integrity sha512-iMjni/VihvcoGPn/wvBsd0q0AzzwAWHcoQ7UbbDau7rq/uiJmm3S5EVZoonzkIyWzy0tKTRdViQ8iWRs45YQBg==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/parser" "^7.12.14"
