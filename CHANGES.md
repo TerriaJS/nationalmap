@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+### 2021-02-08
+* Updated to [TerriaJS 8.1.21](https://github.com/TerriaJS/terriajs/tree/8.1.21). See [changelog](https://github.com/TerriaJS/terriajs/blob/8.1.21/CHANGES.md).
+  * Fix whitescreen crash when using some WMS servers (including ANU pumped hydro datasets).
+
 ### 2021-02-03
 * Updated to [TerriaJS 8.1.19](https://github.com/TerriaJS/terriajs/tree/8.1.19). See [changelog](https://github.com/TerriaJS/terriajs/blob/8.1.19/CHANGES.md).
 * Upgrade nodejs to 14.x
