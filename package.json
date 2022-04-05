@@ -54,7 +54,6 @@
     "gulp": "^4.0.0",
     "husky": "^2.7.0",
     "json5": "^2.1.0",
-    "nationalmap-catalog": "git://github.com/TerriaJS/NationalMap-Catalog.git",
     "node-notifier": "^5.1.2",
     "node-sass": "^6.0.1",
     "plugin-error": "^1.0.1",
