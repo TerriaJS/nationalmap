@@ -1,6 +1,6 @@
 {
   "name": "nationalmap",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Geospatial visualization application for Australian government and open data.",
   "private": true,
   "workspaces": {
@@ -70,7 +70,7 @@
     "semver": "^5.0.0",
     "style-loader": "^0.23.1",
     "svg-sprite-loader": "4.1.3",
-    "terriajs": "8.1.23",
+    "terriajs": "8.1.26",
     "terriajs-catalog-editor": "^0.2.0",
     "terriajs-cesium": "1.81.3",
     "terriajs-schema": "latest",
