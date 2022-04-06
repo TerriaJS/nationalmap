@@ -32,7 +32,7 @@
     "awsEc2ImageId": "ami-0cfaff66cce8cce97",
     "awsKeyName": "has100",
     "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2022-04-06.json",
-    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2021-12-23.json"
+    "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2022-04-06.json"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
