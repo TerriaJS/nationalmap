@@ -1,6 +1,6 @@
 {
   "name": "nationalmap",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Geospatial visualization application for Australian government and open data.",
   "private": true,
   "workspaces": {
@@ -29,9 +29,9 @@
     "awsS3PackagesPath": "s3://nationalmap-apps/nationalmap",
     "awsRegion": "ap-southeast-2",
     "awsEc2InstanceType": "t3.small",
-    "awsEc2ImageId": "ami-02ce965e844c396fc",
+    "awsEc2ImageId": "ami-0cfaff66cce8cce97",
     "awsKeyName": "has100",
-    "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2021-12-23.json",
+    "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2022-04-06.json",
     "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2021-12-23.json"
   },
   "devDependencies": {
@@ -54,7 +54,6 @@
     "gulp": "^4.0.0",
     "husky": "^2.7.0",
     "json5": "^2.1.0",
-    "nationalmap-catalog": "git://github.com/TerriaJS/NationalMap-Catalog.git",
     "node-notifier": "^5.1.2",
     "node-sass": "^6.0.1",
     "plugin-error": "^1.0.1",
@@ -70,7 +69,7 @@
     "semver": "^5.0.0",
     "style-loader": "^0.23.1",
     "svg-sprite-loader": "4.1.3",
-    "terriajs": "8.1.23",
+    "terriajs": "8.1.26",
     "terriajs-catalog-editor": "^0.2.0",
     "terriajs-cesium": "1.81.3",
     "terriajs-schema": "latest",
