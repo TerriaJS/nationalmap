@@ -29,9 +29,9 @@
     "awsS3PackagesPath": "s3://nationalmap-apps/nationalmap",
     "awsRegion": "ap-southeast-2",
     "awsEc2InstanceType": "t3.small",
-    "awsEc2ImageId": "ami-02ce965e844c396fc",
+    "awsEc2ImageId": "ami-0cfaff66cce8cce97",
     "awsKeyName": "has100",
-    "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2021-12-23.json",
+    "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2022-04-06.json",
     "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2021-12-23.json"
   },
   "devDependencies": {
