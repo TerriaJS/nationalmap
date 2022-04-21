@@ -11529,10 +11529,10 @@ terriajs-server@^3.3.3:
     when "^3.7.7"
     yargs "^13.2.4"
 
-terriajs@8.1.27:
-  version "8.1.27"
-  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-8.1.27.tgz#542de1b8c0aba2d0faf73590d2ae2108bfb8f63e"
-  integrity sha512-AcJ9OGurDwasicrb6LoCqSjCzrTHioYujZ0Lc1GLWnXj06nhXBAmee+ic4C9JAdC+idnw4ZygHPdz+g9bgCfMA==
+terriajs@8.2.2:
+  version "8.2.2"
+  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-8.2.2.tgz#204b33bdb925a8e1ccf239dac1a693d8e8e1876e"
+  integrity sha512-2elLpCAgwrevYd9bkX8AE0YYfc6jhDhBVBzlQNVYNfFvpHVKxdI1E2SdwKcXA3Xsw4y4Lwu3J2peIrKnl5ewYw==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/parser" "^7.12.14"
