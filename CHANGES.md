@@ -1,5 +1,7 @@
 Change Log
 ==========
+### 2022-04-21
+* Upgraded terriajs to version 8.2.2.
 
 ### 2022-03-14
 
