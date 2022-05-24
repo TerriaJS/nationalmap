@@ -3,7 +3,7 @@ Change Log
 
 ### 2021-05-23
 * Updated to [TerriaJS 8.2.4](https://github.com/TerriaJS/terriajs/tree/8.2.4). See [changelog](https://github.com/TerriaJS/terriajs/blob/8.2.4/CHANGES.md).
-
+* Customised leaflet attribution in config.
 ### 2021-04-21
 * Updated to [TerriaJS 8.1.27](https://github.com/TerriaJS/terriajs/tree/8.2.2). See [changelog](https://github.com/TerriaJS/terriajs/blob/8.2.2/CHANGES.md).
 
