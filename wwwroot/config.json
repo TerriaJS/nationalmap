@@ -161,6 +161,7 @@
       "placeholderImage": "https://img.youtube.com/vi/C4-gLv09Rfo/maxresdefault.jpg",
       "videoTitle": "Getting started with the map",
       "videoUrl": "https://www.youtube-nocookie.com/embed/C4-gLv09Rfo"
-    }
+    },
+    "leafletAttributionPrefix": "<a href=\"https://leafletjs.com\" title=\"A JavaScript library for interactive maps\">Leaflet</a>"
   }
 }
