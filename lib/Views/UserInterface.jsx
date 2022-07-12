@@ -7,7 +7,7 @@ import MenuItem from "terriajs/lib/ReactViews/StandardUserInterface/customizable
 import PropTypes from "prop-types";
 import React from "react";
 import RelatedMaps from "./RelatedMaps";
-import StandardUserInterface from "terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface.jsx";
+import StandardUserInterface from "terriajs/lib/ReactViews/StandardUserInterface/StandardUserInterface";
 import version from "../../version";
 
 import "./global.scss";
