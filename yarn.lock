@@ -1279,6 +1279,14 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-2.1.1.tgz#ceff6a28a5b4867c2dd4a1ba513de278ccbe8bb1"
   integrity sha512-/aPsuoj/1Dw/kzhkgz+ES6TxG0zfTMGLwuK2ZG00k/iJzYHTLCE8mVU8EPqEOp/lmxPoq1C1C9RYToRKb2KEfg==
 
+"@tinymce/tinymce-react@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-react/-/tinymce-react-4.1.0.tgz#e2a5e289dc1af03837365bebe969b1a722bf6d99"
+  integrity sha512-7qXheXhyY9a8mY5tXQUz3BFq+Z4TQ7zd/OIaKasbVzojkjCw3VWdwFhHOEcwmDDprepgQwECsYqe3AGOtehfFg==
+  dependencies:
+    prop-types "^15.6.2"
+    tinymce "^6.0.0 || ^5.5.1"
+
 "@turf/bbox@*", "@turf/bbox@^6.5.0":
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/@turf/bbox/-/bbox-6.5.0.tgz#bec30a744019eae420dac9ea46fb75caa44d8dc5"
@@ -1390,6 +1398,11 @@
   dependencies:
     "@types/react" "*"
 
+"@types/css-font-loading-module@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@types/css-font-loading-module/-/css-font-loading-module-0.0.7.tgz#2f98ede46acc0975de85c0b7b0ebe06041d24601"
+  integrity sha512-nl09VhutdjINdWyXxHWN/w9zlNCfr60JUqJbd24YXUuCwgeL0TpFSdElCwb6cxfB6ybE19Gjj4g0jsgkXxKv1Q==
+
 "@types/d3-array@^2.0.0":
   version "2.12.3"
   resolved "https://registry.yarnpkg.com/@types/d3-array/-/d3-array-2.12.3.tgz#8d16d51fb04ad5a5a8ebe14eb8263a579f1efdd1"
@@ -1472,6 +1485,11 @@
   dependencies:
     "@types/trusted-types" "*"
 
+"@types/file-saver@^1.3.0":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@types/file-saver/-/file-saver-1.3.1.tgz#55d76b3c78b5fcc8a7588ead428dce0822464120"
+  integrity sha512-A+lNc0nnhtX3iTLEYd/DisKTZdNKTf1bN0aSfQD/fG8bQ6SfUe5u8Fm2ab8qQHaMY5GVZumAXLnYptwX+mmQgg==
+
 "@types/flexsearch@^0.7.1":
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/@types/flexsearch/-/flexsearch-0.7.2.tgz#05d982d292e70fcb9fc59347a4a4f98c4ecd9e56"
@@ -1518,10 +1536,10 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.30.tgz#44cb52f32a809734ca562e685c6473b5754a7818"
   integrity sha512-sqm9g7mHlPY/43fcSNrCYfOeX9zkTTK+euO5E6+CVijSMm5tTjkVdwdqRkY3ljjIAf8679vps5jKUoJBCLsMDA==
 
-"@types/leaflet@^1.4.3":
-  version "1.7.8"
-  resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.7.8.tgz#fbae5a3a3d22780632715287764352f80bbe3d4a"
-  integrity sha512-prZwhmUznkwTYCTZVGTR4U1GzgPP3PAWYYQ3wDgVkIoiuQTheWoycsXx4Rz9ARYhlDTl0Ycd8lvhH2/rNSkqIg==
+"@types/leaflet@^1.7.10":
+  version "1.7.11"
+  resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.7.11.tgz#48b33b7a15b015bbb1e8950399298a112c3220c8"
+  integrity sha512-VwAYom2pfIAf/pLj1VR5aLltd4tOtHyvfaJlNYCoejzP2nu52PrMi1ehsLRMUS+bgafmIIKBV1cMfKeS+uJ0Vg==
   dependencies:
     "@types/geojson" "*"
 
@@ -1593,6 +1611,21 @@
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/rbush/-/rbush-3.0.0.tgz#b6887d99b159e87ae23cd14eceff34f139842aa6"
   integrity sha512-W3ue/GYWXBOpkRm0VSoifrP3HV0Ni47aVJWvXyWMcbtpBy/l/K/smBRiJ+fI8f7shXRjZBiux+iJzYbh7VmcZg==
+
+"@types/rc-slider@^8.6.6":
+  version "8.6.6"
+  resolved "https://registry.yarnpkg.com/@types/rc-slider/-/rc-slider-8.6.6.tgz#961ccfd0b8c632a9d8cdcc28b54d6be4781c419f"
+  integrity sha512-2Q3vwKrSm3PbgiMNwzxMkOaMtcAGi0xQ8WPeVKoabk1vNYHiVR44DMC3mr9jC2lhbxCBgGBJWF9sBhmnSDQ8Bg==
+  dependencies:
+    "@types/rc-tooltip" "*"
+    "@types/react" "*"
+
+"@types/rc-tooltip@*":
+  version "3.7.6"
+  resolved "https://registry.yarnpkg.com/@types/rc-tooltip/-/rc-tooltip-3.7.6.tgz#d3833b3f3e494ab14e4a95158f9f6b321042c97a"
+  integrity sha512-Otouf6HW49RSwtTa3EBdp0+BZoOQy3KDTEcVgLdZEgcYp4HB5nP6N3S6bTUkPtq3H5KmYBzEOaiq0SNMB/MY2g==
+  dependencies:
+    "@types/react" "*"
 
 "@types/react-color@^3.0.6":
   version "3.0.6"
@@ -7359,10 +7392,10 @@ lead@^1.0.0:
   dependencies:
     flush-write-stream "^1.0.2"
 
-leaflet@^1.4.0:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.7.1.tgz#10d684916edfe1bf41d688a3b97127c0322a2a19"
-  integrity sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw==
+leaflet@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.8.0.tgz#4615db4a22a304e8e692cae9270b983b38a2055e"
+  integrity sha512-gwhMjFCQiYs3x/Sf+d49f10ERXaEFCPr+nVTryhAW8DWbMGqJqt9G4XuIaHmFW08zYvhgdzqXGr8AlW8v8dQkA==
 
 levdist@^1.0.0:
   version "1.0.0"
@@ -8977,10 +9010,6 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-"pell@github:TerriaJS/pell#master":
-  version "1.0.6"
-  resolved "https://codeload.github.com/TerriaJS/pell/tar.gz/7cd23a55cdfd130fedf3679433991bb7d958fc42"
-
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
@@ -9130,10 +9159,10 @@ pm2@^3.2.2:
     vizion "~2.0.2"
     yamljs "^0.3.0"
 
-pmtiles@^0.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/pmtiles/-/pmtiles-0.2.2.tgz#0623284d5ba3da232b71dea5a976a172b4ce3dcd"
-  integrity sha512-VisiZZ1bChsOjl+N/OEz8IFTyM9vTqqgnO+ymDc7mnOiC/Ei2jxyIssubmSYebQY1xIe9TaT7dglu2sTVfLPLQ==
+pmtiles@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/pmtiles/-/pmtiles-1.0.3.tgz#17f3d662771a441f0128a70468dae09fbccbc70c"
+  integrity sha512-m9YWot7Kv0MrEmDWUjmwMNpBzGe0AyFIFi0Bw4vqf0BiGmFHd4Kg0y/jda0VrFkTvTtCyc9B+1MFONmz7FQrkw==
 
 point-in-polygon@^1.0.1:
   version "1.1.0"
@@ -9286,6 +9315,11 @@ posthtml@^0.9.2:
     posthtml-parser "^0.2.0"
     posthtml-render "^1.0.5"
 
+potpack@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/potpack/-/potpack-1.0.2.tgz#23b99e64eb74f5741ffe7656b5b5c4ddce8dfc14"
+  integrity sha512-choctRBIV9EMT9WGAZHn3V7t0Z2pMQyl0EZE6pFc/6ml3ssw7Dlf/oAOvFwjm1HVsqfQN8GfeFyJ+d8tRzqueQ==
+
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
@@ -9392,10 +9426,22 @@ protocol-buffers-schema@^3.3.1:
   resolved "https://registry.yarnpkg.com/protocol-buffers-schema/-/protocol-buffers-schema-3.6.0.tgz#77bc75a48b2ff142c1ad5b5b90c94cd0fa2efd03"
   integrity sha512-TdDRD+/QNdrCGCE7v8340QyuXd4kIWIgapsE2+n/SaGiSSbomYl4TjHlvIoCWRpE7wFt02EpB35VVA2ImcBVqw==
 
-protosprites@0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/protosprites/-/protosprites-0.2.0.tgz#9a78affb9cadcf4582ed02723b4d2c76c11e9f37"
-  integrity sha512-f2zgUb5m/9rbZMiu7MonwNtP/gkDk647Rmx96gDiakh8Sq9rA8FliIca4ErAl6/SOgvsLDwyGd+5m/WLZNIElg==
+protomaps@1.19.0:
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/protomaps/-/protomaps-1.19.0.tgz#cfa929b5e2979ca2f040f60ab9bad861845a799c"
+  integrity sha512-S+Nb3s5QR1Skw6cy2uDC+Ih6MX3cNvFwgZFukAujO8nB9yH4MhEtMqlDmO3WOT2mdrBYmQBvx9xx8KeM0Kp36Q==
+  dependencies:
+    "@mapbox/point-geometry" "^0.1.0"
+    "@mapbox/unitbezier" "^0.0.0"
+    "@mapbox/vector-tile" "^1.3.1"
+    "@types/css-font-loading-module" "^0.0.7"
+    color2k "^1.2.4"
+    flatqueue "^1.2.1"
+    pbf "^3.2.1"
+    pmtiles "1.0.3"
+    polylabel "^1.1.0"
+    potpack "^1.0.2"
+    rbush "^3.0.1"
 
 proxy-addr@~2.0.7:
   version "2.0.7"
@@ -11452,10 +11498,10 @@ terriajs-catalog-editor@^0.2.0:
   resolved "https://registry.yarnpkg.com/terriajs-catalog-editor/-/terriajs-catalog-editor-0.2.0.tgz#d9c6679e53c4d92e87a531af896c6148888ed8e4"
   integrity sha1-2cZnnlPE2S6HpTGviWxhSIiO2OQ=
 
-terriajs-cesium@1.81.3:
-  version "1.81.3"
-  resolved "https://registry.yarnpkg.com/terriajs-cesium/-/terriajs-cesium-1.81.3.tgz#97bb3de03dc531e3125548cb053c4cb86d2dd39a"
-  integrity sha512-jDEWXwWYnIdFlMePPnunsd3+Qbo205iNJSerU5lH/0nHOl5af4l1a8u8KTbHzatXFz9HAg8Q6nCsFLpjiZ6Klg==
+terriajs-cesium@1.92.0-tile-error-provider-fix-2:
+  version "1.92.0-tile-error-provider-fix-2"
+  resolved "https://registry.yarnpkg.com/terriajs-cesium/-/terriajs-cesium-1.92.0-tile-error-provider-fix-2.tgz#f9cce39dd3bd18622ac8a44a20873fb0e9ebb103"
+  integrity sha512-0fDVJ9lzSRcz04xh2WjbV9vID7ZfEpFyw7j86uTW38AwAiUq642On/qdeK/1MP1aGdvNN15eevb4tjmWhdvgrw==
   dependencies:
     dompurify "^2.0.7"
 
@@ -11476,23 +11522,6 @@ terriajs-ogr2ogr@^1.0.0:
     decompress-zip "^0.3.0"
     findit "^2.0.0"
     rimraf "^2.2.8"
-
-terriajs-protomaps@1.14.0-prerelease:
-  version "1.14.0-prerelease"
-  resolved "https://registry.yarnpkg.com/terriajs-protomaps/-/terriajs-protomaps-1.14.0-prerelease.tgz#3d668ce07f8b36109f863fd373e8cd71960b9481"
-  integrity sha512-5DFb+TFVIY89cc0kQVV5TnEig+E9qw1vaYyo4VrEn85R90HFSAJrbAKRZbXA+n0LybRoUjUZKK9beR6Oc/egaw==
-  dependencies:
-    "@mapbox/point-geometry" "^0.1.0"
-    "@mapbox/unitbezier" "^0.0.0"
-    "@mapbox/vector-tile" "^1.3.1"
-    "@types/rbush" "^3.0.0"
-    color2k "^1.2.4"
-    flatqueue "^1.2.1"
-    pbf "^3.2.1"
-    pmtiles "^0.2"
-    polylabel "^1.1.0"
-    protosprites "0.2.0"
-    rbush "^3.0.1"
 
 terriajs-schema@latest:
   version "0.4.3"
@@ -11529,10 +11558,10 @@ terriajs-server@^3.3.3:
     when "^3.7.7"
     yargs "^13.2.4"
 
-terriajs@8.2.2:
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-8.2.2.tgz#204b33bdb925a8e1ccf239dac1a693d8e8e1876e"
-  integrity sha512-2elLpCAgwrevYd9bkX8AE0YYfc6jhDhBVBzlQNVYNfFvpHVKxdI1E2SdwKcXA3Xsw4y4Lwu3J2peIrKnl5ewYw==
+terriajs@8.2.8:
+  version "8.2.8"
+  resolved "https://registry.yarnpkg.com/terriajs/-/terriajs-8.2.8.tgz#8fb6a66b14e596f06990e2d6b066570d39d343ac"
+  integrity sha512-iBuCDJGBPFmHx8zwUdg9DOytdUsCL0jhFzGSjqCqhGxmG/Q6hn3+bzhGK96Jwo4NaRc9Uqgbd3oN8H13QGkzrw==
   dependencies:
     "@babel/core" "^7.16.0"
     "@babel/parser" "^7.12.14"
@@ -11545,6 +11574,7 @@ terriajs@8.2.2:
     "@mapbox/togeojson" "^0.16.0"
     "@mapbox/vector-tile" "^1.3.0"
     "@opendatasoft/api-client" "^0.1.0"
+    "@tinymce/tinymce-react" "^4.1.0"
     "@turf/bbox" "^6.5.0"
     "@turf/boolean-intersects" "^6.5.0"
     "@turf/circle" "^6.5.0"
@@ -11560,16 +11590,19 @@ terriajs@8.2.2:
     "@types/d3-transition" "^1.1.4"
     "@types/dateformat" "^3.0.1"
     "@types/dompurify" "^2.3.1"
+    "@types/file-saver" "^1.3.0"
     "@types/flexsearch" "^0.7.1"
     "@types/jasmine" "^2.8.8"
     "@types/jasmine-ajax" "^3.3.0"
     "@types/json5" "^0.0.30"
-    "@types/leaflet" "^1.4.3"
+    "@types/leaflet" "^1.7.10"
     "@types/lodash-es" "^4.17.3"
     "@types/math-expression-evaluator" "^1.2.0"
     "@types/mustache" "^0.8.32"
     "@types/papaparse" "^4.5.9"
     "@types/pbf" "^3.0.1"
+    "@types/rbush" "^3.0.0"
+    "@types/rc-slider" "^8.6.6"
     "@types/react" "^17.0.3"
     "@types/react-color" "^3.0.6"
     "@types/react-dom" "^17.0.2"
@@ -11631,7 +11664,7 @@ terriajs@8.2.2:
     interactjs "1.4.0-alpha.17"
     javascript-natural-sort "^0.7.1"
     json5 "^2.1.0"
-    leaflet "^1.4.0"
+    leaflet "^1.8.0"
     linkify-it "^2.0.0"
     lodash-es "^4.17.11"
     markdown-it "^11.0.0"
@@ -11646,10 +11679,10 @@ terriajs@8.2.2:
     mutationobserver-shim "^0.3.1"
     papaparse "^5.2.0"
     pbf "^3.0.1"
-    pell "github:TerriaJS/pell#master"
     point-in-polygon "^1.0.1"
     proj4 "^2.4.4"
     prop-types "^15.6.0"
+    protomaps "1.19.0"
     raw-loader "^1.0.0"
     rc-slider "^9.7.2"
     react "^16.3.2"
@@ -11676,10 +11709,10 @@ terriajs@8.2.2:
     style-loader "^0.23.1"
     styled-components "^5.1.0"
     svg-sprite-loader "4.1.3"
-    terriajs-cesium "1.81.3"
+    terriajs-cesium "1.92.0-tile-error-provider-fix-2"
     terriajs-html2canvas "1.0.0-alpha.12-terriajs-1"
-    terriajs-protomaps "1.14.0-prerelease"
     thredds-catalog-crawler "0.0.5"
+    ts-essentials "^5.0.0"
     ts-loader "^5.3.3"
     ts-node "^5.0.1"
     typescript "^3.9.2"
@@ -11807,6 +11840,11 @@ tinycolor2@^1.4.1:
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.2.tgz#3f6a4d1071ad07676d7fa472e1fac40a719d8803"
   integrity sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==
 
+"tinymce@^6.0.0 || ^5.5.1":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-6.1.0.tgz#a5e13307646f2e6e1fd2923dcb664647afe3a93c"
+  integrity sha512-IdSdMlmuyhpEpUuabhBUaRC2NzZZxP2/CO/F+/54kTaAifB1Et5mKEty03pJYZxl6GBdFgclKRA2UU5JKJtJbA==
+
 tinyqueue@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/tinyqueue/-/tinyqueue-2.0.3.tgz#64d8492ebf39e7801d7bd34062e29b45b2035f08"
@@ -11925,6 +11963,11 @@ trim-newlines@^3.0.0:
   integrity sha512-m6s2OdQe5wgpFMC+pAJ+q9djG82O2jcHPOI6RNg1yy9rCYR+WD6Nbpl32fDpfC56nirdRy+opFa/Vk7HYhqaew==
   dependencies:
     glob "^7.1.2"
+
+ts-essentials@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/ts-essentials/-/ts-essentials-5.0.0.tgz#531d590c9cd62652c9d96284904cbdb2a1dd5ca8"
+  integrity sha512-ftKWOm6Jq+/UCBekDfxUjLODEd5XGN2EM/+TIQV9LJ5xSV12je4GqdRyv7pXXGGYmEt/nQa6F00xTWYJ5PMjIQ==
 
 ts-loader@^5.3.3:
   version "5.4.5"
