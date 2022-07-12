@@ -1,6 +1,6 @@
 {
   "name": "nationalmap",
-  "version": "1.1.0",
+  "version": "1.1.0-alpha.0",
   "description": "Geospatial visualization application for Australian government and open data.",
   "private": true,
   "workspaces": {
