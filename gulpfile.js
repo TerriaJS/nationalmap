@@ -249,7 +249,7 @@ function mergeConfigs(original, override) {
  */
 gulp.task('render-datasource-templates', function(done) {
     var ejs = require('ejs');
-    var fs = require('fs-extra');
+    // var fs = require('fs-extra');
     var JSON5 = require('json5');
     var templateDir = 'datasources';
 
