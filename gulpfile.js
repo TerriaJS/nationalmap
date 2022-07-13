@@ -7,7 +7,7 @@
 /*global require*/
 // Every module required-in here must be a `dependency` in package.json, not just a `devDependency`,
 // This matters if ever we have gulp tasks run from npm, especially post-install ones.
-var fs = require('fs');
+var fse = require('fs-extra');
 var gulp = require('gulp');
 var path = require('path');
 var PluginError = require('plugin-error');
@@ -26,7 +26,6 @@ gulp.task('check-terriajs-dependencies', function(done) {
 });
 
 gulp.task('write-version', function(done) {
-    var fs = require('fs');
     var spawnSync = require('child_process').spawnSync;
 
     // Get a version string from "git describe".
@@ -36,7 +35,7 @@ gulp.task('write-version', function(done) {
         version += ' (plus local modifications)';
     }
 
-    fs.writeFileSync('version.js', 'module.exports = \'' + version + '\';');
+    fse.writeFileSync('version.js', 'module.exports = \'' + version + '\';');
 
     done();
 });
@@ -64,14 +63,13 @@ gulp.task('release-app', gulp.series('check-terriajs-dependencies', 'write-versi
 }));
 
 gulp.task('watch-app', gulp.series('check-terriajs-dependencies', function watchApp(done) {
-    var fs = require('fs');
     var watchWebpack = require('terriajs/buildprocess/watchWebpack');
     var webpack = require('webpack');
     var webpackConfig = require('./buildprocess/webpack.config.js')(true, false);
 
     checkForDuplicateCesium();
 
-    fs.writeFileSync('version.js', 'module.exports = \'Development Build\';');
+    fse.writeFileSync('version.js', 'module.exports = \'Development Build\';');
     watchWebpack(webpack, webpackConfig, done);
 }));
 
@@ -138,47 +136,46 @@ function getPackageRoot(packageName) {
 
 gulp.task('make-package', function(done) {
     var argv = require('yargs').argv;
-    var fs = require('fs-extra');
     var spawnSync = require('child_process').spawnSync;
     var json5 = require('json5');
 
     var packageName = argv.packageName || (process.env.npm_package_name + '-' + spawnSync('git', ['describe']).stdout.toString().trim());
     var packagesDir = path.join('.', 'deploy', 'packages');
 
-    if (!fs.existsSync(packagesDir)) {
-        fs.mkdirSync(packagesDir);
+    if (!fse.existsSync(packagesDir)) {
+        fse.mkdirSync(packagesDir);
     }
 
     var workingDir = path.join('.', 'deploy', 'work');
-    if (fs.existsSync(workingDir)) {
-        fs.removeSync(workingDir);
+    if (fse.existsSync(workingDir)) {
+        fse.removeSync(workingDir);
     }
 
-    fs.mkdirSync(workingDir);
+    fse.mkdirSync(workingDir);
 
-    fs.copySync('wwwroot', path.join(workingDir, 'wwwroot'));
-    fs.copySync('node_modules', path.join(workingDir, 'node_modules'));
-    if (fs.existsSync('proxyauth.json')) {
-        fs.copySync('proxyauth.json', path.join(workingDir, 'proxyauth.json'));
+    fse.copySync('wwwroot', path.join(workingDir, 'wwwroot'));
+    fse.copySync('node_modules', path.join(workingDir, 'node_modules'));
+    if (fse.existsSync('proxyauth.json')) {
+        fse.copySync('proxyauth.json', path.join(workingDir, 'proxyauth.json'));
     }
-    fs.copySync('deploy/varnish', path.join(workingDir, 'varnish'));
-    fs.copySync('ecosystem.config.js', path.join(workingDir, 'ecosystem.config.js'));
-    fs.copySync('ecosystem-production.config.js', path.join(workingDir, 'ecosystem-production.config.js'));
+    fse.copySync('deploy/varnish', path.join(workingDir, 'varnish'));
+    fse.copySync('ecosystem.config.js', path.join(workingDir, 'ecosystem.config.js'));
+    fse.copySync('ecosystem-production.config.js', path.join(workingDir, 'ecosystem-production.config.js'));
 
     if (argv.serverConfigOverride) {
-        var serverConfig = json5.parse(fs.readFileSync('devserverconfig.json', 'utf8'));
-        var serverConfigOverride = json5.parse(fs.readFileSync(argv.serverConfigOverride, 'utf8'));
+        var serverConfig = json5.parse(fse.readFileSync('devserverconfig.json', 'utf8'));
+        var serverConfigOverride = json5.parse(fse.readFileSync(argv.serverConfigOverride, 'utf8'));
         var productionServerConfig = mergeConfigs(serverConfig, serverConfigOverride);
-        fs.writeFileSync(path.join(workingDir, 'productionserverconfig.json'), JSON.stringify(productionServerConfig, undefined, '  '));
+        fse.writeFileSync(path.join(workingDir, 'productionserverconfig.json'), JSON.stringify(productionServerConfig, undefined, '  '));
     } else {
-        fs.writeFileSync(path.join(workingDir, 'productionserverconfig.json'), fs.readFileSync('devserverconfig.json', 'utf8'));
+        fse.writeFileSync(path.join(workingDir, 'productionserverconfig.json'), fse.readFileSync('devserverconfig.json', 'utf8'));
     }
 
     if (argv.clientConfigOverride) {
-        var clientConfig = json5.parse(fs.readFileSync(path.join('wwwroot', 'config.json'), 'utf8'));
-        var clientConfigOverride = json5.parse(fs.readFileSync(argv.clientConfigOverride, 'utf8'));
+        var clientConfig = json5.parse(fse.readFileSync(path.join('wwwroot', 'config.json'), 'utf8'));
+        var clientConfigOverride = json5.parse(fse.readFileSync(argv.clientConfigOverride, 'utf8'));
         var productionClientConfig = mergeConfigs(clientConfig, clientConfigOverride);
-        fs.writeFileSync(path.join(workingDir, 'wwwroot', 'config.json'), JSON.stringify(productionClientConfig, undefined, '  '));
+        fse.writeFileSync(path.join(workingDir, 'wwwroot', 'config.json'), JSON.stringify(productionClientConfig, undefined, '  '));
     }
 
     // if we are on OSX make sure to use gtar for compatibility with Linux
@@ -188,7 +185,7 @@ gulp.task('make-package', function(done) {
     var tarResult = spawnSync(tar, [
         'czf',
         path.join('..', 'packages', packageName + '.tar.gz')
-    ].concat(fs.readdirSync(workingDir)), {
+    ].concat(fse.readdirSync(workingDir)), {
         cwd: workingDir,
         stdio: 'inherit',
         shell: false
@@ -201,10 +198,8 @@ gulp.task('make-package', function(done) {
 });
 
 gulp.task('clean', function(done) {
-    var fs = require('fs-extra');
-
     // // Remove build products
-    fs.removeSync(path.join('wwwroot', 'build'));
+    fse.removeSync(path.join('wwwroot', 'build'));
 
     done();
 });
@@ -249,7 +244,6 @@ function mergeConfigs(original, override) {
  */
 gulp.task('render-datasource-templates', function(done) {
     var ejs = require('ejs');
-    // var fs = require('fs-extra');
     var JSON5 = require('json5');
     var templateDir = 'datasources';
 
@@ -263,16 +257,16 @@ gulp.task('render-datasource-templates', function(done) {
     // fs.writeFileSync(translationFromLibPath, JSON.stringify(translation, null, 2));
 
     try {
-        fs.accessSync(templateDir);
+        fse.accessSync(templateDir);
     } catch (e) {
         // Datasources directory doesn't exist? No problem.
         done();
         return;
     }
-    fs.readdirSync(templateDir).forEach(function(filename) {
+    fse.readdirSync(templateDir).forEach(function(filename) {
         if (filename.match(/\.ejs$/)) {
             var templateFilename = path.join(templateDir, filename);
-            var template = fs.readFileSync(templateFilename,'utf8');
+            var template = fse.readFileSync(templateFilename,'utf8');
             var result = ejs.render(template, null, {filename: templateFilename});
 
             // Remove all new lines. This means you can add newlines to help keep source files manageable, without breaking your JSON.
@@ -287,7 +281,7 @@ gulp.task('render-datasource-templates', function(done) {
             } catch (e) {
                 console.warn('Warning: Rendered template ' + outFilename + ' is not valid JSON');
             }
-            fs.writeFileSync(path.join('wwwroot/init', outFilename), new Buffer(result));
+            fse.writeFileSync(path.join('wwwroot/init', outFilename), new Buffer(result));
         }
     });
 
@@ -305,7 +299,7 @@ gulp.task('sync-terriajs-dependencies', function(done) {
     syncDependencies(appPackageJson.dependencies, terriaPackageJson);
     syncDependencies(appPackageJson.devDependencies, terriaPackageJson);
 
-    fs.writeFileSync('./package.json', JSON.stringify(appPackageJson, undefined, '  '));
+    fse.writeFileSync('./package.json', JSON.stringify(appPackageJson, undefined, '  '));
     console.log('TerriaMap\'s package.json has been updated. Now run yarn install.');
     done();
 });
@@ -327,8 +321,6 @@ function syncDependencies(dependencies, targetJson, justWarn) {
 }
 
 function checkForDuplicateCesium() {
-    var fse = require('fs-extra');
-
     if (fse.existsSync('node_modules/terriajs-cesium') && fse.existsSync('node_modules/terriajs/node_modules/terriajs-cesium')) {
         console.log('You have two copies of terriajs-cesium, one in this application\'s node_modules\n' +
                     'directory and the other in node_modules/terriajs/node_modules/terriajs-cesium.\n' +
