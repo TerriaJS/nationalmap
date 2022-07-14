@@ -1,8 +1,8 @@
 Change Log
 ==========
 
-### 2022-07-12
-* Updated to [TerriaJS 8.2.8](https://github.com/TerriaJS/terriajs/tree/8.2.8). See [changelog](https://github.com/TerriaJS/terriajs/blob/8.2.8/CHANGES.md).
+### 2022-07-14
+* Updated to [TerriaJS 8.2.9](https://github.com/TerriaJS/terriajs/tree/8.2.9). See [changelog](https://github.com/TerriaJS/terriajs/blob/8.2.9/CHANGES.md).
 
 ### 2022-04-21
 * Updated to [TerriaJS 8.2.2](https://github.com/TerriaJS/terriajs/tree/8.2.2). See [changelog](https://github.com/TerriaJS/terriajs/blob/8.2.2/CHANGES.md).
