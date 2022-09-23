@@ -31,7 +31,7 @@
     "awsEc2InstanceType": "t3.small",
     "awsEc2ImageId": "ami-0cfaff66cce8cce97",
     "awsKeyName": "has100",
-    "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2022-04-06.json",
+    "awsS3ServerConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateserverconfig-2022-09-23.json",
     "awsS3ClientConfigOverridePath": "s3://nationalmap-apps/nationalmap/privateclientconfig-2022-04-06.json"
   },
   "devDependencies": {
