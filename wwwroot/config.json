@@ -116,7 +116,10 @@
       }
     ],
     "mobileDefaultViewerMode": "2d",
-    "regionMappingDefinitionsUrl": "https://terria-catalogs-public.storage.googleapis.com/nationalmap/regionMapping.json",
+    "regionMappingDefinitionsUrls": [
+      "build/TerriaJS/data/regionMapping.json",
+      "https://terria-catalogs-public.storage.googleapis.com/nationalmap/region-mapping/isf-dev.json"
+    ],
     "showWelcomeMessage": true,
     "supportEmail": "info@terria.io",
     "theme": {
