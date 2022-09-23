@@ -118,7 +118,7 @@
     "mobileDefaultViewerMode": "2d",
     "regionMappingDefinitionsUrls": [
       "build/TerriaJS/data/regionMapping.json",
-      "https://terria-catalogs-public.storage.googleapis.com/nationalmap/region-mapping/isf-dev.json"
+      "https://terria-catalogs-public.storage.googleapis.com/nationalmap/region-mapping/isf-prod.json"
     ],
     "showWelcomeMessage": true,
     "supportEmail": "info@terria.io",
