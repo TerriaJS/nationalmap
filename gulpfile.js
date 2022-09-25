@@ -154,6 +154,16 @@ gulp.task('make-package', function(done) {
     fse.mkdirSync(workingDir);
 
     fse.copySync('wwwroot', path.join(workingDir, 'wwwroot'));
+
+    // For an unknown reason, the error "EACCES: permission denied" will occur when copying
+    // some files from this cache directory to work directory when running this task on WSL.
+    // It seems that removing this cache directory will not cause errors because that cache
+    // is only used in build stage.
+    var dirHavingIssue = path.join('.', 'node_modules', '.cache', 'terser-webpack-plugin');
+    if (fse.existsSync(dirHavingIssue)){
+        fse.removeSync(dirHavingIssue);
+    }
+    
     fse.copySync('node_modules', path.join(workingDir, 'node_modules'));
     if (fse.existsSync('proxyauth.json')) {
         fse.copySync('proxyauth.json', path.join(workingDir, 'proxyauth.json'));
