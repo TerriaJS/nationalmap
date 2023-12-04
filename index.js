@@ -13,9 +13,9 @@ import Terria from 'terriajs/lib/Models/Terria';
 import updateApplicationOnHashChange from 'terriajs/lib/ViewModels/updateApplicationOnHashChange';
 import updateApplicationOnMessageFromParentWindow from 'terriajs/lib/ViewModels/updateApplicationOnMessageFromParentWindow';
 import ViewState from 'terriajs/lib/ReactViewModels/ViewState';
-import BingMapsSearchProviderViewModel from 'terriajs/lib/Models/SearchProviders/BingMapsSearchProvider';
 import render from './lib/Views/render';
 import registerCatalogMembers from 'terriajs/lib/Models/Catalog/registerCatalogMembers';
+import registerSearchProviders from "terriajs/lib/Models/SearchProviders/registerSearchProviders";
 import defined from 'terriajs-cesium/Source/Core/defined';
 
 // Register all types of catalog members in the core TerriaJS.  If you only want to register a subset of them
@@ -45,6 +45,8 @@ const viewState = new ViewState({
 
 registerCatalogMembers();
 
+registerSearchProviders();
+
 if (process.env.NODE_ENV === "development") {
     window.viewState = viewState;
 }
@@ -70,12 +72,6 @@ module.exports = terria.start({
 .finally(function() {
     terria.loadInitSources().then(result => result.raiseError(terria));
     try {
-        viewState.searchState.locationSearchProviders = [
-            new BingMapsSearchProviderViewModel({
-                terria: terria,
-                key: terria.configParameters.bingMapsKey
-            }),
-        ];
 
         // Automatically update Terria (load new catalogs, etc.) when the hash part of the URL changes.
         updateApplicationOnHashChange(terria, window);
