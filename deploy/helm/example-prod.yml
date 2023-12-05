@@ -1,5 +1,0 @@
-global:
-  rollingUpdate:
-    maxUnavailable: 1
-  image:
-    tag: "0.0.1"
